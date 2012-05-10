@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface OrderController : UIViewController
 
-//@property (strong) *navigationBar; 
+@property (strong) IBOutlet UINavigationBar *navigationBar; 
+- (void)config;
 
 @end
