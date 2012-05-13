@@ -40,6 +40,21 @@
 		FAE96037155C7E69007F42DA /* bottom-bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAE96033155C7E69007F42DA /* bottom-bg@2x.png */; };
 		FAE96038155C7E69007F42DA /* regular@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAE96034155C7E69007F42DA /* regular@2x.png */; };
 		FAE96039155C7E69007F42DA /* navbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAE96035155C7E69007F42DA /* navbar@2x.png */; };
+		FAE9603D15601DC5007F42DA /* bottom-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = FAE9603A15601DC5007F42DA /* bottom-bg.png */; };
+		FAE9603E15601DC5007F42DA /* premium.png in Resources */ = {isa = PBXBuildFile; fileRef = FAE9603B15601DC5007F42DA /* premium.png */; };
+		FAE9603F15601DC5007F42DA /* regular.png in Resources */ = {isa = PBXBuildFile; fileRef = FAE9603C15601DC5007F42DA /* regular.png */; };
+		FAE9604A1560232C007F42DA /* wood-bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAE960401560232B007F42DA /* wood-bg@2x.png */; };
+		FAE9604B1560232C007F42DA /* wood-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = FAE960411560232B007F42DA /* wood-bg.png */; };
+		FAE9604C1560232C007F42DA /* premium@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAE960421560232B007F42DA /* premium@2x.png */; };
+		FAE9604D1560232C007F42DA /* regular@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAE960431560232B007F42DA /* regular@2x.png */; };
+		FAE9604E1560232C007F42DA /* navbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAE960441560232B007F42DA /* navbar@2x.png */; };
+		FAE9604F1560232C007F42DA /* premium.png in Resources */ = {isa = PBXBuildFile; fileRef = FAE960451560232B007F42DA /* premium.png */; };
+		FAE960501560232C007F42DA /* regular.png in Resources */ = {isa = PBXBuildFile; fileRef = FAE960461560232B007F42DA /* regular.png */; };
+		FAE960511560232C007F42DA /* navbar.png in Resources */ = {isa = PBXBuildFile; fileRef = FAE960471560232B007F42DA /* navbar.png */; };
+		FAE960521560232C007F42DA /* gear@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAE960481560232B007F42DA /* gear@2x.png */; };
+		FAE960531560232C007F42DA /* gear.png in Resources */ = {isa = PBXBuildFile; fileRef = FAE960491560232C007F42DA /* gear.png */; };
+		FAE96056156023AC007F42DA /* bottom-bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAE96054156023AC007F42DA /* bottom-bg@2x.png */; };
+		FAE96057156023AC007F42DA /* bottom-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = FAE96055156023AC007F42DA /* bottom-bg.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +119,21 @@
 		FAE96033155C7E69007F42DA /* bottom-bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bottom-bg@2x.png"; sourceTree = "<group>"; };
 		FAE96034155C7E69007F42DA /* regular@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "regular@2x.png"; sourceTree = "<group>"; };
 		FAE96035155C7E69007F42DA /* navbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar@2x.png"; sourceTree = "<group>"; };
+		FAE9603A15601DC5007F42DA /* bottom-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bottom-bg.png"; sourceTree = "<group>"; };
+		FAE9603B15601DC5007F42DA /* premium.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = premium.png; sourceTree = "<group>"; };
+		FAE9603C15601DC5007F42DA /* regular.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = regular.png; sourceTree = "<group>"; };
+		FAE960401560232B007F42DA /* wood-bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "wood-bg@2x.png"; path = "assets/wood-bg@2x.png"; sourceTree = "<group>"; };
+		FAE960411560232B007F42DA /* wood-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "wood-bg.png"; path = "assets/wood-bg.png"; sourceTree = "<group>"; };
+		FAE960421560232B007F42DA /* premium@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "premium@2x.png"; path = "assets/premium@2x.png"; sourceTree = "<group>"; };
+		FAE960431560232B007F42DA /* regular@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "regular@2x.png"; path = "assets/regular@2x.png"; sourceTree = "<group>"; };
+		FAE960441560232B007F42DA /* navbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "navbar@2x.png"; path = "assets/navbar@2x.png"; sourceTree = "<group>"; };
+		FAE960451560232B007F42DA /* premium.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = premium.png; path = assets/premium.png; sourceTree = "<group>"; };
+		FAE960461560232B007F42DA /* regular.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = regular.png; path = assets/regular.png; sourceTree = "<group>"; };
+		FAE960471560232B007F42DA /* navbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = navbar.png; path = assets/navbar.png; sourceTree = "<group>"; };
+		FAE960481560232B007F42DA /* gear@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "gear@2x.png"; path = "assets/gear@2x.png"; sourceTree = "<group>"; };
+		FAE960491560232C007F42DA /* gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = gear.png; path = assets/gear.png; sourceTree = "<group>"; };
+		FAE96054156023AC007F42DA /* bottom-bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bottom-bg@2x.png"; path = "assets/bottom-bg@2x.png"; sourceTree = "<group>"; };
+		FAE96055156023AC007F42DA /* bottom-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bottom-bg.png"; path = "assets/bottom-bg.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,9 +239,24 @@
 		FAE95FF8155A8E21007F42DA /* assets */ = {
 			isa = PBXGroup;
 			children = (
+				FAE9603A15601DC5007F42DA /* bottom-bg.png */,
+				FAE96054156023AC007F42DA /* bottom-bg@2x.png */,
+				FAE96055156023AC007F42DA /* bottom-bg.png */,
+				FAE9603B15601DC5007F42DA /* premium.png */,
+				FAE9603C15601DC5007F42DA /* regular.png */,
 				FAE96032155C7E69007F42DA /* premium@2x.png */,
 				FAE96033155C7E69007F42DA /* bottom-bg@2x.png */,
 				FAE96034155C7E69007F42DA /* regular@2x.png */,
+				FAE960401560232B007F42DA /* wood-bg@2x.png */,
+				FAE960411560232B007F42DA /* wood-bg.png */,
+				FAE960421560232B007F42DA /* premium@2x.png */,
+				FAE960431560232B007F42DA /* regular@2x.png */,
+				FAE960441560232B007F42DA /* navbar@2x.png */,
+				FAE960451560232B007F42DA /* premium.png */,
+				FAE960461560232B007F42DA /* regular.png */,
+				FAE960471560232B007F42DA /* navbar.png */,
+				FAE960481560232B007F42DA /* gear@2x.png */,
+				FAE960491560232C007F42DA /* gear.png */,
 				FAE96035155C7E69007F42DA /* navbar@2x.png */,
 				FAE9602B155B074F007F42DA /* gear.png */,
 				FAE9602C155B074F007F42DA /* gear@2x.png */,
@@ -340,6 +385,21 @@
 				FAE96037155C7E69007F42DA /* bottom-bg@2x.png in Resources */,
 				FAE96038155C7E69007F42DA /* regular@2x.png in Resources */,
 				FAE96039155C7E69007F42DA /* navbar@2x.png in Resources */,
+				FAE9603D15601DC5007F42DA /* bottom-bg.png in Resources */,
+				FAE9603E15601DC5007F42DA /* premium.png in Resources */,
+				FAE9603F15601DC5007F42DA /* regular.png in Resources */,
+				FAE9604A1560232C007F42DA /* wood-bg@2x.png in Resources */,
+				FAE9604B1560232C007F42DA /* wood-bg.png in Resources */,
+				FAE9604C1560232C007F42DA /* premium@2x.png in Resources */,
+				FAE9604D1560232C007F42DA /* regular@2x.png in Resources */,
+				FAE9604E1560232C007F42DA /* navbar@2x.png in Resources */,
+				FAE9604F1560232C007F42DA /* premium.png in Resources */,
+				FAE960501560232C007F42DA /* regular.png in Resources */,
+				FAE960511560232C007F42DA /* navbar.png in Resources */,
+				FAE960521560232C007F42DA /* gear@2x.png in Resources */,
+				FAE960531560232C007F42DA /* gear.png in Resources */,
+				FAE96056156023AC007F42DA /* bottom-bg@2x.png in Resources */,
+				FAE96057156023AC007F42DA /* bottom-bg.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
