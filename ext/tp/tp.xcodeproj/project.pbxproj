@@ -21,6 +21,10 @@
 		94A94E9115581D14004FB612 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 94A94E8F15581D14004FB612 /* InfoPlist.strings */; };
 		94A94E9415581D14004FB612 /* tpTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A94E9315581D14004FB612 /* tpTests.m */; };
 		FAA11B7715603E180005CAFA /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FAA11B7515603E180005CAFA /* libTestFlight.a */; };
+		FAA11B7A1560401B0005CAFA /* order@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAA11B781560401B0005CAFA /* order@2x.png */; };
+		FAA11B7B1560401B0005CAFA /* quantity@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAA11B791560401B0005CAFA /* quantity@2x.png */; };
+		FAA11B7E156040A00005CAFA /* order.png in Resources */ = {isa = PBXBuildFile; fileRef = FAA11B7C156040A00005CAFA /* order.png */; };
+		FAA11B7F156040A00005CAFA /* quanity.png in Resources */ = {isa = PBXBuildFile; fileRef = FAA11B7D156040A00005CAFA /* quanity.png */; };
 		FAE9601C155A9042007F42DA /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = FAE96008155A9042007F42DA /* AFHTTPClient.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		FAE9601D155A9042007F42DA /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = FAE9600A155A9042007F42DA /* AFHTTPRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		FAE9601E155A9042007F42DA /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = FAE9600C155A9042007F42DA /* AFImageRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -78,6 +82,10 @@
 		94A94E9315581D14004FB612 /* tpTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = tpTests.m; sourceTree = "<group>"; };
 		FAA11B7515603E180005CAFA /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
 		FAA11B7615603E180005CAFA /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
+		FAA11B781560401B0005CAFA /* order@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "order@2x.png"; path = "assets/order@2x.png"; sourceTree = "<group>"; };
+		FAA11B791560401B0005CAFA /* quantity@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "quantity@2x.png"; path = "assets/quantity@2x.png"; sourceTree = "<group>"; };
+		FAA11B7C156040A00005CAFA /* order.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = order.png; path = assets/order.png; sourceTree = "<group>"; };
+		FAA11B7D156040A00005CAFA /* quanity.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = quanity.png; path = assets/quanity.png; sourceTree = "<group>"; };
 		FAE96007155A9042007F42DA /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
 		FAE96008155A9042007F42DA /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPClient.m; sourceTree = "<group>"; };
 		FAE96009155A9042007F42DA /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -221,6 +229,10 @@
 		FAE95FF8155A8E21007F42DA /* assets */ = {
 			isa = PBXGroup;
 			children = (
+				FAA11B7C156040A00005CAFA /* order.png */,
+				FAA11B7D156040A00005CAFA /* quanity.png */,
+				FAA11B781560401B0005CAFA /* order@2x.png */,
+				FAA11B791560401B0005CAFA /* quantity@2x.png */,
 				FAE96054156023AC007F42DA /* bottom-bg@2x.png */,
 				FAE96055156023AC007F42DA /* bottom-bg.png */,
 				FAE960401560232B007F42DA /* wood-bg@2x.png */,
@@ -358,6 +370,10 @@
 				FAE960531560232C007F42DA /* gear.png in Resources */,
 				FAE96056156023AC007F42DA /* bottom-bg@2x.png in Resources */,
 				FAE96057156023AC007F42DA /* bottom-bg.png in Resources */,
+				FAA11B7A1560401B0005CAFA /* order@2x.png in Resources */,
+				FAA11B7B1560401B0005CAFA /* quantity@2x.png in Resources */,
+				FAA11B7E156040A00005CAFA /* order.png in Resources */,
+				FAA11B7F156040A00005CAFA /* quanity.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
