@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="wood-bg.png" id="SeJ-fs-TjS">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="481"/>
+                                <rect key="frame" x="0.0" y="-21" width="320" height="481"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <navigationBar contentMode="scaleToFill" id="giy-WY-Q4M">
@@ -50,7 +50,7 @@
                                 </state>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="bottom-bg@2x.png" id="rKy-GJ-z26">
-                                <rect key="frame" x="0.0" y="368" width="320" height="92"/>
+                                <rect key="frame" x="0.0" y="357" width="320" height="103"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
