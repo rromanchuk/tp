@@ -25,6 +25,7 @@
 		FAA11B7B1560401B0005CAFA /* quantity@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAA11B791560401B0005CAFA /* quantity@2x.png */; };
 		FAA11B7E156040A00005CAFA /* order.png in Resources */ = {isa = PBXBuildFile; fileRef = FAA11B7C156040A00005CAFA /* order.png */; };
 		FAA11B7F156040A00005CAFA /* quanity.png in Resources */ = {isa = PBXBuildFile; fileRef = FAA11B7D156040A00005CAFA /* quanity.png */; };
+		FAA11B81156049EE0005CAFA /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FAA11B80156049EE0005CAFA /* libz.dylib */; };
 		FAE9601C155A9042007F42DA /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = FAE96008155A9042007F42DA /* AFHTTPClient.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		FAE9601D155A9042007F42DA /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = FAE9600A155A9042007F42DA /* AFHTTPRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		FAE9601E155A9042007F42DA /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = FAE9600C155A9042007F42DA /* AFImageRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -86,6 +87,7 @@
 		FAA11B791560401B0005CAFA /* quantity@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "quantity@2x.png"; path = "assets/quantity@2x.png"; sourceTree = "<group>"; };
 		FAA11B7C156040A00005CAFA /* order.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = order.png; path = assets/order.png; sourceTree = "<group>"; };
 		FAA11B7D156040A00005CAFA /* quanity.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = quanity.png; path = assets/quanity.png; sourceTree = "<group>"; };
+		FAA11B80156049EE0005CAFA /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		FAE96007155A9042007F42DA /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
 		FAE96008155A9042007F42DA /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPClient.m; sourceTree = "<group>"; };
 		FAE96009155A9042007F42DA /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAA11B81156049EE0005CAFA /* libz.dylib in Frameworks */,
 				94A94E6915581D14004FB612 /* UIKit.framework in Frameworks */,
 				94A94E6B15581D14004FB612 /* Foundation.framework in Frameworks */,
 				94A94E6D15581D14004FB612 /* CoreGraphics.framework in Frameworks */,
@@ -151,6 +154,7 @@
 		94A94E5915581D13004FB612 = {
 			isa = PBXGroup;
 			children = (
+				FAA11B80156049EE0005CAFA /* libz.dylib */,
 				FAE96006155A9042007F42DA /* AFNetworking */,
 				94A94E6E15581D14004FB612 /* tp */,
 				94A94E8C15581D14004FB612 /* tpTests */,
