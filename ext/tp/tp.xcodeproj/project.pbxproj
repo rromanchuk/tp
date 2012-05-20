@@ -20,12 +20,14 @@
 		94A94E8915581D14004FB612 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94A94E6A15581D14004FB612 /* Foundation.framework */; };
 		94A94E9115581D14004FB612 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 94A94E8F15581D14004FB612 /* InfoPlist.strings */; };
 		94A94E9415581D14004FB612 /* tpTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A94E9315581D14004FB612 /* tpTests.m */; };
+		FA49999A15697FAB004A2287 /* Arvil_Sans.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA49999915697FAB004A2287 /* Arvil_Sans.ttf */; };
 		FAA11B7715603E180005CAFA /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FAA11B7515603E180005CAFA /* libTestFlight.a */; };
 		FAA11B7A1560401B0005CAFA /* order@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAA11B781560401B0005CAFA /* order@2x.png */; };
 		FAA11B7B1560401B0005CAFA /* quantity@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAA11B791560401B0005CAFA /* quantity@2x.png */; };
 		FAA11B7E156040A00005CAFA /* order.png in Resources */ = {isa = PBXBuildFile; fileRef = FAA11B7C156040A00005CAFA /* order.png */; };
 		FAA11B7F156040A00005CAFA /* quanity.png in Resources */ = {isa = PBXBuildFile; fileRef = FAA11B7D156040A00005CAFA /* quanity.png */; };
 		FAA11B81156049EE0005CAFA /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FAA11B80156049EE0005CAFA /* libz.dylib */; };
+		FAA11B9115659A8D0005CAFA /* ProximaNova-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = FAA11B9015659A8D0005CAFA /* ProximaNova-Regular.otf */; };
 		FAE9601C155A9042007F42DA /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = FAE96008155A9042007F42DA /* AFHTTPClient.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		FAE9601D155A9042007F42DA /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = FAE9600A155A9042007F42DA /* AFHTTPRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		FAE9601E155A9042007F42DA /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = FAE9600C155A9042007F42DA /* AFImageRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -81,6 +83,7 @@
 		94A94E9015581D14004FB612 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		94A94E9215581D14004FB612 /* tpTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = tpTests.h; sourceTree = "<group>"; };
 		94A94E9315581D14004FB612 /* tpTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = tpTests.m; sourceTree = "<group>"; };
+		FA49999915697FAB004A2287 /* Arvil_Sans.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Arvil_Sans.ttf; sourceTree = "<group>"; };
 		FAA11B7515603E180005CAFA /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
 		FAA11B7615603E180005CAFA /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 		FAA11B781560401B0005CAFA /* order@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "order@2x.png"; path = "assets/order@2x.png"; sourceTree = "<group>"; };
@@ -88,6 +91,7 @@
 		FAA11B7C156040A00005CAFA /* order.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = order.png; path = assets/order.png; sourceTree = "<group>"; };
 		FAA11B7D156040A00005CAFA /* quanity.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = quanity.png; path = assets/quanity.png; sourceTree = "<group>"; };
 		FAA11B80156049EE0005CAFA /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		FAA11B9015659A8D0005CAFA /* ProximaNova-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "ProximaNova-Regular.otf"; path = "../ProximaNova-Regular.otf"; sourceTree = "<group>"; };
 		FAE96007155A9042007F42DA /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
 		FAE96008155A9042007F42DA /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPClient.m; sourceTree = "<group>"; };
 		FAE96009155A9042007F42DA /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -186,6 +190,8 @@
 		94A94E6E15581D14004FB612 /* tp */ = {
 			isa = PBXGroup;
 			children = (
+				FAA11B8B15658BEC0005CAFA /* models */,
+				FAA11B8A15658BDB0005CAFA /* delegates */,
 				FAA11B7515603E180005CAFA /* libTestFlight.a */,
 				FAA11B7615603E180005CAFA /* TestFlight.h */,
 				FAE9602A155AA454007F42DA /* controllers */,
@@ -203,6 +209,8 @@
 		94A94E6F15581D14004FB612 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				FA49999915697FAB004A2287 /* Arvil_Sans.ttf */,
+				FAA11B9015659A8D0005CAFA /* ProximaNova-Regular.otf */,
 				94A94E7015581D14004FB612 /* tp-Info.plist */,
 				94A94E7115581D14004FB612 /* InfoPlist.strings */,
 				94A94E7415581D14004FB612 /* main.m */,
@@ -228,6 +236,20 @@
 				94A94E8F15581D14004FB612 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FAA11B8A15658BDB0005CAFA /* delegates */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = delegates;
+			sourceTree = "<group>";
+		};
+		FAA11B8B15658BEC0005CAFA /* models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = models;
 			sourceTree = "<group>";
 		};
 		FAE95FF8155A8E21007F42DA /* assets */ = {
@@ -378,6 +400,8 @@
 				FAA11B7B1560401B0005CAFA /* quantity@2x.png in Resources */,
 				FAA11B7E156040A00005CAFA /* order.png in Resources */,
 				FAA11B7F156040A00005CAFA /* quanity.png in Resources */,
+				FAA11B9115659A8D0005CAFA /* ProximaNova-Regular.otf in Resources */,
+				FA49999A15697FAB004A2287 /* Arvil_Sans.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -482,6 +506,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ryan Romanchuk (RJ6W6Q2JLW)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -497,6 +522,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				PROVISIONING_PROFILE = "139ACBED-9050-44A7-B2AE-40E692D43D52";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -507,6 +533,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ryan Romanchuk (RJ6W6Q2JLW)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -516,6 +543,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "139ACBED-9050-44A7-B2AE-40E692D43D52";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -533,7 +561,7 @@
 					"\"$(SRCROOT)/tp\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "55D8BEB0-7B4B-4E21-8968-625764ADD76D";
+				PROVISIONING_PROFILE = "139ACBED-9050-44A7-B2AE-40E692D43D52";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -550,7 +578,7 @@
 					"\"$(SRCROOT)/tp\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "55D8BEB0-7B4B-4E21-8968-625764ADD76D";
+				PROVISIONING_PROFILE = "139ACBED-9050-44A7-B2AE-40E692D43D52";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

@@ -36,5 +36,10 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Avril_Sans.ttf</string>
+		<string>ProximaNova-Regular.otf</string>
+	</array>
 </dict>
 </plist>
