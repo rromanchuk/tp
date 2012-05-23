@@ -16,6 +16,11 @@
 @implementation OrderController
 
 @synthesize navigationBar;
+@synthesize regularButton; 
+@synthesize premiumButton;
+@synthesize orderButton; 
+@synthesize qtyButton;
+@synthesize qtyTable; 
 
 - (void)viewDidLoad
 {
@@ -30,6 +35,8 @@
     self.navigationBar.topItem.title = @"Tap on the type of roll you want.";
     self.navigationBar.titleTextAttributes = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"ProximaNova-Regular" size:18.0], UITextAttributeFont, nil];
 	// Do any additional setup after loading the view, typically from a nib.
+    self.qtyTable.hidden = true;
+    self.qtyTable.backgroundColor = [UIColor blackColor];
 }
 
 - (void)viewDidUnload
@@ -43,9 +50,45 @@
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    NSLog(@"inside num rows in section");
+    return 3;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"Cell";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
+    
+    // configure your cell here...
+    cell.textLabel.text = @"One Roll";
+    cell.textLabel.font = [UIFont fontWithName:@"ArvilSans" size:22.0];
+    cell.textLabel.textColor = [UIColor whiteColor];
+    return cell;
+}
+
 - (void)config
 {
     
+}
+
+- (IBAction)qtyChange:(id)sender {
+    if (qtyTable.hidden) {
+        qtyTable.hidden = false;
+    } else {
+        qtyTable.hidden = true;
+    }
 }
 
 @end

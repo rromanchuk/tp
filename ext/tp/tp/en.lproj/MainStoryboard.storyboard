@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11D50b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="2">
     <dependencies>
+        <deployment defaultVersion="1296" identifier="iOS"/>
         <development defaultVersion="4200" identifier="xcode"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1181"/>
     </dependencies>
@@ -63,6 +64,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="qtyChange:" destination="2" eventType="touchUpInside" id="vx7-hO-h7g"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="hyy-Iy-mQW" userLabel="order">
                                 <rect key="frame" x="157" y="376" width="158" height="66"/>
@@ -76,11 +80,25 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="lMv-pY-QG4">
+                                <rect key="frame" x="20" y="200" width="129" height="177"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="2" id="fD2-Ti-iyQ"/>
+                                    <outlet property="delegate" destination="2" id="wrq-9R-f0U"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="navigationBar" destination="giy-WY-Q4M" id="c2T-Ab-7qY"/>
+                        <outlet property="orderButton" destination="hyy-Iy-mQW" id="KOs-P9-DiG"/>
+                        <outlet property="premiumButton" destination="D6T-lF-uUt" id="Xha-hW-B66"/>
+                        <outlet property="qtyButton" destination="p7B-g2-6cM" id="xJA-qA-oq2"/>
+                        <outlet property="qtyTable" destination="lMv-pY-QG4" id="5iz-QY-f55"/>
+                        <outlet property="regularButton" destination="Ock-Jh-D33" id="BtZ-1e-ouM"/>
                     </connections>
                 </viewController>
             </objects>
@@ -99,7 +117,13 @@
         <class className="OrderController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/OrderController.h"/>
             <relationships>
+                <relationship kind="action" name="qtyChange:"/>
                 <relationship kind="outlet" name="navigationBar" candidateClass="UINavigationBar"/>
+                <relationship kind="outlet" name="orderButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="premiumButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="qtyButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="qtyTable" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="regularButton" candidateClass="UIButton"/>
             </relationships>
         </class>
     </classes>
