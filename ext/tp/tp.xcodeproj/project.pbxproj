@@ -37,6 +37,10 @@
 		FAA7AD1615718D91005128B4 /* backup.png in Resources */ = {isa = PBXBuildFile; fileRef = FAA7AD1315718D91005128B4 /* backup.png */; };
 		FADBE7C51572104500FC9072 /* qty-checkout.png in Resources */ = {isa = PBXBuildFile; fileRef = FADBE7C31572104500FC9072 /* qty-checkout.png */; };
 		FADBE7C61572104500FC9072 /* qty-checkout@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FADBE7C41572104500FC9072 /* qty-checkout@2x.png */; };
+		FADBE7CC15723DCB00FC9072 /* cancel.png in Resources */ = {isa = PBXBuildFile; fileRef = FADBE7C815723DCB00FC9072 /* cancel.png */; };
+		FADBE7CD15723DCB00FC9072 /* cancel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FADBE7C915723DCB00FC9072 /* cancel@2x.png */; };
+		FADBE7CE15723DCB00FC9072 /* truck.png in Resources */ = {isa = PBXBuildFile; fileRef = FADBE7CA15723DCB00FC9072 /* truck.png */; };
+		FADBE7CF15723DCB00FC9072 /* truck@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FADBE7CB15723DCB00FC9072 /* truck@2x.png */; };
 		FAE9601C155A9042007F42DA /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = FAE96008155A9042007F42DA /* AFHTTPClient.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		FAE9601D155A9042007F42DA /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = FAE9600A155A9042007F42DA /* AFHTTPRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		FAE9601E155A9042007F42DA /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = FAE9600C155A9042007F42DA /* AFImageRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -110,6 +114,10 @@
 		FAA7AD1315718D91005128B4 /* backup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backup.png; sourceTree = "<group>"; };
 		FADBE7C31572104500FC9072 /* qty-checkout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "qty-checkout.png"; path = "assets/qty-checkout.png"; sourceTree = "<group>"; };
 		FADBE7C41572104500FC9072 /* qty-checkout@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "qty-checkout@2x.png"; path = "assets/qty-checkout@2x.png"; sourceTree = "<group>"; };
+		FADBE7C815723DCB00FC9072 /* cancel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cancel.png; path = assets/cancel.png; sourceTree = "<group>"; };
+		FADBE7C915723DCB00FC9072 /* cancel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "cancel@2x.png"; path = "assets/cancel@2x.png"; sourceTree = "<group>"; };
+		FADBE7CA15723DCB00FC9072 /* truck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = truck.png; path = assets/truck.png; sourceTree = "<group>"; };
+		FADBE7CB15723DCB00FC9072 /* truck@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "truck@2x.png"; path = "assets/truck@2x.png"; sourceTree = "<group>"; };
 		FAE96007155A9042007F42DA /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
 		FAE96008155A9042007F42DA /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPClient.m; sourceTree = "<group>"; };
 		FAE96009155A9042007F42DA /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -274,6 +282,10 @@
 		FAE95FF8155A8E21007F42DA /* assets */ = {
 			isa = PBXGroup;
 			children = (
+				FADBE7C815723DCB00FC9072 /* cancel.png */,
+				FADBE7C915723DCB00FC9072 /* cancel@2x.png */,
+				FADBE7CA15723DCB00FC9072 /* truck.png */,
+				FADBE7CB15723DCB00FC9072 /* truck@2x.png */,
 				FAA7AD1315718D91005128B4 /* backup.png */,
 				FADBE7C31572104500FC9072 /* qty-checkout.png */,
 				FADBE7C41572104500FC9072 /* qty-checkout@2x.png */,
@@ -438,6 +450,10 @@
 				FAA7AD1615718D91005128B4 /* backup.png in Resources */,
 				FADBE7C51572104500FC9072 /* qty-checkout.png in Resources */,
 				FADBE7C61572104500FC9072 /* qty-checkout@2x.png in Resources */,
+				FADBE7CC15723DCB00FC9072 /* cancel.png in Resources */,
+				FADBE7CD15723DCB00FC9072 /* cancel@2x.png in Resources */,
+				FADBE7CE15723DCB00FC9072 /* truck.png in Resources */,
+				FADBE7CF15723DCB00FC9072 /* truck@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -558,7 +574,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
-				PROVISIONING_PROFILE = "139ACBED-9050-44A7-B2AE-40E692D43D52";
+				PROVISIONING_PROFILE = "8B1F5AF8-3633-4F9E-BAB0-843F5D814E7B";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -579,7 +595,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "139ACBED-9050-44A7-B2AE-40E692D43D52";
+				PROVISIONING_PROFILE = "8B1F5AF8-3633-4F9E-BAB0-843F5D814E7B";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -597,7 +613,7 @@
 					"\"$(SRCROOT)/tp\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "139ACBED-9050-44A7-B2AE-40E692D43D52";
+				PROVISIONING_PROFILE = "8B1F5AF8-3633-4F9E-BAB0-843F5D814E7B";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -614,7 +630,7 @@
 					"\"$(SRCROOT)/tp\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "139ACBED-9050-44A7-B2AE-40E692D43D52";
+				PROVISIONING_PROFILE = "8B1F5AF8-3633-4F9E-BAB0-843F5D814E7B";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

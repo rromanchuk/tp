@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface OrderController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface OrderController : UIViewController <UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate>
 
 @property (strong) IBOutlet UINavigationBar *navigationBar;
 @property (strong) IBOutlet UIButton *regularButton; 
@@ -17,6 +17,8 @@
 @property (strong) IBOutlet UIButton *qtyButton;
 @property (strong) IBOutlet UIButton *qtyButtonSmall;
 
+//scroll view
+@property (strong) IBOutlet UIScrollView *scrollView;
 //Table properties
 @property (strong) IBOutlet UITableView *qtyTable;
 
@@ -27,6 +29,11 @@
 @property (strong) IBOutlet UILabel *stateLabel;
 @property (strong) IBOutlet UILabel *zipLabel;
 @property (strong) IBOutlet UILabel *helperText;
+
+//Checkout
+@property (strong) IBOutlet UILabel *thatsItLabel;
+@property (strong) IBOutlet UILabel *deliveryEst;
+@property (strong) IBOutlet UIButton *cancelOrder;
 
 - (void)config;
 - (IBAction)qtyChange:(id)sender;
