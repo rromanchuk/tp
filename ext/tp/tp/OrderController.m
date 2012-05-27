@@ -20,7 +20,16 @@
 @synthesize premiumButton;
 @synthesize orderButton; 
 @synthesize qtyButton;
+@synthesize qtyButtonSmall;
 @synthesize qtyTable; 
+
+//Form
+@synthesize nameLabel; 
+@synthesize addressLabel;
+@synthesize cityLabel;
+@synthesize stateLabel;
+@synthesize zipLabel;
+@synthesize helperText;
 
 - (void)viewDidLoad
 {
@@ -37,6 +46,16 @@
 	// Do any additional setup after loading the view, typically from a nib.
     self.qtyTable.hidden = true;
     self.qtyTable.backgroundColor = [UIColor blackColor];
+    
+    self.qtyButton.titleLabel.font = [UIFont fontWithName:@"ArvilSans" size:35.0];
+    self.qtyButtonSmall.titleLabel.font = [UIFont fontWithName:@"ArvilSans" size:30.0];
+    //Checkout form
+    self.nameLabel.font = [UIFont fontWithName:@"ProximaNova-Semiboldr" size:30.0];
+    self.addressLabel.font = [UIFont fontWithName:@"ProximaNova-Semibold" size:30.0];
+    self.stateLabel.font = [UIFont fontWithName:@"ProximaNova-Semibold" size:30.0];
+    self.cityLabel.font = [UIFont fontWithName:@"ProximaNova-Semibold" size:30.0];
+    self.zipLabel.font = [UIFont fontWithName:@"ProximaNova-Semibold" size:30.0];
+    self.helperText.font = [UIFont fontWithName:@"ProximaNova-Semibold" size:15.0];
 }
 
 - (void)viewDidUnload

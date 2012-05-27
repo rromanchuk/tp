@@ -26,6 +26,7 @@
 	<true/>
 	<key>UIAppFonts</key>
 	<array>
+		<string>ProximaNova-Semibold.otf</string>
 		<string>Arvil_Sans.ttf</string>
 		<string>ProximaNova-Regular.otf</string>
 	</array>

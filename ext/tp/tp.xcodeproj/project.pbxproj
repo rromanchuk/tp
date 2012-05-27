@@ -20,6 +20,8 @@
 		94A94E8915581D14004FB612 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94A94E6A15581D14004FB612 /* Foundation.framework */; };
 		94A94E9115581D14004FB612 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 94A94E8F15581D14004FB612 /* InfoPlist.strings */; };
 		94A94E9415581D14004FB612 /* tpTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A94E9315581D14004FB612 /* tpTests.m */; };
+		FA26D07F156EBEE70029463E /* form-bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA26D07E156EBEE70029463E /* form-bg@2x.png */; };
+		FA26D081156EBFE80029463E /* form-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = FA26D080156EBFE80029463E /* form-bg.png */; };
 		FA49999A15697FAB004A2287 /* Arvil_Sans.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA49999915697FAB004A2287 /* Arvil_Sans.ttf */; };
 		FAA11B7715603E180005CAFA /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FAA11B7515603E180005CAFA /* libTestFlight.a */; };
 		FAA11B7A1560401B0005CAFA /* order@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAA11B781560401B0005CAFA /* order@2x.png */; };
@@ -28,6 +30,13 @@
 		FAA11B7F156040A00005CAFA /* quanity.png in Resources */ = {isa = PBXBuildFile; fileRef = FAA11B7D156040A00005CAFA /* quanity.png */; };
 		FAA11B81156049EE0005CAFA /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FAA11B80156049EE0005CAFA /* libz.dylib */; };
 		FAA11B9115659A8D0005CAFA /* ProximaNova-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = FAA11B9015659A8D0005CAFA /* ProximaNova-Regular.otf */; };
+		FAA7AD08156ED4F9005128B4 /* bottom-bg-address.png in Resources */ = {isa = PBXBuildFile; fileRef = FAA7AD06156ED4F9005128B4 /* bottom-bg-address.png */; };
+		FAA7AD09156ED4F9005128B4 /* bottom-bg-address@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAA7AD07156ED4F9005128B4 /* bottom-bg-address@2x.png */; };
+		FAA7AD0C156EE0E0005128B4 /* ProximaNova-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = FAA7AD0B156EE0E0005128B4 /* ProximaNova-Semibold.otf */; };
+		FAA7AD1015718CB8005128B4 /* backup@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAA7AD0D15718CB8005128B4 /* backup@2x.png */; };
+		FAA7AD1615718D91005128B4 /* backup.png in Resources */ = {isa = PBXBuildFile; fileRef = FAA7AD1315718D91005128B4 /* backup.png */; };
+		FADBE7C51572104500FC9072 /* qty-checkout.png in Resources */ = {isa = PBXBuildFile; fileRef = FADBE7C31572104500FC9072 /* qty-checkout.png */; };
+		FADBE7C61572104500FC9072 /* qty-checkout@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FADBE7C41572104500FC9072 /* qty-checkout@2x.png */; };
 		FAE9601C155A9042007F42DA /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = FAE96008155A9042007F42DA /* AFHTTPClient.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		FAE9601D155A9042007F42DA /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = FAE9600A155A9042007F42DA /* AFHTTPRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		FAE9601E155A9042007F42DA /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = FAE9600C155A9042007F42DA /* AFImageRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -83,6 +92,8 @@
 		94A94E9015581D14004FB612 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		94A94E9215581D14004FB612 /* tpTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = tpTests.h; sourceTree = "<group>"; };
 		94A94E9315581D14004FB612 /* tpTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = tpTests.m; sourceTree = "<group>"; };
+		FA26D07E156EBEE70029463E /* form-bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "form-bg@2x.png"; sourceTree = "<group>"; };
+		FA26D080156EBFE80029463E /* form-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "form-bg.png"; sourceTree = "<group>"; };
 		FA49999915697FAB004A2287 /* Arvil_Sans.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Arvil_Sans.ttf; sourceTree = "<group>"; };
 		FAA11B7515603E180005CAFA /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
 		FAA11B7615603E180005CAFA /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
@@ -92,6 +103,13 @@
 		FAA11B7D156040A00005CAFA /* quanity.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = quanity.png; path = assets/quanity.png; sourceTree = "<group>"; };
 		FAA11B80156049EE0005CAFA /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		FAA11B9015659A8D0005CAFA /* ProximaNova-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "ProximaNova-Regular.otf"; path = "../ProximaNova-Regular.otf"; sourceTree = "<group>"; };
+		FAA7AD06156ED4F9005128B4 /* bottom-bg-address.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bottom-bg-address.png"; sourceTree = "<group>"; };
+		FAA7AD07156ED4F9005128B4 /* bottom-bg-address@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bottom-bg-address@2x.png"; sourceTree = "<group>"; };
+		FAA7AD0B156EE0E0005128B4 /* ProximaNova-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Semibold.otf"; sourceTree = "<group>"; };
+		FAA7AD0D15718CB8005128B4 /* backup@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "backup@2x.png"; sourceTree = "<group>"; };
+		FAA7AD1315718D91005128B4 /* backup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backup.png; sourceTree = "<group>"; };
+		FADBE7C31572104500FC9072 /* qty-checkout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "qty-checkout.png"; path = "assets/qty-checkout.png"; sourceTree = "<group>"; };
+		FADBE7C41572104500FC9072 /* qty-checkout@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "qty-checkout@2x.png"; path = "assets/qty-checkout@2x.png"; sourceTree = "<group>"; };
 		FAE96007155A9042007F42DA /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
 		FAE96008155A9042007F42DA /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPClient.m; sourceTree = "<group>"; };
 		FAE96009155A9042007F42DA /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -209,6 +227,7 @@
 		94A94E6F15581D14004FB612 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				FAA7AD0B156EE0E0005128B4 /* ProximaNova-Semibold.otf */,
 				FA49999915697FAB004A2287 /* Arvil_Sans.ttf */,
 				FAA11B9015659A8D0005CAFA /* ProximaNova-Regular.otf */,
 				94A94E7015581D14004FB612 /* tp-Info.plist */,
@@ -255,6 +274,14 @@
 		FAE95FF8155A8E21007F42DA /* assets */ = {
 			isa = PBXGroup;
 			children = (
+				FAA7AD1315718D91005128B4 /* backup.png */,
+				FADBE7C31572104500FC9072 /* qty-checkout.png */,
+				FADBE7C41572104500FC9072 /* qty-checkout@2x.png */,
+				FAA7AD0D15718CB8005128B4 /* backup@2x.png */,
+				FAA7AD06156ED4F9005128B4 /* bottom-bg-address.png */,
+				FAA7AD07156ED4F9005128B4 /* bottom-bg-address@2x.png */,
+				FA26D080156EBFE80029463E /* form-bg.png */,
+				FA26D07E156EBEE70029463E /* form-bg@2x.png */,
 				FAA11B7C156040A00005CAFA /* order.png */,
 				FAA11B7D156040A00005CAFA /* quanity.png */,
 				FAA11B781560401B0005CAFA /* order@2x.png */,
@@ -402,6 +429,15 @@
 				FAA11B7F156040A00005CAFA /* quanity.png in Resources */,
 				FAA11B9115659A8D0005CAFA /* ProximaNova-Regular.otf in Resources */,
 				FA49999A15697FAB004A2287 /* Arvil_Sans.ttf in Resources */,
+				FA26D07F156EBEE70029463E /* form-bg@2x.png in Resources */,
+				FA26D081156EBFE80029463E /* form-bg.png in Resources */,
+				FAA7AD08156ED4F9005128B4 /* bottom-bg-address.png in Resources */,
+				FAA7AD09156ED4F9005128B4 /* bottom-bg-address@2x.png in Resources */,
+				FAA7AD0C156EE0E0005128B4 /* ProximaNova-Semibold.otf in Resources */,
+				FAA7AD1015718CB8005128B4 /* backup@2x.png in Resources */,
+				FAA7AD1615718D91005128B4 /* backup.png in Resources */,
+				FADBE7C51572104500FC9072 /* qty-checkout.png in Resources */,
+				FADBE7C61572104500FC9072 /* qty-checkout@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

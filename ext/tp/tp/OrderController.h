@@ -15,9 +15,18 @@
 @property (strong) IBOutlet UIButton *premiumButton;
 @property (strong) IBOutlet UIButton *orderButton; 
 @property (strong) IBOutlet UIButton *qtyButton;
+@property (strong) IBOutlet UIButton *qtyButtonSmall;
 
 //Table properties
 @property (strong) IBOutlet UITableView *qtyTable;
+
+//Form
+@property (strong) IBOutlet UILabel *nameLabel;
+@property (strong) IBOutlet UILabel *addressLabel;
+@property (strong) IBOutlet UILabel *cityLabel;
+@property (strong) IBOutlet UILabel *stateLabel;
+@property (strong) IBOutlet UILabel *zipLabel;
+@property (strong) IBOutlet UILabel *helperText;
 
 - (void)config;
 - (IBAction)qtyChange:(id)sender;
