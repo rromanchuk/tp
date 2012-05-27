@@ -37,6 +37,9 @@
 @synthesize cancelOrder; 
 @synthesize thatsItLabel; 
 @synthesize deliveryEst;
+@synthesize isOnCheckout;
+
+@synthesize activeField;
 
 - (void)viewDidLoad
 {
@@ -54,6 +57,7 @@
     
     //scroll view
     self.scrollView.contentSize = CGSizeMake(320,1000);
+    self.scrollView.scrollEnabled = NO;
     
     self.qtyTable.hidden = true;
     self.qtyTable.backgroundColor = [UIColor blackColor];
@@ -75,6 +79,7 @@
     //Checkout 
     self.thatsItLabel.font = [UIFont fontWithName:@"ArvilSans" size:22.0];
     self.deliveryEst.font = [UIFont fontWithName:@"ArvilSans" size:20.0];
+    self.isOnCheckout = NO;
 }
 
 - (void)viewDidUnload
@@ -135,6 +140,51 @@
 - (void)config
 {
     
+}
+
+//Scroll view
+
+-(void)scrollViewDidEndDecelerating:(UIScrollView *)sender {
+    if (isOnCheckout && (sender.contentOffset.y < 474.0)) {
+        [self scrollToTop:sender];
+    }
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)sender willDecelerate:(BOOL)decelerate {
+    if( decelerate == NO) {
+        if (isOnCheckout && (sender.contentOffset.y < 474.0)) {
+            [self scrollToTop:sender];
+        }
+    }
+}
+
+
+// keyboard
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    activeField = textField;
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    activeField = nil;
+}
+
+-(IBAction)removeKeyboard {
+    [self.activeField resignFirstResponder];
+}
+
+- (IBAction)scrollToCheckout:(id)sender {
+    [self.scrollView setContentOffset:CGPointMake(0.0, 474.0) animated:YES]; 
+    self.scrollView.scrollEnabled = YES;
+    self.isOnCheckout = YES;
+}
+
+- (IBAction)scrollToTop:(id)sender {
+    [self removeKeyboard];
+    [self.scrollView setContentOffset:CGPointMake(0.0, 0.0) animated:YES];
+    self.scrollView.scrollEnabled = NO;
+    self.isOnCheckout = NO;
 }
 
 - (IBAction)qtyChange:(id)sender {

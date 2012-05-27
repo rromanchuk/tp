@@ -35,7 +35,12 @@
 @property (strong) IBOutlet UILabel *deliveryEst;
 @property (strong) IBOutlet UIButton *cancelOrder;
 
+@property BOOL isOnCheckout;
+@property (strong) UITextField *activeField;
+
 - (void)config;
 - (IBAction)qtyChange:(id)sender;
+- (IBAction)scrollToCheckout:(id)sender;
+- (IBAction)removeKeyboard;
 
 @end
