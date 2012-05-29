@@ -41,6 +41,7 @@
 - (void)config;
 - (IBAction)qtyChange:(id)sender;
 - (IBAction)scrollToCheckout:(id)sender;
+- (IBAction)scrollToTop:(id)sender;
 - (IBAction)removeKeyboard;
 
 @end

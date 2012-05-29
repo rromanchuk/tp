@@ -37,7 +37,7 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <subviews>
                         <view contentMode="scaleToFill" id="gVf-dw-SqE">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="1127"/>
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="941"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="wood-bg.png" id="7mL-8Z-v3O">
@@ -78,8 +78,8 @@
                                     <rect key="frame" x="0.0" y="357" width="320" height="103"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 </imageView>
-                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="T4i-9U-AJN">
-                                    <rect key="frame" x="20" y="244" width="129" height="384"/>
+                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" rowHeight="35" sectionHeaderHeight="22" sectionFooterHeight="22" id="T4i-9U-AJN">
+                                    <rect key="frame" x="20" y="234" width="129" height="208"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="separatorColor" red="0.49803924560000001" green="0.49803924560000001" blue="0.49803924560000001" alpha="1" colorSpace="deviceRGB"/>
@@ -257,6 +257,9 @@ need to do this once.</string>
                                     <state key="highlighted">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="scrollToTop:" destination="2" eventType="touchUpInside" id="bmy-mH-z9q"/>
+                                    </connections>
                                 </button>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="YAY, THATS IT!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="pXj-Ev-VjF">
                                     <rect key="frame" x="20" y="802" width="135" height="21"/>
@@ -322,6 +325,7 @@ need to do this once.</string>
                 <relationship kind="action" name="qtyChange:"/>
                 <relationship kind="action" name="removeKeyboard"/>
                 <relationship kind="action" name="scrollToCheckout:"/>
+                <relationship kind="action" name="scrollToTop:"/>
                 <relationship kind="outlet" name="addressLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="cancelOrder" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="cityLabel" candidateClass="UILabel"/>
