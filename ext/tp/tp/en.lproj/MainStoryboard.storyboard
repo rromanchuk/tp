@@ -18,6 +18,7 @@
                         <outlet property="deliveryEst" destination="LbU-r5-0X8" id="E2z-Qs-qhp"/>
                         <outlet property="helperText" destination="7K6-bs-j8t" id="XAk-T9-o8f"/>
                         <outlet property="nameLabel" destination="WLj-BH-eLa" id="yBy-N0-2gn"/>
+                        <outlet property="nameTextField" destination="Zif-po-M45" id="f1S-lM-PZj"/>
                         <outlet property="navigationBar" destination="zei-en-Nlf" id="egk-2W-4N9"/>
                         <outlet property="orderButton" destination="ElB-YL-BJb" id="ciW-H7-jnw"/>
                         <outlet property="premiumButton" destination="JIc-sD-QSj" id="Tae-tv-vrI"/>
@@ -332,6 +333,7 @@ need to do this once.</string>
                 <relationship kind="outlet" name="deliveryEst" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="helperText" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="nameTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="navigationBar" candidateClass="UINavigationBar"/>
                 <relationship kind="outlet" name="orderButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="premiumButton" candidateClass="UIButton"/>

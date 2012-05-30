@@ -26,7 +26,8 @@
 @synthesize scrollView;
 
 //Form
-@synthesize nameLabel; 
+@synthesize nameLabel;
+@synthesize nameTextField;
 @synthesize addressLabel;
 @synthesize cityLabel;
 @synthesize stateLabel;
@@ -154,7 +155,14 @@
     if( decelerate == NO) {
         if (isOnCheckout && (sender.contentOffset.y < 474.0)) {
             [self scrollToTop:sender];
-        }
+        }     
+    }
+}
+
+-(void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView
+{
+    if (isOnCheckout) {
+        [self.nameTextField becomeFirstResponder];
     }
 }
 
@@ -175,9 +183,9 @@
 }
 
 - (IBAction)scrollToCheckout:(id)sender {
+    self.isOnCheckout = YES;
     [self.scrollView setContentOffset:CGPointMake(0.0, 474.0) animated:YES]; 
     self.scrollView.scrollEnabled = YES;
-    self.isOnCheckout = YES;
 }
 
 - (IBAction)scrollToTop:(id)sender {

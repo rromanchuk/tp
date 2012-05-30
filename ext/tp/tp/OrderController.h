@@ -24,6 +24,7 @@
 
 //Form
 @property (strong) IBOutlet UILabel *nameLabel;
+@property (strong) IBOutlet UITextField *nameTextField;
 @property (strong) IBOutlet UILabel *addressLabel;
 @property (strong) IBOutlet UILabel *cityLabel;
 @property (strong) IBOutlet UILabel *stateLabel;
