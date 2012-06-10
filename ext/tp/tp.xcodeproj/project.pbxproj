@@ -35,6 +35,12 @@
 		FAA7AD0C156EE0E0005128B4 /* ProximaNova-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = FAA7AD0B156EE0E0005128B4 /* ProximaNova-Semibold.otf */; };
 		FAA7AD1015718CB8005128B4 /* backup@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAA7AD0D15718CB8005128B4 /* backup@2x.png */; };
 		FAA7AD1615718D91005128B4 /* backup.png in Resources */ = {isa = PBXBuildFile; fileRef = FAA7AD1315718D91005128B4 /* backup.png */; };
+		FAAC5265158545E3009E9811 /* SettingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAAC5264158545E3009E9811 /* SettingsController.m */; };
+		FAC5B7CD157A2DC900C73398 /* Stripe.m in Sources */ = {isa = PBXBuildFile; fileRef = FAC5B7CC157A2DC900C73398 /* Stripe.m */; };
+		FAC5B7D0157A4DDA00C73398 /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = FAC5B7CF157A4DDA00C73398 /* Order.m */; };
+		FAC5B7D7157A4EB500C73398 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = FAC5B7D6157A4EB500C73398 /* User.m */; };
+		FAC5B7E2157B7A1600C73398 /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = FAC5B7E1157B7A1600C73398 /* KeychainItemWrapper.m */; };
+		FAC5B7E4157B933200C73398 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAC5B7E3157B933200C73398 /* Security.framework */; };
 		FADBE7C51572104500FC9072 /* qty-checkout.png in Resources */ = {isa = PBXBuildFile; fileRef = FADBE7C31572104500FC9072 /* qty-checkout.png */; };
 		FADBE7C61572104500FC9072 /* qty-checkout@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FADBE7C41572104500FC9072 /* qty-checkout@2x.png */; };
 		FADBE7CC15723DCB00FC9072 /* cancel.png in Resources */ = {isa = PBXBuildFile; fileRef = FADBE7C815723DCB00FC9072 /* cancel.png */; };
@@ -112,6 +118,17 @@
 		FAA7AD0B156EE0E0005128B4 /* ProximaNova-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Semibold.otf"; sourceTree = "<group>"; };
 		FAA7AD0D15718CB8005128B4 /* backup@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "backup@2x.png"; sourceTree = "<group>"; };
 		FAA7AD1315718D91005128B4 /* backup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backup.png; sourceTree = "<group>"; };
+		FAAC5263158545E3009E9811 /* SettingsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsController.h; sourceTree = "<group>"; };
+		FAAC5264158545E3009E9811 /* SettingsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsController.m; sourceTree = "<group>"; };
+		FAC5B7CB157A2DC900C73398 /* Stripe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stripe.h; sourceTree = "<group>"; };
+		FAC5B7CC157A2DC900C73398 /* Stripe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stripe.m; sourceTree = "<group>"; };
+		FAC5B7CE157A4DDA00C73398 /* Order.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Order.h; sourceTree = "<group>"; };
+		FAC5B7CF157A4DDA00C73398 /* Order.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Order.m; sourceTree = "<group>"; };
+		FAC5B7D5157A4EB500C73398 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		FAC5B7D6157A4EB500C73398 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		FAC5B7E0157B7A1600C73398 /* KeychainItemWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainItemWrapper.h; sourceTree = "<group>"; };
+		FAC5B7E1157B7A1600C73398 /* KeychainItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainItemWrapper.m; sourceTree = "<group>"; };
+		FAC5B7E3157B933200C73398 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		FADBE7C31572104500FC9072 /* qty-checkout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "qty-checkout.png"; path = "assets/qty-checkout.png"; sourceTree = "<group>"; };
 		FADBE7C41572104500FC9072 /* qty-checkout@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "qty-checkout@2x.png"; path = "assets/qty-checkout@2x.png"; sourceTree = "<group>"; };
 		FADBE7C815723DCB00FC9072 /* cancel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cancel.png; path = assets/cancel.png; sourceTree = "<group>"; };
@@ -160,6 +177,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAC5B7E4157B933200C73398 /* Security.framework in Frameworks */,
 				FAA11B81156049EE0005CAFA /* libz.dylib in Frameworks */,
 				94A94E6915581D14004FB612 /* UIKit.framework in Frameworks */,
 				94A94E6B15581D14004FB612 /* Foundation.framework in Frameworks */,
@@ -184,6 +202,7 @@
 		94A94E5915581D13004FB612 = {
 			isa = PBXGroup;
 			children = (
+				FAC5B7E3157B933200C73398 /* Security.framework */,
 				FAA11B80156049EE0005CAFA /* libz.dylib */,
 				FAE96006155A9042007F42DA /* AFNetworking */,
 				94A94E6E15581D14004FB612 /* tp */,
@@ -216,6 +235,8 @@
 		94A94E6E15581D14004FB612 /* tp */ = {
 			isa = PBXGroup;
 			children = (
+				FAC5B7CB157A2DC900C73398 /* Stripe.h */,
+				FAC5B7CC157A2DC900C73398 /* Stripe.m */,
 				FAA11B8B15658BEC0005CAFA /* models */,
 				FAA11B8A15658BDB0005CAFA /* delegates */,
 				FAA11B7515603E180005CAFA /* libTestFlight.a */,
@@ -228,6 +249,8 @@
 				94A94E6F15581D14004FB612 /* Supporting Files */,
 				FAE9602F155B08E4007F42DA /* UIBarButtonItem+Borderless.h */,
 				FAE96030155B08E4007F42DA /* UIBarButtonItem+Borderless.m */,
+				FAC5B7E0157B7A1600C73398 /* KeychainItemWrapper.h */,
+				FAC5B7E1157B7A1600C73398 /* KeychainItemWrapper.m */,
 			);
 			path = tp;
 			sourceTree = "<group>";
@@ -275,6 +298,10 @@
 		FAA11B8B15658BEC0005CAFA /* models */ = {
 			isa = PBXGroup;
 			children = (
+				FAC5B7CE157A4DDA00C73398 /* Order.h */,
+				FAC5B7CF157A4DDA00C73398 /* Order.m */,
+				FAC5B7D5157A4EB500C73398 /* User.h */,
+				FAC5B7D6157A4EB500C73398 /* User.m */,
 			);
 			name = models;
 			sourceTree = "<group>";
@@ -347,6 +374,8 @@
 			children = (
 				94A94E7D15581D14004FB612 /* OrderController.h */,
 				94A94E7E15581D14004FB612 /* OrderController.m */,
+				FAAC5263158545E3009E9811 /* SettingsController.h */,
+				FAAC5264158545E3009E9811 /* SettingsController.m */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -502,6 +531,11 @@
 				FAE96024155A9042007F42DA /* AFXMLRequestOperation.m in Sources */,
 				FAE96025155A9042007F42DA /* UIImageView+AFNetworking.m in Sources */,
 				FAE96031155B08E4007F42DA /* UIBarButtonItem+Borderless.m in Sources */,
+				FAC5B7CD157A2DC900C73398 /* Stripe.m in Sources */,
+				FAC5B7D0157A4DDA00C73398 /* Order.m in Sources */,
+				FAC5B7D7157A4EB500C73398 /* User.m in Sources */,
+				FAC5B7E2157B7A1600C73398 /* KeychainItemWrapper.m in Sources */,
+				FAAC5265158545E3009E9811 /* SettingsController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

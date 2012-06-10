@@ -8,9 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface OrderController : UIViewController <UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate>
+@interface OrderController : UIViewController <UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate> {
+    NSString *option1; 
+    NSString *option2; 
+    NSString *option3;
+    NSString *option4;
+}
 
 @property (strong) IBOutlet UINavigationBar *navigationBar;
+@property (strong) IBOutlet UIBarButtonItem *rightBarButton;
 @property (strong) IBOutlet UIButton *regularButton; 
 @property (strong) IBOutlet UIButton *premiumButton;
 @property (strong) IBOutlet UIButton *orderButton; 
@@ -25,10 +31,19 @@
 //Form
 @property (strong) IBOutlet UILabel *nameLabel;
 @property (strong) IBOutlet UITextField *nameTextField;
+
 @property (strong) IBOutlet UILabel *addressLabel;
+@property (strong) IBOutlet UITextField *addressTextField;
+
 @property (strong) IBOutlet UILabel *cityLabel;
+@property (strong) IBOutlet UITextField *cityTextField;
+
 @property (strong) IBOutlet UILabel *stateLabel;
+@property (strong) IBOutlet UITextField *stateTextField;
+
 @property (strong) IBOutlet UILabel *zipLabel;
+@property (strong) IBOutlet UITextField *zipTextField;
+
 @property (strong) IBOutlet UILabel *helperText;
 
 //Checkout
@@ -44,5 +59,6 @@
 - (IBAction)scrollToCheckout:(id)sender;
 - (IBAction)scrollToTop:(id)sender;
 - (IBAction)removeKeyboard;
+- (IBAction)sendOrder:(id)sender;
 
 @end

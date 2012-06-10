@@ -8,7 +8,7 @@
 
 #import "OrderController.h"
 #import "UIBarButtonItem+Borderless.h"
-
+#import "User.h"
 @interface OrderController ()
 
 @end
@@ -16,6 +16,7 @@
 @implementation OrderController
 
 @synthesize navigationBar;
+@synthesize rightBarButton;
 @synthesize regularButton; 
 @synthesize premiumButton;
 @synthesize orderButton; 
@@ -29,9 +30,13 @@
 @synthesize nameLabel;
 @synthesize nameTextField;
 @synthesize addressLabel;
+@synthesize addressTextField; 
 @synthesize cityLabel;
+@synthesize cityTextField;
 @synthesize stateLabel;
+@synthesize stateTextField;
 @synthesize zipLabel;
+@synthesize zipTextField;
 @synthesize helperText;
 
 //checkout
@@ -51,7 +56,8 @@
     }
     UIImage *gearImage = [UIImage imageNamed:@"gear.png"];
     UIBarButtonItem *configButton = [UIBarButtonItem barItemWithImage:gearImage target:self action:@selector(config)];
-    self.navigationBar.topItem.rightBarButtonItem = configButton;
+    //self.navigationBar.topItem.rightBarButtonItem = configButton;
+    self.rightBarButton = configButton;
     self.navigationBar.topItem.title = @"Tap on the type of roll you want.";
     self.navigationBar.titleTextAttributes = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"ProximaNova-Regular" size:18.0], UITextAttributeFont, nil];
 	// Do any additional setup after loading the view, typically from a nib.
@@ -64,9 +70,9 @@
     self.qtyTable.backgroundColor = [UIColor blackColor];
     
     self.qtyButton.titleLabel.font = [UIFont fontWithName:@"ArvilSans" size:35.0];
-    [self.qtyButton setTitle:@"1 Roll" forState:UIControlStateNormal];
+    [self.qtyButton setTitle:@"4 Rolls" forState:UIControlStateNormal];
     self.qtyButtonSmall.titleLabel.font = [UIFont fontWithName:@"ArvilSans" size:30.0];
-    [self.qtyButtonSmall setTitle:@"1 Roll" forState:UIControlStateNormal];
+    [self.qtyButtonSmall setTitle:@"4 Rolls" forState:UIControlStateNormal];
     
     
     //Checkout form
@@ -110,11 +116,12 @@
     static NSString *CellIdentifier = @"Cell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    
+
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell.textLabel.font = [UIFont fontWithName:@"ArvilSans" size:22.0];
+        cell.textLabel.textColor = [UIColor whiteColor];
     }
-    NSLog(@"%d", indexPath.row);
     if (indexPath.row == 0) {
         cell.textLabel.text = @"4 Rolls";
     } else if (indexPath.row == 1) {
@@ -124,11 +131,34 @@
     } else if (indexPath.row == 3) {
         cell.textLabel.text = @"16 Rolls";
     }
-    // configure your cell here...
     
-    cell.textLabel.font = [UIFont fontWithName:@"ArvilSans" size:22.0];
-    cell.textLabel.textColor = [UIColor whiteColor];
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"index path %d", indexPath.row);
+    NSLog(@"did select row");
+    if (indexPath.row == 0) {
+        [qtyButton setTitle:@"4 Rolls" forState:UIControlStateNormal];
+        [qtyButtonSmall setTitle:@"4 Rolls" forState:UIControlStateNormal];
+    } else if (indexPath.row == 1) {
+        [qtyButton setTitle:@"8 Rolls" forState:UIControlStateNormal];
+        [qtyButtonSmall setTitle:@"8 Rolls" forState:UIControlStateNormal];
+    } else if (indexPath.row == 2) {
+        [qtyButton setTitle:@"12 Rolls" forState:UIControlStateNormal];
+        [qtyButtonSmall setTitle:@"12 Rolls" forState:UIControlStateNormal];
+    } else if (indexPath.row == 3) {
+        [qtyButton setTitle:@"16 Rolls" forState:UIControlStateNormal];
+        [qtyButtonSmall setTitle:@"16 Rolls" forState:UIControlStateNormal];
+    }
+    self.qtyTable.hidden = YES;
+    self.qtyButton.selected = NO;
+}
+
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"inside diddeselect");
+    self.qtyTable.hidden = YES;
+    self.qtyButton.selected = NO;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
@@ -196,13 +226,23 @@
 }
 
 - (IBAction)qtyChange:(id)sender {
-    if (qtyTable.hidden) {
-        qtyTable.hidden = false;
-        qtyButton.selected = YES; 
+    NSLog(@"in quantity change");
+    if (self.qtyTable.hidden) {
+        self.qtyTable.hidden = NO;
+        self.qtyButton.selected = YES; 
     } else {
-        qtyTable.hidden = true;
-        qtyButton.selected = NO;
+        self.qtyTable.hidden = YES;
+        self.qtyButton.selected = NO;
     }
+}
+
+- (IBAction)sendOrder:(id)sender {
+    User *user = [User currentUser];
+    user.name = self.nameTextField.text; 
+    user.address = self.addressTextField.text; 
+    user.state = self.stateTextField.text;
+    user.zip = self.zipTextField.text;
+    [user save];
 }
 
 @end

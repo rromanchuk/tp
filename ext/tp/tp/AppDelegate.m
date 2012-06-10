@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "TestFlight.h"
+#import "User.h"
 
 @implementation AppDelegate
 
@@ -18,6 +19,9 @@
     // Override point for customization after application launch.
     [TestFlight takeOff:@"8676fb61f456a4cec842fdd786016e39_ODkwOTcyMDEyLTA1LTEzIDE1OjA1OjUzLjIwMzEwOQ"];
     [application setStatusBarStyle:UIStatusBarStyleBlackOpaque];
+    User *user = [[User alloc] init];
+    NSLog(@"%@", user);
+    [User setCurrentUser:user]; 
     return YES;
 }
 							
