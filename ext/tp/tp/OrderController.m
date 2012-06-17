@@ -9,6 +9,8 @@
 #import "OrderController.h"
 #import "UIBarButtonItem+Borderless.h"
 #import "User.h"
+#import "Stripe.h"
+#import "Config.h"
 @interface OrderController ()
 
 @end
@@ -238,6 +240,44 @@
 
 - (IBAction)sendOrder:(id)sender {
     User *user = [User currentUser];
+    //StripeConnection *stripe = [StripeConnection connectionWithPublishableKey:[Config sharedConfig].stripeKey];
+    StripeConnection *stripe = [StripeConnection connectionWithSecretKey:[Config sharedConfig].stripeSecret];
+    StripeCard *card =  [[StripeCard alloc] init];
+    card.number =       @"4111111111111111";
+    card.name =         @"Bob Dylan";
+    card.securityCode = @"010";
+    card.expiryMonth =  [NSNumber numberWithInteger:2];
+    card.expiryYear =   [NSNumber numberWithInteger:2014];
+    [stripe createCustomerWithCard:card 
+                   withDescription:@"Ryan Romanchuk"
+                           success:^(StripeResponse *token) 
+     {
+         NSLog(@"charge success");
+         user.stripeCardToken = token.token;
+         /* handle success */
+     }
+                             error:^(NSError *error) 
+     {
+         NSLog(@"charge failure %@", error);
+         /* handle failure */
+     }];
+
+//    [stripe performRequestWithCard:card 
+//                     amountInCents:[NSNumber numberWithInteger:200] 
+//                           success:^(StripeResponse *token) 
+//     {
+//         NSLog(@"charge success");
+//         user.stripeCardToken = token.token;
+//         /* handle success */
+//     }
+//                             error:^(NSError *error) 
+//     {
+//         NSLog(@"charge failure %@", error);
+//         /* handle failure */
+//     }];
+    
+    
+    
     user.name = self.nameTextField.text; 
     user.address = self.addressTextField.text; 
     user.state = self.stateTextField.text;

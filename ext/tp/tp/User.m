@@ -22,6 +22,8 @@ static User *_currentUser = nil;
 @synthesize zip;
 @synthesize country;
 @synthesize authenticationToken; 
+@synthesize accessToken;
+@synthesize stripeCardToken;
 @synthesize email;
 @synthesize prefs;
 
@@ -30,6 +32,7 @@ static User *_currentUser = nil;
         NSLog(@"Initializing user.");
         self.prefs = [NSUserDefaults standardUserDefaults];
         self.authenticationToken = [self.prefs stringForKey:@"authenticationToken"];
+        self.accessToken = [self.prefs stringForKey:@"accessToken"];
         self.name = [self.prefs stringForKey:@"name"]; 
         self.address = [self.prefs stringForKey:@"address"];
         self.address1 = [self.prefs stringForKey:@"address1"]; 
@@ -52,6 +55,7 @@ static User *_currentUser = nil;
     [self.prefs setValue:self.zip forKey:@"zip"];
     [self.prefs setValue:self.country forKey:@"country"];
     [self.prefs setValue:self.email forKey:@"email"];
+    [self.prefs setValue:self.stripeCardToken forKey:@"stripeCardToken"];
     [self.prefs synchronize];
     
 }
@@ -59,7 +63,8 @@ static User *_currentUser = nil;
 
 - (void)save:(void (^)(id object))onLoad
        onError:(void (^)(NSString *error))onError {
-    NSURL *url = [NSURL URLWithString:@"tp4.me/users"];
+    
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"tp4.me/api/users?access_token=%@", self.accessToken]];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url]; 
     request.HTTPMethod = @"POST";
     
@@ -90,8 +95,8 @@ static User *_currentUser = nil;
 }
 
 -(NSString *) description {
-    return [NSString stringWithFormat:@"NAME: %@\nADDRESS: %@\n",
-            self.name, self.address];
+    return [NSString stringWithFormat:@"NAME: %@\nADDRESS: %@\nCITY: %@\nSTATE: %@\nZIP: %@",
+            self.name, self.address, self.city, self.state, self.zip];
 }
 
 

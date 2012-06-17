@@ -3,12 +3,13 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.3'
 gem 'devise'
 gem 'stripe'
+gem 'haml'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'mysql2'
 
-
+gem 'fb_graph'
 gem 'activemerchant', :require => 'active_merchant'
 gem 'active_shipping'
 # Gems used only for assets and not required

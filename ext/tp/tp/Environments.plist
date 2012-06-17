@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Debug</key>
+	<dict>
+		<key>baseURL</key>
+		<string>http://tp4.me:3000</string>
+		<key>stripeKey</key>
+		<string>***REMOVED***</string>
+		<key>stripeSecret</key>
+		<string>6rGX3ytowp3gxEHxq5RNh9j9G93xUWUy</string>
+	</dict>
+	<key>Release</key>
+	<dict>
+		<key>baseURL</key>
+		<string>http://tp4.me</string>
+		<key>stripeKey</key>
+		<string>pk_QheikYVHpeR004nuGdD2QN5QOf8q0</string>
+		<key>stripeSecret</key>
+		<string>PJ22iodsVgOr1TZafB0Y7N8lHJjKNyTf</string>
+	</dict>
+</dict>
+</plist>

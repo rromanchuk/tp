@@ -19,6 +19,8 @@
 @property (strong) NSString *authenticationToken;
 @property (strong) NSString *email;
 @property (strong) NSUserDefaults *prefs; 
+@property (strong) NSString *accessToken;
+@property (strong) NSString *stripeCardToken;
 
 - (void)save:(void (^)(id object))onLoad
      onError:(void (^)(NSString *error))onError;
