@@ -53,23 +53,30 @@
                                                                                  kCFStringEncodingUTF8 );
 }
 
-- (NSData *)HTTPBodyWithCard:(StripeCard *)card amountInCents:(NSNumber *)amount currency:(NSString *)currency description:(NSString *)description {
+- (NSData *)HTTPBodyWithCard:(StripeCard *)card amountInCents:(NSNumber *)amount currency:(NSString *)currency description:(NSString *)description customer:(StripeCustomer *)customer {
     NSMutableString *body = [NSMutableString string];
-    NSDictionary *attributes = card.attributes;
     
-    for (NSString *key in attributes) {
-        NSString *value = [attributes objectForKey:key];
-        if ((id)value == [NSNull null]) continue;
+    if(card) {
+        NSDictionary *attributes = card.attributes;
         
+        for (NSString *key in attributes) {
+            NSString *value = [attributes objectForKey:key];
+            if ((id)value == [NSNull null]) continue;
+            
+            if (body.length != 0)
+                [body appendString:@"&"];
+            
+            if ([value isKindOfClass:[NSString class]])
+                value = [self escapedString:value];
+            
+            [body appendFormat:@"card[%@]=%@", [self escapedString:key], value];
+        }
+    } else if (customer) {
         if (body.length != 0)
             [body appendString:@"&"];
-        
-        if ([value isKindOfClass:[NSString class]])
-            value = [self escapedString:value];
-        
-        [body appendFormat:@"card[%@]=%@", [self escapedString:key], value];
+        [body appendFormat:@"customer=%@", customer.token];
     }
-    
+        
     if (amount) {
         if (body.length != 0)
             [body appendString:@"&"];
@@ -97,10 +104,21 @@
                   URLByAppendingPathComponent:kStripeCustomerPath];
     NSLog(@"%@", url);
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
-    request.HTTPBody = [self HTTPBodyWithCard:card amountInCents:NULL currency:NULL description:description];
+    request.HTTPBody = [self HTTPBodyWithCard:card amountInCents:NULL currency:NULL description:description customer:NULL];
     [request setHTTPMethod:@"POST"];
     return request;
 
+}
+
+- (NSMutableURLRequest *)buildRequestWithCustomer:(StripeCustomer *)customer amountInCents:(NSNumber *)amount currency:(NSString *)currency {
+    NSURL *url = [[NSURL URLWithString:
+                   [NSString stringWithFormat:kStripeAPIBase, [self escapedString:self.secretKey]]]
+                  URLByAppendingPathComponent:kStripeChargePath];
+    NSLog(@"%@", url);
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+    request.HTTPBody = [self HTTPBodyWithCard:NULL amountInCents:amount currency:@"usd" description:NULL customer:customer];
+    [request setHTTPMethod:@"POST"];
+    return request;
 }
 
 - (NSMutableURLRequest *)buildRequestWithCard:(StripeCard *)card amountInCents:(NSNumber *)amount currency:(NSString *)currency {
@@ -109,7 +127,7 @@
                   URLByAppendingPathComponent:kStripeTokenPath];
     NSLog(@"%@", url);
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
-    request.HTTPBody = [self HTTPBodyWithCard:card amountInCents:amount currency:currency description:NULL];
+    request.HTTPBody = [self HTTPBodyWithCard:card amountInCents:amount currency:currency description:NULL customer:NULL];
     [request setHTTPMethod:@"POST"];
     return request;
 }
@@ -147,6 +165,10 @@
     [self performRequest:request success:success error:error];
 }
 
+- (void)performRequestWithCustomer:(StripeCustomer *)customer amountInCents:(NSNumber *)amount success:(void (^)(StripeResponse *response))success error:(void (^)(NSError *error))error {
+    NSMutableURLRequest *request = [self buildRequestWithCustomer:customer amountInCents:amount currency:@"usd"];
+    [self performRequest:request success:success error:error];
+}
 
 - (void)createCustomerWithCard:(StripeCard *)card withDescription:(NSString *)description success:(void (^)(StripeResponse *response))success error:(void (^)(NSError *error))error {
     NSMutableURLRequest *request = [self buildCreateCustomerRequest:card description:description];
@@ -160,7 +182,7 @@
 - (NSDictionary *)attributes {
     return [NSDictionary dictionaryWithObjectsAndKeys:
             self.description         ? self.description : [NSNull null],         @"description",
-            self.token    ? self.token : [NSNull null],    @"card",
+            self.token    ? self.token : [NSNull null],    @"token",
             nil];
 }
 

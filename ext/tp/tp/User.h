@@ -16,16 +16,18 @@
 @property (strong) NSString *state; 
 @property (strong) NSString *zip; 
 @property (strong) NSString *country;
-@property (strong) NSString *authenticationToken;
 @property (strong) NSString *email;
 @property (strong) NSUserDefaults *prefs; 
-@property (strong) NSString *accessToken;
 @property (strong) NSString *stripeCardToken;
+@property (strong) NSString *stripeCustomerId; 
 
 - (void)save:(void (^)(id object))onLoad
      onError:(void (^)(NSString *error))onError;
-- (bool)isAuthenticated;
 - (void)save;
+- (void)createStripeCustomer;
+- (void)chargeCustomer:(NSNumber *)amountInCents;
+- (bool)hasCustomerObject;
+
 + (User *)currentUser;
 + (void)setCurrentUser:(User *)user;
 

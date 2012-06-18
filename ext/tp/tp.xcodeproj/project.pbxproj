@@ -23,9 +23,9 @@
 		FA26D07F156EBEE70029463E /* form-bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA26D07E156EBEE70029463E /* form-bg@2x.png */; };
 		FA26D081156EBFE80029463E /* form-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = FA26D080156EBFE80029463E /* form-bg.png */; };
 		FA49999A15697FAB004A2287 /* Arvil_Sans.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA49999915697FAB004A2287 /* Arvil_Sans.ttf */; };
-		FA8E9F13158CF09900CB6F5B /* StripeController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA8E9F12158CF09900CB6F5B /* StripeController.m */; };
 		FA8E9F17158CF62C00CB6F5B /* Config.m in Sources */ = {isa = PBXBuildFile; fileRef = FA8E9F16158CF62C00CB6F5B /* Config.m */; };
 		FA8E9F19158CF67300CB6F5B /* Environments.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA8E9F18158CF67300CB6F5B /* Environments.plist */; };
+		FA8E9F1D158DDED700CB6F5B /* UIApplication+NetworkActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = FA8E9F1C158DDED700CB6F5B /* UIApplication+NetworkActivityIndicator.m */; };
 		FAA11B7715603E180005CAFA /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FAA11B7515603E180005CAFA /* libTestFlight.a */; };
 		FAA11B7A1560401B0005CAFA /* order@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAA11B781560401B0005CAFA /* order@2x.png */; };
 		FAA11B7B1560401B0005CAFA /* quantity@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAA11B791560401B0005CAFA /* quantity@2x.png */; };
@@ -110,11 +110,11 @@
 		FA26D07E156EBEE70029463E /* form-bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "form-bg@2x.png"; sourceTree = "<group>"; };
 		FA26D080156EBFE80029463E /* form-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "form-bg.png"; sourceTree = "<group>"; };
 		FA49999915697FAB004A2287 /* Arvil_Sans.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Arvil_Sans.ttf; sourceTree = "<group>"; };
-		FA8E9F11158CF09900CB6F5B /* StripeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StripeController.h; sourceTree = "<group>"; };
-		FA8E9F12158CF09900CB6F5B /* StripeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StripeController.m; sourceTree = "<group>"; };
 		FA8E9F15158CF62C00CB6F5B /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
 		FA8E9F16158CF62C00CB6F5B /* Config.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Config.m; sourceTree = "<group>"; };
 		FA8E9F18158CF67300CB6F5B /* Environments.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Environments.plist; sourceTree = "<group>"; };
+		FA8E9F1B158DDED700CB6F5B /* UIApplication+NetworkActivityIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+NetworkActivityIndicator.h"; sourceTree = "<group>"; };
+		FA8E9F1C158DDED700CB6F5B /* UIApplication+NetworkActivityIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+NetworkActivityIndicator.m"; sourceTree = "<group>"; };
 		FAA11B7515603E180005CAFA /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
 		FAA11B7615603E180005CAFA /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 		FAA11B781560401B0005CAFA /* order@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "order@2x.png"; path = "assets/order@2x.png"; sourceTree = "<group>"; };
@@ -262,6 +262,7 @@
 		94A94E6E15581D14004FB612 /* tp */ = {
 			isa = PBXGroup;
 			children = (
+				FA8E9F1A158DDEA600CB6F5B /* helpers */,
 				FAC5B7CB157A2DC900C73398 /* Stripe.h */,
 				FAC5B7CC157A2DC900C73398 /* Stripe.m */,
 				FAA11B8B15658BEC0005CAFA /* models */,
@@ -274,10 +275,6 @@
 				94A94E7815581D14004FB612 /* AppDelegate.m */,
 				94A94E7A15581D14004FB612 /* MainStoryboard.storyboard */,
 				94A94E6F15581D14004FB612 /* Supporting Files */,
-				FAE9602F155B08E4007F42DA /* UIBarButtonItem+Borderless.h */,
-				FAE96030155B08E4007F42DA /* UIBarButtonItem+Borderless.m */,
-				FAC5B7E0157B7A1600C73398 /* KeychainItemWrapper.h */,
-				FAC5B7E1157B7A1600C73398 /* KeychainItemWrapper.m */,
 			);
 			path = tp;
 			sourceTree = "<group>";
@@ -314,6 +311,19 @@
 				94A94E8F15581D14004FB612 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FA8E9F1A158DDEA600CB6F5B /* helpers */ = {
+			isa = PBXGroup;
+			children = (
+				FAC5B7E0157B7A1600C73398 /* KeychainItemWrapper.h */,
+				FAC5B7E1157B7A1600C73398 /* KeychainItemWrapper.m */,
+				FA8E9F1B158DDED700CB6F5B /* UIApplication+NetworkActivityIndicator.h */,
+				FA8E9F1C158DDED700CB6F5B /* UIApplication+NetworkActivityIndicator.m */,
+				FAE9602F155B08E4007F42DA /* UIBarButtonItem+Borderless.h */,
+				FAE96030155B08E4007F42DA /* UIBarButtonItem+Borderless.m */,
+			);
+			name = helpers;
 			sourceTree = "<group>";
 		};
 		FAA11B8A15658BDB0005CAFA /* delegates */ = {
@@ -429,8 +439,6 @@
 				94A94E7E15581D14004FB612 /* OrderController.m */,
 				FAAC5263158545E3009E9811 /* SettingsController.h */,
 				FAAC5264158545E3009E9811 /* SettingsController.m */,
-				FA8E9F11158CF09900CB6F5B /* StripeController.h */,
-				FA8E9F12158CF09900CB6F5B /* StripeController.m */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -593,8 +601,8 @@
 				FAC5B7D7157A4EB500C73398 /* User.m in Sources */,
 				FAC5B7E2157B7A1600C73398 /* KeychainItemWrapper.m in Sources */,
 				FAAC5265158545E3009E9811 /* SettingsController.m in Sources */,
-				FA8E9F13158CF09900CB6F5B /* StripeController.m in Sources */,
 				FA8E9F17158CF62C00CB6F5B /* Config.m in Sources */,
+				FA8E9F1D158DDED700CB6F5B /* UIApplication+NetworkActivityIndicator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

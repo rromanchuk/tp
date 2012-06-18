@@ -29,16 +29,13 @@
 @synthesize scrollView;
 
 //Form
-@synthesize nameLabel;
-@synthesize nameTextField;
-@synthesize addressLabel;
-@synthesize addressTextField; 
-@synthesize cityLabel;
-@synthesize cityTextField;
-@synthesize stateLabel;
-@synthesize stateTextField;
-@synthesize zipLabel;
-@synthesize zipTextField;
+@synthesize nameLabel, nameTextField;
+@synthesize emailLabel, emailTextField;
+@synthesize addressLabel, addressTextField;
+@synthesize address1Label, address1Textfield;
+@synthesize cityLabel, cityTextField;
+@synthesize stateLabel, stateTextField;
+@synthesize zipLabel, zipTextField;
 @synthesize helperText;
 
 //checkout
@@ -89,6 +86,20 @@
     self.thatsItLabel.font = [UIFont fontWithName:@"ArvilSans" size:22.0];
     self.deliveryEst.font = [UIFont fontWithName:@"ArvilSans" size:20.0];
     self.isOnCheckout = NO;
+    
+    [self loadForm];
+}
+
+- (void)loadForm {
+    User *user = [User currentUser];
+    if (user.name) {
+        self.nameTextField.text = user.name; 
+        self.addressTextField.text = user.address;
+        //self.address1Textfield.text = user.address1; 
+        self.cityTextField.text = user.city; 
+        self.stateTextField.text = user.state; 
+        self.zipTextField.text = user.zip;
+    }
 }
 
 - (void)viewDidUnload
@@ -198,7 +209,6 @@
     }
 }
 
-
 // keyboard
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
@@ -240,49 +250,22 @@
 
 - (IBAction)sendOrder:(id)sender {
     User *user = [User currentUser];
-    //StripeConnection *stripe = [StripeConnection connectionWithPublishableKey:[Config sharedConfig].stripeKey];
-    StripeConnection *stripe = [StripeConnection connectionWithSecretKey:[Config sharedConfig].stripeSecret];
-    StripeCard *card =  [[StripeCard alloc] init];
-    card.number =       @"4111111111111111";
-    card.name =         @"Bob Dylan";
-    card.securityCode = @"010";
-    card.expiryMonth =  [NSNumber numberWithInteger:2];
-    card.expiryYear =   [NSNumber numberWithInteger:2014];
-    [stripe createCustomerWithCard:card 
-                   withDescription:@"Ryan Romanchuk"
-                           success:^(StripeResponse *token) 
-     {
-         NSLog(@"charge success");
-         user.stripeCardToken = token.token;
-         /* handle success */
-     }
-                             error:^(NSError *error) 
-     {
-         NSLog(@"charge failure %@", error);
-         /* handle failure */
-     }];
-
-//    [stripe performRequestWithCard:card 
-//                     amountInCents:[NSNumber numberWithInteger:200] 
-//                           success:^(StripeResponse *token) 
-//     {
-//         NSLog(@"charge success");
-//         user.stripeCardToken = token.token;
-//         /* handle success */
-//     }
-//                             error:^(NSError *error) 
-//     {
-//         NSLog(@"charge failure %@", error);
-//         /* handle failure */
-//     }];
-    
-    
-    
+        
     user.name = self.nameTextField.text; 
+    //user.email = self.emailTextField.text;
     user.address = self.addressTextField.text; 
+    //user.address1 = self.address1Textfield.text;
     user.state = self.stateTextField.text;
     user.zip = self.zipTextField.text;
+    user.country = @"United States";
     [user save];
+    if([user hasCustomerObject]) {
+        NSLog(@"Already have customer object. Create charge.");
+        [user chargeCustomer:[NSNumber numberWithInt:400]];
+    } else {
+        NSLog(@"No existing customer. Create now.");
+        [user createStripeCustomer];
+    }
 }
 
 @end

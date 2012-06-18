@@ -1,7 +1,7 @@
 #define kStripeAPIBase @"https://%@:@api.stripe.com/v1"
 #define kStripeTokenPath @"tokens"
 #define kStripeCustomerPath @"customers"
-#define kStripeChargesPath @"charges"
+#define kStripeChargePath @"charges"
 
 @interface StripeCard : NSObject
 

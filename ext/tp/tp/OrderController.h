@@ -15,44 +15,50 @@
     NSString *option4;
 }
 
-@property (strong) IBOutlet UINavigationBar *navigationBar;
-@property (strong) IBOutlet UIBarButtonItem *rightBarButton;
-@property (strong) IBOutlet UIButton *regularButton; 
-@property (strong) IBOutlet UIButton *premiumButton;
-@property (strong) IBOutlet UIButton *orderButton; 
-@property (strong) IBOutlet UIButton *qtyButton;
-@property (strong) IBOutlet UIButton *qtyButtonSmall;
+@property (weak) IBOutlet UINavigationBar *navigationBar;
+@property (weak) IBOutlet UIBarButtonItem *rightBarButton;
+@property (weak) IBOutlet UIButton *regularButton; 
+@property (weak) IBOutlet UIButton *premiumButton;
+@property (weak) IBOutlet UIButton *orderButton; 
+@property (weak) IBOutlet UIButton *qtyButton;
+@property (weak) IBOutlet UIButton *qtyButtonSmall;
 
 //scroll view
-@property (strong) IBOutlet UIScrollView *scrollView;
+@property (weak) IBOutlet UIScrollView *scrollView;
 //Table properties
-@property (strong) IBOutlet UITableView *qtyTable;
+@property (weak) IBOutlet UITableView *qtyTable;
 
 //Form
-@property (strong) IBOutlet UILabel *nameLabel;
-@property (strong) IBOutlet UITextField *nameTextField;
+@property (weak) IBOutlet UILabel *nameLabel;
+@property (weak) IBOutlet UITextField *nameTextField;
 
-@property (strong) IBOutlet UILabel *addressLabel;
-@property (strong) IBOutlet UITextField *addressTextField;
+@property (weak) IBOutlet UILabel *emailLabel; 
+@property (weak) IBOutlet UITextField *emailTextField;
 
-@property (strong) IBOutlet UILabel *cityLabel;
-@property (strong) IBOutlet UITextField *cityTextField;
+@property (weak) IBOutlet UILabel *addressLabel;
+@property (weak) IBOutlet UITextField *addressTextField;
 
-@property (strong) IBOutlet UILabel *stateLabel;
-@property (strong) IBOutlet UITextField *stateTextField;
+@property (weak) IBOutlet UILabel *address1Label;
+@property (weak) IBOutlet UITextField *address1Textfield;
 
-@property (strong) IBOutlet UILabel *zipLabel;
-@property (strong) IBOutlet UITextField *zipTextField;
+@property (weak) IBOutlet UILabel *cityLabel;
+@property (weak) IBOutlet UITextField *cityTextField;
 
-@property (strong) IBOutlet UILabel *helperText;
+@property (weak) IBOutlet UILabel *stateLabel;
+@property (weak) IBOutlet UITextField *stateTextField;
+
+@property (weak) IBOutlet UILabel *zipLabel;
+@property (weak) IBOutlet UITextField *zipTextField;
+
+@property (weak) IBOutlet UILabel *helperText;
 
 //Checkout
-@property (strong) IBOutlet UILabel *thatsItLabel;
-@property (strong) IBOutlet UILabel *deliveryEst;
-@property (strong) IBOutlet UIButton *cancelOrder;
+@property (weak) IBOutlet UILabel *thatsItLabel;
+@property (weak) IBOutlet UILabel *deliveryEst;
+@property (weak) IBOutlet UIButton *cancelOrder;
 
 @property BOOL isOnCheckout;
-@property (strong) UITextField *activeField;
+@property (weak) UITextField *activeField;
 
 - (void)config;
 - (IBAction)qtyChange:(id)sender;

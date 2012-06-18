@@ -9,7 +9,8 @@
 #import "User.h"
 #import "KeychainItemWrapper.h"
 #import "AFJSONRequestOperation.h"
-
+#import "Stripe.h"
+#import "Config.h"
 static User *_currentUser = nil;
 
 @implementation User
@@ -21,9 +22,8 @@ static User *_currentUser = nil;
 @synthesize state;
 @synthesize zip;
 @synthesize country;
-@synthesize authenticationToken; 
-@synthesize accessToken;
 @synthesize stripeCardToken;
+@synthesize stripeCustomerId; 
 @synthesize email;
 @synthesize prefs;
 
@@ -31,16 +31,15 @@ static User *_currentUser = nil;
     if (self = [super init]) {
         NSLog(@"Initializing user.");
         self.prefs = [NSUserDefaults standardUserDefaults];
-        self.authenticationToken = [self.prefs stringForKey:@"authenticationToken"];
-        self.accessToken = [self.prefs stringForKey:@"accessToken"];
-        self.name = [self.prefs stringForKey:@"name"]; 
+        self.stripeCustomerId = [self.prefs stringForKey:@"stripeCustomerId"];
+        self.name = [self.prefs stringForKey:@"name"];
+        self.email = [self.prefs stringForKey:@"email"];
         self.address = [self.prefs stringForKey:@"address"];
         self.address1 = [self.prefs stringForKey:@"address1"]; 
         self.city = [self.prefs stringForKey:@"city"];
         self.state = [self.prefs stringForKey:@"state"]; 
         self.zip = [self.prefs stringForKey:@"zip"]; 
         self.country = [self.prefs stringForKey:@"country"];
-        self.email = [self.prefs stringForKey:@"email"];
     }
     return self; 
 }
@@ -56,15 +55,64 @@ static User *_currentUser = nil;
     [self.prefs setValue:self.country forKey:@"country"];
     [self.prefs setValue:self.email forKey:@"email"];
     [self.prefs setValue:self.stripeCardToken forKey:@"stripeCardToken"];
+    [self.prefs setValue:self.stripeCustomerId forKey:@"stripeCustomerId"];
     [self.prefs synchronize];
     
 }
 
+- (void)chargeCustomer:(NSNumber *)amountInCents {
+    StripeConnection *stripe = [StripeConnection connectionWithSecretKey:[Config sharedConfig].stripeSecret];
+    StripeCustomer *customer = [[StripeCustomer alloc] init]; 
+    customer.token = self.stripeCustomerId;
+    [stripe performRequestWithCustomer:customer 
+                         amountInCents:amountInCents 
+                               success:^(StripeResponse *token) 
+     {
+         NSLog(@"Successfully charged customer");
+     }
+                                 error:^(NSError *error) 
+     {
+         NSLog(@"Failed to charge customer %@", error);
+     }];
+
+}
+
+- (void)createStripeCustomer {
+    StripeConnection *stripe = [StripeConnection connectionWithSecretKey:[Config sharedConfig].stripeSecret];
+    StripeCard *card =  [[StripeCard alloc] init];
+    card.number =       @"4111111111111111";
+    card.name =         @"Bob Dylan";
+    card.securityCode = @"010";
+    card.expiryMonth =  [NSNumber numberWithInteger:2];
+    card.expiryYear =   [NSNumber numberWithInteger:2014];
+    [stripe createCustomerWithCard:card 
+                   withDescription:self.name
+                           success:^(StripeResponse *token) 
+     {
+         NSLog(@"Customer created successfully");
+         self.stripeCustomerId = token.token;
+         /* handle success */
+     }
+                             error:^(NSError *error) 
+     {
+         NSLog(@"Customer creation failed %@", error);
+         /* handle failure */
+     }];
+    [self save];
+}
+
+- (bool)hasCustomerObject {
+    if(self.stripeCustomerId) {
+        return YES;
+    } else {
+        return NO;
+    }
+}
 
 - (void)save:(void (^)(id object))onLoad
        onError:(void (^)(NSString *error))onError {
     
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"tp4.me/api/users?access_token=%@", self.accessToken]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"tp4.me/api/users?access_token=%@", @"fdj"]];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url]; 
     request.HTTPMethod = @"POST";
     
@@ -74,18 +122,15 @@ static User *_currentUser = nil;
     [operation start];
 }
 
-- (bool)isAuthenticated {
-    NSLog(@"Authentication Token: %@", self.authenticationToken);
-    if (self.authenticationToken) {
-        return YES;
-    } else {
-        return NO;
-    }
-}
-
 + (User *)currentUser
 {
-    return _currentUser;
+    if (_currentUser) {
+        return _currentUser;
+    } else {
+        User *user = [[User alloc] init];
+        [User setCurrentUser:user];
+        return _currentUser;
+    }
 }
 
 + (void)setCurrentUser:(User *)user
@@ -95,8 +140,8 @@ static User *_currentUser = nil;
 }
 
 -(NSString *) description {
-    return [NSString stringWithFormat:@"NAME: %@\nADDRESS: %@\nCITY: %@\nSTATE: %@\nZIP: %@",
-            self.name, self.address, self.city, self.state, self.zip];
+    return [NSString stringWithFormat:@"EMAIL: %@\nNAME: %@\nADDRESS: %@\nCITY: %@\nSTATE: %@\nZIP: %@\nCOUNTRY: %@\nCUSTOMER_ID: %@",
+            self.email, self.name, self.address, self.city, self.state, self.zip, self.country, self.stripeCustomerId];
 }
 
 

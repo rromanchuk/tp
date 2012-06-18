@@ -20,21 +20,20 @@
     // Override point for customization after application launch.
     [TestFlight takeOff:@"8676fb61f456a4cec842fdd786016e39_ODkwOTcyMDEyLTA1LTEzIDE1OjA1OjUzLjIwMzEwOQ"];
     [application setStatusBarStyle:UIStatusBarStyleBlackOpaque];
-    facebook = [[Facebook alloc] initWithAppId:@"134843076652199" andDelegate:self];
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    if ([defaults objectForKey:@"FBAccessTokenKey"] 
-        && [defaults objectForKey:@"FBExpirationDateKey"]) {
-        facebook.accessToken = [defaults objectForKey:@"FBAccessTokenKey"];
-        facebook.expirationDate = [defaults objectForKey:@"FBExpirationDateKey"];
-    }
+
+//    facebook = [[Facebook alloc] initWithAppId:@"134843076652199" andDelegate:self];
+//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//    if ([defaults objectForKey:@"FBAccessTokenKey"] 
+//        && [defaults objectForKey:@"FBExpirationDateKey"]) {
+//        facebook.accessToken = [defaults objectForKey:@"FBAccessTokenKey"];
+//        facebook.expirationDate = [defaults objectForKey:@"FBExpirationDateKey"];
+//    }
+//    
+//    if (![facebook isSessionValid]) {
+//        //[facebook authorize:nil];
+//    }
+//    
     
-    if (![facebook isSessionValid]) {
-        //[facebook authorize:nil];
-    }
-    
-    User *user = [[User alloc] init];
-    NSLog(@"%@", user);
-    [User setCurrentUser:user]; 
     return YES;
 }
 
@@ -76,6 +75,9 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
+    User *user = [[User alloc] init];
+    NSLog(@"%@", user);
+    [User setCurrentUser:user]; 
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 }
 
