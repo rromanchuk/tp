@@ -23,6 +23,7 @@
 		FA26D07F156EBEE70029463E /* form-bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA26D07E156EBEE70029463E /* form-bg@2x.png */; };
 		FA26D081156EBFE80029463E /* form-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = FA26D080156EBFE80029463E /* form-bg.png */; };
 		FA49999A15697FAB004A2287 /* Arvil_Sans.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA49999915697FAB004A2287 /* Arvil_Sans.ttf */; };
+		FA837F041596F4B100820F3C /* OrderButton.m in Sources */ = {isa = PBXBuildFile; fileRef = FA837F031596F4B100820F3C /* OrderButton.m */; };
 		FA8E9F17158CF62C00CB6F5B /* Config.m in Sources */ = {isa = PBXBuildFile; fileRef = FA8E9F16158CF62C00CB6F5B /* Config.m */; };
 		FA8E9F19158CF67300CB6F5B /* Environments.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA8E9F18158CF67300CB6F5B /* Environments.plist */; };
 		FA8E9F1D158DDED700CB6F5B /* UIApplication+NetworkActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = FA8E9F1C158DDED700CB6F5B /* UIApplication+NetworkActivityIndicator.m */; };
@@ -110,6 +111,8 @@
 		FA26D07E156EBEE70029463E /* form-bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "form-bg@2x.png"; sourceTree = "<group>"; };
 		FA26D080156EBFE80029463E /* form-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "form-bg.png"; sourceTree = "<group>"; };
 		FA49999915697FAB004A2287 /* Arvil_Sans.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Arvil_Sans.ttf; sourceTree = "<group>"; };
+		FA837F021596F4B100820F3C /* OrderButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderButton.h; sourceTree = "<group>"; };
+		FA837F031596F4B100820F3C /* OrderButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderButton.m; sourceTree = "<group>"; };
 		FA8E9F15158CF62C00CB6F5B /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
 		FA8E9F16158CF62C00CB6F5B /* Config.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Config.m; sourceTree = "<group>"; };
 		FA8E9F18158CF67300CB6F5B /* Environments.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Environments.plist; sourceTree = "<group>"; };
@@ -262,6 +265,7 @@
 		94A94E6E15581D14004FB612 /* tp */ = {
 			isa = PBXGroup;
 			children = (
+				FA837F001596F46A00820F3C /* views */,
 				FA8E9F1A158DDEA600CB6F5B /* helpers */,
 				FAC5B7CB157A2DC900C73398 /* Stripe.h */,
 				FAC5B7CC157A2DC900C73398 /* Stripe.m */,
@@ -311,6 +315,29 @@
 				94A94E8F15581D14004FB612 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FA52DF3B15972C2100BAF856 /* checkout */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = checkout;
+			sourceTree = "<group>";
+		};
+		FA52DF3D15972C3300BAF856 /* order */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = order;
+			sourceTree = "<group>";
+		};
+		FA837F001596F46A00820F3C /* views */ = {
+			isa = PBXGroup;
+			children = (
+				FA837F021596F4B100820F3C /* OrderButton.h */,
+				FA837F031596F4B100820F3C /* OrderButton.m */,
+			);
+			name = views;
 			sourceTree = "<group>";
 		};
 		FA8E9F1A158DDEA600CB6F5B /* helpers */ = {
@@ -372,6 +399,8 @@
 		FAE95FF8155A8E21007F42DA /* assets */ = {
 			isa = PBXGroup;
 			children = (
+				FA52DF3D15972C3300BAF856 /* order */,
+				FA52DF3B15972C2100BAF856 /* checkout */,
 				FADBE7C815723DCB00FC9072 /* cancel.png */,
 				FADBE7C915723DCB00FC9072 /* cancel@2x.png */,
 				FADBE7CA15723DCB00FC9072 /* truck.png */,
@@ -603,6 +632,7 @@
 				FAAC5265158545E3009E9811 /* SettingsController.m in Sources */,
 				FA8E9F17158CF62C00CB6F5B /* Config.m in Sources */,
 				FA8E9F1D158DDED700CB6F5B /* UIApplication+NetworkActivityIndicator.m in Sources */,
+				FA837F041596F4B100820F3C /* OrderButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

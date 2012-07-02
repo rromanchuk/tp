@@ -60,6 +60,8 @@
 @property BOOL isOnCheckout;
 @property (weak) UITextField *activeField;
 
+@property (weak) IBOutlet UIButton *test;
+
 - (void)config;
 - (IBAction)qtyChange:(id)sender;
 - (IBAction)scrollToCheckout:(id)sender;
