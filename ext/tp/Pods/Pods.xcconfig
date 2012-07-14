@@ -1,0 +1,5 @@
+PODS_ROOT = ${SRCROOT}/Pods
+ALWAYS_SEARCH_USER_PATHS = YES
+OTHER_LDFLAGS = -ObjC -lTestFlight -lz -framework CoreText -framework QuartzCore -framework SystemConfiguration
+LIBRARY_SEARCH_PATHS = "$(PODS_ROOT)/TestFlightSDK"
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers" "${PODS_ROOT}/Headers/AFNetworking" "${PODS_ROOT}/Headers/JTObjectMapping" "${PODS_ROOT}/Headers/SVProgressHUD" "${PODS_ROOT}/Headers/TTTAttributedLabel" "${PODS_ROOT}/Headers/TestFlightSDK"

@@ -372,14 +372,10 @@ static void AFNetworkReachabilityReleaseCallback(const void *info) {
 }
 
 - (void)startMonitoringNetworkReachability {
-    [self stopMonitoringNetworkReachability];
-    
-    if (!self.baseURL) {
-        return;
-    }
+    [self stopMonitoringNetworkReachability];    
 
     self.networkReachability = SCNetworkReachabilityCreateWithName(kCFAllocatorDefault, [[self.baseURL host] UTF8String]);
-
+    
     AFNetworkReachabilityStatusBlock callback = ^(AFNetworkReachabilityStatus status){
         self.networkReachabilityStatus = status;
         if (self.networkReachabilityStatusBlock) {
@@ -688,7 +684,7 @@ static inline NSString * AFMultipartFormEncapsulationBoundary() {
 }
 
 static inline NSString * AFMultipartFormFinalBoundary() {
-    return [NSString stringWithFormat:@"%@--%@--%@", kAFMultipartFormCRLF, kAFMultipartFormBoundary, kAFMultipartFormCRLF];
+    return [NSString stringWithFormat:@"%@--%@--%@%@", kAFMultipartFormCRLF, kAFMultipartFormBoundary, kAFMultipartFormCRLF, kAFMultipartFormCRLF];
 }
 
 @interface AFMultipartFormData ()

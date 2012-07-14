@@ -1,0 +1,6 @@
+platform :ios
+dependency 'JTObjectMapping'
+dependency 'AFNetworking'
+dependency 'TestFlightSDK'
+dependency 'SVProgressHUD'
+dependency 'TTTAttributedLabel'

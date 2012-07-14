@@ -66,7 +66,7 @@ static dispatch_queue_t json_request_operation_processing_queue() {
 }
 
 - (id)responseJSON {
-    if (!_responseJSON && [self.responseData length] > 0 && [self isFinished] && !self.JSONError) {
+    if (!_responseJSON && [self.responseData length] > 0 && [self isFinished]) {
         NSError *error = nil;
 
         if ([self.responseData length] == 0) {
