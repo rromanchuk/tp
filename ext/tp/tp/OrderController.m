@@ -46,6 +46,8 @@
 
 @synthesize activeField;
 
+@synthesize test;
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -88,6 +90,12 @@
     self.isOnCheckout = NO;
     
     [self loadForm];
+    
+    UILabel *orderTotal = [[UILabel alloc] initWithFrame:CGRectMake(20.0, 0.0, 50.0, 50.0)];
+    orderTotal.text = @"test"; 
+    orderTotal.backgroundColor = [UIColor redColor];
+    [self.test addSubview:orderTotal];
+
 }
 
 - (void)loadForm {
