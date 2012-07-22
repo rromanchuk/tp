@@ -193,8 +193,6 @@
     
     return self;
 }
-
-
 @end
 
 @implementation StripeCard

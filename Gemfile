@@ -12,6 +12,7 @@ gem 'mysql2'
 gem 'fb_graph'
 gem 'activemerchant', :require => 'active_merchant'
 gem 'active_shipping'
+gem 'active_fulfillment', :git => 'git://github.com/Shopify/active_fulfillment.git'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
