@@ -291,6 +291,10 @@
 		FA234E3A15BB340400EC4B3A /* categories */ = {
 			isa = PBXGroup;
 			children = (
+				FA8E9F1B158DDED700CB6F5B /* UIApplication+NetworkActivityIndicator.h */,
+				FA8E9F1C158DDED700CB6F5B /* UIApplication+NetworkActivityIndicator.m */,
+				FAE9602F155B08E4007F42DA /* UIBarButtonItem+Borderless.h */,
+				FAE96030155B08E4007F42DA /* UIBarButtonItem+Borderless.m */,
 			);
 			name = categories;
 			sourceTree = "<group>";
@@ -300,10 +304,6 @@
 			children = (
 				FAC5B7E0157B7A1600C73398 /* KeychainItemWrapper.h */,
 				FAC5B7E1157B7A1600C73398 /* KeychainItemWrapper.m */,
-				FA8E9F1B158DDED700CB6F5B /* UIApplication+NetworkActivityIndicator.h */,
-				FA8E9F1C158DDED700CB6F5B /* UIApplication+NetworkActivityIndicator.m */,
-				FAE9602F155B08E4007F42DA /* UIBarButtonItem+Borderless.h */,
-				FAE96030155B08E4007F42DA /* UIBarButtonItem+Borderless.m */,
 			);
 			name = helpers;
 			sourceTree = "<group>";
