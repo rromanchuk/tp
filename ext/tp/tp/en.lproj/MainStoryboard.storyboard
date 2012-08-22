@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11E53" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2549" systemVersion="12A269" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="2">
     <dependencies>
         <deployment defaultVersion="1296" identifier="iOS"/>
-        <development defaultVersion="4200" identifier="xcode"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1181"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1498"/>
     </dependencies>
     <scenes>
         <!--Order Controller-->
@@ -367,7 +366,7 @@ need to do this once.</string>
                     </view>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="573" y="39"/>
+            <point key="canvasLocation" x="551" y="167"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="9eA-ot-FLH">
@@ -375,14 +374,39 @@ need to do this once.</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jKT-MJ-N5W" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="mbd-e4-L9n" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qih-yw-0Ho">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="receipt-bg@2x.png" id="eTc-7d-1qj">
+                                <rect key="frame" x="-167" y="-244" width="640" height="962"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="paper@2x.png" id="4cl-F9-3kf">
+                                <rect key="frame" x="16" y="273" width="290" height="187"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="van@2x.png" id="lWi-zl-bjz">
+                                <rect key="frame" x="57" y="13" width="206" height="146"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="xCL-6j-KVb">
+                                <rect key="frame" x="132" y="187" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="paid@2x.png" id="LRz-1n-inb">
+                                <rect key="frame" x="254" y="281" width="66" height="52"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="710-Gi-ge9"/>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="573" y="-412"/>
+            <point key="canvasLocation" x="527" y="-429"/>
         </scene>
     </scenes>
     <resources>
@@ -392,11 +416,15 @@ need to do this once.</string>
         <image name="cancel@2x.png" width="165" height="59"/>
         <image name="form-bg@2x.png" width="640" height="686"/>
         <image name="order@2x.png" width="315" height="132"/>
+        <image name="paid@2x.png" width="132" height="104"/>
+        <image name="paper@2x.png" width="580" height="348"/>
         <image name="premium@2x.png" width="584" height="276"/>
         <image name="qty-checkout@2x.png" width="257" height="96"/>
         <image name="quantity@2x.png" width="257" height="126"/>
+        <image name="receipt-bg@2x.png" width="640" height="962"/>
         <image name="regular@2x.png" width="584" height="276"/>
         <image name="truck@2x.png" width="32" height="32"/>
+        <image name="van@2x.png" width="412" height="292"/>
         <image name="wood-bg.png" width="320" height="481"/>
     </resources>
     <classes>
