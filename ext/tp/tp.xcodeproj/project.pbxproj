@@ -35,6 +35,8 @@
 		FA2E2BC915E56DA400BAAD44 /* sms@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA2E2BBD15E56DA400BAAD44 /* sms@2x.png */; };
 		FA2E2BCA15E56DA400BAAD44 /* van.png in Resources */ = {isa = PBXBuildFile; fileRef = FA2E2BBE15E56DA400BAAD44 /* van.png */; };
 		FA2E2BCB15E56DA400BAAD44 /* van@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA2E2BBF15E56DA400BAAD44 /* van@2x.png */; };
+		FA2E2BCF15E579A300BAAD44 /* accept-button.png in Resources */ = {isa = PBXBuildFile; fileRef = FA2E2BCD15E579A300BAAD44 /* accept-button.png */; };
+		FA2E2BD015E579A300BAAD44 /* accept-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA2E2BCE15E579A300BAAD44 /* accept-button@2x.png */; };
 		FA49999A15697FAB004A2287 /* Arvil_Sans.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA49999915697FAB004A2287 /* Arvil_Sans.ttf */; };
 		FA8E9F17158CF62C00CB6F5B /* Config.m in Sources */ = {isa = PBXBuildFile; fileRef = FA8E9F16158CF62C00CB6F5B /* Config.m */; };
 		FA8E9F19158CF67300CB6F5B /* Environments.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA8E9F18158CF67300CB6F5B /* Environments.plist */; };
@@ -52,8 +54,6 @@
 		FAA7AD1015718CB8005128B4 /* backup@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAA7AD0D15718CB8005128B4 /* backup@2x.png */; };
 		FAA7AD1615718D91005128B4 /* backup.png in Resources */ = {isa = PBXBuildFile; fileRef = FAA7AD1315718D91005128B4 /* backup.png */; };
 		FAAC5265158545E3009E9811 /* SettingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAAC5264158545E3009E9811 /* SettingsController.m */; };
-		FAAC52771586702C009E9811 /* FBDialog.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FAAC526A1586702C009E9811 /* FBDialog.bundle */; };
-		FAAC52781586702C009E9811 /* libfacebook_ios_sdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FAAC52701586702C009E9811 /* libfacebook_ios_sdk.a */; };
 		FAC5B7CD157A2DC900C73398 /* Stripe.m in Sources */ = {isa = PBXBuildFile; fileRef = FAC5B7CC157A2DC900C73398 /* Stripe.m */; };
 		FAC5B7D0157A4DDA00C73398 /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = FAC5B7CF157A4DDA00C73398 /* Order.m */; };
 		FAC5B7D7157A4EB500C73398 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = FAC5B7D6157A4EB500C73398 /* User.m */; };
@@ -126,6 +126,8 @@
 		FA2E2BBD15E56DA400BAAD44 /* sms@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "sms@2x.png"; path = "assets/sms@2x.png"; sourceTree = "<group>"; };
 		FA2E2BBE15E56DA400BAAD44 /* van.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = van.png; path = assets/van.png; sourceTree = "<group>"; };
 		FA2E2BBF15E56DA400BAAD44 /* van@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "van@2x.png"; path = "assets/van@2x.png"; sourceTree = "<group>"; };
+		FA2E2BCD15E579A300BAAD44 /* accept-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "accept-button.png"; path = "assets/accept-button.png"; sourceTree = "<group>"; };
+		FA2E2BCE15E579A300BAAD44 /* accept-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "accept-button@2x.png"; path = "assets/accept-button@2x.png"; sourceTree = "<group>"; };
 		FA49999915697FAB004A2287 /* Arvil_Sans.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Arvil_Sans.ttf; sourceTree = "<group>"; };
 		FA8E9F15158CF62C00CB6F5B /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
 		FA8E9F16158CF62C00CB6F5B /* Config.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Config.m; sourceTree = "<group>"; };
@@ -147,21 +149,6 @@
 		FAA7AD1315718D91005128B4 /* backup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backup.png; sourceTree = "<group>"; };
 		FAAC5263158545E3009E9811 /* SettingsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsController.h; sourceTree = "<group>"; };
 		FAAC5264158545E3009E9811 /* SettingsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsController.m; sourceTree = "<group>"; };
-		FAAC52681586702C009E9811 /* Facebook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Facebook.h; sourceTree = "<group>"; };
-		FAAC52691586702C009E9811 /* FBConnect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBConnect.h; sourceTree = "<group>"; };
-		FAAC526A1586702C009E9811 /* FBDialog.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FBDialog.bundle; sourceTree = "<group>"; };
-		FAAC526B1586702C009E9811 /* FBDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBDialog.h; sourceTree = "<group>"; };
-		FAAC526C1586702C009E9811 /* FBFrictionlessRequestSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBFrictionlessRequestSettings.h; sourceTree = "<group>"; };
-		FAAC526D1586702C009E9811 /* FBLoginDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBLoginDialog.h; sourceTree = "<group>"; };
-		FAAC526E1586702C009E9811 /* FBRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBRequest.h; sourceTree = "<group>"; };
-		FAAC526F1586702C009E9811 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
-		FAAC52701586702C009E9811 /* libfacebook_ios_sdk.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; path = libfacebook_ios_sdk.a; sourceTree = "<group>"; };
-		FAAC52711586702C009E9811 /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJSON.h"; sourceTree = "<group>"; };
-		FAAC52721586702C009E9811 /* NSString+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SBJSON.h"; sourceTree = "<group>"; };
-		FAAC52731586702C009E9811 /* SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJSON.h; sourceTree = "<group>"; };
-		FAAC52741586702C009E9811 /* SBJsonBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonBase.h; sourceTree = "<group>"; };
-		FAAC52751586702C009E9811 /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonParser.h; sourceTree = "<group>"; };
-		FAAC52761586702C009E9811 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
 		FAC5B7CB157A2DC900C73398 /* Stripe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stripe.h; sourceTree = "<group>"; };
 		FAC5B7CC157A2DC900C73398 /* Stripe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stripe.m; sourceTree = "<group>"; };
 		FAC5B7CE157A4DDA00C73398 /* Order.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Order.h; sourceTree = "<group>"; };
@@ -204,7 +191,6 @@
 				94A94E6B15581D14004FB612 /* Foundation.framework in Frameworks */,
 				94A94E6D15581D14004FB612 /* CoreGraphics.framework in Frameworks */,
 				FAA11B7715603E180005CAFA /* libTestFlight.a in Frameworks */,
-				FAAC52781586702C009E9811 /* libfacebook_ios_sdk.a in Frameworks */,
 				2B3263F132B241BF9AA51B4C /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -225,7 +211,6 @@
 		94A94E5915581D13004FB612 = {
 			isa = PBXGroup;
 			children = (
-				FAAC52671586702C009E9811 /* facebook-ios-sdk */,
 				FAC5B7E3157B933200C73398 /* Security.framework */,
 				FAA11B80156049EE0005CAFA /* libz.dylib */,
 				94A94E6E15581D14004FB612 /* tp */,
@@ -352,32 +337,11 @@
 			name = models;
 			sourceTree = "<group>";
 		};
-		FAAC52671586702C009E9811 /* facebook-ios-sdk */ = {
-			isa = PBXGroup;
-			children = (
-				FAAC52681586702C009E9811 /* Facebook.h */,
-				FAAC52691586702C009E9811 /* FBConnect.h */,
-				FAAC526A1586702C009E9811 /* FBDialog.bundle */,
-				FAAC526B1586702C009E9811 /* FBDialog.h */,
-				FAAC526C1586702C009E9811 /* FBFrictionlessRequestSettings.h */,
-				FAAC526D1586702C009E9811 /* FBLoginDialog.h */,
-				FAAC526E1586702C009E9811 /* FBRequest.h */,
-				FAAC526F1586702C009E9811 /* JSON.h */,
-				FAAC52701586702C009E9811 /* libfacebook_ios_sdk.a */,
-				FAAC52711586702C009E9811 /* NSObject+SBJSON.h */,
-				FAAC52721586702C009E9811 /* NSString+SBJSON.h */,
-				FAAC52731586702C009E9811 /* SBJSON.h */,
-				FAAC52741586702C009E9811 /* SBJsonBase.h */,
-				FAAC52751586702C009E9811 /* SBJsonParser.h */,
-				FAAC52761586702C009E9811 /* SBJsonWriter.h */,
-			);
-			name = "facebook-ios-sdk";
-			path = "../../../facebook-ios-sdk/lib/facebook-ios-sdk";
-			sourceTree = "<group>";
-		};
 		FAE95FF8155A8E21007F42DA /* assets */ = {
 			isa = PBXGroup;
 			children = (
+				FA2E2BCD15E579A300BAAD44 /* accept-button.png */,
+				FA2E2BCE15E579A300BAAD44 /* accept-button@2x.png */,
 				FA2E2BB415E56DA400BAAD44 /* paid.png */,
 				FA2E2BB515E56DA400BAAD44 /* paid@2x.png */,
 				FA2E2BB615E56DA400BAAD44 /* paper.png */,
@@ -537,7 +501,6 @@
 				FADBE7CD15723DCB00FC9072 /* cancel@2x.png in Resources */,
 				FADBE7CE15723DCB00FC9072 /* truck.png in Resources */,
 				FADBE7CF15723DCB00FC9072 /* truck@2x.png in Resources */,
-				FAAC52771586702C009E9811 /* FBDialog.bundle in Resources */,
 				FA8E9F19158CF67300CB6F5B /* Environments.plist in Resources */,
 				FA2E2BC015E56DA400BAAD44 /* paid.png in Resources */,
 				FA2E2BC115E56DA400BAAD44 /* paid@2x.png in Resources */,
@@ -551,6 +514,8 @@
 				FA2E2BC915E56DA400BAAD44 /* sms@2x.png in Resources */,
 				FA2E2BCA15E56DA400BAAD44 /* van.png in Resources */,
 				FA2E2BCB15E56DA400BAAD44 /* van@2x.png in Resources */,
+				FA2E2BCF15E579A300BAAD44 /* accept-button.png in Resources */,
+				FA2E2BD015E579A300BAAD44 /* accept-button@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

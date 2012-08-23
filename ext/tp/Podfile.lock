@@ -1,13 +1,15 @@
 PODS:
   - AFNetworking (1.0RC1)
+  - Facebook-iOS-SDK (3.0.7):
+    - SBJson (= 2.2.3)
   - JTObjectMapping (1.0.5)
+  - SBJson (2.2.3)
   - SVProgressHUD (0.7)
-  - TTTAttributedLabel (1.2.2)
   - TestFlightSDK (1.0)
 
 DEPENDENCIES:
   - AFNetworking
+  - Facebook-iOS-SDK
   - JTObjectMapping
   - SVProgressHUD
-  - TTTAttributedLabel
   - TestFlightSDK

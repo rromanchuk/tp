@@ -299,8 +299,7 @@ need to do this once.</string>
                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
                                     <connections>
-                                        <action selector="sendOrder:" destination="2" eventType="touchUpInside" id="1Y1-vS-tfu"/>
-                                        <segue destination="mbd-e4-L9n" kind="push" id="t6m-De-Nol"/>
+                                        <segue destination="mbd-e4-L9n" kind="push" identifier="ShowReceipt" id="dtb-av-F9R"/>
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Cvw-23-3qy" customClass="OrderButton">
@@ -389,8 +388,8 @@ need to do this once.</string>
                                 <rect key="frame" x="57" y="13" width="206" height="146"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="xCL-6j-KVb">
-                                <rect key="frame" x="132" y="187" width="42" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Boo-Ya!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="xCL-6j-KVb">
+                                <rect key="frame" x="57" y="187" width="206" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -400,6 +399,25 @@ need to do this once.</string>
                                 <rect key="frame" x="254" y="281" width="66" height="52"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="NKX-gh-k9Y">
+                                <rect key="frame" x="241" y="13" width="63" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Ok!" backgroundImage="accept-button@2x.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Your TP is on it’s way" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="CWb-Ew-ZWu">
+                                <rect key="frame" x="57" y="216" width="206" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -410,6 +428,7 @@ need to do this once.</string>
         </scene>
     </scenes>
     <resources>
+        <image name="accept-button@2x.png" width="126" height="76"/>
         <image name="backup@2x.png" width="306" height="102"/>
         <image name="bottom-bg-address@2x.png" width="640" height="960"/>
         <image name="bottom-bg@2x.png" width="640" height="207"/>
@@ -427,49 +446,6 @@ need to do this once.</string>
         <image name="van@2x.png" width="412" height="292"/>
         <image name="wood-bg.png" width="320" height="481"/>
     </resources>
-    <classes>
-        <class className="OrderButton" superclassName="UIButton">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/OrderButton.h"/>
-        </class>
-        <class className="OrderController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/OrderController.h"/>
-            <relationships>
-                <relationship kind="action" name="qtyChange:"/>
-                <relationship kind="action" name="removeKeyboard"/>
-                <relationship kind="action" name="scrollToCheckout:"/>
-                <relationship kind="action" name="scrollToTop:"/>
-                <relationship kind="action" name="sendOrder:"/>
-                <relationship kind="outlet" name="address1Label" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="address1Textfield" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="addressLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="addressTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="cancelOrder" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="cityLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="cityTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="deliveryEst" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="emailLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="emailTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="helperText" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="nameTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="navigationBar" candidateClass="UINavigationBar"/>
-                <relationship kind="outlet" name="orderButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="premiumButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="qtyButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="qtyButtonSmall" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="qtyTable" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="regularButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="rightBarButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="stateLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="stateTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="test" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="thatsItLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="zipLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="zipTextField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
