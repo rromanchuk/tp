@@ -35,6 +35,7 @@
                         <outlet property="view" destination="nZg-zP-Ire" id="eYF-Cn-HBY"/>
                         <outlet property="zipLabel" destination="oyR-aZ-95M" id="FWa-Ov-Sqx"/>
                         <outlet property="zipTextField" destination="VAR-tn-Usb" id="bEa-Xk-zo8"/>
+                        <segue destination="mbd-e4-L9n" kind="modal" identifier="ShowReceipt" id="C6P-Lm-Ul4"/>
                     </connections>
                 </viewController>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="nZg-zP-Ire">
@@ -299,7 +300,7 @@ need to do this once.</string>
                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
                                     <connections>
-                                        <segue destination="mbd-e4-L9n" kind="push" identifier="ShowReceipt" id="dtb-av-F9R"/>
+                                        <action selector="sendOrder:" destination="2" eventType="touchUpInside" id="osV-3r-BhH"/>
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Cvw-23-3qy" customClass="OrderButton">
@@ -325,7 +326,7 @@ need to do this once.</string>
                     </connections>
                 </scrollView>
             </objects>
-            <point key="canvasLocation" x="-6" y="-331"/>
+            <point key="canvasLocation" x="453" y="-275"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="nMN-cw-URz">
@@ -367,11 +368,11 @@ need to do this once.</string>
             </objects>
             <point key="canvasLocation" x="551" y="167"/>
         </scene>
-        <!--View Controller-->
+        <!--Show Receipt View Controller-->
         <scene sceneID="9eA-ot-FLH">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jKT-MJ-N5W" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="mbd-e4-L9n" sceneMemberID="viewController">
+                <viewController id="mbd-e4-L9n" customClass="ShowReceiptViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qih-yw-0Ho">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -389,9 +390,9 @@ need to do this once.</string>
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Boo-Ya!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="xCL-6j-KVb">
-                                <rect key="frame" x="57" y="187" width="206" height="21"/>
+                                <rect key="frame" x="57" y="167" width="206" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -403,8 +404,9 @@ need to do this once.</string>
                                 <rect key="frame" x="241" y="13" width="63" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <inset key="contentEdgeInsets" minX="19" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <state key="normal" title="Ok!" backgroundImage="accept-button@2x.png">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted">
@@ -412,7 +414,7 @@ need to do this once.</string>
                                 </state>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Your TP is on it’s way" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="CWb-Ew-ZWu">
-                                <rect key="frame" x="57" y="216" width="206" height="21"/>
+                                <rect key="frame" x="57" y="216" width="206" height="49"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -422,9 +424,14 @@ need to do this once.</string>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="710-Gi-ge9"/>
+                    <connections>
+                        <outlet property="booYaLabel" destination="xCL-6j-KVb" id="8WU-tD-qJ3"/>
+                        <outlet property="headingLabel" destination="CWb-Ew-ZWu" id="DbT-O1-cAo"/>
+                        <outlet property="okButton" destination="NKX-gh-k9Y" id="YVw-jI-3XO"/>
+                    </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="527" y="-429"/>
+            <point key="canvasLocation" x="903" y="-275"/>
         </scene>
     </scenes>
     <resources>
@@ -446,6 +453,54 @@ need to do this once.</string>
         <image name="van@2x.png" width="412" height="292"/>
         <image name="wood-bg.png" width="320" height="481"/>
     </resources>
+    <classes>
+        <class className="OrderController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/OrderController.h"/>
+            <relationships>
+                <relationship kind="action" name="qtyChange:"/>
+                <relationship kind="action" name="removeKeyboard"/>
+                <relationship kind="action" name="scrollToCheckout:"/>
+                <relationship kind="action" name="scrollToTop:"/>
+                <relationship kind="action" name="sendOrder:"/>
+                <relationship kind="outlet" name="address1Label" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="address1Textfield" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="addressLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="addressTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="cancelOrder" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="cityLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="cityTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="deliveryEst" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="emailLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="emailTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="helperText" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="nameTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="navigationBar" candidateClass="UINavigationBar"/>
+                <relationship kind="outlet" name="orderButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="premiumButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="qtyButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="qtyButtonSmall" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="qtyTable" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="regularButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="rightBarButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="stateLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="stateTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="test" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="thatsItLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="zipLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="zipTextField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="ShowReceiptViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ShowReceiptViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="booYaLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="headingLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="okButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

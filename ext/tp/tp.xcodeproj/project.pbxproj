@@ -65,6 +65,7 @@
 		FADBE7CD15723DCB00FC9072 /* cancel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FADBE7C915723DCB00FC9072 /* cancel@2x.png */; };
 		FADBE7CE15723DCB00FC9072 /* truck.png in Resources */ = {isa = PBXBuildFile; fileRef = FADBE7CA15723DCB00FC9072 /* truck.png */; };
 		FADBE7CF15723DCB00FC9072 /* truck@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FADBE7CB15723DCB00FC9072 /* truck@2x.png */; };
+		FAE3E7CE15E6A92E00416738 /* ShowReceiptViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAE3E7CD15E6A92E00416738 /* ShowReceiptViewController.m */; };
 		FAE96031155B08E4007F42DA /* UIBarButtonItem+Borderless.m in Sources */ = {isa = PBXBuildFile; fileRef = FAE96030155B08E4007F42DA /* UIBarButtonItem+Borderless.m */; };
 		FAE9604A1560232C007F42DA /* wood-bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAE960401560232B007F42DA /* wood-bg@2x.png */; };
 		FAE9604B1560232C007F42DA /* wood-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = FAE960411560232B007F42DA /* wood-bg.png */; };
@@ -164,6 +165,8 @@
 		FADBE7C915723DCB00FC9072 /* cancel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "cancel@2x.png"; path = "assets/cancel@2x.png"; sourceTree = "<group>"; };
 		FADBE7CA15723DCB00FC9072 /* truck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = truck.png; path = assets/truck.png; sourceTree = "<group>"; };
 		FADBE7CB15723DCB00FC9072 /* truck@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "truck@2x.png"; path = "assets/truck@2x.png"; sourceTree = "<group>"; };
+		FAE3E7CC15E6A92E00416738 /* ShowReceiptViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowReceiptViewController.h; sourceTree = "<group>"; };
+		FAE3E7CD15E6A92E00416738 /* ShowReceiptViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowReceiptViewController.m; sourceTree = "<group>"; };
 		FAE9602F155B08E4007F42DA /* UIBarButtonItem+Borderless.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Borderless.h"; sourceTree = "<group>"; };
 		FAE96030155B08E4007F42DA /* UIBarButtonItem+Borderless.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Borderless.m"; sourceTree = "<group>"; };
 		FAE960401560232B007F42DA /* wood-bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "wood-bg@2x.png"; path = "assets/wood-bg@2x.png"; sourceTree = "<group>"; };
@@ -393,6 +396,8 @@
 				94A94E7E15581D14004FB612 /* OrderController.m */,
 				FAAC5263158545E3009E9811 /* SettingsController.h */,
 				FAAC5264158545E3009E9811 /* SettingsController.m */,
+				FAE3E7CC15E6A92E00416738 /* ShowReceiptViewController.h */,
+				FAE3E7CD15E6A92E00416738 /* ShowReceiptViewController.m */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -575,6 +580,7 @@
 				FAAC5265158545E3009E9811 /* SettingsController.m in Sources */,
 				FA8E9F17158CF62C00CB6F5B /* Config.m in Sources */,
 				FA8E9F1D158DDED700CB6F5B /* UIApplication+NetworkActivityIndicator.m in Sources */,
+				FAE3E7CE15E6A92E00416738 /* ShowReceiptViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

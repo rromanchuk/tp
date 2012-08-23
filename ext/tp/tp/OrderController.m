@@ -98,6 +98,12 @@
 
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"ShowReceipt"]){
+        NSLog(@"In prepare for segue");
+    }
+}
+
 - (void)loadForm {
     User *user = [User currentUser];
     if (user.name) {
@@ -257,23 +263,25 @@
 }
 
 - (IBAction)sendOrder:(id)sender {
-    User *user = [User currentUser];
-        
-    user.name = self.nameTextField.text; 
-    //user.email = self.emailTextField.text;
-    user.address = self.addressTextField.text; 
-    //user.address1 = self.address1Textfield.text;
-    user.state = self.stateTextField.text;
-    user.zip = self.zipTextField.text;
-    user.country = @"United States";
-    [user save];
-    if([user hasCustomerObject]) {
-        NSLog(@"Already have customer object. Create charge.");
-        [user chargeCustomer:[NSNumber numberWithInt:400]];
-    } else {
-        NSLog(@"No existing customer. Create now.");
-        [user createStripeCustomer];
-    }
+//    User *user = [User currentUser];
+//        
+//    user.name = self.nameTextField.text; 
+//    //user.email = self.emailTextField.text;
+//    user.address = self.addressTextField.text; 
+//    //user.address1 = self.address1Textfield.text;
+//    user.state = self.stateTextField.text;
+//    user.zip = self.zipTextField.text;
+//    user.country = @"United States";
+//    [user save];
+//    if([user hasCustomerObject]) {
+//        NSLog(@"Already have customer object. Create charge.");
+//        [user chargeCustomer:[NSNumber numberWithInt:400]];
+//    } else {
+//        NSLog(@"No existing customer. Create now.");
+//        [user createStripeCustomer];
+//    }
+    NSLog(@"Did click order");
+    [((OrderController *)self.scrollView.delegate) performSegueWithIdentifier:@"ShowReceipt" sender:self];
 }
 
 @end
