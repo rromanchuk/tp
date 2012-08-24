@@ -405,7 +405,7 @@ need to do this once.</string>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <inset key="contentEdgeInsets" minX="19" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" title="Ok!" backgroundImage="accept-button@2x.png">
+                                <state key="normal" title="OK!" backgroundImage="accept-button@2x.png">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -453,54 +453,6 @@ need to do this once.</string>
         <image name="van@2x.png" width="412" height="292"/>
         <image name="wood-bg.png" width="320" height="481"/>
     </resources>
-    <classes>
-        <class className="OrderController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/OrderController.h"/>
-            <relationships>
-                <relationship kind="action" name="qtyChange:"/>
-                <relationship kind="action" name="removeKeyboard"/>
-                <relationship kind="action" name="scrollToCheckout:"/>
-                <relationship kind="action" name="scrollToTop:"/>
-                <relationship kind="action" name="sendOrder:"/>
-                <relationship kind="outlet" name="address1Label" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="address1Textfield" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="addressLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="addressTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="cancelOrder" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="cityLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="cityTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="deliveryEst" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="emailLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="emailTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="helperText" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="nameTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="navigationBar" candidateClass="UINavigationBar"/>
-                <relationship kind="outlet" name="orderButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="premiumButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="qtyButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="qtyButtonSmall" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="qtyTable" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="regularButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="rightBarButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="stateLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="stateTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="test" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="thatsItLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="zipLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="zipTextField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="ShowReceiptViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ShowReceiptViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="booYaLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="headingLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="okButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
