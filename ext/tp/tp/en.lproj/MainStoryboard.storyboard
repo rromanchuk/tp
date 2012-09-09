@@ -420,6 +420,10 @@ need to do this once.</string>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="lines@2x.png" id="tSd-s6-ntu">
+                                <rect key="frame" x="40" y="292" width="240" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -441,6 +445,7 @@ need to do this once.</string>
         <image name="bottom-bg@2x.png" width="640" height="207"/>
         <image name="cancel@2x.png" width="165" height="59"/>
         <image name="form-bg@2x.png" width="640" height="686"/>
+        <image name="lines@2x.png" width="528" height="102"/>
         <image name="order@2x.png" width="315" height="132"/>
         <image name="paid@2x.png" width="132" height="104"/>
         <image name="paper@2x.png" width="580" height="348"/>

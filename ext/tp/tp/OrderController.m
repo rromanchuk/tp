@@ -57,8 +57,7 @@
     }
     UIImage *gearImage = [UIImage imageNamed:@"gear.png"];
     UIBarButtonItem *configButton = [UIBarButtonItem barItemWithImage:gearImage target:self action:@selector(config)];
-    //self.navigationBar.topItem.rightBarButtonItem = configButton;
-    self.rightBarButton = configButton;
+    self.navigationBar.topItem.rightBarButtonItem = configButton;
     self.navigationBar.topItem.title = @"Tap on the type of roll you want.";
     self.navigationBar.titleTextAttributes = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"ProximaNova-Regular" size:18.0], UITextAttributeFont, nil];
 	// Do any additional setup after loading the view, typically from a nib.

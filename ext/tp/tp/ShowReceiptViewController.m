@@ -45,6 +45,13 @@
     // Release any retained subviews of the main view.
 }
 
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue identifier] == @"DismissReceipt") {
+        [self dismissModalViewControllerAnimated:YES];
+    }
+}
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);

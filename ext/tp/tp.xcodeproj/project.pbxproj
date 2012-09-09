@@ -38,6 +38,8 @@
 		FA2E2BCF15E579A300BAAD44 /* accept-button.png in Resources */ = {isa = PBXBuildFile; fileRef = FA2E2BCD15E579A300BAAD44 /* accept-button.png */; };
 		FA2E2BD015E579A300BAAD44 /* accept-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA2E2BCE15E579A300BAAD44 /* accept-button@2x.png */; };
 		FA49999A15697FAB004A2287 /* Arvil_Sans.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA49999915697FAB004A2287 /* Arvil_Sans.ttf */; };
+		FA844ABA15FD016800715100 /* lines.png in Resources */ = {isa = PBXBuildFile; fileRef = FA844AB815FD016800715100 /* lines.png */; };
+		FA844ABB15FD016800715100 /* lines@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA844AB915FD016800715100 /* lines@2x.png */; };
 		FA8E9F17158CF62C00CB6F5B /* Config.m in Sources */ = {isa = PBXBuildFile; fileRef = FA8E9F16158CF62C00CB6F5B /* Config.m */; };
 		FA8E9F19158CF67300CB6F5B /* Environments.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA8E9F18158CF67300CB6F5B /* Environments.plist */; };
 		FA8E9F1D158DDED700CB6F5B /* UIApplication+NetworkActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = FA8E9F1C158DDED700CB6F5B /* UIApplication+NetworkActivityIndicator.m */; };
@@ -79,6 +81,8 @@
 		FAE960531560232C007F42DA /* gear.png in Resources */ = {isa = PBXBuildFile; fileRef = FAE960491560232C007F42DA /* gear.png */; };
 		FAE96056156023AC007F42DA /* bottom-bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAE96054156023AC007F42DA /* bottom-bg@2x.png */; };
 		FAE96057156023AC007F42DA /* bottom-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = FAE96055156023AC007F42DA /* bottom-bg.png */; };
+		FAFAD7C915FC8C5A0015C60B /* ok-button.png in Resources */ = {isa = PBXBuildFile; fileRef = FAFAD7C715FC8C5A0015C60B /* ok-button.png */; };
+		FAFAD7CA15FC8C5A0015C60B /* ok-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAFAD7C815FC8C5A0015C60B /* ok-button@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -130,6 +134,8 @@
 		FA2E2BCD15E579A300BAAD44 /* accept-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "accept-button.png"; path = "assets/accept-button.png"; sourceTree = "<group>"; };
 		FA2E2BCE15E579A300BAAD44 /* accept-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "accept-button@2x.png"; path = "assets/accept-button@2x.png"; sourceTree = "<group>"; };
 		FA49999915697FAB004A2287 /* Arvil_Sans.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Arvil_Sans.ttf; sourceTree = "<group>"; };
+		FA844AB815FD016800715100 /* lines.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = lines.png; path = assets/lines.png; sourceTree = "<group>"; };
+		FA844AB915FD016800715100 /* lines@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "lines@2x.png"; path = "assets/lines@2x.png"; sourceTree = "<group>"; };
 		FA8E9F15158CF62C00CB6F5B /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
 		FA8E9F16158CF62C00CB6F5B /* Config.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Config.m; sourceTree = "<group>"; };
 		FA8E9F18158CF67300CB6F5B /* Environments.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Environments.plist; sourceTree = "<group>"; };
@@ -181,6 +187,8 @@
 		FAE960491560232C007F42DA /* gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = gear.png; path = assets/gear.png; sourceTree = "<group>"; };
 		FAE96054156023AC007F42DA /* bottom-bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bottom-bg@2x.png"; path = "assets/bottom-bg@2x.png"; sourceTree = "<group>"; };
 		FAE96055156023AC007F42DA /* bottom-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bottom-bg.png"; path = "assets/bottom-bg.png"; sourceTree = "<group>"; };
+		FAFAD7C715FC8C5A0015C60B /* ok-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ok-button.png"; path = "assets/ok-button.png"; sourceTree = "<group>"; };
+		FAFAD7C815FC8C5A0015C60B /* ok-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ok-button@2x.png"; path = "assets/ok-button@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -343,6 +351,10 @@
 		FAE95FF8155A8E21007F42DA /* assets */ = {
 			isa = PBXGroup;
 			children = (
+				FA844AB815FD016800715100 /* lines.png */,
+				FA844AB915FD016800715100 /* lines@2x.png */,
+				FAFAD7C715FC8C5A0015C60B /* ok-button.png */,
+				FAFAD7C815FC8C5A0015C60B /* ok-button@2x.png */,
 				FA2E2BCD15E579A300BAAD44 /* accept-button.png */,
 				FA2E2BCE15E579A300BAAD44 /* accept-button@2x.png */,
 				FA2E2BB415E56DA400BAAD44 /* paid.png */,
@@ -521,6 +533,10 @@
 				FA2E2BCB15E56DA400BAAD44 /* van@2x.png in Resources */,
 				FA2E2BCF15E579A300BAAD44 /* accept-button.png in Resources */,
 				FA2E2BD015E579A300BAAD44 /* accept-button@2x.png in Resources */,
+				FAFAD7C915FC8C5A0015C60B /* ok-button.png in Resources */,
+				FAFAD7CA15FC8C5A0015C60B /* ok-button@2x.png in Resources */,
+				FA844ABA15FD016800715100 /* lines.png in Resources */,
+				FA844ABB15FD016800715100 /* lines@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
