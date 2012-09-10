@@ -16,6 +16,12 @@
 @synthesize booYaLabel;
 @synthesize headingLabel;
 @synthesize okButton;
+@synthesize typeLabel;
+@synthesize qtyLabel;
+@synthesize totalLabel;
+@synthesize typeValueLabel;
+@synthesize qtyValueLabel;
+@synthesize totalValueLabel;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -32,7 +38,12 @@
     self.booYaLabel.font = [UIFont fontWithName:@"ArvilSans" size:50.0];
     self.headingLabel.font = [UIFont fontWithName:@"ArvilSans" size:32.0];
     self.okButton.titleLabel.font = [UIFont fontWithName:@"ArvilSans" size:25.0];
-    
+    self.typeLabel.font = [UIFont fontWithName:@"ProximaNova-Semibold" size:10.0];
+    self.qtyLabel.font = [UIFont fontWithName:@"ProximaNova-Semibold" size:10.0];
+    self.totalLabel.font = [UIFont fontWithName:@"ProximaNova-Semibold" size:10.0];
+    self.typeValueLabel.font = [UIFont fontWithName:@"ArvilSans" size:25.0];
+    self.qtyValueLabel.font = [UIFont fontWithName:@"ArvilSans" size:25.0];
+    self.typeValueLabel.font = [UIFont fontWithName:@"ArvilSans" size:25.0];
 	// Do any additional setup after loading the view.
 }
 
@@ -41,6 +52,12 @@
     [self setBooYaLabel:nil];
     [self setHeadingLabel:nil];
     [self setOkButton:nil];
+    [self setTypeLabel:nil];
+    [self setQtyLabel:nil];
+    [self setTotalLabel:nil];
+    [self setTypeValueLabel:nil];
+    [self setQtyValueLabel:nil];
+    [self setTotalValueLabel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }

@@ -397,7 +397,7 @@ need to do this once.</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="paid@2x.png" id="LRz-1n-inb">
-                                <rect key="frame" x="254" y="281" width="66" height="52"/>
+                                <rect key="frame" x="254" y="341" width="66" height="52"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="NKX-gh-k9Y">
@@ -421,9 +421,55 @@ need to do this once.</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="lines@2x.png" id="tSd-s6-ntu">
-                                <rect key="frame" x="40" y="292" width="240" height="41"/>
+                                <rect key="frame" x="28" y="308" width="264" height="51"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="TYPE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="eHa-PE-AWo">
+                                <rect key="frame" x="28" y="291" width="42" height="16"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="QTY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="v1z-fS-hdh">
+                                <rect key="frame" x="211" y="286" width="34" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="TOTAL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="yAd-oY-N8o">
+                                <rect key="frame" x="257" y="286" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="radiant-tp@2x.png" id="phV-IT-a5z">
+                                <rect key="frame" x="20" y="312" width="45" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Regular ol’ Roll" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="N8m-JZ-qmZ">
+                                <rect key="frame" x="63" y="323" width="135" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="4" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="7Cd-Rb-Kkf">
+                                <rect key="frame" x="216" y="323" width="25" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="$4" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="xmk-2X-xsW">
+                                <rect key="frame" x="257" y="323" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -432,6 +478,12 @@ need to do this once.</string>
                         <outlet property="booYaLabel" destination="xCL-6j-KVb" id="8WU-tD-qJ3"/>
                         <outlet property="headingLabel" destination="CWb-Ew-ZWu" id="DbT-O1-cAo"/>
                         <outlet property="okButton" destination="NKX-gh-k9Y" id="YVw-jI-3XO"/>
+                        <outlet property="qtyLabel" destination="v1z-fS-hdh" id="987-9N-3Aq"/>
+                        <outlet property="qtyValueLabel" destination="7Cd-Rb-Kkf" id="nhB-cC-M1B"/>
+                        <outlet property="totalLabel" destination="yAd-oY-N8o" id="Mb6-lL-Ut5"/>
+                        <outlet property="totalValueLabel" destination="xmk-2X-xsW" id="pdz-d3-4Od"/>
+                        <outlet property="typeLabel" destination="eHa-PE-AWo" id="eyy-5g-Qez"/>
+                        <outlet property="typeValueLabel" destination="N8m-JZ-qmZ" id="hJC-l7-mc5"/>
                     </connections>
                 </viewController>
             </objects>
@@ -452,12 +504,67 @@ need to do this once.</string>
         <image name="premium@2x.png" width="584" height="276"/>
         <image name="qty-checkout@2x.png" width="257" height="96"/>
         <image name="quantity@2x.png" width="257" height="126"/>
+        <image name="radiant-tp@2x.png" width="90" height="90"/>
         <image name="receipt-bg@2x.png" width="640" height="962"/>
         <image name="regular@2x.png" width="584" height="276"/>
         <image name="truck@2x.png" width="32" height="32"/>
         <image name="van@2x.png" width="412" height="292"/>
         <image name="wood-bg.png" width="320" height="481"/>
     </resources>
+    <classes>
+        <class className="OrderController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/OrderController.h"/>
+            <relationships>
+                <relationship kind="action" name="qtyChange:"/>
+                <relationship kind="action" name="removeKeyboard"/>
+                <relationship kind="action" name="scrollToCheckout:"/>
+                <relationship kind="action" name="scrollToTop:"/>
+                <relationship kind="action" name="sendOrder:"/>
+                <relationship kind="outlet" name="address1Label" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="address1Textfield" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="addressLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="addressTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="cancelOrder" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="cityLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="cityTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="deliveryEst" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="emailLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="emailTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="helperText" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="nameTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="navigationBar" candidateClass="UINavigationBar"/>
+                <relationship kind="outlet" name="orderButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="premiumButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="qtyButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="qtyButtonSmall" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="qtyTable" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="regularButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="rightBarButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="stateLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="stateTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="test" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="thatsItLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="zipLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="zipTextField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="ShowReceiptViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ShowReceiptViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="booYaLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="headingLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="okButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="qtyLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="qtyValueLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="totalLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="totalValueLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="typeLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="typeValueLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
