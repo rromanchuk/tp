@@ -54,6 +54,8 @@
 		FAA525A616027EC300B9393A /* fb@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAA525A216027EC300B9393A /* fb@2x.png */; };
 		FAA525A716027EC300B9393A /* tw.png in Resources */ = {isa = PBXBuildFile; fileRef = FAA525A316027EC300B9393A /* tw.png */; };
 		FAA525A816027EC300B9393A /* tw@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAA525A416027EC300B9393A /* tw@2x.png */; };
+		FAA525AC1602832D00B9393A /* email.png in Resources */ = {isa = PBXBuildFile; fileRef = FAA525AA1602832D00B9393A /* email.png */; };
+		FAA525AD1602832D00B9393A /* email@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAA525AB1602832D00B9393A /* email@2x.png */; };
 		FAA7AD08156ED4F9005128B4 /* bottom-bg-address.png in Resources */ = {isa = PBXBuildFile; fileRef = FAA7AD06156ED4F9005128B4 /* bottom-bg-address.png */; };
 		FAA7AD09156ED4F9005128B4 /* bottom-bg-address@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAA7AD07156ED4F9005128B4 /* bottom-bg-address@2x.png */; };
 		FAA7AD0C156EE0E0005128B4 /* ProximaNova-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = FAA7AD0B156EE0E0005128B4 /* ProximaNova-Semibold.otf */; };
@@ -157,6 +159,8 @@
 		FAA525A216027EC300B9393A /* fb@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "fb@2x.png"; path = "assets/fb@2x.png"; sourceTree = "<group>"; };
 		FAA525A316027EC300B9393A /* tw.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tw.png; path = assets/tw.png; sourceTree = "<group>"; };
 		FAA525A416027EC300B9393A /* tw@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tw@2x.png"; path = "assets/tw@2x.png"; sourceTree = "<group>"; };
+		FAA525AA1602832D00B9393A /* email.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = email.png; path = assets/email.png; sourceTree = "<group>"; };
+		FAA525AB1602832D00B9393A /* email@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "email@2x.png"; path = "assets/email@2x.png"; sourceTree = "<group>"; };
 		FAA7AD06156ED4F9005128B4 /* bottom-bg-address.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bottom-bg-address.png"; sourceTree = "<group>"; };
 		FAA7AD07156ED4F9005128B4 /* bottom-bg-address@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bottom-bg-address@2x.png"; sourceTree = "<group>"; };
 		FAA7AD0B156EE0E0005128B4 /* ProximaNova-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Semibold.otf"; sourceTree = "<group>"; };
@@ -359,6 +363,8 @@
 		FAE95FF8155A8E21007F42DA /* assets */ = {
 			isa = PBXGroup;
 			children = (
+				FAA525AA1602832D00B9393A /* email.png */,
+				FAA525AB1602832D00B9393A /* email@2x.png */,
 				FAA525A116027EC300B9393A /* fb.png */,
 				FAA525A216027EC300B9393A /* fb@2x.png */,
 				FAA525A316027EC300B9393A /* tw.png */,
@@ -553,6 +559,8 @@
 				FAA525A616027EC300B9393A /* fb@2x.png in Resources */,
 				FAA525A716027EC300B9393A /* tw.png in Resources */,
 				FAA525A816027EC300B9393A /* tw@2x.png in Resources */,
+				FAA525AC1602832D00B9393A /* email.png in Resources */,
+				FAA525AD1602832D00B9393A /* email@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

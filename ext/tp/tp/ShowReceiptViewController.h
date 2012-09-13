@@ -18,5 +18,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *typeValueLabel;
 @property (weak, nonatomic) IBOutlet UILabel *qtyValueLabel;
 @property (weak, nonatomic) IBOutlet UILabel *totalValueLabel;
+@property (weak, nonatomic) IBOutlet UILabel *tellWorldLabel;
 
 @end

@@ -22,6 +22,7 @@
 @synthesize typeValueLabel;
 @synthesize qtyValueLabel;
 @synthesize totalValueLabel;
+@synthesize tellWorldLabel;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -44,6 +45,7 @@
     self.typeValueLabel.font = [UIFont fontWithName:@"ArvilSans" size:25.0];
     self.qtyValueLabel.font = [UIFont fontWithName:@"ArvilSans" size:25.0];
     self.typeValueLabel.font = [UIFont fontWithName:@"ArvilSans" size:25.0];
+    self.tellWorldLabel.font = [UIFont fontWithName:@"ProximaNova-Semibold" size:10.0];
 	// Do any additional setup after loading the view.
 }
 
@@ -58,6 +60,7 @@
     [self setTypeValueLabel:nil];
     [self setQtyValueLabel:nil];
     [self setTotalValueLabel:nil];
+    [self setTellWorldLabel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
