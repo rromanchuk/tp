@@ -50,6 +50,10 @@
 		FAA11B7F156040A00005CAFA /* quanity.png in Resources */ = {isa = PBXBuildFile; fileRef = FAA11B7D156040A00005CAFA /* quanity.png */; };
 		FAA11B81156049EE0005CAFA /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FAA11B80156049EE0005CAFA /* libz.dylib */; };
 		FAA11B9115659A8D0005CAFA /* ProximaNova-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = FAA11B9015659A8D0005CAFA /* ProximaNova-Regular.otf */; };
+		FAA525A516027EC300B9393A /* fb.png in Resources */ = {isa = PBXBuildFile; fileRef = FAA525A116027EC300B9393A /* fb.png */; };
+		FAA525A616027EC300B9393A /* fb@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAA525A216027EC300B9393A /* fb@2x.png */; };
+		FAA525A716027EC300B9393A /* tw.png in Resources */ = {isa = PBXBuildFile; fileRef = FAA525A316027EC300B9393A /* tw.png */; };
+		FAA525A816027EC300B9393A /* tw@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAA525A416027EC300B9393A /* tw@2x.png */; };
 		FAA7AD08156ED4F9005128B4 /* bottom-bg-address.png in Resources */ = {isa = PBXBuildFile; fileRef = FAA7AD06156ED4F9005128B4 /* bottom-bg-address.png */; };
 		FAA7AD09156ED4F9005128B4 /* bottom-bg-address@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAA7AD07156ED4F9005128B4 /* bottom-bg-address@2x.png */; };
 		FAA7AD0C156EE0E0005128B4 /* ProximaNova-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = FAA7AD0B156EE0E0005128B4 /* ProximaNova-Semibold.otf */; };
@@ -149,6 +153,10 @@
 		FAA11B7D156040A00005CAFA /* quanity.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = quanity.png; path = assets/quanity.png; sourceTree = "<group>"; };
 		FAA11B80156049EE0005CAFA /* libz.dylib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		FAA11B9015659A8D0005CAFA /* ProximaNova-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "ProximaNova-Regular.otf"; path = "../ProximaNova-Regular.otf"; sourceTree = "<group>"; };
+		FAA525A116027EC300B9393A /* fb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fb.png; path = assets/fb.png; sourceTree = "<group>"; };
+		FAA525A216027EC300B9393A /* fb@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "fb@2x.png"; path = "assets/fb@2x.png"; sourceTree = "<group>"; };
+		FAA525A316027EC300B9393A /* tw.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tw.png; path = assets/tw.png; sourceTree = "<group>"; };
+		FAA525A416027EC300B9393A /* tw@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tw@2x.png"; path = "assets/tw@2x.png"; sourceTree = "<group>"; };
 		FAA7AD06156ED4F9005128B4 /* bottom-bg-address.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bottom-bg-address.png"; sourceTree = "<group>"; };
 		FAA7AD07156ED4F9005128B4 /* bottom-bg-address@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bottom-bg-address@2x.png"; sourceTree = "<group>"; };
 		FAA7AD0B156EE0E0005128B4 /* ProximaNova-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Semibold.otf"; sourceTree = "<group>"; };
@@ -351,6 +359,10 @@
 		FAE95FF8155A8E21007F42DA /* assets */ = {
 			isa = PBXGroup;
 			children = (
+				FAA525A116027EC300B9393A /* fb.png */,
+				FAA525A216027EC300B9393A /* fb@2x.png */,
+				FAA525A316027EC300B9393A /* tw.png */,
+				FAA525A416027EC300B9393A /* tw@2x.png */,
 				FA844AB815FD016800715100 /* lines.png */,
 				FA844AB915FD016800715100 /* lines@2x.png */,
 				FAFAD7C715FC8C5A0015C60B /* ok-button.png */,
@@ -537,6 +549,10 @@
 				FAFAD7CA15FC8C5A0015C60B /* ok-button@2x.png in Resources */,
 				FA844ABA15FD016800715100 /* lines.png in Resources */,
 				FA844ABB15FD016800715100 /* lines@2x.png in Resources */,
+				FAA525A516027EC300B9393A /* fb.png in Resources */,
+				FAA525A616027EC300B9393A /* fb@2x.png in Resources */,
+				FAA525A716027EC300B9393A /* tw.png in Resources */,
+				FAA525A816027EC300B9393A /* tw@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
