@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "OrderController.h"
+@protocol ReceiptDelegate;
 
 @interface ShowReceiptViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UILabel *booYaLabel;
@@ -19,5 +21,15 @@
 @property (weak, nonatomic) IBOutlet UILabel *qtyValueLabel;
 @property (weak, nonatomic) IBOutlet UILabel *totalValueLabel;
 @property (weak, nonatomic) IBOutlet UILabel *tellWorldLabel;
+@property (weak) id<ReceiptDelegate> delegate;
+
+- (IBAction)didDismissReceipt:(id)sender;
+
+@end
+
+@protocol ReceiptDelegate <NSObject>
+
+@required
+-(void)didDismissReceipt;
 
 @end

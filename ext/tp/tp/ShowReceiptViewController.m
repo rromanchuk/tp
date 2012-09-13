@@ -77,4 +77,8 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+- (IBAction)didDismissReceipt:(id)sender {
+    [self.delegate didDismissReceipt];
+}
+
 @end

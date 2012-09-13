@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface OrderController : UIViewController <UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate> {
+#import "ShowReceiptViewController.h"
+@protocol ReceiptDelegate;
+@interface OrderController : UIViewController <UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate, ReceiptDelegate> {
     NSString *option1; 
     NSString *option2; 
     NSString *option3;
@@ -62,11 +63,14 @@
 
 @property (weak) IBOutlet UIButton *test;
 
+
+
 - (void)config;
 - (IBAction)qtyChange:(id)sender;
 - (IBAction)scrollToCheckout:(id)sender;
 - (IBAction)scrollToTop:(id)sender;
 - (IBAction)removeKeyboard;
 - (IBAction)sendOrder:(id)sender;
-
+- (void)didDismissReceipt;
 @end
+

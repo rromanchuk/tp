@@ -100,6 +100,8 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"ShowReceipt"]){
         NSLog(@"In prepare for segue");
+        ShowReceiptViewController *vc = (ShowReceiptViewController *)segue.destinationViewController;
+        vc.delegate = self;
     }
 }
 
@@ -281,6 +283,10 @@
 //    }
     NSLog(@"Did click order");
     [((OrderController *)self.scrollView.delegate) performSegueWithIdentifier:@"ShowReceipt" sender:self];
+}
+
+- (void)didDismissReceipt {
+    [self dismissModalViewControllerAnimated:YES];
 }
 
 @end
