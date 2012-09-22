@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface User : NSObject
+@interface RestUser : NSObject
 @property (strong) NSString *name;
 @property (strong) NSString *address;
 @property (strong) NSString *address1;

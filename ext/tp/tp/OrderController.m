@@ -287,6 +287,7 @@
 
 - (void)didDismissReceipt {
     [self dismissModalViewControllerAnimated:YES];
+    [self scrollToTop:self];
 }
 
 @end

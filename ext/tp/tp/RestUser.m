@@ -6,14 +6,14 @@
 //  Copyright (c) 2012 Blippy. All rights reserved.
 //
 
-#import "User.h"
+#import "RestUser.h"
 #import "KeychainItemWrapper.h"
 #import "AFJSONRequestOperation.h"
 #import "Stripe.h"
 #import "Config.h"
-static User *_currentUser = nil;
+static RestUser *_currentUser = nil;
 
-@implementation User
+@implementation RestUser
 
 @synthesize name; 
 @synthesize address;
@@ -122,18 +122,18 @@ static User *_currentUser = nil;
     [operation start];
 }
 
-+ (User *)currentUser
++ (RestUser *)currentUser
 {
     if (_currentUser) {
         return _currentUser;
     } else {
-        User *user = [[User alloc] init];
-        [User setCurrentUser:user];
+        RestUser *user = [[RestUser alloc] init];
+        [RestUser setCurrentUser:user];
         return _currentUser;
     }
 }
 
-+ (void)setCurrentUser:(User *)user
++ (void)setCurrentUser:(RestUser *)user
 {
     _currentUser = user;
     NSLog(@"setCurrentUser: ");
