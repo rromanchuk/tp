@@ -8,9 +8,14 @@
 
 #import "AppDelegate.h"
 #import "TestFlight.h"
-
+#import "RestUser.h"
+#import "OrderController.h"
+#import "User+Manage.h"
 @implementation AppDelegate
 
+@synthesize managedObjectContext = __managedObjectContext;
+@synthesize managedObjectModel = __managedObjectModel;
+@synthesize persistentStoreCoordinator = __persistentStoreCoordinator;
 @synthesize window = _window;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -23,24 +28,6 @@
     return YES;
 }
 
-// Pre iOS 4.2 support
-- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
-    return [facebook handleOpenURL:url]; 
-}
-
-// For iOS 4.2+ support
-- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url
-  sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
-    return [facebook handleOpenURL:url]; 
-}
-
-- (void)fbDidLogin {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:[facebook accessToken] forKey:@"FBAccessTokenKey"];
-    [defaults setObject:[facebook expirationDate] forKey:@"FBExpirationDateKey"];
-    [defaults synchronize];
-    
-}
 							
 - (void)applicationWillResignActive:(UIApplication *)application
 {
@@ -61,9 +48,12 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
-    User *user = [[User alloc] init];
-    NSLog(@"%@", user);
-    [User setCurrentUser:user]; 
+    OrderController *oc = ((OrderController *) self.window.rootViewController);
+    oc.currentUser = [User currentUser:self.managedObjectContext];
+    oc.managedObjectContext = self.managedObjectContext;
+    
+    NSLog(@"%@", oc.currentUser);
+    //[RestUser setCurrentUser:user];
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 }
 
@@ -80,7 +70,7 @@
         if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error]) {
             // Replace this implementation with code to handle the error appropriately.
             // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-            [Flurry logError:@"FAILED_CONTEXT_SAVE" message:[error description] error:error];
+            //[Flurry logError:@"FAILED_CONTEXT_SAVE" message:[error description] error:error];
             DLog(@"Unresolved error %@, %@", error, [error userInfo]);
             abort();
         }
@@ -157,7 +147,7 @@
         [[NSFileManager defaultManager] removeItemAtURL:storeURL error:nil];
         __persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
         [__persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error];
-        [Flurry logError:@"FAILED_PERSISTENT_STORE" message:[error description] error:error];
+        //[Flurry logError:@"FAILED_PERSISTENT_STORE" message:[error description] error:error];
         DLog(@"Unresolved error %@, %@", error, [error userInfo]);
         //abort();
     }

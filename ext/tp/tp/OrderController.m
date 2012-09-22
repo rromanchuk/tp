@@ -8,7 +8,7 @@
 
 #import "OrderController.h"
 #import "UIBarButtonItem+Borderless.h"
-#import "User.h"
+#import "User+Manage.h"
 #import "Stripe.h"
 #import "Config.h"
 @interface OrderController ()
@@ -46,7 +46,7 @@
 
 @synthesize activeField;
 
-@synthesize test;
+@synthesize managedObjectContext;
 
 - (void)viewDidLoad
 {
@@ -106,14 +106,13 @@
 }
 
 - (void)loadForm {
-    User *user = [User currentUser];
-    if (user.name) {
-        self.nameTextField.text = user.name; 
-        self.addressTextField.text = user.address;
+    if (self.currentUser.name) {
+        self.nameTextField.text = self.currentUser.name;
+        self.addressTextField.text = self.currentUser.address1;
         //self.address1Textfield.text = user.address1; 
-        self.cityTextField.text = user.city; 
-        self.stateTextField.text = user.state; 
-        self.zipTextField.text = user.zip;
+        self.cityTextField.text = self.currentUser.city;
+        self.stateTextField.text = self.currentUser.state;
+        self.zipTextField.text = self.currentUser.zip;
     }
 }
 
@@ -264,15 +263,19 @@
 }
 
 - (IBAction)sendOrder:(id)sender {
-//    User *user = [User currentUser];
 //        
-//    user.name = self.nameTextField.text; 
+    self.currentUser.name = self.nameTextField.text;
 //    //user.email = self.emailTextField.text;
-//    user.address = self.addressTextField.text; 
-//    //user.address1 = self.address1Textfield.text;
-//    user.state = self.stateTextField.text;
-//    user.zip = self.zipTextField.text;
-//    user.country = @"United States";
+    self.currentUser.address1 = self.address1Textfield.text;
+    self.currentUser.state = self.stateTextField.text;
+    self.currentUser.zip = self.zipTextField.text;
+    self.currentUser.country = @"United States";
+    [self saveContext];
+    if (self.currentUser.stripeCustomerId) {
+        [self.currentUser chargeCustomer:[NSNumber numberWithInteger:400]];
+    } else {
+        [self.currentUser createStripeCustomer];
+    }
 //    [user save];
 //    if([user hasCustomerObject]) {
 //        NSLog(@"Already have customer object. Create charge.");
@@ -289,5 +292,18 @@
     [self dismissModalViewControllerAnimated:YES];
     [self scrollToTop:self];
 }
+
+- (void)saveContext
+{
+    NSError *error = nil;
+    NSManagedObjectContext *_managedObjectContext = self.managedObjectContext;
+    if (_managedObjectContext != nil) {
+        if ([_managedObjectContext hasChanges] && ![_managedObjectContext save:&error]) {
+            // Replace this implementation with code to handle the error appropriately.
+            //DLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        }
+    }
+}
+
 
 @end

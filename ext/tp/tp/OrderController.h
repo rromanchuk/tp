@@ -6,8 +6,8 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import "ShowReceiptViewController.h"
+#import "User.h"
 @protocol ReceiptDelegate;
 @interface OrderController : UIViewController <UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate, ReceiptDelegate> {
     NSString *option1; 
@@ -64,6 +64,8 @@
 @property (weak) IBOutlet UIButton *test;
 
 
+@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, strong) User *currentUser;
 
 - (void)config;
 - (IBAction)qtyChange:(id)sender;

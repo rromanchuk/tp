@@ -28,7 +28,7 @@
 - (void)chargeCustomer:(NSNumber *)amountInCents;
 - (bool)hasCustomerObject;
 
-+ (User *)currentUser;
++ (RestUser *)currentUser;
 + (void)setCurrentUser:(User *)user;
 
 
