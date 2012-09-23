@@ -70,10 +70,16 @@
     self.qtyTable.backgroundColor = [UIColor blackColor];
     
     self.qtyButton.titleLabel.font = [UIFont fontWithName:@"ArvilSans" size:35.0];
-    [self.qtyButton setTitle:@"4 Rolls" forState:UIControlStateNormal];
+    [self.qtyButton setTitle:@"6 Rolls" forState:UIControlStateNormal];
     self.qtyButtonSmall.titleLabel.font = [UIFont fontWithName:@"ArvilSans" size:30.0];
-    [self.qtyButtonSmall setTitle:@"4 Rolls" forState:UIControlStateNormal];
+    [self.qtyButtonSmall setTitle:@"6 Rolls" forState:UIControlStateNormal];
+   
+    self.premiumButton.titleLabel.font = [UIFont fontWithName:@"ArvilSans" size:20.0];
+    self.regularButton.titleLabel.font = [UIFont fontWithName:@"ArvilSans" size:20.0];
+
     
+    self.orderButton.titleLabel.font = [UIFont fontWithName:@"ArvilSans" size:20.0];
+    [self.orderButton setTitle:@"$4" forState:UIControlStateNormal];
     
     //Checkout form
     self.nameLabel.font = [UIFont fontWithName:@"ProximaNova-Semibold" size:15.0];
@@ -91,7 +97,6 @@
     [self loadForm];
     
     UILabel *orderTotal = [[UILabel alloc] initWithFrame:CGRectMake(20.0, 0.0, 50.0, 50.0)];
-    orderTotal.text = @"test"; 
     orderTotal.backgroundColor = [UIColor redColor];
     [self.test addSubview:orderTotal];
 
@@ -135,7 +140,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     NSLog(@"inside num rows in section");
-    return 4;
+    return 3;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -150,13 +155,11 @@
         cell.textLabel.textColor = [UIColor whiteColor];
     }
     if (indexPath.row == 0) {
-        cell.textLabel.text = @"4 Rolls";
+        cell.textLabel.text = @"6 Rolls";
     } else if (indexPath.row == 1) {
-        cell.textLabel.text = @"8 Rolls";
-    } else if (indexPath.row == 2) {
         cell.textLabel.text = @"12 Rolls";
-    } else if (indexPath.row == 3) {
-        cell.textLabel.text = @"16 Rolls";
+    } else if (indexPath.row == 2) {
+        cell.textLabel.text = @"24 Rolls";
     }
     
     return cell;
@@ -166,17 +169,21 @@
     NSLog(@"index path %d", indexPath.row);
     NSLog(@"did select row");
     if (indexPath.row == 0) {
-        [qtyButton setTitle:@"4 Rolls" forState:UIControlStateNormal];
-        [qtyButtonSmall setTitle:@"4 Rolls" forState:UIControlStateNormal];
+        [qtyButton setTitle:@"6 Rolls" forState:UIControlStateNormal];
+        [qtyButtonSmall setTitle:@"6 Rolls" forState:UIControlStateNormal];
+        [self.regularButton setTitle:@"$6" forState:UIControlStateNormal];
+        [self.premiumButton setTitle:@"$9" forState:UIControlStateNormal];
     } else if (indexPath.row == 1) {
-        [qtyButton setTitle:@"8 Rolls" forState:UIControlStateNormal];
-        [qtyButtonSmall setTitle:@"8 Rolls" forState:UIControlStateNormal];
-    } else if (indexPath.row == 2) {
         [qtyButton setTitle:@"12 Rolls" forState:UIControlStateNormal];
         [qtyButtonSmall setTitle:@"12 Rolls" forState:UIControlStateNormal];
-    } else if (indexPath.row == 3) {
-        [qtyButton setTitle:@"16 Rolls" forState:UIControlStateNormal];
-        [qtyButtonSmall setTitle:@"16 Rolls" forState:UIControlStateNormal];
+        [self.regularButton setTitle:@"$10" forState:UIControlStateNormal];
+        [self.premiumButton setTitle:@"$15" forState:UIControlStateNormal];
+    } else if (indexPath.row == 2) {
+        [qtyButton setTitle:@"24 Rolls" forState:UIControlStateNormal];
+        [qtyButtonSmall setTitle:@"24 Rolls" forState:UIControlStateNormal];
+        [self.regularButton setTitle:@"$18" forState:UIControlStateNormal];
+        [self.premiumButton setTitle:@"$27" forState:UIControlStateNormal];
+
     }
     self.qtyTable.hidden = YES;
     self.qtyButton.selected = NO;
@@ -255,7 +262,7 @@
     NSLog(@"in quantity change");
     if (self.qtyTable.hidden) {
         self.qtyTable.hidden = NO;
-        self.qtyButton.selected = YES; 
+        self.qtyButton.selected = YES;
     } else {
         self.qtyTable.hidden = YES;
         self.qtyButton.selected = NO;
@@ -276,14 +283,7 @@
     } else {
         [self.currentUser createStripeCustomer];
     }
-//    [user save];
-//    if([user hasCustomerObject]) {
-//        NSLog(@"Already have customer object. Create charge.");
-//        [user chargeCustomer:[NSNumber numberWithInt:400]];
-//    } else {
-//        NSLog(@"No existing customer. Create now.");
-//        [user createStripeCustomer];
-//    }
+    
     NSLog(@"Did click order");
     [((OrderController *)self.scrollView.delegate) performSegueWithIdentifier:@"ShowReceipt" sender:self];
 }

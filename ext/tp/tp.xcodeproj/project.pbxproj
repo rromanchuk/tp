@@ -65,6 +65,9 @@
 		FAA7AD1015718CB8005128B4 /* backup@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAA7AD0D15718CB8005128B4 /* backup@2x.png */; };
 		FAA7AD1615718D91005128B4 /* backup.png in Resources */ = {isa = PBXBuildFile; fileRef = FAA7AD1315718D91005128B4 /* backup.png */; };
 		FAAC5265158545E3009E9811 /* SettingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAAC5264158545E3009E9811 /* SettingsController.m */; };
+		FAC46BAD160F101C00D0F647 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAC46BAC160F101C00D0F647 /* CoreData.framework */; };
+		FAC46BB1160FA2BE00D0F647 /* quantity-pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = FAC46BAF160FA2BE00D0F647 /* quantity-pressed.png */; };
+		FAC46BB2160FA2BE00D0F647 /* quantity-pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAC46BB0160FA2BE00D0F647 /* quantity-pressed@2x.png */; };
 		FAC5B7CD157A2DC900C73398 /* Stripe.m in Sources */ = {isa = PBXBuildFile; fileRef = FAC5B7CC157A2DC900C73398 /* Stripe.m */; };
 		FAC5B7D7157A4EB500C73398 /* RestUser.m in Sources */ = {isa = PBXBuildFile; fileRef = FAC5B7D6157A4EB500C73398 /* RestUser.m */; };
 		FAC5B7E2157B7A1600C73398 /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = FAC5B7E1157B7A1600C73398 /* KeychainItemWrapper.m */; };
@@ -175,6 +178,9 @@
 		FAA7AD1315718D91005128B4 /* backup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backup.png; sourceTree = "<group>"; };
 		FAAC5263158545E3009E9811 /* SettingsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsController.h; sourceTree = "<group>"; };
 		FAAC5264158545E3009E9811 /* SettingsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsController.m; sourceTree = "<group>"; };
+		FAC46BAC160F101C00D0F647 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		FAC46BAF160FA2BE00D0F647 /* quantity-pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "quantity-pressed.png"; path = "assets/quantity-pressed.png"; sourceTree = "<group>"; };
+		FAC46BB0160FA2BE00D0F647 /* quantity-pressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "quantity-pressed@2x.png"; path = "assets/quantity-pressed@2x.png"; sourceTree = "<group>"; };
 		FAC5B7CB157A2DC900C73398 /* Stripe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stripe.h; sourceTree = "<group>"; };
 		FAC5B7CC157A2DC900C73398 /* Stripe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stripe.m; sourceTree = "<group>"; };
 		FAC5B7D5157A4EB500C73398 /* RestUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestUser.h; sourceTree = "<group>"; };
@@ -213,6 +219,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAC46BAD160F101C00D0F647 /* CoreData.framework in Frameworks */,
 				94A94E6D15581D14004FB612 /* CoreGraphics.framework in Frameworks */,
 				FAC5B7E4157B933200C73398 /* Security.framework in Frameworks */,
 				FAA11B81156049EE0005CAFA /* libz.dylib in Frameworks */,
@@ -262,6 +269,7 @@
 		94A94E6715581D13004FB612 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FAC46BAC160F101C00D0F647 /* CoreData.framework */,
 				94A94E6815581D14004FB612 /* UIKit.framework */,
 				94A94E6A15581D14004FB612 /* Foundation.framework */,
 				94A94E6C15581D14004FB612 /* CoreGraphics.framework */,
@@ -387,6 +395,8 @@
 		FAE95FF8155A8E21007F42DA /* assets */ = {
 			isa = PBXGroup;
 			children = (
+				FAC46BAF160FA2BE00D0F647 /* quantity-pressed.png */,
+				FAC46BB0160FA2BE00D0F647 /* quantity-pressed@2x.png */,
 				FAA525AA1602832D00B9393A /* email.png */,
 				FAA525AB1602832D00B9393A /* email@2x.png */,
 				FAA525A116027EC300B9393A /* fb.png */,
@@ -502,7 +512,7 @@
 		94A94E5B15581D13004FB612 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0430;
+				LastUpgradeCheck = 0450;
 			};
 			buildConfigurationList = 94A94E5E15581D13004FB612 /* Build configuration list for PBXProject "tp" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -585,6 +595,8 @@
 				FAA525A816027EC300B9393A /* tw@2x.png in Resources */,
 				FAA525AC1602832D00B9393A /* email.png in Resources */,
 				FAA525AD1602832D00B9393A /* email@2x.png in Resources */,
+				FAC46BB1160FA2BE00D0F647 /* quantity-pressed.png in Resources */,
+				FAC46BB2160FA2BE00D0F647 /* quantity-pressed@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

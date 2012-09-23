@@ -29,7 +29,7 @@
 - (bool)hasCustomerObject;
 
 + (RestUser *)currentUser;
-+ (void)setCurrentUser:(User *)user;
++ (void)setCurrentUser:(RestUser *)user;
 
 
 @end
