@@ -15,6 +15,7 @@
     #import "UIApplication+NetworkActivityIndicator.h"
     #import "NSObject+JTObjectMapping.h"
     #import "TestFlight.h"
+    #import "SVProgressHUD.h"
 #endif
 
 

@@ -18,36 +18,6 @@
 
 @implementation OrderController
 
-@synthesize navigationBar;
-@synthesize rightBarButton;
-@synthesize regularButton; 
-@synthesize premiumButton;
-@synthesize orderButton; 
-@synthesize qtyButton;
-@synthesize qtyButtonSmall;
-@synthesize qtyTable; 
-
-@synthesize scrollView;
-
-//Form
-@synthesize nameLabel, nameTextField;
-@synthesize emailLabel, emailTextField;
-@synthesize addressLabel, addressTextField;
-@synthesize address1Label, address1Textfield;
-@synthesize cityLabel, cityTextField;
-@synthesize stateLabel, stateTextField;
-@synthesize zipLabel, zipTextField;
-@synthesize helperText;
-
-//checkout
-@synthesize cancelOrder; 
-@synthesize thatsItLabel; 
-@synthesize deliveryEst;
-@synthesize isOnCheckout;
-
-@synthesize activeField;
-
-@synthesize managedObjectContext;
 
 - (void)viewDidLoad
 {
@@ -84,7 +54,7 @@
     
     //Checkout form
     self.nameLabel.font = [UIFont fontWithName:@"ProximaNova-Semibold" size:15.0];
-    self.addressLabel.font = [UIFont fontWithName:@"ProximaNova-Semibold" size:15.0];
+    self.address1Label.font = [UIFont fontWithName:@"ProximaNova-Semibold" size:15.0];
     self.stateLabel.font = [UIFont fontWithName:@"ProximaNova-Semibold" size:15.0];
     self.cityLabel.font = [UIFont fontWithName:@"ProximaNova-Semibold" size:15.0];
     self.zipLabel.font = [UIFont fontWithName:@"ProximaNova-Semibold" size:15.0];
@@ -94,15 +64,16 @@
     self.thatsItLabel.font = [UIFont fontWithName:@"ArvilSans" size:22.0];
     self.deliveryEst.font = [UIFont fontWithName:@"ArvilSans" size:20.0];
     self.isOnCheckout = NO;
-    
+    //self.currentUser = [User currentUser:self.managedObjectContext];
+
     [self loadForm];
     
-    UILabel *orderTotal = [[UILabel alloc] initWithFrame:CGRectMake(20.0, 0.0, 50.0, 50.0)];
-    orderTotal.backgroundColor = [UIColor redColor];
-    [self.test addSubview:orderTotal];
-
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self loadForm];
+}
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"ShowReceipt"]){
         NSLog(@"In prepare for segue");
@@ -112,14 +83,12 @@
 }
 
 - (void)loadForm {
-    if (self.currentUser.name) {
-        self.nameTextField.text = self.currentUser.name;
-        self.addressTextField.text = self.currentUser.address1;
-        //self.address1Textfield.text = user.address1; 
-        self.cityTextField.text = self.currentUser.city;
-        self.stateTextField.text = self.currentUser.state;
-        self.zipTextField.text = self.currentUser.zip;
-    }
+    DLog(@"name %@ and address %@ customerid %@ state %@  zip %@", self.currentUser.name, self.currentUser.address1, self.currentUser.stripeCustomerId, self.currentUser.state, self.currentUser.zip);
+    self.nameTextField.text = self.currentUser.name;
+    self.address1TextField.text = self.currentUser.address1;
+    self.cityTextField.text = self.currentUser.city;
+    self.stateTextField.text = self.currentUser.state;
+    self.zipTextField.text = self.currentUser.zip;
 }
 
 - (void)viewDidUnload
@@ -170,21 +139,35 @@
     NSLog(@"index path %d", indexPath.row);
     NSLog(@"did select row");
     if (indexPath.row == 0) {
-        [qtyButton setTitle:@"6 Rolls" forState:UIControlStateNormal];
-        [qtyButtonSmall setTitle:@"6 Rolls" forState:UIControlStateNormal];
+        [self.qtyButton setTitle:@"6 Rolls" forState:UIControlStateNormal];
+        [self.qtyButtonSmall setTitle:@"6 Rolls" forState:UIControlStateNormal];
         [self.regularButton setTitle:@"$6" forState:UIControlStateNormal];
         [self.premiumButton setTitle:@"$9" forState:UIControlStateNormal];
+        if (self.premiumButton.selected) {
+            [self.orderCheckoutButton setTitle:@"$9" forState:UIControlStateNormal];
+        } else {
+            [self.orderCheckoutButton setTitle:@"$6" forState:UIControlStateNormal];
+        }
     } else if (indexPath.row == 1) {
-        [qtyButton setTitle:@"12 Rolls" forState:UIControlStateNormal];
-        [qtyButtonSmall setTitle:@"12 Rolls" forState:UIControlStateNormal];
+        [self.qtyButton setTitle:@"12 Rolls" forState:UIControlStateNormal];
+        [self.qtyButtonSmall setTitle:@"12 Rolls" forState:UIControlStateNormal];
         [self.regularButton setTitle:@"$10" forState:UIControlStateNormal];
         [self.premiumButton setTitle:@"$15" forState:UIControlStateNormal];
+        if (self.premiumButton.selected) {
+            [self.orderCheckoutButton setTitle:@"$15" forState:UIControlStateNormal];
+        } else {
+            [self.orderCheckoutButton setTitle:@"$10" forState:UIControlStateNormal];
+        }
     } else if (indexPath.row == 2) {
-        [qtyButton setTitle:@"24 Rolls" forState:UIControlStateNormal];
-        [qtyButtonSmall setTitle:@"24 Rolls" forState:UIControlStateNormal];
+        [self.qtyButton setTitle:@"24 Rolls" forState:UIControlStateNormal];
+        [self.qtyButtonSmall setTitle:@"24 Rolls" forState:UIControlStateNormal];
         [self.regularButton setTitle:@"$18" forState:UIControlStateNormal];
         [self.premiumButton setTitle:@"$27" forState:UIControlStateNormal];
-
+        if (self.premiumButton.selected) {
+            [self.orderCheckoutButton setTitle:@"$27" forState:UIControlStateNormal];
+        } else {
+            [self.orderCheckoutButton setTitle:@"$18" forState:UIControlStateNormal];
+        }
     }
     self.qtyTable.hidden = YES;
     self.qtyButton.selected = NO;
@@ -211,14 +194,14 @@
 //Scroll view
 
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)sender {
-    if (isOnCheckout && (sender.contentOffset.y < 474.0)) {
+    if (self.isOnCheckout && (sender.contentOffset.y < 474.0)) {
         [self scrollToTop:sender];
     }
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)sender willDecelerate:(BOOL)decelerate {
     if( decelerate == NO) {
-        if (isOnCheckout && (sender.contentOffset.y < 474.0)) {
+        if (self.isOnCheckout && (sender.contentOffset.y < 474.0)) {
             [self scrollToTop:sender];
         }     
     }
@@ -226,7 +209,7 @@
 
 -(void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView
 {
-    if (isOnCheckout) {
+    if (self.isOnCheckout) {
         [self.nameTextField becomeFirstResponder];
     }
 }
@@ -234,12 +217,12 @@
 // keyboard
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
-    activeField = textField;
+    self.activeField = textField;
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
-    activeField = nil;
+    self.activeField = nil;
 }
 
 -(IBAction)removeKeyboard {
@@ -274,25 +257,28 @@
 //        
     self.currentUser.name = self.nameTextField.text;
 //    //user.email = self.emailTextField.text;
-    self.currentUser.address1 = self.address1Textfield.text;
+    self.currentUser.address1 = self.address1TextField.text;
     self.currentUser.state = self.stateTextField.text;
     self.currentUser.zip = self.zipTextField.text;
+    self.currentUser.city = self.cityTextField.text;
     self.currentUser.country = @"United States";
     [self saveContext];
+    DLog(@"name %@ and address %@ customerid %@ state %@  zip %@", self.currentUser.name, self.currentUser.address1, self.currentUser.stripeCustomerId, self.currentUser.state, self.currentUser.zip);
     if (self.currentUser.stripeCustomerId) {
-        [self.currentUser chargeCustomer:[NSNumber numberWithInteger:400]];
+        //[self.currentUser chargeCustomer:[NSNumber numberWithInteger:400]];
     } else {
         [self.currentUser createStripeCustomer];
     }
     
-    
+    [SVProgressHUD showErrorWithStatus:@"Sending order..."];
     [RestUser order:self.currentUser onLoad:^(id object) {
         DLog(@"success");
+        [SVProgressHUD dismiss];
         [((OrderController *)self.scrollView.delegate) performSegueWithIdentifier:@"ShowReceipt" sender:self];
     } onError:^(NSString *error) {
         DLog(@"failure");
+        [SVProgressHUD showErrorWithStatus:error];
     }];
-    NSLog(@"Did click order");
     
 }
 

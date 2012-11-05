@@ -20,7 +20,9 @@
 @property (weak) IBOutlet UIBarButtonItem *rightBarButton;
 @property (weak) IBOutlet UIButton *regularButton; 
 @property (weak) IBOutlet UIButton *premiumButton;
-@property (weak) IBOutlet UIButton *orderButton; 
+@property (weak) IBOutlet UIButton *orderButton;
+@property (weak) IBOutlet UIButton *orderCheckoutButton;
+
 @property (weak) IBOutlet UIButton *qtyButton;
 @property (weak) IBOutlet UIButton *qtyButtonSmall;
 
@@ -36,11 +38,11 @@
 @property (weak) IBOutlet UILabel *emailLabel; 
 @property (weak) IBOutlet UITextField *emailTextField;
 
-@property (weak) IBOutlet UILabel *addressLabel;
-@property (weak) IBOutlet UITextField *addressTextField;
-
 @property (weak) IBOutlet UILabel *address1Label;
-@property (weak) IBOutlet UITextField *address1Textfield;
+@property (weak) IBOutlet UITextField *address1TextField;
+
+@property (weak) IBOutlet UILabel *address2Label;
+@property (weak) IBOutlet UITextField *address2Textfield;
 
 @property (weak) IBOutlet UILabel *cityLabel;
 @property (weak) IBOutlet UITextField *cityTextField;
@@ -61,7 +63,6 @@
 @property BOOL isOnCheckout;
 @property (weak) UITextField *activeField;
 
-@property (weak) IBOutlet UIButton *test;
 
 
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;

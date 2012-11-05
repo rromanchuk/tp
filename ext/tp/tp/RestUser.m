@@ -24,11 +24,13 @@ static NSString *ORDER = @"orders/";
                    onError:(void (^)(NSString *error))onError {
     
     RestClient *restClient = [RestClient sharedClient];
-    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:user.name, @"name", user.address1, @"address1", user.address2, @"address2", user.city, @"city", user.state, @"state", user.zip, @"zip", user.country, @"country", nil];
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:user.name, @"name", user.address1, @"address1", user.stripeCustomerId, @"stripe_customer_id", user.city, @"city", user.zip, @"zip", user.state, @"state", user.country, @"country", @"PREMIUM", @"sku", @"2", @"quantity", nil];
     NSMutableURLRequest *request = [restClient requestWithMethod:@"POST"
                                                             path:ORDER
                                                       parameters:params];
-    DLog(@"LOGIN REGUEST is %@", request);
+    
+    DLog(@"LOGIN REQUEST is %@ with params %@", request, params);
+    DLog(@"params %@", params)
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request
                                                                                         success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
                                                                                             [[UIApplication sharedApplication] hideNetworkActivityIndicator];

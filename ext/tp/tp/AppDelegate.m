@@ -51,10 +51,9 @@
     OrderController *oc = ((OrderController *) self.window.rootViewController);
     oc.currentUser = [User currentUser:self.managedObjectContext];
     oc.managedObjectContext = self.managedObjectContext;
+    [self saveContext];
     
     NSLog(@"%@", oc.currentUser);
-    //[RestUser setCurrentUser:user];
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application

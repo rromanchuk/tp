@@ -21,9 +21,10 @@
     //error handling goes here
     
     //more error handling here
-    if ([users count] > 0) {
+    if ([users count] == 1) {
+        DLog(@"found one user");
         user = [users lastObject];
-    } else {
+    } else if ([users count] == 0) {
         user = [NSEntityDescription insertNewObjectForEntityForName:@"User"
                                              inManagedObjectContext:managedContext];
     }
@@ -33,7 +34,7 @@
 - (void)createStripeCustomer {
     StripeConnection *stripe = [StripeConnection connectionWithSecretKey:[Config sharedConfig].stripeSecret];
     StripeCard *card =  [[StripeCard alloc] init];
-    card.number =       @"4111111111111111";
+    card.number =       @"4242424242424242";
     card.name =         @"Bob Dylan";
     card.securityCode = @"010";
     card.expiryMonth =  [NSNumber numberWithInteger:2];
@@ -42,7 +43,7 @@
                    withDescription:self.name
                            success:^(StripeResponse *token)
      {
-         NSLog(@"Customer created successfully");
+         NSLog(@"Customer created successfully %@", token);
          self.stripeCustomerId = token.token;
          /* handle success */
      }
