@@ -2,11 +2,12 @@
 //  User.m
 //  tp
 //
-//  Created by Ryan Romanchuk on 9/23/12.
+//  Created by Ryan Romanchuk on 11/5/12.
 //
 //
 
 #import "User.h"
+#import "Order.h"
 
 
 @implementation User
@@ -14,13 +15,14 @@
 @dynamic address1;
 @dynamic address2;
 @dynamic city;
-@dynamic state;
 @dynamic country;
-@dynamic zip;
-@dynamic phone;
 @dynamic email;
 @dynamic name;
+@dynamic phone;
+@dynamic state;
 @dynamic stripeCardToken;
 @dynamic stripeCustomerId;
+@dynamic zip;
+@dynamic orders;
 
 @end

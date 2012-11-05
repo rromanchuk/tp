@@ -1,8 +1,6 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.3'
-gem 'devise'
-gem 'stripe'
 gem 'haml'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -13,6 +11,8 @@ gem 'fb_graph'
 gem 'activemerchant', :require => 'active_merchant'
 gem 'active_shipping'
 gem 'active_fulfillment', :git => 'git://github.com/Shopify/active_fulfillment.git'
+gem 'rabl'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

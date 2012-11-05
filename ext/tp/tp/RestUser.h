@@ -7,25 +7,23 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "User+Manage.h"
 @interface RestUser : NSObject
 @property (strong) NSString *name;
-@property (strong) NSString *address;
 @property (strong) NSString *address1;
+@property (strong) NSString *address2;
 @property (strong) NSString *city; 
 @property (strong) NSString *state; 
 @property (strong) NSString *zip; 
 @property (strong) NSString *country;
 @property (strong) NSString *email;
-@property (strong) NSUserDefaults *prefs; 
 @property (strong) NSString *stripeCardToken;
 @property (strong) NSString *stripeCustomerId; 
 
-- (void)save:(void (^)(id object))onLoad
-     onError:(void (^)(NSString *error))onError;
-- (void)save;
-- (void)createStripeCustomer;
-- (void)chargeCustomer:(NSNumber *)amountInCents;
++ (void)order:(User *)user
+       onLoad:(void (^)(id object))onLoad
+      onError:(void (^)(NSString *error))onError;
+
 - (bool)hasCustomerObject;
 
 + (RestUser *)currentUser;

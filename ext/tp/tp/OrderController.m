@@ -11,6 +11,7 @@
 #import "User+Manage.h"
 #import "Stripe.h"
 #import "Config.h"
+#import "RestUser.h"
 @interface OrderController ()
 
 @end
@@ -278,14 +279,20 @@
     self.currentUser.zip = self.zipTextField.text;
     self.currentUser.country = @"United States";
     [self saveContext];
-    if (self.currentUser.stripeCustomerId) {
-        [self.currentUser chargeCustomer:[NSNumber numberWithInteger:400]];
-    } else {
-        [self.currentUser createStripeCustomer];
-    }
+//    if (self.currentUser.stripeCustomerId) {
+//        [self.currentUser chargeCustomer:[NSNumber numberWithInteger:400]];
+//    } else {
+//        [self.currentUser createStripeCustomer];
+//    }
     
+    [RestUser order:self.currentUser onLoad:^(id object) {
+        DLog(@"success");
+        [((OrderController *)self.scrollView.delegate) performSegueWithIdentifier:@"ShowReceipt" sender:self];
+    } onError:^(NSString *error) {
+        DLog(@"failure");
+    }];
     NSLog(@"Did click order");
-    [((OrderController *)self.scrollView.delegate) performSegueWithIdentifier:@"ShowReceipt" sender:self];
+    
 }
 
 - (void)didDismissReceipt {

@@ -71,4 +71,11 @@
     
 }
 
+- (void)createOrder:(NSManagedObjectContext *)managedContext  {
+    Order *order = [NSEntityDescription insertNewObjectForEntityForName:@"Order"
+                                                        inManagedObjectContext:managedContext];
+    
+}
+
+
 @end
