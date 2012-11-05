@@ -24,7 +24,7 @@ static NSString *ORDER = @"orders/";
                    onError:(void (^)(NSString *error))onError {
     
     RestClient *restClient = [RestClient sharedClient];
-    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:user.name, @"name", user.address1, @"address1", user.address2, @"address2", user.city, @"city", user.state, @"state", user.zip, @"zip" user.country, @"country", nil];
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:user.name, @"name", user.address1, @"address1", user.address2, @"address2", user.city, @"city", user.state, @"state", user.zip, @"zip", user.country, @"country", nil];
     NSMutableURLRequest *request = [restClient requestWithMethod:@"POST"
                                                             path:ORDER
                                                       parameters:params];

@@ -1,15 +1,20 @@
+
 PODS:
-  - AFNetworking (1.0RC1)
-  - Facebook-iOS-SDK (3.0.7):
-    - SBJson (= 2.2.3)
-  - JTObjectMapping (1.0.5)
-  - SBJson (2.2.3)
-  - SVProgressHUD (0.7)
-  - TestFlightSDK (1.0)
+- AFNetworking (1.0.1)
+- JTObjectMapping (1.0.7)
+- SVProgressHUD (0.8)
+- TestFlightSDK (1.2.beta2)
 
 DEPENDENCIES:
-  - AFNetworking
-  - Facebook-iOS-SDK
-  - JTObjectMapping
-  - SVProgressHUD
-  - TestFlightSDK
+- AFNetworking
+- JTObjectMapping (>= 1.0.7)
+- SVProgressHUD (>= 0.8)
+- TestFlightSDK (>= 1.1)
+
+SPEC CHECKSUMS:
+  AFNetworking: 4c11f857c9a18d65f4257c90a1e74ac49f0ac422
+  JTObjectMapping: 0b4f1b90a6164ce91f087d6633a1d3ad6e18bd6a
+  SVProgressHUD: 51042a14e3a716efdbdd73cbb2181fb23ee94389
+  TestFlightSDK: 5e99e21c11d7f4447171bf787b256062d4405f23
+
+COCOAPODS: 0.15.2

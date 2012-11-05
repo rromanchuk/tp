@@ -279,11 +279,12 @@
     self.currentUser.zip = self.zipTextField.text;
     self.currentUser.country = @"United States";
     [self saveContext];
-//    if (self.currentUser.stripeCustomerId) {
-//        [self.currentUser chargeCustomer:[NSNumber numberWithInteger:400]];
-//    } else {
-//        [self.currentUser createStripeCustomer];
-//    }
+    if (self.currentUser.stripeCustomerId) {
+        [self.currentUser chargeCustomer:[NSNumber numberWithInteger:400]];
+    } else {
+        [self.currentUser createStripeCustomer];
+    }
+    
     
     [RestUser order:self.currentUser onLoad:^(id object) {
         DLog(@"success");
