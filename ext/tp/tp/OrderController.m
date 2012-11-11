@@ -12,11 +12,26 @@
 #import "Stripe.h"
 #import "Config.h"
 #import "RestUser.h"
-@interface OrderController ()
+#import "SVProgressHUD.h"
+@interface OrderController () {
+    RollQualityType selectedQuality;
+    RollQuantityType selectedQuantity;
+    NSInteger amountInCents;
+}
 
 @end
 
 @implementation OrderController
+
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    if(self = [super initWithCoder:aDecoder])
+    {
+        selectedQuantity = RollQuantityType6;
+        selectedQuality = RollQualityTypeRegular;
+    }
+    return self;
+}
+
 
 
 - (void)viewDidLoad
@@ -50,6 +65,7 @@
 
     
     self.orderButton.titleLabel.font = [UIFont fontWithName:@"ArvilSans" size:20.0];
+    self.orderCheckoutButton.titleLabel.font = [UIFont fontWithName:@"ArvilSans" size:20.0];
     [self.orderButton setTitle:@"$4" forState:UIControlStateNormal];
     
     //Checkout form
@@ -58,14 +74,17 @@
     self.stateLabel.font = [UIFont fontWithName:@"ProximaNova-Semibold" size:15.0];
     self.cityLabel.font = [UIFont fontWithName:@"ProximaNova-Semibold" size:15.0];
     self.zipLabel.font = [UIFont fontWithName:@"ProximaNova-Semibold" size:15.0];
+    self.creditCardLabel.font = [UIFont fontWithName:@"ProximaNova-Semibold" size:15.0];
+    self.csvLabel.font = [UIFont fontWithName:@"ProximaNova-Semibold" size:15.0];
+    self.expirationLabel.font = [UIFont fontWithName:@"ProximaNova-Semibold" size:15.0];
+
     self.helperText.font = [UIFont fontWithName:@"ProximaNova-Regular" size:15.0];
     
     //Checkout 
     self.thatsItLabel.font = [UIFont fontWithName:@"ArvilSans" size:22.0];
     self.deliveryEst.font = [UIFont fontWithName:@"ArvilSans" size:20.0];
     self.isOnCheckout = NO;
-    //self.currentUser = [User currentUser:self.managedObjectContext];
-
+    [self setupView];
     [self loadForm];
     
 }
@@ -93,6 +112,13 @@
 
 - (void)viewDidUnload
 {
+    [self setCreditCardLabel:nil];
+    [self setCreditCardTextField:nil];
+    [self setCsvLabel:nil];
+    [self setCsvTextField:nil];
+    [self setExpirationLabel:nil];
+    [self setExpiryMonth:nil];
+    [self setExpiryYear:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -135,49 +161,70 @@
     return cell;
 }
 
+- (void)setupView {
+    switch (selectedQuantity) {
+        case RollQuantityType6:
+            [self.qtyButton setTitle:@"6 Rolls" forState:UIControlStateNormal];
+            [self.qtyButtonSmall setTitle:@"6 Rolls" forState:UIControlStateNormal];
+            [self.regularButton setTitle:@"$6" forState:UIControlStateNormal];
+            [self.premiumButton setTitle:@"$9" forState:UIControlStateNormal];
+            if (selectedQuality == RollQualityTypePremium) {
+                [self.orderCheckoutButton setTitle:@"$9" forState:UIControlStateNormal];
+                [self.orderButton setTitle:@"$9" forState:UIControlStateNormal];
+                amountInCents = 900;
+            } else {
+                [self.orderCheckoutButton setTitle:@"$6" forState:UIControlStateNormal];
+                [self.orderButton setTitle:@"$6" forState:UIControlStateNormal];
+                amountInCents = 600;
+            }
+            break;
+        case RollQuantityType12:
+            [self.qtyButton setTitle:@"12 Rolls" forState:UIControlStateNormal];
+            [self.qtyButtonSmall setTitle:@"12 Rolls" forState:UIControlStateNormal];
+            [self.regularButton setTitle:@"$10" forState:UIControlStateNormal];
+            [self.premiumButton setTitle:@"$15" forState:UIControlStateNormal];
+            if (selectedQuality == RollQualityTypePremium) {
+                [self.orderCheckoutButton setTitle:@"$15" forState:UIControlStateNormal];
+                [self.orderButton setTitle:@"$15" forState:UIControlStateNormal];
+                amountInCents = 1500;
+            } else {
+                [self.orderCheckoutButton setTitle:@"$10" forState:UIControlStateNormal];
+                [self.orderButton setTitle:@"$10" forState:UIControlStateNormal];
+                amountInCents = 1000;
+            }
+
+            break;
+            
+        case RollQuantityType24:
+            [self.qtyButton setTitle:@"24 Rolls" forState:UIControlStateNormal];
+            [self.qtyButtonSmall setTitle:@"24 Rolls" forState:UIControlStateNormal];
+            [self.regularButton setTitle:@"$18" forState:UIControlStateNormal];
+            [self.premiumButton setTitle:@"$27" forState:UIControlStateNormal];
+            if (selectedQuality == RollQualityTypePremium) {
+                [self.orderCheckoutButton setTitle:@"$27" forState:UIControlStateNormal];
+                [self.orderButton setTitle:@"$27" forState:UIControlStateNormal];
+                amountInCents = 2700;
+            } else {
+                [self.orderCheckoutButton setTitle:@"$18" forState:UIControlStateNormal];
+                [self.orderButton setTitle:@"$18" forState:UIControlStateNormal];
+                amountInCents = 1800;
+            }
+
+            break;
+        default:
+            break;
+    }
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"index path %d", indexPath.row);
     NSLog(@"did select row");
-    if (indexPath.row == 0) {
-        [self.qtyButton setTitle:@"6 Rolls" forState:UIControlStateNormal];
-        [self.qtyButtonSmall setTitle:@"6 Rolls" forState:UIControlStateNormal];
-        [self.regularButton setTitle:@"$6" forState:UIControlStateNormal];
-        [self.premiumButton setTitle:@"$9" forState:UIControlStateNormal];
-        if (self.premiumButton.selected) {
-            [self.orderCheckoutButton setTitle:@"$9" forState:UIControlStateNormal];
-        } else {
-            [self.orderCheckoutButton setTitle:@"$6" forState:UIControlStateNormal];
-        }
-    } else if (indexPath.row == 1) {
-        [self.qtyButton setTitle:@"12 Rolls" forState:UIControlStateNormal];
-        [self.qtyButtonSmall setTitle:@"12 Rolls" forState:UIControlStateNormal];
-        [self.regularButton setTitle:@"$10" forState:UIControlStateNormal];
-        [self.premiumButton setTitle:@"$15" forState:UIControlStateNormal];
-        if (self.premiumButton.selected) {
-            [self.orderCheckoutButton setTitle:@"$15" forState:UIControlStateNormal];
-        } else {
-            [self.orderCheckoutButton setTitle:@"$10" forState:UIControlStateNormal];
-        }
-    } else if (indexPath.row == 2) {
-        [self.qtyButton setTitle:@"24 Rolls" forState:UIControlStateNormal];
-        [self.qtyButtonSmall setTitle:@"24 Rolls" forState:UIControlStateNormal];
-        [self.regularButton setTitle:@"$18" forState:UIControlStateNormal];
-        [self.premiumButton setTitle:@"$27" forState:UIControlStateNormal];
-        if (self.premiumButton.selected) {
-            [self.orderCheckoutButton setTitle:@"$27" forState:UIControlStateNormal];
-        } else {
-            [self.orderCheckoutButton setTitle:@"$18" forState:UIControlStateNormal];
-        }
-    }
+    selectedQuantity = indexPath.row;
+    [self setupView];
     self.qtyTable.hidden = YES;
     self.qtyButton.selected = NO;
 }
 
-- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"inside diddeselect");
-    self.qtyTable.hidden = YES;
-    self.qtyButton.selected = NO;
-}
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
     if ([self numberOfSectionsInTableView:tableView] == (section+1)){
@@ -186,9 +233,20 @@
     return nil;
 }
 
-- (void)config
-{
-    
+- (IBAction)didTapRegular:(id)sender {
+    ALog(@"did tap regular");
+    self.regularButton.selected = YES;
+    self.premiumButton.selected = NO;
+    selectedQuality = RollQualityTypeRegular;
+    [self setupView];
+}
+
+- (IBAction)didTapPremium:(id)sender {
+    ALog(@"did tap premium");
+    self.regularButton.selected = NO;
+    self.premiumButton.selected = YES;
+    selectedQuality = RollQualityTypePremium;
+    [self setupView];
 }
 
 //Scroll view
@@ -265,12 +323,46 @@
     [self saveContext];
     DLog(@"name %@ and address %@ customerid %@ state %@  zip %@", self.currentUser.name, self.currentUser.address1, self.currentUser.stripeCustomerId, self.currentUser.state, self.currentUser.zip);
     if (self.currentUser.stripeCustomerId) {
-        //[self.currentUser chargeCustomer:[NSNumber numberWithInteger:400]];
+        // Charge customer
+        [self.currentUser chargeCustomer:[NSNumber numberWithInteger:amountInCents] onLoad:^(StripeResponse *token) {
+            [RestUser order:self.currentUser onLoad:^(id object) {
+                DLog(@"success");
+                [SVProgressHUD dismiss];
+                [((OrderController *)self.scrollView.delegate) performSegueWithIdentifier:@"ShowReceipt" sender:self];
+            } onError:^(NSString *error) {
+                DLog(@"failure");
+                [SVProgressHUD showErrorWithStatus:error];
+            }];
+            
+        } onError:^(NSError *error) {
+            [SVProgressHUD showErrorWithStatus:[error description]];
+        }];
+
     } else {
-        [self.currentUser createStripeCustomer];
+        
+        [self.currentUser createStripeCustomer:[NSNumber numberWithInteger:[self.expiryMonth.text integerValue]] expiryYear:[NSNumber numberWithInteger:[self.expiryYear.text integerValue]] number:self.creditCardTextField.text securityCode:self.csvTextField.text onLoad:^(StripeResponse *token) {
+            [self saveContext];
+            
+            // Charge customer
+            [self.currentUser chargeCustomer:[NSNumber numberWithInteger:amountInCents] onLoad:^(StripeResponse *token) {
+                [RestUser order:self.currentUser onLoad:^(id object) {
+                    DLog(@"success");
+                    [SVProgressHUD dismiss];
+                    [((OrderController *)self.scrollView.delegate) performSegueWithIdentifier:@"ShowReceipt" sender:self];
+                } onError:^(NSString *error) {
+                    DLog(@"failure");
+                    [SVProgressHUD showErrorWithStatus:error];
+                }];
+
+            } onError:^(NSError *error) {
+                [SVProgressHUD showErrorWithStatus:[error description]];
+            }];
+            
+        } onError:^(NSError *error) {
+            [SVProgressHUD showErrorWithStatus:[error description]];
+        }];
     }
     
-    [SVProgressHUD showErrorWithStatus:@"Sending order..."];
     [RestUser order:self.currentUser onLoad:^(id object) {
         DLog(@"success");
         [SVProgressHUD dismiss];

@@ -27,6 +27,7 @@
 		94A94E8915581D14004FB612 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94A94E6A15581D14004FB612 /* Foundation.framework */; };
 		94A94E9115581D14004FB612 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 94A94E8F15581D14004FB612 /* InfoPlist.strings */; };
 		94A94E9415581D14004FB612 /* tpTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A94E9315581D14004FB612 /* tpTests.m */; };
+		FA119D4B164E7DD800225A94 /* CreditCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA119D4A164E7DD800225A94 /* CreditCardViewController.m */; };
 		FA26D07F156EBEE70029463E /* form-bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA26D07E156EBEE70029463E /* form-bg@2x.png */; };
 		FA26D081156EBFE80029463E /* form-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = FA26D080156EBFE80029463E /* form-bg.png */; };
 		FA2E2BC015E56DA400BAAD44 /* paid.png in Resources */ = {isa = PBXBuildFile; fileRef = FA2E2BB415E56DA400BAAD44 /* paid.png */; };
@@ -68,6 +69,11 @@
 		FAA7AD0C156EE0E0005128B4 /* ProximaNova-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = FAA7AD0B156EE0E0005128B4 /* ProximaNova-Semibold.otf */; };
 		FAA7AD1015718CB8005128B4 /* backup@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAA7AD0D15718CB8005128B4 /* backup@2x.png */; };
 		FAA7AD1615718D91005128B4 /* backup.png in Resources */ = {isa = PBXBuildFile; fileRef = FAA7AD1315718D91005128B4 /* backup.png */; };
+		FAAB1197164E8725001C7597 /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = FAAB1195164E8725001C7597 /* bg.png */; };
+		FAAB1198164E8725001C7597 /* bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAAB1196164E8725001C7597 /* bg@2x.png */; };
+		FAAB119D164E91FF001C7597 /* WoodView.m in Sources */ = {isa = PBXBuildFile; fileRef = FAAB119C164E91FF001C7597 /* WoodView.m */; };
+		FAAB11A0164E92DF001C7597 /* TexturedView.m in Sources */ = {isa = PBXBuildFile; fileRef = FAAB119F164E92DF001C7597 /* TexturedView.m */; };
+		FAAB11A3164E9B12001C7597 /* FormView.m in Sources */ = {isa = PBXBuildFile; fileRef = FAAB11A2164E9B12001C7597 /* FormView.m */; };
 		FAAC5265158545E3009E9811 /* SettingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAAC5264158545E3009E9811 /* SettingsController.m */; };
 		FAC46BAD160F101C00D0F647 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAC46BAC160F101C00D0F647 /* CoreData.framework */; };
 		FAC46BB1160FA2BE00D0F647 /* quantity-pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = FAC46BAF160FA2BE00D0F647 /* quantity-pressed.png */; };
@@ -144,6 +150,8 @@
 		94A94E9015581D14004FB612 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		94A94E9215581D14004FB612 /* tpTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = tpTests.h; sourceTree = "<group>"; };
 		94A94E9315581D14004FB612 /* tpTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = tpTests.m; sourceTree = "<group>"; };
+		FA119D49164E7DD800225A94 /* CreditCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditCardViewController.h; sourceTree = "<group>"; };
+		FA119D4A164E7DD800225A94 /* CreditCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreditCardViewController.m; sourceTree = "<group>"; };
 		FA26D07E156EBEE70029463E /* form-bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "form-bg@2x.png"; sourceTree = "<group>"; };
 		FA26D080156EBFE80029463E /* form-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "form-bg.png"; sourceTree = "<group>"; };
 		FA2E2BB415E56DA400BAAD44 /* paid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = paid.png; path = assets/paid.png; sourceTree = "<group>"; };
@@ -188,6 +196,14 @@
 		FAA7AD0B156EE0E0005128B4 /* ProximaNova-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Semibold.otf"; sourceTree = "<group>"; };
 		FAA7AD0D15718CB8005128B4 /* backup@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "backup@2x.png"; sourceTree = "<group>"; };
 		FAA7AD1315718D91005128B4 /* backup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backup.png; sourceTree = "<group>"; };
+		FAAB1195164E8725001C7597 /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bg.png; path = assets/bg.png; sourceTree = "<group>"; };
+		FAAB1196164E8725001C7597 /* bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bg@2x.png"; path = "assets/bg@2x.png"; sourceTree = "<group>"; };
+		FAAB119B164E91FF001C7597 /* WoodView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WoodView.h; path = views/WoodView.h; sourceTree = "<group>"; };
+		FAAB119C164E91FF001C7597 /* WoodView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WoodView.m; path = views/WoodView.m; sourceTree = "<group>"; };
+		FAAB119E164E92DF001C7597 /* TexturedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TexturedView.h; path = views/TexturedView.h; sourceTree = "<group>"; };
+		FAAB119F164E92DF001C7597 /* TexturedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TexturedView.m; path = views/TexturedView.m; sourceTree = "<group>"; };
+		FAAB11A1164E9B12001C7597 /* FormView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FormView.h; path = views/FormView.h; sourceTree = "<group>"; };
+		FAAB11A2164E9B12001C7597 /* FormView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FormView.m; path = views/FormView.m; sourceTree = "<group>"; };
 		FAAC5263158545E3009E9811 /* SettingsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsController.h; sourceTree = "<group>"; };
 		FAAC5264158545E3009E9811 /* SettingsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsController.m; sourceTree = "<group>"; };
 		FAC46BAC160F101C00D0F647 /* CoreData.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -293,6 +309,7 @@
 		94A94E6E15581D14004FB612 /* tp */ = {
 			isa = PBXGroup;
 			children = (
+				FAAB119A164E91D3001C7597 /* Views */,
 				FA86549E160E56C800DAB476 /* CoreData */,
 				FA234E3A15BB340400EC4B3A /* categories */,
 				FA8E9F1A158DDEA600CB6F5B /* helpers */,
@@ -411,9 +428,24 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
+		FAAB119A164E91D3001C7597 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FAAB119B164E91FF001C7597 /* WoodView.h */,
+				FAAB119C164E91FF001C7597 /* WoodView.m */,
+				FAAB119E164E92DF001C7597 /* TexturedView.h */,
+				FAAB119F164E92DF001C7597 /* TexturedView.m */,
+				FAAB11A1164E9B12001C7597 /* FormView.h */,
+				FAAB11A2164E9B12001C7597 /* FormView.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		FAE95FF8155A8E21007F42DA /* assets */ = {
 			isa = PBXGroup;
 			children = (
+				FAAB1195164E8725001C7597 /* bg.png */,
+				FAAB1196164E8725001C7597 /* bg@2x.png */,
 				FAC46BAF160FA2BE00D0F647 /* quantity-pressed.png */,
 				FAC46BB0160FA2BE00D0F647 /* quantity-pressed@2x.png */,
 				FAA525AA1602832D00B9393A /* email.png */,
@@ -481,6 +513,8 @@
 				FAAC5264158545E3009E9811 /* SettingsController.m */,
 				FAE3E7CC15E6A92E00416738 /* ShowReceiptViewController.h */,
 				FAE3E7CD15E6A92E00416738 /* ShowReceiptViewController.m */,
+				FA119D49164E7DD800225A94 /* CreditCardViewController.h */,
+				FA119D4A164E7DD800225A94 /* CreditCardViewController.m */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -619,6 +653,8 @@
 				FAA525AD1602832D00B9393A /* email@2x.png in Resources */,
 				FAC46BB1160FA2BE00D0F647 /* quantity-pressed.png in Resources */,
 				FAC46BB2160FA2BE00D0F647 /* quantity-pressed@2x.png in Resources */,
+				FAAB1197164E8725001C7597 /* bg.png in Resources */,
+				FAAB1198164E8725001C7597 /* bg@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -700,6 +736,10 @@
 				94A0A1951647EA0A004A8608 /* LineItem.m in Sources */,
 				94A0A1981647EAA9004A8608 /* Order+Manage.m in Sources */,
 				94A0A19B1647EAC1004A8608 /* LineItem+Manage.m in Sources */,
+				FA119D4B164E7DD800225A94 /* CreditCardViewController.m in Sources */,
+				FAAB119D164E91FF001C7597 /* WoodView.m in Sources */,
+				FAAB11A0164E92DF001C7597 /* TexturedView.m in Sources */,
+				FAAB11A3164E9B12001C7597 /* FormView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -758,6 +798,7 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Ryan Romanchuk (RJ6W6Q2JLW)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COMPRESS_PNG_FILES = NO;
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -785,6 +826,7 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Ryan Romanchuk (RJ6W6Q2JLW)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COMPRESS_PNG_FILES = NO;
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -804,6 +846,7 @@
 			baseConfigurationReference = 5C98AF6D30D3468E84B43D40 /* Pods.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer: Ryan Romanchuk (RJ6W6Q2JLW)";
+				COMPRESS_PNG_FILES = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/social/ios\"",
@@ -832,6 +875,7 @@
 			baseConfigurationReference = 5C98AF6D30D3468E84B43D40 /* Pods.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer: Ryan Romanchuk (RJ6W6Q2JLW)";
+				COMPRESS_PNG_FILES = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/social/ios\"",

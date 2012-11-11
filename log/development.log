@@ -843,3 +843,72 @@ Processing by OrdersController#create as */*
   [1m[35m (2.5ms)[0m  COMMIT
   Rendered orders/create.json.rabl (0.2ms)
 Completed 200 OK in 9ms (Views: 1.2ms | ActiveRecord: 4.3ms)
+
+
+Started POST "/orders/" for 127.0.0.1 at 2012-11-05 23:09:30 +0400
+Processing by OrdersController#create as */*
+  Parameters: {"stripe_customer_id"=>"cus_0gHnMDwAYXZhkz", "city"=>"oakdale ", "name"=>"ryan romanchuk", "sku"=>"PREMIUM", "quantity"=>"2", "zip"=>"55128", "state"=>"mn", "country"=>"United States", "address1"=>"6400 47th st n"}
+Mysql2::Error: Table 'tp_development.users' doesn't exist: SHOW FULL FIELDS FROM `users`
+Completed 500 Internal Server Error in 250ms
+
+ActiveRecord::StatementInvalid (Mysql2::Error: Table 'tp_development.users' doesn't exist: SHOW FULL FIELDS FROM `users`):
+  app/controllers/orders_controller.rb:5:in `create'
+
+
+  Rendered /Users/rromanchuk/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (8.5ms)
+  Rendered /Users/rromanchuk/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.3ms)
+  Rendered /Users/rromanchuk/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (56.3ms)
+  [1m[36m (470.2ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (185.9ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)
+  [1m[36m (23.8ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+Migrating to CreateOrdersTable (20120601212031)
+  [1m[35m (119.5ms)[0m  CREATE TABLE `orders` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `user_id` int(11), `stripe_customer_id` varchar(255), `name` varchar(255), `address1` varchar(255), `address2` varchar(255), `city` varchar(255), `state` varchar(255), `country` varchar(255), `zip` varchar(255), `phone` varchar(255), `email` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (150.7ms)[0m  [1mCREATE INDEX `index_orders_on_user_id` ON `orders` (`user_id`)[0m
+  [1m[35m (266.4ms)[0m  CREATE INDEX `index_orders_on_stripe_customer_id` ON `orders` (`stripe_customer_id`)
+  [1m[36m (107.8ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20120601212031')[0m
+Migrating to CreateItemsTable (20121105115543)
+  [1m[35m (21.5ms)[0m  CREATE TABLE `items` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `order_id` int(11), `sku` varchar(255), `quantity` int(11)) ENGINE=InnoDB
+  [1m[36m (48.4ms)[0m  [1mCREATE INDEX `index_items_on_order_id` ON `items` (`order_id`)[0m
+  [1m[35m (8.5ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20121105115543')
+Migrating to CreateUsersTable (20121105130214)
+  [1m[36m (28.6ms)[0m  [1mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `stripe_customer_id` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (56.4ms)[0m  CREATE INDEX `index_users_on_stripe_customer_id` ON `users` (`stripe_customer_id`)
+  [1m[36m (6.1ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20121105130214')[0m
+  [1m[35m (0.9ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations` 
+
+
+Started POST "/orders/" for 127.0.0.1 at 2012-11-07 00:28:14 +0400
+Processing by OrdersController#create as */*
+  Parameters: {"stripe_customer_id"=>"cus_0gHnMDwAYXZhkz", "city"=>"oakdale ", "name"=>"ryan romanchuk", "sku"=>"PREMIUM", "quantity"=>"2", "zip"=>"55128", "state"=>"mn", "country"=>"United States", "address1"=>"6400 47th st n"}
+  [1m[36mUser Load (27.7ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`stripe_customer_id` = 'cus_0gHnMDwAYXZhkz' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (6.2ms)[0m  [1mINSERT INTO `users` (`created_at`, `stripe_customer_id`, `updated_at`) VALUES ('2012-11-06 20:28:17', 'cus_0gHnMDwAYXZhkz', '2012-11-06 20:28:17')[0m
+  [1m[35m (5.2ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (5.6ms)[0m  INSERT INTO `orders` (`address1`, `address2`, `city`, `country`, `created_at`, `email`, `name`, `phone`, `state`, `stripe_customer_id`, `updated_at`, `user_id`, `zip`) VALUES ('6400 47th st n', NULL, 'oakdale ', 'United States', '2012-11-06 20:28:18', NULL, 'ryan romanchuk', NULL, 'mn', NULL, '2012-11-06 20:28:18', NULL, '55128')
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (1.7ms)[0m  [1mINSERT INTO `items` (`order_id`, `quantity`, `sku`) VALUES (1, 2, 'PREMIUM')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (3.4ms)[0m  UPDATE `orders` SET `user_id` = 1, `updated_at` = '2012-11-06 20:28:18' WHERE `orders`.`id` = 1
+  [1m[36m (1.6ms)[0m  [1mCOMMIT[0m
+  Rendered orders/create.json.rabl (2.5ms)
+Completed 200 OK in 501ms (Views: 23.5ms | ActiveRecord: 112.7ms)
+
+
+Started POST "/orders/" for 127.0.0.1 at 2012-11-10 16:11:20 +0400
+Processing by OrdersController#create as */*
+  Parameters: {"stripe_customer_id"=>"cus_0gHnMDwAYXZhkz", "city"=>"oakdale ", "name"=>"ryan romanchuk", "sku"=>"PREMIUM", "quantity"=>"2", "zip"=>"55128", "state"=>"mn", "country"=>"United States", "address1"=>"6400 47th st n"}
+  [1m[35mUser Load (78.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`stripe_customer_id` = 'cus_0gHnMDwAYXZhkz' LIMIT 1
+  [1m[36m (0.8ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (14.7ms)[0m  INSERT INTO `orders` (`address1`, `address2`, `city`, `country`, `created_at`, `email`, `name`, `phone`, `state`, `stripe_customer_id`, `updated_at`, `user_id`, `zip`) VALUES ('6400 47th st n', NULL, 'oakdale ', 'United States', '2012-11-10 12:11:20', NULL, 'ryan romanchuk', NULL, 'mn', NULL, '2012-11-10 12:11:20', NULL, '55128')
+  [1m[36m (6.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (1.2ms)[0m  [1mINSERT INTO `items` (`order_id`, `quantity`, `sku`) VALUES (2, 2, 'PREMIUM')[0m
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (5.8ms)[0m  UPDATE `orders` SET `user_id` = 1, `updated_at` = '2012-11-10 12:11:21' WHERE `orders`.`id` = 2
+  [1m[36m (1.2ms)[0m  [1mCOMMIT[0m
+  Rendered orders/create.json.rabl (3.1ms)
+Completed 200 OK in 209ms (Views: 16.9ms | ActiveRecord: 109.1ms)

@@ -7,7 +7,6 @@
 //
 
 #import "User+Manage.h"
-#import "Stripe.h"
 #import "Config.h"
 @implementation User (Manage)
 
@@ -31,31 +30,42 @@
     return user;
 }
 
-- (void)createStripeCustomer {
+- (void)createStripeCustomer:(NSNumber *)expiryMonth
+                  expiryYear:(NSNumber *)expiryYear
+                      number:(NSString *)number
+                securityCode:(NSString *)securityCode
+                      onLoad:(void (^)(StripeResponse *token))onLoad
+                     onError:(void (^)(NSError *error))onError
+{
     StripeConnection *stripe = [StripeConnection connectionWithSecretKey:[Config sharedConfig].stripeSecret];
     StripeCard *card =  [[StripeCard alloc] init];
-    card.number =       @"4242424242424242";
-    card.name =         @"Bob Dylan";
-    card.securityCode = @"010";
-    card.expiryMonth =  [NSNumber numberWithInteger:2];
-    card.expiryYear =   [NSNumber numberWithInteger:2014];
+    card.number =       number;
+    card.name =         self.name;
+    card.securityCode = securityCode;
+    card.expiryMonth =  expiryMonth;
+    card.expiryYear =   expiryYear;
     [stripe createCustomerWithCard:card
                    withDescription:self.name
                            success:^(StripeResponse *token)
      {
          NSLog(@"Customer created successfully %@", token);
          self.stripeCustomerId = token.token;
+         onLoad(token);
          /* handle success */
+         
      }
                              error:^(NSError *error)
      {
          NSLog(@"Customer creation failed %@", error);
+         onError(error);
          /* handle failure */
      }];
 
 }
 
-- (void)chargeCustomer:(NSNumber *)amountInCents {
+- (void)chargeCustomer:(NSNumber *)amountInCents
+                onLoad:(void (^)(StripeResponse *token))onLoad
+               onError:(void (^)(NSError *error))onError {
     StripeConnection *stripe = [StripeConnection connectionWithSecretKey:[Config sharedConfig].stripeSecret];
     StripeCustomer *customer = [[StripeCustomer alloc] init];
     customer.token = self.stripeCustomerId;
@@ -64,10 +74,12 @@
                                success:^(StripeResponse *token)
      {
          NSLog(@"Successfully charged customer");
+         onLoad(token);
      }
                                  error:^(NSError *error)
      {
          NSLog(@"Failed to charge customer %@", error);
+         onError(error);
      }];
     
 }

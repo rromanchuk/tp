@@ -1,13 +1,18 @@
-//
-//  ViewController.h
-//  tp
-//
-//  Created by Ryan Romanchuk on 5/7/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
-//
 
 #import "ShowReceiptViewController.h"
 #import "User.h"
+
+typedef enum {
+    RollQuantityType6,
+    RollQuantityType12,
+    RollQuantityType24
+    } RollQuantityType;
+
+typedef enum {
+    RollQualityTypeRegular,
+    RollQualityTypePremium
+} RollQualityType;
+
 @protocol ReceiptDelegate;
 @interface OrderController : UIViewController <UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate, ReceiptDelegate> {
     NSString *option1; 
@@ -52,6 +57,13 @@
 
 @property (weak) IBOutlet UILabel *zipLabel;
 @property (weak) IBOutlet UITextField *zipTextField;
+@property (weak, nonatomic) IBOutlet UILabel *creditCardLabel;
+@property (weak, nonatomic) IBOutlet UITextField *creditCardTextField;
+@property (weak, nonatomic) IBOutlet UILabel *csvLabel;
+@property (weak, nonatomic) IBOutlet UITextField *csvTextField;
+@property (weak, nonatomic) IBOutlet UILabel *expirationLabel;
+@property (weak, nonatomic) IBOutlet UITextField *expiryMonth;
+@property (weak, nonatomic) IBOutlet UITextField *expiryYear;
 
 @property (weak) IBOutlet UILabel *helperText;
 
@@ -67,6 +79,8 @@
 
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, strong) User *currentUser;
+- (IBAction)didTapRegular:(id)sender;
+- (IBAction)didTapPremium:(id)sender;
 
 - (void)config;
 - (IBAction)qtyChange:(id)sender;
