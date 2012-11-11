@@ -42,7 +42,7 @@
                                                       forBarMetrics:UIBarMetricsDefault];
     }
     UIImage *gearImage = [UIImage imageNamed:@"gear.png"];
-    UIBarButtonItem *configButton = [UIBarButtonItem barItemWithImage:gearImage target:self action:@selector(config)];
+    UIBarButtonItem *configButton = [UIBarButtonItem barItemWithImage:gearImage target:self action:@selector(scrollToCheckout:)];
     self.navigationBar.topItem.rightBarButtonItem = configButton;
     self.navigationBar.topItem.title = @"Tap on the type of roll you want.";
     self.navigationBar.titleTextAttributes = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"ProximaNova-Regular" size:18.0], UITextAttributeFont, nil];
@@ -98,6 +98,9 @@
         NSLog(@"In prepare for segue");
         ShowReceiptViewController *vc = (ShowReceiptViewController *)segue.destinationViewController;
         vc.delegate = self;
+        vc.selectedQuantity = selectedQuantity;
+        vc.selectedQualityType = selectedQuality;
+        vc.amountInCents = amountInCents;
     }
 }
 
@@ -289,9 +292,18 @@
 
 - (IBAction)scrollToCheckout:(id)sender {
     self.isOnCheckout = YES;
-    [self.scrollView setContentOffset:CGPointMake(0.0, 474.0) animated:YES]; 
+    [self.scrollView setContentOffset:CGPointMake(0.0, 474.0) animated:YES];
     self.scrollView.scrollEnabled = YES;
 }
+
+- (IBAction)didTapCheckout:(id)sender {
+    if ([self.currentUser hasCustomerId] && [self.currentUser addressIsValid]) {
+        [self sendOrder:self];
+    } else {
+        [self scrollToCheckout:sender];
+    }
+}
+
 
 - (IBAction)scrollToTop:(id)sender {
     [self removeKeyboard];
@@ -313,8 +325,8 @@
 
 - (IBAction)sendOrder:(id)sender {
 //        
+    [SVProgressHUD showWithStatus:@"Sending your order..."];
     self.currentUser.name = self.nameTextField.text;
-//    //user.email = self.emailTextField.text;
     self.currentUser.address1 = self.address1TextField.text;
     self.currentUser.state = self.stateTextField.text;
     self.currentUser.zip = self.zipTextField.text;
@@ -324,17 +336,20 @@
     DLog(@"name %@ and address %@ customerid %@ state %@  zip %@", self.currentUser.name, self.currentUser.address1, self.currentUser.stripeCustomerId, self.currentUser.state, self.currentUser.zip);
     if (self.currentUser.stripeCustomerId) {
         // Charge customer
+        DLog(@"Existing stripe customer, charge.");
         [self.currentUser chargeCustomer:[NSNumber numberWithInteger:amountInCents] onLoad:^(StripeResponse *token) {
+            DLog(@"Success charging customer");
             [RestUser order:self.currentUser onLoad:^(id object) {
-                DLog(@"success");
+                DLog(@"Success creating order");
                 [SVProgressHUD dismiss];
                 [((OrderController *)self.scrollView.delegate) performSegueWithIdentifier:@"ShowReceipt" sender:self];
             } onError:^(NSString *error) {
-                DLog(@"failure");
+                DLog(@"failure %@", error);
                 [SVProgressHUD showErrorWithStatus:error];
             }];
             
         } onError:^(NSError *error) {
+            DLog(@"failure %@", error);
             [SVProgressHUD showErrorWithStatus:[error description]];
         }];
 
@@ -350,28 +365,20 @@
                     [SVProgressHUD dismiss];
                     [((OrderController *)self.scrollView.delegate) performSegueWithIdentifier:@"ShowReceipt" sender:self];
                 } onError:^(NSString *error) {
-                    DLog(@"failure");
+                    DLog(@"failure %@", error);
                     [SVProgressHUD showErrorWithStatus:error];
                 }];
 
             } onError:^(NSError *error) {
+                DLog(@"failure %@", error);
                 [SVProgressHUD showErrorWithStatus:[error description]];
             }];
             
         } onError:^(NSError *error) {
+            DLog(@"failure %@", error);
             [SVProgressHUD showErrorWithStatus:[error description]];
         }];
     }
-    
-    [RestUser order:self.currentUser onLoad:^(id object) {
-        DLog(@"success");
-        [SVProgressHUD dismiss];
-        [((OrderController *)self.scrollView.delegate) performSegueWithIdentifier:@"ShowReceipt" sender:self];
-    } onError:^(NSString *error) {
-        DLog(@"failure");
-        [SVProgressHUD showErrorWithStatus:error];
-    }];
-    
 }
 
 - (void)didDismissReceipt {

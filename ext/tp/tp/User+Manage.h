@@ -22,4 +22,7 @@
 - (void)chargeCustomer:(NSNumber *)amountInCents
                 onLoad:(void (^)(StripeResponse *token))onLoad
                onError:(void (^)(NSError *error))onError;
+
+- (BOOL)hasCustomerId;
+- (BOOL)addressIsValid;
 @end

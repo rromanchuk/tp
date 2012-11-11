@@ -75,14 +75,11 @@ typedef enum {
 @property BOOL isOnCheckout;
 @property (weak) UITextField *activeField;
 
-
-
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, strong) User *currentUser;
 - (IBAction)didTapRegular:(id)sender;
 - (IBAction)didTapPremium:(id)sender;
 
-- (void)config;
 - (IBAction)qtyChange:(id)sender;
 - (IBAction)scrollToCheckout:(id)sender;
 - (IBAction)scrollToTop:(id)sender;

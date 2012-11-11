@@ -46,6 +46,9 @@
     self.qtyValueLabel.font = [UIFont fontWithName:@"ArvilSans" size:25.0];
     self.typeValueLabel.font = [UIFont fontWithName:@"ArvilSans" size:25.0];
     self.tellWorldLabel.font = [UIFont fontWithName:@"ProximaNova-Semibold" size:10.0];
+    
+    self.qtyValueLabel.text = [NSString stringWithFormat:@"%d", self.selectedQuantity];
+    self.totalValueLabel.text = [NSString stringWithFormat:@"$%d", self.amountInCents / 100];
 	// Do any additional setup after loading the view.
 }
 

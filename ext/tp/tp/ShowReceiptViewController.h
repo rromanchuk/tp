@@ -8,9 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "OrderController.h"
+
 @protocol ReceiptDelegate;
 
 @interface ShowReceiptViewController : UIViewController
+
+@property NSInteger selectedQualityType;
+@property NSInteger selectedQuantity;
+@property NSInteger amountInCents;
+
 @property (weak, nonatomic) IBOutlet UILabel *booYaLabel;
 @property (weak, nonatomic) IBOutlet UILabel *headingLabel;
 @property (weak, nonatomic) IBOutlet UIButton *okButton;

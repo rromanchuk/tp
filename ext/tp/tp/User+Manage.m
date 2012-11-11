@@ -90,5 +90,20 @@
     
 }
 
+- (BOOL)hasCustomerId {
+    if (self.stripeCustomerId)
+        return YES;
+    
+    return NO;
+}
+
+- (BOOL)addressIsValid {
+    if (self.name && self.address1 && self.city && self.state && self.zip)
+        return YES;
+    
+    return NO;
+        
+}
+
 
 @end

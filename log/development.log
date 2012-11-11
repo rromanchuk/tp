@@ -912,3 +912,91 @@ Processing by OrdersController#create as */*
   [1m[36m (1.2ms)[0m  [1mCOMMIT[0m
   Rendered orders/create.json.rabl (3.1ms)
 Completed 200 OK in 209ms (Views: 16.9ms | ActiveRecord: 109.1ms)
+
+
+Started POST "/orders/" for 127.0.0.1 at 2012-11-11 23:13:05 +0400
+Processing by OrdersController#create as */*
+  Parameters: {"stripe_customer_id"=>"cus_0iXE6eXtBsDMyV", "city"=>"San Francisco", "name"=>"Ryan Romanchuk", "sku"=>"PREMIUM", "quantity"=>"2", "zip"=>"94133", "state"=>"CA", "country"=>"United States", "address1"=>"1010 Montgomery St Apt 2"}
+  [1m[36mUser Load (9.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`stripe_customer_id` = 'cus_0iXE6eXtBsDMyV' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (2.5ms)[0m  [1mINSERT INTO `users` (`created_at`, `stripe_customer_id`, `updated_at`) VALUES ('2012-11-11 19:13:08', 'cus_0iXE6eXtBsDMyV', '2012-11-11 19:13:08')[0m
+  [1m[35m (0.9ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.6ms)[0m  INSERT INTO `orders` (`address1`, `address2`, `city`, `country`, `created_at`, `email`, `name`, `phone`, `state`, `stripe_customer_id`, `updated_at`, `user_id`, `zip`) VALUES ('1010 Montgomery St Apt 2', NULL, 'San Francisco', 'United States', '2012-11-11 19:13:08', NULL, 'Ryan Romanchuk', NULL, 'CA', NULL, '2012-11-11 19:13:08', NULL, '94133')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO `items` (`order_id`, `quantity`, `sku`) VALUES (3, 2, 'PREMIUM')[0m
+  [1m[35m (0.8ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.8ms)[0m  UPDATE `orders` SET `user_id` = 2, `updated_at` = '2012-11-11 19:13:08' WHERE `orders`.`id` = 3
+  [1m[36m (1.0ms)[0m  [1mCOMMIT[0m
+  Rendered orders/create.json.rabl (2.7ms)
+Completed 200 OK in 494ms (Views: 23.6ms | ActiveRecord: 111.5ms)
+
+
+Started POST "/orders/" for 127.0.0.1 at 2012-11-11 23:17:37 +0400
+Processing by OrdersController#create as */*
+  Parameters: {"stripe_customer_id"=>"cus_0iXE6eXtBsDMyV", "city"=>"San Francisco", "name"=>"Ryan Romanchuk", "sku"=>"PREMIUM", "quantity"=>"2", "zip"=>"94133", "state"=>"CA", "country"=>"United States", "address1"=>"1010 Montgomery St Apt 2"}
+  [1m[35mUser Load (2.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`stripe_customer_id` = 'cus_0iXE6eXtBsDMyV' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `orders` (`address1`, `address2`, `city`, `country`, `created_at`, `email`, `name`, `phone`, `state`, `stripe_customer_id`, `updated_at`, `user_id`, `zip`) VALUES ('1010 Montgomery St Apt 2', NULL, 'San Francisco', 'United States', '2012-11-11 19:17:37', NULL, 'Ryan Romanchuk', NULL, 'CA', NULL, '2012-11-11 19:17:37', NULL, '94133')
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `items` (`order_id`, `quantity`, `sku`) VALUES (4, 2, 'PREMIUM')[0m
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.4ms)[0m  UPDATE `orders` SET `user_id` = 2, `updated_at` = '2012-11-11 19:17:37' WHERE `orders`.`id` = 4
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  Rendered orders/create.json.rabl (0.8ms)
+Completed 200 OK in 20ms (Views: 3.8ms | ActiveRecord: 5.3ms)
+
+
+Started POST "/orders/" for 127.0.0.1 at 2012-11-11 23:50:54 +0400
+Processing by OrdersController#create as */*
+  Parameters: {"stripe_customer_id"=>"cus_0iXE6eXtBsDMyV", "city"=>"San Francisco", "name"=>"Ryan Romanchuk", "sku"=>"PREMIUM", "quantity"=>"2", "zip"=>"94133", "state"=>"CA", "country"=>"United States", "address1"=>"1010 Montgomery St Apt 2"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`stripe_customer_id` = 'cus_0iXE6eXtBsDMyV' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.1ms)[0m  INSERT INTO `orders` (`address1`, `address2`, `city`, `country`, `created_at`, `email`, `name`, `phone`, `state`, `stripe_customer_id`, `updated_at`, `user_id`, `zip`) VALUES ('1010 Montgomery St Apt 2', NULL, 'San Francisco', 'United States', '2012-11-11 19:50:54', NULL, 'Ryan Romanchuk', NULL, 'CA', NULL, '2012-11-11 19:50:54', NULL, '94133')
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO `items` (`order_id`, `quantity`, `sku`) VALUES (5, 2, 'PREMIUM')[0m
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.4ms)[0m  UPDATE `orders` SET `user_id` = 2, `updated_at` = '2012-11-11 19:50:54' WHERE `orders`.`id` = 5
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  Rendered orders/create.json.rabl (0.5ms)
+Completed 200 OK in 18ms (Views: 3.2ms | ActiveRecord: 5.1ms)
+
+
+Started POST "/orders/" for 127.0.0.1 at 2012-11-11 23:56:27 +0400
+Processing by OrdersController#create as */*
+  Parameters: {"stripe_customer_id"=>"cus_0iXE6eXtBsDMyV", "city"=>"San Francisco", "name"=>"Ryan Romanchuk", "sku"=>"PREMIUM", "quantity"=>"2", "zip"=>"94133", "state"=>"CA", "country"=>"United States", "address1"=>"1010 Montgomery St Apt 2"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`stripe_customer_id` = 'cus_0iXE6eXtBsDMyV' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `orders` (`address1`, `address2`, `city`, `country`, `created_at`, `email`, `name`, `phone`, `state`, `stripe_customer_id`, `updated_at`, `user_id`, `zip`) VALUES ('1010 Montgomery St Apt 2', NULL, 'San Francisco', 'United States', '2012-11-11 19:56:27', NULL, 'Ryan Romanchuk', NULL, 'CA', NULL, '2012-11-11 19:56:27', NULL, '94133')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `items` (`order_id`, `quantity`, `sku`) VALUES (6, 2, 'PREMIUM')[0m
+  [1m[35m (0.9ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.4ms)[0m  UPDATE `orders` SET `user_id` = 2, `updated_at` = '2012-11-11 19:56:27' WHERE `orders`.`id` = 6
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  Rendered orders/create.json.rabl (0.5ms)
+Completed 200 OK in 15ms (Views: 3.5ms | ActiveRecord: 3.6ms)
+
+
+Started POST "/orders/" for 127.0.0.1 at 2012-11-12 00:27:34 +0400
+Processing by OrdersController#create as */*
+  Parameters: {"stripe_customer_id"=>"cus_0iXE6eXtBsDMyV", "city"=>"San Francisco", "name"=>"Ryan Romanchuk", "sku"=>"PREMIUM", "quantity"=>"2", "zip"=>"94133", "state"=>"CA", "country"=>"United States", "address1"=>"1010 Montgomery St Apt 2"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`stripe_customer_id` = 'cus_0iXE6eXtBsDMyV' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `orders` (`address1`, `address2`, `city`, `country`, `created_at`, `email`, `name`, `phone`, `state`, `stripe_customer_id`, `updated_at`, `user_id`, `zip`) VALUES ('1010 Montgomery St Apt 2', NULL, 'San Francisco', 'United States', '2012-11-11 20:27:34', NULL, 'Ryan Romanchuk', NULL, 'CA', NULL, '2012-11-11 20:27:34', NULL, '94133')
+  [1m[36m (2.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `items` (`order_id`, `quantity`, `sku`) VALUES (7, 2, 'PREMIUM')[0m
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.0ms)[0m  UPDATE `orders` SET `user_id` = 2, `updated_at` = '2012-11-11 20:27:34' WHERE `orders`.`id` = 7
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+  Rendered orders/create.json.rabl (0.6ms)
+Completed 200 OK in 20ms (Views: 4.0ms | ActiveRecord: 6.4ms)

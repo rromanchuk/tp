@@ -24,7 +24,6 @@
        onLoad:(void (^)(id object))onLoad
       onError:(void (^)(NSString *error))onError;
 
-- (bool)hasCustomerObject;
 
 + (RestUser *)currentUser;
 + (void)setCurrentUser:(RestUser *)user;
