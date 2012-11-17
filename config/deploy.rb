@@ -25,8 +25,7 @@ set :branch, "***REMOVED***"
 
 
 after 'deploy:update', 'deploy:cleanup'
-before 'deploy:symlink', 'deploy:abort_if_pending_migrations'
-before 'deploy:symlink', 'deploy:avatar_symlink'
+before 'deploy:create_symlink', 'deploy:abort_if_pending_migrations'
 after 'deploy:update_code' do
   run "cd #{release_path}; RAILS_ENV=production rake assets:precompile"
 end
