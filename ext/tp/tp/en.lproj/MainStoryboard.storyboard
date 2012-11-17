@@ -381,47 +381,6 @@ need to do this once.</string>
             </objects>
             <point key="canvasLocation" x="453" y="-275"/>
         </scene>
-        <!--Credit Card View Controller-->
-        <scene sceneID="nMN-cw-URz">
-            <objects>
-                <viewController id="xuc-Y8-riA" customClass="CreditCardViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="j7l-Q2-t7X">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="4yk-T0-EUa">
-                                <rect key="frame" x="20" y="38" width="280" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="KdQ-oH-MBJ">
-                                <rect key="frame" x="20" y="77" width="97" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="stP-pw-fYA">
-                                <rect key="frame" x="254" y="77" width="46" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="su4-t4-Wum">
-                                <rect key="frame" x="205" y="77" width="41" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="mke-5s-zQI"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rT3-3p-nwO" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="644" y="68"/>
-        </scene>
         <!--Show Receipt View Controller-->
         <scene sceneID="9eA-ot-FLH">
             <objects>
@@ -625,6 +584,80 @@ need to do this once.</string>
         <image name="tw@2x.png" width="70" height="70"/>
         <image name="van@2x.png" width="412" height="292"/>
     </resources>
+    <classes>
+        <class className="FormView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FormView.h"/>
+        </class>
+        <class className="OrderController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/OrderController.h"/>
+            <relationships>
+                <relationship kind="action" name="didTapPremium:"/>
+                <relationship kind="action" name="didTapRegular:"/>
+                <relationship kind="action" name="qtyChange:"/>
+                <relationship kind="action" name="removeKeyboard"/>
+                <relationship kind="action" name="scrollToCheckout:"/>
+                <relationship kind="action" name="scrollToTop:"/>
+                <relationship kind="action" name="sendOrder:"/>
+                <relationship kind="outlet" name="address1Label" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="address1TextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="address2Label" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="address2Textfield" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="cancelOrder" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="cityLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="cityTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="creditCardLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="creditCardTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="csvLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="csvTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="deliveryEst" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="emailLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="emailTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="expirationLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="expiryMonth" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="expiryYear" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="helperText" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="nameTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="navigationBar" candidateClass="UINavigationBar"/>
+                <relationship kind="outlet" name="orderButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="orderCheckoutButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="premiumButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="qtyButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="qtyButtonSmall" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="qtyTable" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="regularButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="rightBarButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="stateLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="stateTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="thatsItLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="zipLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="zipTextField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="ShowReceiptViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ShowReceiptViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="didDismissReceipt:"/>
+                <relationship kind="outlet" name="booYaLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="headingLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="okButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="qtyLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="qtyValueLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="tellWorldLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="totalLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="totalValueLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="typeLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="typeValueLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="TexturedView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TexturedView.h"/>
+        </class>
+        <class className="WoodView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/WoodView.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

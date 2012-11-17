@@ -41,8 +41,8 @@ static NSString *ORDER = @"orders/";
                                                                                         failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
                                                                                             [[UIApplication sharedApplication] hideNetworkActivityIndicator];
 //                                                                                            NSString *publicMessage = [RestObject processError:error for:@"LOGIN_USER_WITH_EMAIL" withMessageFromServer:[JSON objectForKey:@"message"]];
-//                                                                                            if (onError)
-//                                                                                                onError(publicMessage);
+                                                                                            if (onError)
+                                                                                                onError(publicMessage);
                                                                                         }];
     [[UIApplication sharedApplication] showNetworkActivityIndicator];
     [operation start];
