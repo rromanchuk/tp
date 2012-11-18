@@ -23,4 +23,15 @@
     return _sharedClient;
 }
 
+- (id)initWithBaseURL:(NSURL *)url {
+    self = [super initWithBaseURL:url];
+    
+    
+    if (self) {
+        [self setDefaultHeader:@"Accept" value:@"application/json"];
+    }
+    
+    return self;
+}
+
 @end

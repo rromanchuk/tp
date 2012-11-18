@@ -7,8 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "User+Manage.h"
-@interface RestUser : NSObject
+#import "RestObject.h"
+#import "User.h"
+
+@interface RestUser : RestObject
+
 @property (strong) NSString *name;
 @property (strong) NSString *address1;
 @property (strong) NSString *address2;
@@ -19,14 +22,14 @@
 @property (strong) NSString *email;
 @property (strong) NSString *stripeCardToken;
 @property (strong) NSString *stripeCustomerId; 
+@property (strong) NSDate *createdAt;
 
+@property (strong) NSSet *orders;
+
++ (NSDictionary *)mapping;
 + (void)order:(User *)user
-       onLoad:(void (^)(id object))onLoad
+       onLoad:(void (^)(User *user))onLoad
       onError:(void (^)(NSString *error))onError;
-
-
-+ (RestUser *)currentUser;
-+ (void)setCurrentUser:(RestUser *)user;
 
 
 @end

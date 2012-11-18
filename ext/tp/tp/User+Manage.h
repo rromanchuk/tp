@@ -7,9 +7,17 @@
 //
 #import "User.h"
 #import "Stripe.h"
+#import "RestUser.h"
+#import "RestObject.h"
 
 @interface User (Manage)
+
+
 + (User *)currentUser:(NSManagedObjectContext *)managedContext;
++ (User *)userWithRestUser:(RestUser *)restUser inManagedObjectContext:(NSManagedObjectContext *)context;
+
+- (void)setManagedObjectWithIntermediateObject:(RestObject *)intermediateObject;
+
 
 - (void)createStripeCustomer:(NSNumber *)expiryMonth
                   expiryYear:(NSNumber *)expiryYear

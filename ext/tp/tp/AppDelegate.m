@@ -21,6 +21,12 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
+    OrderController *oc = ((OrderController *) self.window.rootViewController);
+    oc.currentUser = [User currentUser:self.managedObjectContext];
+    oc.managedObjectContext = self.managedObjectContext;
+    [self saveContext];
+
     [TestFlight takeOff:@"8676fb61f456a4cec842fdd786016e39_ODkwOTcyMDEyLTA1LTEzIDE1OjA1OjUzLjIwMzEwOQ"];
     [application setStatusBarStyle:UIStatusBarStyleBlackOpaque];
 
@@ -48,12 +54,7 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
-    OrderController *oc = ((OrderController *) self.window.rootViewController);
-    oc.currentUser = [User currentUser:self.managedObjectContext];
-    oc.managedObjectContext = self.managedObjectContext;
-    [self saveContext];
     
-    NSLog(@"%@", oc.currentUser);
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application

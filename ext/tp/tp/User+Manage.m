@@ -8,6 +8,8 @@
 
 #import "User+Manage.h"
 #import "Config.h"
+#import "RestOrder.h"
+#import "Order+Manage.h"
 @implementation User (Manage)
 
 + (User *)currentUser:(NSManagedObjectContext *)managedContext {
@@ -28,6 +30,51 @@
                                              inManagedObjectContext:managedContext];
     }
     return user;
+}
+
++ (User *)userWithRestUser:(RestUser *)restUser
+    inManagedObjectContext:(NSManagedObjectContext *)context {
+    
+    User *user;
+    
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"User"];
+    request.predicate = [NSPredicate predicateWithFormat:@"externalId = %@", [NSNumber numberWithInt:restUser.externalId]];
+    
+    NSError *error = nil;
+    NSArray *users = [context executeFetchRequest:request error:&error];
+    
+    if (!users || ([users count] > 1)) {
+        // handle error
+    } else if (![users count]) {
+        user = [NSEntityDescription insertNewObjectForEntityForName:@"User"
+                                             inManagedObjectContext:context];
+        
+        [user setManagedObjectWithIntermediateObject:restUser];
+        
+    } else {
+        user = [users lastObject];
+        [user setManagedObjectWithIntermediateObject:restUser];
+    }
+    return user;
+}
+
+- (void)setManagedObjectWithIntermediateObject:(RestObject *)intermediateObject {
+    RestUser *restUser = (RestUser *) intermediateObject;
+    self.name = restUser.name;
+    self.address1 = restUser.address1;
+    self.address2 = restUser.address2;
+    self.city = restUser.city;
+    self.state = restUser.state;
+    self.country = restUser.country;
+    self.zip = restUser.zip;
+    self.stripeCustomerId = restUser.stripeCustomerId;
+    self.externalId = [NSNumber numberWithInteger:restUser.externalId];
+    
+    // Add comments
+    for (RestOrder *restOrder in restUser.orders) {
+        [self addOrdersObject:[Order orderWithRestOrder:restOrder inManagedObjectContext:self.managedObjectContext]];
+    }
+
 }
 
 - (void)createStripeCustomer:(NSNumber *)expiryMonth

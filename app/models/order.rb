@@ -18,4 +18,15 @@ class Order < ActiveRecord::Base
     address =  {}
   end
 
+  def address
+    { name: name, 
+      address1: address1, 
+      address2: address2, 
+      city: city, 
+      zip: zip, 
+      state: state, 
+      country: country, 
+      phone: phone, email: email }
+  end
+
 end

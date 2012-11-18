@@ -5,7 +5,7 @@
 	<key>Debug</key>
 	<dict>
 		<key>baseURL</key>
-		<string>http://tp4.me:3000</string>
+		<string>http://localhost:3000</string>
 		<key>stripeKey</key>
 		<string>***REMOVED***</string>
 		<key>stripeSecret</key>
