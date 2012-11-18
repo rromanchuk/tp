@@ -5,9 +5,8 @@ class User < ActiveRecord::Base
   has_many :orders
   attr_accessible :stripe_customer_id
 
-
-
   def self.find_or_create_for_facebook_oauth(auth, signed_in_resource=nil)
+    puts auth.to_yaml
     if user = User.where(:provider => auth.provider, :uid => auth.uid).first
       # User was created before. Just return him
       user
@@ -18,7 +17,6 @@ class User < ActiveRecord::Base
       user.uid = auth.uid
       user.password = Devise.friendly_token[0,20] unless user.encrypted_password
       user.save!
-      UserMailer.activation(user).deliver rescue nil
       user
     else
       user = User.create!(name:auth.extra.raw_info.name,
@@ -27,7 +25,6 @@ class User < ActiveRecord::Base
                          email:auth.info.email,
                          password:Devise.friendly_token[0,20]
                          )
-      UserMailer.activation(user).deliver rescue nil
       user
     end
   end
@@ -39,4 +36,5 @@ class User < ActiveRecord::Base
       User.create email: email, password: Devise.friendly_token[0,20], uid: 88888888 # XXX
     end
   end
+
 end
