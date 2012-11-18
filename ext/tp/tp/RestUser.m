@@ -13,7 +13,7 @@
 #import "Config.h"
 #import "RestClient.h"
 #import "RestOrder.h"
-
+#import "Order+Manage.h"
 static NSString *ORDER = @"orders/";
 
 @implementation RestUser
@@ -36,12 +36,22 @@ static NSString *ORDER = @"orders/";
 }
 
 
-+ (void)order:(User *)user
-                    onLoad:(void (^)(User *user))onLoad
++ (void)order:(Order *)order
+                    onLoad:(void (^)(RestOrder *restOrder))onLoad
                    onError:(void (^)(NSString *error))onError {
     
     RestClient *restClient = [RestClient sharedClient];
-    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:user.name, @"name", user.address1, @"address1", user.stripeCustomerId, @"stripe_customer_id", user.city, @"city", user.zip, @"zip", user.state, @"state", user.country, @"country", @"PREMIUM", @"sku", @"2", @"quantity", nil];
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"%@", order.name], @"order[name]",
+                                   [NSString stringWithFormat:@"%@", order.address1], @"order[address1]",
+                                   [NSString stringWithFormat:@"%@", order.address2], @"order[address2]",
+                                   [NSString stringWithFormat:@"%@", order.stripeTransactionId], @"order[stripe_transaction_id]",
+                                   [NSString stringWithFormat:@"%@", order.stripeCustomerId], @"order[stripe_customer_id]",
+                                   [NSString stringWithFormat:@"%@", order.city], @"order[city]",
+                                   [NSString stringWithFormat:@"%@", order.zip], @"order[zip]",
+                                   [NSString stringWithFormat:@"%@", order.state], @"order[state]",
+                                   [NSString stringWithFormat:@"%@", order.country], @"order[country]",
+                                   [NSString stringWithFormat:@"%@", order.sku], @"order[sku]",
+                                   [NSString stringWithFormat:@"%@", order.quantity], @"order[quantity]", nil];
     NSMutableURLRequest *request = [restClient requestWithMethod:@"POST"
                                                             path:ORDER
                                                       parameters:params];
@@ -52,8 +62,8 @@ static NSString *ORDER = @"orders/";
                                                                                         success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
                                                                                             [[UIApplication sharedApplication] hideNetworkActivityIndicator];
                                                                                             DLog(@"JSON: %@", JSON);
-                                                                                            User *user = [RestUser objectFromJSONObject:JSON mapping:[RestUser mapping]];
-                                                                                            onLoad(user);
+                                                                                            RestOrder *restOrder = [RestOrder objectFromJSONObject:JSON mapping:[RestOrder mapping]];
+                                                                                            onLoad(restOrder);
 
                                                                                         }
                                                                                         failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {

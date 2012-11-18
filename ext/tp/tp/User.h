@@ -18,6 +18,7 @@
 @property (nonatomic, retain) NSString * city;
 @property (nonatomic, retain) NSString * country;
 @property (nonatomic, retain) NSString * email;
+@property (nonatomic, retain) NSNumber * externalId;
 @property (nonatomic, retain) NSString * last4;
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSString * phone;
@@ -25,7 +26,6 @@
 @property (nonatomic, retain) NSString * stripeCardToken;
 @property (nonatomic, retain) NSString * stripeCustomerId;
 @property (nonatomic, retain) NSString * zip;
-@property (nonatomic, retain) NSNumber * externalId;
 @property (nonatomic, retain) NSSet *orders;
 @end
 

@@ -17,6 +17,7 @@
 @dynamic city;
 @dynamic country;
 @dynamic email;
+@dynamic externalId;
 @dynamic last4;
 @dynamic name;
 @dynamic phone;
@@ -24,7 +25,6 @@
 @dynamic stripeCardToken;
 @dynamic stripeCustomerId;
 @dynamic zip;
-@dynamic externalId;
 @dynamic orders;
 
 @end

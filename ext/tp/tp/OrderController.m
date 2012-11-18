@@ -336,49 +336,79 @@
     DLog(@"name %@ and address %@ customerid %@ state %@  zip %@", self.currentUser.name, self.currentUser.address1, self.currentUser.stripeCustomerId, self.currentUser.state, self.currentUser.zip);
     if (self.currentUser.stripeCustomerId) {
         // Charge customer
-        DLog(@"Existing stripe customer, charge.");
-        [self.currentUser chargeCustomer:[NSNumber numberWithInteger:amountInCents] onLoad:^(StripeResponse *token) {
-            DLog(@"Success charging customer");
-            [RestUser order:self.currentUser onLoad:^(id object) {
-                DLog(@"Success creating order");
-                [SVProgressHUD dismiss];
-                [((OrderController *)self.scrollView.delegate) performSegueWithIdentifier:@"ShowReceipt" sender:self];
-            } onError:^(NSString *error) {
-                DLog(@"failure %@", error);
-                [SVProgressHUD showErrorWithStatus:error];
-            }];
-            
-        } onError:^(NSError *error) {
-            DLog(@"failure %@", error);
-            [SVProgressHUD showErrorWithStatus:[error description]];
-        }];
-
+        [self chargeCustomer];
     } else {
         
         [self.currentUser createStripeCustomer:[NSNumber numberWithInteger:[self.expiryMonth.text integerValue]] expiryYear:[NSNumber numberWithInteger:[self.expiryYear.text integerValue]] number:self.creditCardTextField.text securityCode:self.csvTextField.text onLoad:^(StripeResponse *token) {
             [self saveContext];
             
             // Charge customer
-            [self.currentUser chargeCustomer:[NSNumber numberWithInteger:amountInCents] onLoad:^(StripeResponse *token) {
-                [RestUser order:self.currentUser onLoad:^(id object) {
-                    DLog(@"success");
-                    [SVProgressHUD dismiss];
-                    [((OrderController *)self.scrollView.delegate) performSegueWithIdentifier:@"ShowReceipt" sender:self];
-                } onError:^(NSString *error) {
-                    DLog(@"failure %@", error);
-                    [SVProgressHUD showErrorWithStatus:error];
-                }];
-
-            } onError:^(NSError *error) {
-                DLog(@"failure %@", error);
-                [SVProgressHUD showErrorWithStatus:[error description]];
-            }];
-            
+            [self chargeCustomer];
         } onError:^(NSError *error) {
             DLog(@"failure %@", error);
             [SVProgressHUD showErrorWithStatus:[error description]];
         }];
     }
+}
+
+- (void)chargeCustomer {
+    Order *order = [self buildOrder];
+    [self.currentUser chargeCustomer:order onLoad:^(StripeResponse *token) {
+        DLog(@"Success charging customer");
+        order.stripeTransactionId = token.token;
+        
+        [RestUser order:order onLoad:^(RestOrder *restOrder) {
+            DLog(@"Success creating order");
+            [order setManagedObjectWithIntermediateObject:restOrder];
+            [self saveContext];
+            [SVProgressHUD dismiss];
+            [((OrderController *)self.scrollView.delegate) performSegueWithIdentifier:@"ShowReceipt" sender:self];
+        } onError:^(NSString *error) {
+            DLog(@"failure %@", error);
+            [SVProgressHUD showErrorWithStatus:error];
+        }];
+        
+    } onError:^(NSError *error) {
+        DLog(@"failure %@", error);
+        [SVProgressHUD showErrorWithStatus:[error description]];
+    }];
+
+}
+
+
+- (Order *)buildOrder {
+    NSLog(@"Successfully charged customer");
+    Order *order = [NSEntityDescription insertNewObjectForEntityForName:@"Order"
+                                                 inManagedObjectContext:self.managedObjectContext];
+    
+    
+    order.totalAmountCents = [NSNumber numberWithInteger:amountInCents];
+    order.status = @"IN_PROGRESS";
+    order.quantity = [NSNumber numberWithInteger:selectedQuantity];
+    order.sku = [self skuForQuality];
+    order.address1 = self.currentUser.address1;
+    order.address2 = self.currentUser.address2;
+    order.city = self.currentUser.city;
+    order.zip = self.currentUser.zip;
+    order.state = self.currentUser.state;
+    order.country = self.currentUser.country;
+    order.stripeCustomerId = self.currentUser.stripeCustomerId;
+    return order;
+}
+
+- (NSString *)skuForQuality {
+    NSString *out;
+    switch (selectedQuality) {
+        case 0:
+            out = @"REGULAR";
+            break;
+            
+        case 1:
+            out = @"PREMIUM";
+        default:
+            break;
+    }
+    return out;
 }
 
 - (void)didDismissReceipt {

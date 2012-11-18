@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121105130214) do
+ActiveRecord::Schema.define(:version => 20121118134503) do
 
   create_table "items", :force => true do |t|
     t.integer "order_id"
@@ -33,17 +33,19 @@ ActiveRecord::Schema.define(:version => 20121105130214) do
     t.string   "zip"
     t.string   "phone"
     t.string   "email"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
+    t.datetime "created_at",                                          :null => false
+    t.datetime "updated_at",                                          :null => false
+    t.decimal  "total_amount",          :precision => 8, :scale => 2
+    t.integer  "total_amount_cents"
+    t.string   "status"
+    t.string   "stripe_transaction_id"
   end
 
   add_index "orders", ["stripe_customer_id"], :name => "index_orders_on_stripe_customer_id"
   add_index "orders", ["user_id"], :name => "index_orders_on_user_id"
 
   create_table "users", :force => true do |t|
-    t.string   "stripe_customer_id"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
+    t.string "stripe_customer_id"
   end
 
   add_index "users", ["stripe_customer_id"], :name => "index_users_on_stripe_customer_id"

@@ -8,9 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		641B5486F5064D0BA9D89231 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D219AC1EF104A83B9FC98F2 /* libPods.a */; };
+		944D9827165929CA003D4262 /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = 944D9826165929CA003D4262 /* Order.m */; };
+		944D982A165929CB003D4262 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 944D9829165929CB003D4262 /* User.m */; };
 		94A0A18B1647E430004A8608 /* RestClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A0A18A1647E430004A8608 /* RestClient.m */; };
 		94A0A1981647EAA9004A8608 /* Order+Manage.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A0A1971647EAA8004A8608 /* Order+Manage.m */; };
-		94A0A19B1647EAC1004A8608 /* LineItem+Manage.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A0A19A1647EAC0004A8608 /* LineItem+Manage.m */; };
 		94A94E6915581D14004FB612 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94A94E6815581D14004FB612 /* UIKit.framework */; };
 		94A94E6B15581D14004FB612 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94A94E6A15581D14004FB612 /* Foundation.framework */; };
 		94A94E6D15581D14004FB612 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94A94E6C15581D14004FB612 /* CoreGraphics.framework */; };
@@ -51,10 +52,6 @@
 		FA8E9F1D158DDED700CB6F5B /* UIApplication+NetworkActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = FA8E9F1C158DDED700CB6F5B /* UIApplication+NetworkActivityIndicator.m */; };
 		FA9FF8E91658278D00015F7E /* RestOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9FF8E81658278D00015F7E /* RestOrder.m */; };
 		FA9FF8ED165827B800015F7E /* RestObject.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9FF8EC165827B800015F7E /* RestObject.m */; };
-		FA9FF9091658510D00015F7E /* RestLineItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9FF9081658510C00015F7E /* RestLineItem.m */; };
-		FA9FF9151658ECD700015F7E /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9FF9141658ECD700015F7E /* User.m */; };
-		FA9FF9181658ECD800015F7E /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9FF9171658ECD800015F7E /* Order.m */; };
-		FA9FF91B1658ECD800015F7E /* LineItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9FF91A1658ECD800015F7E /* LineItem.m */; };
 		FAA11B7A1560401B0005CAFA /* order@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAA11B781560401B0005CAFA /* order@2x.png */; };
 		FAA11B7B1560401B0005CAFA /* quantity@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAA11B791560401B0005CAFA /* quantity@2x.png */; };
 		FAA11B7E156040A00005CAFA /* order.png in Resources */ = {isa = PBXBuildFile; fileRef = FAA11B7C156040A00005CAFA /* order.png */; };
@@ -122,12 +119,14 @@
 /* Begin PBXFileReference section */
 		2D219AC1EF104A83B9FC98F2 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C98AF6D30D3468E84B43D40 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		944D9825165929CA003D4262 /* Order.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Order.h; sourceTree = "<group>"; };
+		944D9826165929CA003D4262 /* Order.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Order.m; sourceTree = "<group>"; };
+		944D9828165929CB003D4262 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		944D9829165929CB003D4262 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		94A0A1891647E430004A8608 /* RestClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestClient.h; sourceTree = "<group>"; };
 		94A0A18A1647E430004A8608 /* RestClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestClient.m; sourceTree = "<group>"; };
 		94A0A1961647EAA8004A8608 /* Order+Manage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Order+Manage.h"; sourceTree = "<group>"; };
 		94A0A1971647EAA8004A8608 /* Order+Manage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Order+Manage.m"; sourceTree = "<group>"; };
-		94A0A1991647EAC0004A8608 /* LineItem+Manage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LineItem+Manage.h"; sourceTree = "<group>"; };
-		94A0A19A1647EAC0004A8608 /* LineItem+Manage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LineItem+Manage.m"; sourceTree = "<group>"; };
 		94A94E6415581D13004FB612 /* tp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94A94E6815581D14004FB612 /* UIKit.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		94A94E6A15581D14004FB612 /* Foundation.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -180,14 +179,6 @@
 		FA9FF8E81658278D00015F7E /* RestOrder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestOrder.m; sourceTree = "<group>"; };
 		FA9FF8EB165827B800015F7E /* RestObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestObject.h; sourceTree = "<group>"; };
 		FA9FF8EC165827B800015F7E /* RestObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestObject.m; sourceTree = "<group>"; };
-		FA9FF9071658510C00015F7E /* RestLineItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestLineItem.h; sourceTree = "<group>"; };
-		FA9FF9081658510C00015F7E /* RestLineItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestLineItem.m; sourceTree = "<group>"; };
-		FA9FF9131658ECD700015F7E /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		FA9FF9141658ECD700015F7E /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
-		FA9FF9161658ECD700015F7E /* Order.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Order.h; sourceTree = "<group>"; };
-		FA9FF9171658ECD800015F7E /* Order.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Order.m; sourceTree = "<group>"; };
-		FA9FF9191658ECD800015F7E /* LineItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LineItem.h; sourceTree = "<group>"; };
-		FA9FF91A1658ECD800015F7E /* LineItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LineItem.m; sourceTree = "<group>"; };
 		FAA11B781560401B0005CAFA /* order@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "order@2x.png"; path = "assets/order@2x.png"; sourceTree = "<group>"; };
 		FAA11B791560401B0005CAFA /* quantity@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "quantity@2x.png"; path = "assets/quantity@2x.png"; sourceTree = "<group>"; };
 		FAA11B7C156040A00005CAFA /* order.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = order.png; path = assets/order.png; sourceTree = "<group>"; };
@@ -384,12 +375,10 @@
 		FA86549E160E56C800DAB476 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				FA9FF9191658ECD800015F7E /* LineItem.h */,
-				FA9FF91A1658ECD800015F7E /* LineItem.m */,
-				FA9FF9161658ECD700015F7E /* Order.h */,
-				FA9FF9171658ECD800015F7E /* Order.m */,
-				FA9FF9131658ECD700015F7E /* User.h */,
-				FA9FF9141658ECD700015F7E /* User.m */,
+				944D9828165929CB003D4262 /* User.h */,
+				944D9829165929CB003D4262 /* User.m */,
+				944D9825165929CA003D4262 /* Order.h */,
+				944D9826165929CA003D4262 /* Order.m */,
 				FA8654A2160E570300DAB476 /* Categories */,
 			);
 			name = CoreData;
@@ -402,8 +391,6 @@
 				FA8654A4160E572D00DAB476 /* User+Manage.m */,
 				94A0A1961647EAA8004A8608 /* Order+Manage.h */,
 				94A0A1971647EAA8004A8608 /* Order+Manage.m */,
-				94A0A1991647EAC0004A8608 /* LineItem+Manage.h */,
-				94A0A19A1647EAC0004A8608 /* LineItem+Manage.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -437,8 +424,6 @@
 				FA9FF8E81658278D00015F7E /* RestOrder.m */,
 				FA9FF8EB165827B800015F7E /* RestObject.h */,
 				FA9FF8EC165827B800015F7E /* RestObject.m */,
-				FA9FF9071658510C00015F7E /* RestLineItem.h */,
-				FA9FF9081658510C00015F7E /* RestLineItem.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -747,17 +732,14 @@
 				FA8654A5160E572D00DAB476 /* User+Manage.m in Sources */,
 				94A0A18B1647E430004A8608 /* RestClient.m in Sources */,
 				94A0A1981647EAA9004A8608 /* Order+Manage.m in Sources */,
-				94A0A19B1647EAC1004A8608 /* LineItem+Manage.m in Sources */,
 				FA119D4B164E7DD800225A94 /* CreditCardViewController.m in Sources */,
 				FAAB119D164E91FF001C7597 /* WoodView.m in Sources */,
 				FAAB11A0164E92DF001C7597 /* TexturedView.m in Sources */,
 				FAAB11A3164E9B12001C7597 /* FormView.m in Sources */,
 				FA9FF8E91658278D00015F7E /* RestOrder.m in Sources */,
 				FA9FF8ED165827B800015F7E /* RestObject.m in Sources */,
-				FA9FF9091658510D00015F7E /* RestLineItem.m in Sources */,
-				FA9FF9151658ECD700015F7E /* User.m in Sources */,
-				FA9FF9181658ECD800015F7E /* Order.m in Sources */,
-				FA9FF91B1658ECD800015F7E /* LineItem.m in Sources */,
+				944D9827165929CA003D4262 /* Order.m in Sources */,
+				944D982A165929CB003D4262 /* User.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

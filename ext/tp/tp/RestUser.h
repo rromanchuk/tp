@@ -8,8 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "RestObject.h"
-#import "User.h"
-
+#import "RestOrder.h"
+#import "Order.h"
 @interface RestUser : RestObject
 
 @property (strong) NSString *name;
@@ -27,8 +27,9 @@
 @property (strong) NSSet *orders;
 
 + (NSDictionary *)mapping;
-+ (void)order:(User *)user
-       onLoad:(void (^)(User *user))onLoad
+
++ (void)order:(Order *)order
+       onLoad:(void (^)(RestOrder *restOrder))onLoad
       onError:(void (^)(NSString *error))onError;
 
 

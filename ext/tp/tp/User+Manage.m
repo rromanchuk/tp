@@ -110,17 +110,18 @@
 
 }
 
-- (void)chargeCustomer:(NSNumber *)amountInCents
+- (void)chargeCustomer:(Order *)order
                 onLoad:(void (^)(StripeResponse *token))onLoad
                onError:(void (^)(NSError *error))onError {
     StripeConnection *stripe = [StripeConnection connectionWithSecretKey:[Config sharedConfig].stripeSecret];
     StripeCustomer *customer = [[StripeCustomer alloc] init];
     customer.token = self.stripeCustomerId;
     [stripe performRequestWithCustomer:customer
-                         amountInCents:amountInCents
+                         amountInCents:order.totalAmountCents
                                success:^(StripeResponse *token)
      {
-         NSLog(@"Successfully charged customer");
+         
+         NSLog(@"Successfully charged customer");         
          onLoad(token);
      }
                                  error:^(NSError *error)

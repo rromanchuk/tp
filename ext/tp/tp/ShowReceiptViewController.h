@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "OrderController.h"
-
+#import "Order+Manage.h"
 @protocol ReceiptDelegate;
 
 @interface ShowReceiptViewController : UIViewController
@@ -28,6 +28,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *totalValueLabel;
 @property (weak, nonatomic) IBOutlet UILabel *tellWorldLabel;
 @property (weak) id<ReceiptDelegate> delegate;
+@property (strong) Order *order;
 
 - (IBAction)didDismissReceipt:(id)sender;
 

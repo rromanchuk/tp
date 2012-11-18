@@ -13,4 +13,12 @@ class OrdersController < ActionController::Base
     puts @user.inspect
     respond_with @user
   end
+
+  def inventory
+    @stock = Order.fetch_stock_levels
+    puts @stock.inspect
+    respond_with @stock
+  end
+
+
 end

@@ -27,7 +27,7 @@
                      onError:(void (^)(NSError *error))onError;
 
 
-- (void)chargeCustomer:(NSNumber *)amountInCents
+- (void)chargeCustomer:(Order *)order
                 onLoad:(void (^)(StripeResponse *token))onLoad
                onError:(void (^)(NSError *error))onError;
 

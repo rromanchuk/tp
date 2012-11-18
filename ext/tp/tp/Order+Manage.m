@@ -7,7 +7,6 @@
 //
 
 #import "Order+Manage.h"
-
 @implementation Order (Manage)
 
 + (Order *)orderWithRestOrder:(RestOrder *)restOrder
@@ -45,7 +44,15 @@
     self.state = restOrder.state;
     self.country = restOrder.country;
     self.zip = restOrder.zip;
+    self.status = restOrder.status;
+    self.stripeTransactionId = restOrder.stripeTransactionId;
+    self.stripeCustomerId = restOrder.stripeCustomerId;
+    self.totalAmountCents = [NSNumber numberWithInteger:restOrder.totalAmountCents];
     self.externalId = [NSNumber numberWithInteger:restOrder.externalId];
+    self.sku = restOrder.sku;
+    self.quantity = [NSNumber numberWithInteger:restOrder.quantity];
+    // add line items
+  
 }
 
 @end
