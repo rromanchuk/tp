@@ -1,0 +1,27 @@
+%table.table-striped.table
+	%th
+		Id
+	%th
+		Name
+	%th
+		SKU
+	%th
+		Status
+	%th
+		Quantity
+	%th
+		Total Amount
+	- @orders.each do |order|
+		%tr
+			%td
+				= order.id
+			%td
+				= order.name
+			%td 
+				= order.sku
+			%td 
+				= order.status
+			%td
+				= order.quantity
+			%td
+				= order.total_amount_cents

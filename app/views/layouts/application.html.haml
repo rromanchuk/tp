@@ -1,0 +1,10 @@
+!!!
+%html
+  %head
+    = csrf_meta_tags
+    %title= Rails.env.development? ? 'Linksie DEV' : 'Linksie'
+    = stylesheet_link_tag 'screen'
+    = javascript_include_tag "application"
+
+  %body
+    = yield

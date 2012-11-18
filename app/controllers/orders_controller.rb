@@ -1,4 +1,4 @@
-class OrdersController < ActionController::Base
+class OrdersController < ApplicationController
 
   respond_to :json
   def create
@@ -11,6 +11,14 @@ class OrdersController < ActionController::Base
     @user.orders << @order
     puts @user.inspect
     respond_with @order
+  end
+
+  def index
+
+    @orders = Order.all
+    respond_to do |format|
+      format.html 
+    end
   end
 
   def inventory

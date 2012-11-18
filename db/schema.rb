@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121118140631) do
+ActiveRecord::Schema.define(:version => 20121118214455) do
 
   create_table "items", :force => true do |t|
     t.integer "order_id"
@@ -48,8 +48,22 @@ ActiveRecord::Schema.define(:version => 20121118140631) do
 
   create_table "users", :force => true do |t|
     t.string   "stripe_customer_id"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
+    t.datetime "created_at",                                          :null => false
+    t.datetime "updated_at",                                          :null => false
+    t.string   "email",                               :default => "", :null => false
+    t.string   "encrypted_password",                  :default => "", :null => false
+    t.string   "name"
+    t.string   "provider"
+    t.integer  "uid",                    :limit => 8,                 :null => false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",                       :default => 0
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.string   "authentication_token"
   end
 
   add_index "users", ["stripe_customer_id"], :name => "index_users_on_stripe_customer_id"

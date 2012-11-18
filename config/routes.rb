@@ -5,6 +5,6 @@ Tp::Application.routes.draw do
     end
   end
   resources :users
-  root :to => 'pages#stripe'
+  root :to => 'orders#index'
 
 end
