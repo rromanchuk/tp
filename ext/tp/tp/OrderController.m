@@ -367,7 +367,7 @@
     [self.currentUser chargeCustomer:order onLoad:^(StripeResponse *token) {
         DLog(@"Success charging customer");
         order.stripeTransactionId = token.token;
-        
+        order.status = @"PAID";
         [RestUser order:order onLoad:^(RestOrder *restOrder) {
             DLog(@"Success creating order");
             [order setManagedObjectWithIntermediateObject:restOrder];
@@ -397,6 +397,7 @@
     order.status = @"IN_PROGRESS";
     order.quantity = [NSNumber numberWithInteger:selectedQuantity];
     order.sku = [self skuForQuality];
+    order.name = self.currentUser.name;
     order.address1 = self.currentUser.address1;
     order.address2 = self.currentUser.address2;
     order.city = self.currentUser.city;

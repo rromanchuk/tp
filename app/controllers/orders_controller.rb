@@ -5,6 +5,7 @@ class OrdersController < ActionController::Base
     @user = User.find_or_create_by_stripe_customer_id(params[:order][:stripe_customer_id])
 
     @order = Order.new(params[:order])
+    @order.status = "COMPLETE"
     @order.save!
 
     @user.orders << @order
