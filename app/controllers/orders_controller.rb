@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-
+  before_filter :authenticate_user!
   respond_to :json
   def create
     @user = User.find_or_create_by_stripe_customer_id(params[:order][:stripe_customer_id])

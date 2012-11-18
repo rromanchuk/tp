@@ -29,3 +29,5 @@ end
 gem 'jquery-rails'
 gem 'capistrano'
 gem 'rvm-capistrano'
+gem 'devise'
+gem "omniauth-facebook"
