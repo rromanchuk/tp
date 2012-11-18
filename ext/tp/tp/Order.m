@@ -14,20 +14,20 @@
 
 @dynamic address1;
 @dynamic address2;
-@dynamic totalAmountCents;
 @dynamic city;
 @dynamic country;
 @dynamic createdAt;
 @dynamic externalId;
-@dynamic name;
-@dynamic state;
-@dynamic zip;
-@dynamic status;
-@dynamic stripeTransactionId;
-@dynamic sku;
-@dynamic quantity;
 @dynamic isPaid;
+@dynamic name;
+@dynamic quantity;
+@dynamic sku;
+@dynamic state;
+@dynamic status;
 @dynamic stripeCustomerId;
+@dynamic stripeTransactionId;
+@dynamic totalAmountCents;
+@dynamic zip;
 @dynamic user;
 
 @end

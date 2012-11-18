@@ -3,9 +3,9 @@
 #import "User.h"
 
 typedef enum {
-    RollQuantityType6,
-    RollQuantityType12,
-    RollQuantityType24
+    RollQuantityType6 = 6,
+    RollQuantityType12 = 12,
+    RollQuantityType24 = 24
     } RollQuantityType;
 
 typedef enum {

@@ -13,16 +13,6 @@
 @end
 
 @implementation ShowReceiptViewController
-@synthesize booYaLabel;
-@synthesize headingLabel;
-@synthesize okButton;
-@synthesize typeLabel;
-@synthesize qtyLabel;
-@synthesize totalLabel;
-@synthesize typeValueLabel;
-@synthesize qtyValueLabel;
-@synthesize totalValueLabel;
-@synthesize tellWorldLabel;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -47,8 +37,8 @@
     self.typeValueLabel.font = [UIFont fontWithName:@"ArvilSans" size:25.0];
     self.tellWorldLabel.font = [UIFont fontWithName:@"ProximaNova-Semibold" size:10.0];
     
-    self.qtyValueLabel.text = [NSString stringWithFormat:@"%d", self.selectedQuantity];
-    self.totalValueLabel.text = [NSString stringWithFormat:@"$%d", self.amountInCents / 100];
+    self.qtyValueLabel.text = [NSString stringWithFormat:@"%@", self.order.quantity];
+    self.totalValueLabel.text = [NSString stringWithFormat:@"$%d", [self.order.totalAmountCents integerValue] / 100];
 	// Do any additional setup after loading the view.
 }
 

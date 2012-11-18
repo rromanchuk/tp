@@ -98,9 +98,7 @@
         NSLog(@"In prepare for segue");
         ShowReceiptViewController *vc = (ShowReceiptViewController *)segue.destinationViewController;
         vc.delegate = self;
-        vc.selectedQuantity = selectedQuantity;
-        vc.selectedQualityType = selectedQuality;
-        vc.amountInCents = amountInCents;
+        vc.order = (Order *)sender;
     }
 }
 
@@ -165,6 +163,7 @@
 }
 
 - (void)setupView {
+    DLog(@"selected quantity %d", selectedQuantity);
     switch (selectedQuantity) {
         case RollQuantityType6:
             [self.qtyButton setTitle:@"6 Rolls" forState:UIControlStateNormal];
@@ -222,7 +221,19 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"index path %d", indexPath.row);
     NSLog(@"did select row");
-    selectedQuantity = indexPath.row;
+    switch (indexPath.row) {
+        case 0:
+            selectedQuantity = RollQuantityType6;
+            break;
+        case 1:
+            selectedQuantity = RollQuantityType12;
+            break;
+        case 2:
+            selectedQuantity = RollQuantityType24;
+            break;
+        default:
+            break;
+    }
     [self setupView];
     self.qtyTable.hidden = YES;
     self.qtyButton.selected = NO;
@@ -362,7 +373,7 @@
             [order setManagedObjectWithIntermediateObject:restOrder];
             [self saveContext];
             [SVProgressHUD dismiss];
-            [((OrderController *)self.scrollView.delegate) performSegueWithIdentifier:@"ShowReceipt" sender:self];
+            [((OrderController *)self.scrollView.delegate) performSegueWithIdentifier:@"ShowReceipt" sender:order];
         } onError:^(NSString *error) {
             DLog(@"failure %@", error);
             [SVProgressHUD showErrorWithStatus:error];
@@ -377,11 +388,11 @@
 
 
 - (Order *)buildOrder {
-    NSLog(@"Successfully charged customer");
+    
     Order *order = [NSEntityDescription insertNewObjectForEntityForName:@"Order"
                                                  inManagedObjectContext:self.managedObjectContext];
     
-    
+    DLog(@"quantity %d", selectedQuantity);
     order.totalAmountCents = [NSNumber numberWithInteger:amountInCents];
     order.status = @"IN_PROGRESS";
     order.quantity = [NSNumber numberWithInteger:selectedQuantity];

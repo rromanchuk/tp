@@ -51,6 +51,7 @@ static NSString *ORDER = @"orders/";
                                    [NSString stringWithFormat:@"%@", order.state], @"order[state]",
                                    [NSString stringWithFormat:@"%@", order.country], @"order[country]",
                                    [NSString stringWithFormat:@"%@", order.sku], @"order[sku]",
+                                   [NSString stringWithFormat:@"%@", order.totalAmountCents], @"order[total_amount_cents]",
                                    [NSString stringWithFormat:@"%@", order.quantity], @"order[quantity]", nil];
     NSMutableURLRequest *request = [restClient requestWithMethod:@"POST"
                                                             path:ORDER

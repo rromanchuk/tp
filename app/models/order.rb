@@ -2,7 +2,7 @@ class Order < ActiveRecord::Base
 
   include ActiveMerchant::Shipping
   
-  attr_accessible :email, :name, :address1, :address2, :city, :state, :country, :zip, :stripe_customer_id, :stripe_transaction_id, :quantity, :sku, :status
+  attr_accessible :email, :name, :address1, :address2, :city, :state, :country, :zip, :stripe_customer_id, :stripe_transaction_id, :quantity, :sku, :status, :total_amount_cents
 
 
   has_many :items

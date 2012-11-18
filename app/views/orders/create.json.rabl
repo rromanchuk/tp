@@ -1,6 +1,2 @@
-object @user
-attributes :id, :stripe_customer_id, :created_at
-
-child :orders do
-  extends "orders/show"
-end
+object @order
+attributes :id, :name, :address1, :address2, :city, :state, :zip, :country, :phone, :email, :created_at, :total_amount_cents, :sku, :quantity, :stripe_transaction_id
