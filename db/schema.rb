@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121118214455) do
+ActiveRecord::Schema.define(:version => 20121120213141) do
 
   create_table "items", :force => true do |t|
     t.integer "order_id"
@@ -64,6 +64,13 @@ ActiveRecord::Schema.define(:version => 20121118214455) do
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.string   "authentication_token"
+    t.string   "address1"
+    t.string   "address2"
+    t.string   "city"
+    t.string   "state"
+    t.string   "country"
+    t.string   "zip"
+    t.string   "phone"
   end
 
   add_index "users", ["stripe_customer_id"], :name => "index_users_on_stripe_customer_id"
