@@ -1,7 +1,8 @@
 
 #import "ShowReceiptViewController.h"
 #import "User.h"
-
+#import "FormView.h"
+#import "FacebookHelper.h"
 typedef enum {
     RollQuantityType6 = 6,
     RollQuantityType12 = 12,
@@ -14,7 +15,7 @@ typedef enum {
 } RollQualityType;
 
 @protocol ReceiptDelegate;
-@interface OrderController : UIViewController <UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate, ReceiptDelegate> {
+@interface OrderController : UIViewController <UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate, ReceiptDelegate, FacebookHelperDelegate> {
     NSString *option1; 
     NSString *option2; 
     NSString *option3;
@@ -71,6 +72,8 @@ typedef enum {
 @property (weak) IBOutlet UILabel *thatsItLabel;
 @property (weak) IBOutlet UILabel *deliveryEst;
 @property (weak) IBOutlet UIButton *cancelOrder;
+@property (weak, nonatomic) IBOutlet FormView *formView;
+@property (weak, nonatomic) IBOutlet UIImageView *deliveryTruckImage;
 
 @property BOOL isOnCheckout;
 @property (weak) UITextField *activeField;

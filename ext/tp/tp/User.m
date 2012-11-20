@@ -2,7 +2,7 @@
 //  User.m
 //  tp
 //
-//  Created by Ryan Romanchuk on 11/18/12.
+//  Created by Ryan Romanchuk on 11/21/12.
 //
 //
 
@@ -14,6 +14,7 @@
 
 @dynamic address1;
 @dynamic address2;
+@dynamic authenticationToken;
 @dynamic city;
 @dynamic country;
 @dynamic email;

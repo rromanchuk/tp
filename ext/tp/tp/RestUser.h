@@ -21,7 +21,9 @@
 @property (strong) NSString *country;
 @property (strong) NSString *email;
 @property (strong) NSString *stripeCardToken;
-@property (strong) NSString *stripeCustomerId; 
+@property (strong) NSString *stripeCustomerId;
+@property (strong) NSString *authenticationToken;
+
 @property (strong) NSDate *createdAt;
 
 @property (strong) NSSet *orders;
@@ -32,5 +34,11 @@
        onLoad:(void (^)(RestOrder *restOrder))onLoad
       onError:(void (^)(NSString *error))onError;
 
++ (void)create:(NSMutableDictionary *)parameters
+        onLoad:(void (^)(RestUser *restUser))onLoad
+       onError:(void (^)(NSString *error))onError;
 
++ (NSString *)authToken;
++ (void)setAuthToken:(NSString *)token;
++ (void)deleteAuthToken;
 @end

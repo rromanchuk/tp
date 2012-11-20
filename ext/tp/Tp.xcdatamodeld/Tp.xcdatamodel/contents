@@ -22,6 +22,7 @@
     <entity name="User" representedClassName="User" syncable="YES">
         <attribute name="address1" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="address2" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="authenticationToken" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="country" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
@@ -37,6 +38,6 @@
     </entity>
     <elements>
         <element name="Order" positionX="160" positionY="192" width="128" height="300"/>
-        <element name="User" positionX="160" positionY="192" width="128" height="255"/>
+        <element name="User" positionX="160" positionY="192" width="128" height="270"/>
     </elements>
 </model>

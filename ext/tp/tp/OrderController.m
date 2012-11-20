@@ -6,6 +6,9 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
+#import <FacebookSDK/FacebookSDK.h>
+
+
 #import "OrderController.h"
 #import "UIBarButtonItem+Borderless.h"
 #import "User+Manage.h"
@@ -13,6 +16,7 @@
 #import "Config.h"
 #import "RestUser.h"
 #import "SVProgressHUD.h"
+#import "NSString+Utils.h"
 @interface OrderController () {
     RollQualityType selectedQuality;
     RollQuantityType selectedQuantity;
@@ -31,8 +35,6 @@
     }
     return self;
 }
-
-
 
 - (void)viewDidLoad
 {
@@ -87,12 +89,15 @@
     [self setupView];
     [self loadForm];
     
+    
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self loadForm];
 }
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"ShowReceipt"]){
         NSLog(@"In prepare for segue");
@@ -120,6 +125,8 @@
     [self setExpirationLabel:nil];
     [self setExpiryMonth:nil];
     [self setExpiryYear:nil];
+    [self setFormView:nil];
+    [self setDeliveryTruckImage:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -305,13 +312,47 @@
     self.isOnCheckout = YES;
     [self.scrollView setContentOffset:CGPointMake(0.0, 474.0) animated:YES];
     self.scrollView.scrollEnabled = YES;
+    
+    if ([self.currentUser.stripeCustomerId isEmpty]) {
+        [self.formView setFrame:CGRectMake(self.formView.frame.origin.x, self.formView.frame.origin.y, self.formView.frame.size.width, 343)];
+        self.creditCardLabel.hidden = self.creditCardTextField.hidden = self.csvTextField.hidden = self.csvLabel.hidden = self.expirationLabel.hidden = self.expiryMonth.hidden = self.expiryYear.hidden = NO;
+        
+        [self.orderCheckoutButton setFrame:CGRectMake(self.orderCheckoutButton.frame.origin.x, self.formView.frame.origin.y + self.formView.frame.size.height + 10, self.orderCheckoutButton.frame.size.width, self.orderCheckoutButton.frame.size.height)];
+        
+        [self.thatsItLabel setFrame:CGRectMake(self.thatsItLabel.frame.origin.x, self.formView.frame.origin.y + self.formView.frame.size.height + 10, self.thatsItLabel.frame.size.width, self.thatsItLabel.frame.size.height)];
+        
+        [self.deliveryEst setFrame:CGRectMake(self.deliveryEst.frame.origin.x, self.thatsItLabel.frame.origin.y + self.thatsItLabel.frame.size.height + 5, self.deliveryEst.frame.size.width, self.deliveryEst.frame.size.height)];
+        
+        [self.deliveryTruckImage setFrame:CGRectMake(self.deliveryTruckImage.frame.origin.x, self.thatsItLabel.frame.origin.y + self.thatsItLabel.frame.size.height + 5, self.deliveryTruckImage.frame.size.width, self.deliveryTruckImage.frame.size.height)];
+
+    } else {
+        
+        [self.formView setFrame:CGRectMake(self.formView.frame.origin.x, self.formView.frame.origin.y, self.formView.frame.size.width, self.zipTextField.frame.origin.y + self.zipTextField.frame.size.height + 10)];
+        
+        [self.orderCheckoutButton setFrame:CGRectMake(self.orderCheckoutButton.frame.origin.x, self.formView.frame.origin.y + self.formView.frame.size.height + 10, self.orderCheckoutButton.frame.size.width, self.orderCheckoutButton.frame.size.height)];
+        
+        [self.thatsItLabel setFrame:CGRectMake(self.thatsItLabel.frame.origin.x, self.formView.frame.origin.y + self.formView.frame.size.height + 10, self.thatsItLabel.frame.size.width, self.thatsItLabel.frame.size.height)];
+        
+        [self.deliveryEst setFrame:CGRectMake(self.deliveryEst.frame.origin.x, self.thatsItLabel.frame.origin.y + self.thatsItLabel.frame.size.height + 5, self.deliveryEst.frame.size.width, self.deliveryEst.frame.size.height)];
+        
+       [self.deliveryTruckImage setFrame:CGRectMake(self.deliveryTruckImage.frame.origin.x, self.thatsItLabel.frame.origin.y + self.thatsItLabel.frame.size.height + 5, self.deliveryTruckImage.frame.size.width, self.deliveryTruckImage.frame.size.height)];
+        
+        self.creditCardLabel.hidden = self.creditCardTextField.hidden = self.csvTextField.hidden = self.csvLabel.hidden = self.expirationLabel.hidden = self.expiryMonth.hidden = self.expiryYear.hidden = YES;
+    }
+    
 }
 
 - (IBAction)didTapCheckout:(id)sender {
-    if ([self.currentUser hasCustomerId] && [self.currentUser addressIsValid]) {
-        [self sendOrder:self];
+    ALog(@"User's auth token is %@", [RestUser authToken]);
+    if ([RestUser authToken]) {
+        if ([self.currentUser hasCustomerId] && [self.currentUser addressIsValid]) {
+            [self sendOrder:self];
+        } else {
+            [self scrollToCheckout:sender];
+        }
+
     } else {
-        [self scrollToCheckout:sender];
+        [[FacebookHelper shared] login:self];
     }
 }
 
@@ -336,7 +377,7 @@
 
 - (IBAction)sendOrder:(id)sender {
 //        
-    [SVProgressHUD showWithStatus:@"Sending your order..."];
+    
     self.currentUser.name = self.nameTextField.text;
     self.currentUser.address1 = self.address1TextField.text;
     self.currentUser.state = self.stateTextField.text;
@@ -344,6 +385,11 @@
     self.currentUser.city = self.cityTextField.text;
     self.currentUser.country = @"United States";
     [self saveContext];
+    
+    if (![self isValid])
+        return
+    
+    //[SVProgressHUD showWithStatus:@"Sending your order..."];
     DLog(@"name %@ and address %@ customerid %@ state %@  zip %@", self.currentUser.name, self.currentUser.address1, self.currentUser.stripeCustomerId, self.currentUser.state, self.currentUser.zip);
     if (self.currentUser.stripeCustomerId) {
         // Charge customer
@@ -362,8 +408,44 @@
     }
 }
 
+- (BOOL)isValid {
+    if ([self.nameTextField.text isEmpty] ) {
+        ALog(@"no name");
+        [SVProgressHUD showErrorWithStatus:@"You forgot your name!"];
+        return NO;
+    } else if (!self.address1TextField.text) {
+        [SVProgressHUD showErrorWithStatus:@"You forgot your address!"];
+        return NO;
+    } else if (!self.cityTextField.text) {
+        [SVProgressHUD showErrorWithStatus:@"You forgot your city!"];
+        return NO;
+    } else if (!self.stateTextField.text) {
+        [SVProgressHUD showErrorWithStatus:@"You forgot your state!"];
+        return NO;
+    } else if (!self.zipTextField.text) {
+        [SVProgressHUD showErrorWithStatus:@"You forgot your zip!"];
+        return NO;
+    }
+    
+    if (!self.currentUser.stripeCustomerId) {
+        if ([self.creditCardTextField.text isEmpty]) {
+            [SVProgressHUD showErrorWithStatus:@"Hold your horses! You forgot your CreditCard!"];
+            return NO;
+        } else if ([self.expiryMonth.text isEmpty]) {
+            [SVProgressHUD showErrorWithStatus:@"Hold your horses! You forgot your CreditCard!"];
+            return NO;
+        } else if ([self.expiryYear.text isEmpty]) {
+            [SVProgressHUD showErrorWithStatus:@"Hold your horses! You forgot your CreditCard!"];
+            return NO;
+        }
+    }
+    
+    return YES;
+}
+
 - (void)chargeCustomer {
     Order *order = [self buildOrder];
+    [SVProgressHUD showWithStatus:@"Placing your order..."];
     [self.currentUser chargeCustomer:order onLoad:^(StripeResponse *token) {
         DLog(@"Success charging customer");
         order.stripeTransactionId = token.token;
@@ -381,7 +463,7 @@
         
     } onError:^(NSError *error) {
         DLog(@"failure %@", error);
-        [SVProgressHUD showErrorWithStatus:[error description]];
+        [SVProgressHUD showErrorWithStatus:error.localizedFailureReason];
     }];
 
 }
@@ -440,5 +522,12 @@
     }
 }
 
+
+#pragma mark - FacebookHelperDelegate
+- (void)userDidLogin {
+    ALog(@"User logged in");
+    [self saveContext];
+    [self didTapCheckout:self];
+}
 
 @end

@@ -2,7 +2,7 @@
 //  User.h
 //  tp
 //
-//  Created by Ryan Romanchuk on 11/18/12.
+//  Created by Ryan Romanchuk on 11/21/12.
 //
 //
 
@@ -15,6 +15,7 @@
 
 @property (nonatomic, retain) NSString * address1;
 @property (nonatomic, retain) NSString * address2;
+@property (nonatomic, retain) NSString * authenticationToken;
 @property (nonatomic, retain) NSString * city;
 @property (nonatomic, retain) NSString * country;
 @property (nonatomic, retain) NSString * email;

@@ -11,5 +11,6 @@
 
 @interface RestClient : AFHTTPClient
 + (RestClient *)sharedClient;
++ (NSMutableDictionary *)defaultParameters;
 
 @end

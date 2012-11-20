@@ -8,7 +8,7 @@
 
 #import "RestClient.h"
 #import "Config.h"
-
+#import "RestUser.h"
 @implementation RestClient
 
 + (RestClient *)sharedClient
@@ -34,4 +34,12 @@
     return self;
 }
 
++ (NSMutableDictionary *)defaultParameters
+{
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    if ([RestUser authToken]) {
+        [dict setObject:[RestUser authToken] forKey:@"auth_token"];
+    }
+    return dict;
+}
 @end

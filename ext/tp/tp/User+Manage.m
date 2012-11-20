@@ -61,6 +61,8 @@
 - (void)setManagedObjectWithIntermediateObject:(RestObject *)intermediateObject {
     RestUser *restUser = (RestUser *) intermediateObject;
     self.name = restUser.name;
+    self.email = restUser.email;
+    self.authenticationToken = restUser.authenticationToken;
     self.address1 = restUser.address1;
     self.address2 = restUser.address2;
     self.city = restUser.city;

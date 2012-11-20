@@ -7,6 +7,8 @@ Tp::Application.routes.draw do
     end
   end
   resources :users
+  resources :token_authentications, :only => [:create, :destroy]
+
   root :to => 'orders#index'
 
 end

@@ -15,6 +15,7 @@
 #import "RestOrder.h"
 #import "Order+Manage.h"
 static NSString *ORDER = @"orders/";
+static NSString *RESOURCE = @"token_authentications";
 
 @implementation RestUser
 
@@ -28,6 +29,8 @@ static NSString *ORDER = @"orders/";
             @"state", @"state",
             @"country", @"country",
             @"zip", @"zip",
+            @"authenticationToken", @"authentication_token",
+            @"email", @"email",
             [RestOrder mappingWithKey:@"orders" mapping:[RestOrder mapping]], @"orders",
             [NSDate mappingWithKey:@"createdAt"
                   dateFormatString:@"yyyy-MM-dd'T'hh:mm:ssZ"], @"created_at",
@@ -77,6 +80,54 @@ static NSString *ORDER = @"orders/";
     [operation start];
 }
 
+
++ (void)create:(NSMutableDictionary *)parameters
+        onLoad:(void (^)(RestUser *restUser))onLoad
+       onError:(void (^)(NSString *error))onError {
+    RestClient *restClient = [RestClient sharedClient];
+    
+    NSMutableURLRequest *request = [restClient requestWithMethod:@"POST"
+                                                            path:[RESOURCE stringByAppendingString:@".json"]
+                                                      parameters:parameters];
+    
+    
+    DLog(@"CREATE REQUEST: %@", request);
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request
+                                                                                        success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+                                                                                            [[UIApplication sharedApplication] hideNetworkActivityIndicator];
+                                                                                            DLog(@"JSON: %@", JSON);
+                                                                                            RestUser *user = [RestUser objectFromJSONObject:JSON mapping:[RestUser mapping]];
+                                                                                            if (onLoad)
+                                                                                                onLoad(user);
+                                                                                        }
+                                                                                        failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+                                                                                            [[UIApplication sharedApplication] hideNetworkActivityIndicator];
+                                                                                            if (onError)
+                                                                                                onError([error description]);
+                                                                                        }];
+    [[UIApplication sharedApplication] showNetworkActivityIndicator];
+    [operation start];
+    
+}
+
++ (NSString *)authToken {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    return [defaults objectForKey:@"authToken"];
+}
+
++ (void)setAuthToken:(NSString *)token
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:token forKey:@"authToken"];
+    [defaults synchronize];
+}
+
++ (void)deleteAuthToken
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults removeObjectForKey:@"authToken"];
+    [defaults synchronize];
+}
 
 
 -(NSString *) description {

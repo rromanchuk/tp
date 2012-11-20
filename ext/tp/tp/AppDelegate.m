@@ -5,12 +5,14 @@
 //  Created by Ryan Romanchuk on 5/7/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
+#import <FacebookSDK/FacebookSDK.h>
 
 #import "AppDelegate.h"
 #import "TestFlight.h"
 #import "RestUser.h"
 #import "OrderController.h"
 #import "User+Manage.h"
+#import "FacebookHelper.h";
 @implementation AppDelegate
 
 @synthesize managedObjectContext = __managedObjectContext;
@@ -25,6 +27,7 @@
     OrderController *oc = ((OrderController *) self.window.rootViewController);
     oc.currentUser = [User currentUser:self.managedObjectContext];
     oc.managedObjectContext = self.managedObjectContext;
+    [FacebookHelper shared].currentUser = oc.currentUser;
     [self saveContext];
 
     [TestFlight takeOff:@"8676fb61f456a4cec842fdd786016e39_ODkwOTcyMDEyLTA1LTEzIDE1OjA1OjUzLjIwMzEwOQ"];
@@ -163,5 +166,13 @@
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
 
+#pragma mark - Facebook callback for web based authentication
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation
+{
+    return [FBSession.activeSession handleOpenURL:url];
+}
 
 @end
