@@ -130,9 +130,9 @@ static NSString *RESOURCE = @"token_authentications";
 }
 
 
--(NSString *) description {
-    return [NSString stringWithFormat:@"EMAIL: %@\nNAME: %@\nADDRESS: %@\nCITY: %@\nSTATE: %@\nZIP: %@\nCOUNTRY: %@\nCUSTOMER_ID: %@",
-            self.email, self.name, self.address1, self.city, self.state, self.zip, self.country, self.stripeCustomerId];
+- (NSString *) description {
+    NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInteger:self.externalId], @"externalId", self.email, @"email", self.name, @"name", self.orders, @"orders", self.authenticationToken, @"authentication_token", nil];
+    return [dict description];
 }
 
 

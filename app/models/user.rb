@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :token_authenticatable
 
   has_many :orders
-  attr_accessible :stripe_customer_id, :name, :provider, :uid, :email, :password
+  attr_accessible :stripe_customer_id, :name, :provider, :uid, :email, :password, :city, :state, :zip, :country
 
   def self.find_or_create_for_facebook_oauth(auth, signed_in_resource=nil)
     puts auth.to_yaml

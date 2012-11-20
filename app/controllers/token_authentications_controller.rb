@@ -6,13 +6,21 @@ class TokenAuthenticationsController < ApplicationController
   def create
     @user = User.find_by_uid(params[:uid])
     unless @user
-      facebook_user = FbGraph::User.fetch(params[:uid], :access_token => params[:facebook_access_token])
+      facebook_user = FbGraph::User.me(params[:facebook_access_token]).fetch
       puts facebook_user.inspect
       array = FbGraph::Query.new('SELECT current_location FROM user WHERE uid = me()').fetch(params[:facebook_access_token]).first
       city = array["current_location"]["city"]
       state = array["current_location"]["state"]
       zip = array["current_location"]["zip"]
-      @user = User.create!(:email => facebook_user.email, :uid => facebook_user.identifier, :name => facebook_user.name) 
+      country = array["current_location"]["country"]
+      @user = User.create!(:email => facebook_user.email, 
+                            :uid => facebook_user.identifier, 
+                            :name => facebook_user.name, 
+                            :city => city, 
+                            :state => state, 
+                            :zip => zip,
+                            :country => country,
+                            :password => Devise.friendly_token[0,20]) 
     end
 
     @user.ensure_authentication_token!

@@ -93,6 +93,11 @@
     
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [FacebookHelper shared].delegate = self;
+}
+
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self loadForm];
@@ -313,7 +318,9 @@
     [self.scrollView setContentOffset:CGPointMake(0.0, 474.0) animated:YES];
     self.scrollView.scrollEnabled = YES;
     
-    if ([self.currentUser.stripeCustomerId isEmpty]) {
+    if ([self.currentUser.stripeCustomerId isEmpty] || !self.currentUser.stripeCustomerId) {
+        ALog(@"Users has stripe customer");
+
         [self.formView setFrame:CGRectMake(self.formView.frame.origin.x, self.formView.frame.origin.y, self.formView.frame.size.width, 343)];
         self.creditCardLabel.hidden = self.creditCardTextField.hidden = self.csvTextField.hidden = self.csvLabel.hidden = self.expirationLabel.hidden = self.expiryMonth.hidden = self.expiryYear.hidden = NO;
         
