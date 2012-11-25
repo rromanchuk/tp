@@ -38,6 +38,13 @@
 {
     switch (state) {
         case FBSessionStateOpen: {
+            ALog(@"session is open");
+            if (self.facebook == nil) {
+                self.facebook = [[Facebook alloc] initWithAppId:FBSession.activeSession.appID andDelegate:nil];
+            }
+            // Store the Facebook session information
+            self.facebook.accessToken = FBSession.activeSession.accessToken;
+            self.facebook.expirationDate = FBSession.activeSession.expirationDate;
             
             FBRequest *me = [FBRequest requestForMe];
             [me startWithCompletionHandler: ^(FBRequestConnection *connection,
@@ -55,14 +62,7 @@
                 }];
                 
             }];
-
-            ALog(@"session is open");
-            if (self.facebook == nil) {
-                self.facebook = [[Facebook alloc] initWithAppId:FBSession.activeSession.appID andDelegate:nil];
-            }
-            // Store the Facebook session information
-            self.facebook.accessToken = FBSession.activeSession.accessToken;
-            self.facebook.expirationDate = FBSession.activeSession.expirationDate;
+           
         }
             break;
         case FBSessionStateClosed:

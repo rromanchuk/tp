@@ -58,7 +58,7 @@ static NSString *RESOURCE = @"token_authentications";
                                    [NSString stringWithFormat:@"%@", order.quantity], @"order[quantity]", nil];
     NSMutableURLRequest *request = [restClient requestWithMethod:@"POST"
                                                             path:ORDER
-                                                      parameters:params];
+                                                      parameters:[RestClient defaultParametersWithParams:params]];
     
     DLog(@"LOGIN REQUEST is %@ with params %@", request, params);
     DLog(@"params %@", params)

@@ -11,11 +11,11 @@ class Order < ActiveRecord::Base
   @shipwire
   SKUS = {:big_roll => 'BigRoll'}
 
-
-  def order
-    @shipwire = ActiveMerchant::Fulfillment::ShipwireService.new(:login => "rromanchuk@gmail.com", :password => "***REMOVED***")
+  def fulfill!
+    @shipwire = ActiveMerchant::Fulfillment::ShipwireService.new(:login => "rromanchuk@gmail.com", :password => "***REMOVED***", :test => Rails.env.development? ? true : false)
     items = [{:sku => 'BigRoll', :quantity => 1}]
     address =  {}
+    @shipwire.fulfill(stripe_transaction_id, address, items)
   end
 
   def address
@@ -26,7 +26,8 @@ class Order < ActiveRecord::Base
       zip: zip, 
       state: state, 
       country: country, 
-      phone: phone, email: email }
+      phone: phone, 
+      email: email }
   end
 
   def self.fetch_stock_levels

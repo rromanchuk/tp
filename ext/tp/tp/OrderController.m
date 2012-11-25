@@ -44,7 +44,7 @@
                                                       forBarMetrics:UIBarMetricsDefault];
     }
     UIImage *gearImage = [UIImage imageNamed:@"gear.png"];
-    UIBarButtonItem *configButton = [UIBarButtonItem barItemWithImage:gearImage target:self action:@selector(scrollToCheckout:)];
+    UIBarButtonItem *configButton = [UIBarButtonItem barItemWithImage:gearImage target:self action:@selector(didTapConfig:)];
     self.navigationBar.topItem.rightBarButtonItem = configButton;
     self.navigationBar.topItem.title = @"Tap on the type of roll you want.";
     self.navigationBar.titleTextAttributes = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"ProximaNova-Regular" size:18.0], UITextAttributeFont, nil];
@@ -349,6 +349,7 @@
     
 }
 
+#pragma mark - User avents
 - (IBAction)didTapCheckout:(id)sender {
     ALog(@"User's auth token is %@", [RestUser authToken]);
     if ([RestUser authToken]) {
@@ -363,6 +364,13 @@
     }
 }
 
+- (IBAction)didTapConfig:(id)sender {
+    if ([RestUser authToken]) {
+        [self scrollToCheckout:sender];
+    } else {
+        [[FacebookHelper shared] login:self];
+    }
+}
 
 - (IBAction)scrollToTop:(id)sender {
     [self removeKeyboard];
@@ -534,6 +542,7 @@
 - (void)userDidLogin {
     ALog(@"User logged in");
     [self saveContext];
+    [self loadForm];
     [self didTapCheckout:self];
 }
 

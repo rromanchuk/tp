@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
-  before_filter :authenticate_user!, :only => [:index, :inventory]
+  before_filter :authenticate_user!
   respond_to :json
+  
   def create
     @user = User.find_or_create_by_stripe_customer_id(params[:order][:stripe_customer_id])
 
@@ -10,6 +11,7 @@ class OrdersController < ApplicationController
 
     @user.orders << @order
     puts @user.inspect
+    @order.fulfill!
     respond_with @order
   end
 
@@ -24,7 +26,6 @@ class OrdersController < ApplicationController
   def inventory
     @stock = Order.fetch_stock_levels
     puts @stock.inspect
-    respond_with @stock
   end
 
 

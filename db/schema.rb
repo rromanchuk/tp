@@ -48,8 +48,6 @@ ActiveRecord::Schema.define(:version => 20121120213141) do
 
   create_table "users", :force => true do |t|
     t.string   "stripe_customer_id"
-    t.datetime "created_at",                                          :null => false
-    t.datetime "updated_at",                                          :null => false
     t.string   "email",                               :default => "", :null => false
     t.string   "encrypted_password",                  :default => "", :null => false
     t.string   "name"

@@ -42,4 +42,12 @@
     }
     return dict;
 }
+
++ (NSMutableDictionary *)defaultParametersWithParams:(NSDictionary *)params
+{
+    NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:[self defaultParameters]];
+    [dict addEntriesFromDictionary:params];
+    return dict;
+}
+
 @end

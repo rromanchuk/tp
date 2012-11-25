@@ -1,0 +1,15 @@
+%table.table-striped.table
+    %th
+        Id
+    %th
+        Name
+    %th
+        City
+    - @users.each do |user|
+        %tr
+            %td
+                = user.id
+            %td
+                = user.name
+            %td 
+                = user.city
