@@ -600,7 +600,6 @@ need to do this once.</string>
         <class className="OrderController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/OrderController.h"/>
             <relationships>
-                <relationship kind="action" name="didTapCheckout:"/>
                 <relationship kind="action" name="didTapPremium:"/>
                 <relationship kind="action" name="didTapRegular:"/>
                 <relationship kind="action" name="qtyChange:"/>
