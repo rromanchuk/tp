@@ -14,7 +14,6 @@ class Order < ActiveRecord::Base
   def fulfill!
     @shipwire = ActiveMerchant::Fulfillment::ShipwireService.new(:login => "rromanchuk@gmail.com", :password => "***REMOVED***", :test => Rails.env.development? ? true : false)
     items = [{:sku => 'BigRoll', :quantity => 1}]
-    address =  {}
     @shipwire.fulfill(stripe_transaction_id, address, items)
   end
 
