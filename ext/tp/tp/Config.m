@@ -1,17 +1,8 @@
-//
-//  Config.m
-//  tp
-//
-//  Created by Ryan Romanchuk on 6/16/12.
-//  Copyright (c) 2012 Blippy. All rights reserved.
-//
+
 
 #import "Config.h"
 
 @implementation Config
-@synthesize baseURL; 
-@synthesize stripeKey; 
-@synthesize stripeSecret;
 
 - (id)init
 {

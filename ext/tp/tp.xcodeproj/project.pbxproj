@@ -23,7 +23,6 @@
 		94A94E8915581D14004FB612 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94A94E6A15581D14004FB612 /* Foundation.framework */; };
 		94A94E9115581D14004FB612 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 94A94E8F15581D14004FB612 /* InfoPlist.strings */; };
 		94A94E9415581D14004FB612 /* tpTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A94E9315581D14004FB612 /* tpTests.m */; };
-		FA119D4B164E7DD800225A94 /* CreditCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA119D4A164E7DD800225A94 /* CreditCardViewController.m */; };
 		FA26D07F156EBEE70029463E /* form-bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA26D07E156EBEE70029463E /* form-bg@2x.png */; };
 		FA26D081156EBFE80029463E /* form-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = FA26D080156EBFE80029463E /* form-bg.png */; };
 		FA2E2BC015E56DA400BAAD44 /* paid.png in Resources */ = {isa = PBXBuildFile; fileRef = FA2E2BB415E56DA400BAAD44 /* paid.png */; };
@@ -144,8 +143,6 @@
 		94A94E9015581D14004FB612 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		94A94E9215581D14004FB612 /* tpTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = tpTests.h; sourceTree = "<group>"; };
 		94A94E9315581D14004FB612 /* tpTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = tpTests.m; sourceTree = "<group>"; };
-		FA119D49164E7DD800225A94 /* CreditCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditCardViewController.h; sourceTree = "<group>"; };
-		FA119D4A164E7DD800225A94 /* CreditCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreditCardViewController.m; sourceTree = "<group>"; };
 		FA26D07E156EBEE70029463E /* form-bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "form-bg@2x.png"; sourceTree = "<group>"; };
 		FA26D080156EBFE80029463E /* form-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "form-bg.png"; sourceTree = "<group>"; };
 		FA2E2BB415E56DA400BAAD44 /* paid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = paid.png; path = assets/paid.png; sourceTree = "<group>"; };
@@ -523,8 +520,6 @@
 				FAAC5264158545E3009E9811 /* SettingsController.m */,
 				FAE3E7CC15E6A92E00416738 /* ShowReceiptViewController.h */,
 				FAE3E7CD15E6A92E00416738 /* ShowReceiptViewController.m */,
-				FA119D49164E7DD800225A94 /* CreditCardViewController.h */,
-				FA119D4A164E7DD800225A94 /* CreditCardViewController.m */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -742,7 +737,6 @@
 				FA8654A5160E572D00DAB476 /* User+Manage.m in Sources */,
 				94A0A18B1647E430004A8608 /* RestClient.m in Sources */,
 				94A0A1981647EAA9004A8608 /* Order+Manage.m in Sources */,
-				FA119D4B164E7DD800225A94 /* CreditCardViewController.m in Sources */,
 				FAAB119D164E91FF001C7597 /* WoodView.m in Sources */,
 				FAAB11A0164E92DF001C7597 /* TexturedView.m in Sources */,
 				FAAB11A3164E9B12001C7597 /* FormView.m in Sources */,

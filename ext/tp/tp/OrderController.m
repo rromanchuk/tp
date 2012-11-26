@@ -7,8 +7,6 @@
 //
 
 #import <FacebookSDK/FacebookSDK.h>
-
-
 #import "OrderController.h"
 #import "UIBarButtonItem+Borderless.h"
 #import "User+Manage.h"
@@ -17,6 +15,7 @@
 #import "RestUser.h"
 #import "SVProgressHUD.h"
 #import "NSString+Utils.h"
+
 @interface OrderController () {
     RollQualityType selectedQuality;
     RollQuantityType selectedQuantity;
