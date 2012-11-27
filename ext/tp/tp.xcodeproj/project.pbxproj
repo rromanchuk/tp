@@ -78,7 +78,6 @@
 		FAC46BB2160FA2BE00D0F647 /* quantity-pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAC46BB0160FA2BE00D0F647 /* quantity-pressed@2x.png */; };
 		FAC5B7CD157A2DC900C73398 /* Stripe.m in Sources */ = {isa = PBXBuildFile; fileRef = FAC5B7CC157A2DC900C73398 /* Stripe.m */; };
 		FAC5B7D7157A4EB500C73398 /* RestUser.m in Sources */ = {isa = PBXBuildFile; fileRef = FAC5B7D6157A4EB500C73398 /* RestUser.m */; };
-		FAC5B7E2157B7A1600C73398 /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = FAC5B7E1157B7A1600C73398 /* KeychainItemWrapper.m */; };
 		FAC5B7E4157B933200C73398 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAC5B7E3157B933200C73398 /* Security.framework */; };
 		FACEAB49165C2078007C5C3D /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = FACEAB48165C2078007C5C3D /* User.m */; };
 		FADAF537165C0E09008C084B /* FacebookHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = FADAF536165C0E09008C084B /* FacebookHelper.m */; };
@@ -210,8 +209,6 @@
 		FAC5B7CC157A2DC900C73398 /* Stripe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stripe.m; sourceTree = "<group>"; };
 		FAC5B7D5157A4EB500C73398 /* RestUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestUser.h; sourceTree = "<group>"; };
 		FAC5B7D6157A4EB500C73398 /* RestUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestUser.m; sourceTree = "<group>"; };
-		FAC5B7E0157B7A1600C73398 /* KeychainItemWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainItemWrapper.h; sourceTree = "<group>"; };
-		FAC5B7E1157B7A1600C73398 /* KeychainItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainItemWrapper.m; sourceTree = "<group>"; };
 		FAC5B7E3157B933200C73398 /* Security.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		FACEAB47165C2078007C5C3D /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		FACEAB48165C2078007C5C3D /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
@@ -403,8 +400,6 @@
 		FA8E9F1A158DDEA600CB6F5B /* helpers */ = {
 			isa = PBXGroup;
 			children = (
-				FAC5B7E0157B7A1600C73398 /* KeychainItemWrapper.h */,
-				FAC5B7E1157B7A1600C73398 /* KeychainItemWrapper.m */,
 				FADAF535165C0E09008C084B /* FacebookHelper.h */,
 				FADAF536165C0E09008C084B /* FacebookHelper.m */,
 			);
@@ -728,7 +723,6 @@
 				FAE96031155B08E4007F42DA /* UIBarButtonItem+Borderless.m in Sources */,
 				FAC5B7CD157A2DC900C73398 /* Stripe.m in Sources */,
 				FAC5B7D7157A4EB500C73398 /* RestUser.m in Sources */,
-				FAC5B7E2157B7A1600C73398 /* KeychainItemWrapper.m in Sources */,
 				FAAC5265158545E3009E9811 /* SettingsController.m in Sources */,
 				FA8E9F17158CF62C00CB6F5B /* Config.m in Sources */,
 				FA8E9F1D158DDED700CB6F5B /* UIApplication+NetworkActivityIndicator.m in Sources */,
@@ -819,7 +813,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
-				PROVISIONING_PROFILE = "468AA4AE-40F2-4E3C-BB44-85F3BD9BDEA6";
+				PROVISIONING_PROFILE = "417C3597-D224-42D4-A862-1F731BF0DB9F";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -841,7 +835,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "468AA4AE-40F2-4E3C-BB44-85F3BD9BDEA6";
+				PROVISIONING_PROFILE = "417C3597-D224-42D4-A862-1F731BF0DB9F";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -871,7 +865,7 @@
 					"\"$(SRCROOT)/social/web/.env/lib/python2.7/config\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "468AA4AE-40F2-4E3C-BB44-85F3BD9BDEA6";
+				PROVISIONING_PROFILE = "417C3597-D224-42D4-A862-1F731BF0DB9F";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -900,7 +894,7 @@
 					"\"$(SRCROOT)/social/web/.env/lib/python2.7/config\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "468AA4AE-40F2-4E3C-BB44-85F3BD9BDEA6";
+				PROVISIONING_PROFILE = "417C3597-D224-42D4-A862-1F731BF0DB9F";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

@@ -403,7 +403,7 @@
     if (![self isValid])
         return
     
-    //[SVProgressHUD showWithStatus:@"Sending your order..."];
+    [SVProgressHUD showWithStatus:@"Sending your order..."];
     DLog(@"name %@ and address %@ customerid %@ state %@  zip %@", self.currentUser.name, self.currentUser.address1, self.currentUser.stripeCustomerId, self.currentUser.state, self.currentUser.zip);
     if (self.currentUser.stripeCustomerId) {
         // Charge customer
@@ -417,7 +417,7 @@
             [self chargeCustomer];
         } onError:^(NSError *error) {
             DLog(@"failure %@", error);
-            [SVProgressHUD showErrorWithStatus:[error description]];
+            [SVProgressHUD showErrorWithStatus:[error.userInfo objectForKey:@"message"]];
         }];
     }
 }
@@ -477,7 +477,7 @@
         
     } onError:^(NSError *error) {
         DLog(@"failure %@", error);
-        [SVProgressHUD showErrorWithStatus:error.localizedFailureReason];
+        [SVProgressHUD showErrorWithStatus:[error.userInfo objectForKey:@"message"]];
     }];
 
 }
