@@ -8,6 +8,7 @@
 
 #import "OrderFormViewController.h"
 #import "NSString+Utils.h"
+#import "PastOrdersViewController.h"
 
 @interface OrderFormViewController ()
 
@@ -27,6 +28,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+//    if ([self.navigationBar respondsToSelector:@selector(setBackgroundImage:forBarMetrics:)]) {
+//        [self.navigationBar setBackgroundImage:[UIImage imageNamed:@"navbar.png"]
+//                                 forBarMetrics:UIBarMetricsDefault];
+//    }
+//    
+//    self.navigationBar.titleTextAttributes = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"ProximaNova-Regular" size:15.0], UITextAttributeFont, nil];
+    
+    [self.segmentControl addTarget:self action:@selector(didTapSegment:) forControlEvents:UIControlEventValueChanged];
+    
     self.tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg.png"]];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -45,7 +55,7 @@
     self.expirationLabel.font = [UIFont fontWithName:@"ProximaNova-Semibold" size:15.0];
     self.orderCheckoutButton.titleLabel.font = [UIFont fontWithName:@"ArvilSans" size:20.0];
 
-    self.helperText.font = [UIFont fontWithName:@"ProximaNova-Regular" size:15.0];
+    self.helperText.font = [UIFont fontWithName:@"ProximaNova-Regular" size:14.0];
     
     //Checkout
     self.thatsItLabel.font = [UIFont fontWithName:@"ArvilSans" size:22.0];
@@ -55,21 +65,46 @@
 
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+   if ([[segue identifier] isEqualToString:@"MyOrders"]) {
+        PastOrdersViewController *vc = (PastOrdersViewController *)segue.destinationViewController;
+        vc.currentUser = self.currentUser;
+        
+    } 
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:animated];
+}
 
 - (void)loadForm {
     DLog(@"name %@ and address %@ customerid %@ state %@  zip %@", self.currentUser.name, self.currentUser.address1, self.currentUser.stripeCustomerId, self.currentUser.state, self.currentUser.zip);
-    self.nameTextField.text = self.currentUser.name;
-    self.address1TextField.text = self.currentUser.address1;
-    self.cityTextField.text = self.currentUser.city;
-    self.stateTextField.text = self.currentUser.state;
-    self.zipTextField.text = self.currentUser.zip;
+    if (self.segmentControl.selectedSegmentIndex == 0) {
+        self.nameTextField.text = self.currentUser.name;
+        self.address1TextField.text = self.currentUser.address1;
+        self.cityTextField.text = self.currentUser.city;
+        self.stateTextField.text = self.currentUser.state;
+        self.zipTextField.text = self.currentUser.zip;
+        self.nameTextField.placeholder = self.address1TextField.placeholder = self.cityTextField.placeholder = self.stateTextField.placeholder = self.zipTextField.placeholder = @"(required)";
+    } else {
+        self.nameTextField.text = self.currentUser.shippingName;
+        self.address1TextField.text = self.currentUser.shippingAddress1;
+        self.cityTextField.text = self.currentUser.shippingCity;
+        self.stateTextField.text = self.currentUser.shippingState;
+        self.zipTextField.text = self.currentUser.shippingState;
+        
+        self.nameTextField.placeholder = self.address1TextField.placeholder = self.cityTextField.placeholder = self.stateTextField.placeholder = self.zipTextField.placeholder = @"(optional)";
+    }
+   
     
     if ([self.currentUser.stripeCustomerId isEmpty] || !self.currentUser.stripeCustomerId) {
         ALog(@"Users has stripe customer");
         
-        [self.formView setFrame:CGRectMake(self.formView.frame.origin.x, self.formView.frame.origin.y, self.formView.frame.size.width, 293)];
+        //[self.formView setFrame:CGRectMake(self.formView.frame.origin.x, self.formView.frame.origin.y, self.formView.frame.size.width, 293)];
         self.creditCardLabel.hidden = self.creditCardTextField.hidden = self.csvTextField.hidden = self.csvLabel.hidden = self.expirationLabel.hidden = self.expiryMonth.hidden = self.expiryYear.hidden = NO;
         self.lastFourLabel.hidden = YES;
+        self.creditCardLabel.text = @"CREDIT CARD";
 //        [self.orderCheckoutButton setFrame:CGRectMake(self.orderCheckoutButton.frame.origin.x, self.formView.frame.origin.y + self.formView.frame.size.height + 10, self.orderCheckoutButton.frame.size.width, self.orderCheckoutButton.frame.size.height)];
 //        
 //        [self.thatsItLabel setFrame:CGRectMake(self.thatsItLabel.frame.origin.x, self.formView.frame.origin.y + self.formView.frame.size.height + 10, self.thatsItLabel.frame.size.width, self.thatsItLabel.frame.size.height)];
@@ -80,7 +115,7 @@
         
     } else {
         
-        [self.formView setFrame:CGRectMake(self.formView.frame.origin.x, self.formView.frame.origin.y, self.formView.frame.size.width, self.stateTextField.frame.origin.y + self.stateTextField.frame.size.height + 10)];
+//        [self.formView setFrame:CGRectMake(self.formView.frame.origin.x, self.formView.frame.origin.y, self.formView.frame.size.width, self.stateTextField.frame.origin.y + self.stateTextField.frame.size.height + 10)];
         
 //        [self.orderCheckoutButton setFrame:CGRectMake(self.orderCheckoutButton.frame.origin.x, self.formView.frame.origin.y + self.formView.frame.size.height + 10, self.orderCheckoutButton.frame.size.width, self.orderCheckoutButton.frame.size.height)];
         
@@ -90,13 +125,21 @@
 //        
 //        [self.deliveryTruckImage setFrame:CGRectMake(self.deliveryTruckImage.frame.origin.x, self.thatsItLabel.frame.origin.y + self.thatsItLabel.frame.size.height + 5, self.deliveryTruckImage.frame.size.width, self.deliveryTruckImage.frame.size.height)];
         
-        self.creditCardLabel.hidden = self.creditCardTextField.hidden = self.csvTextField.hidden = self.csvLabel.hidden = self.expirationLabel.hidden = self.expiryMonth.hidden = self.expiryYear.hidden = YES;
+        self.creditCardTextField.hidden = self.csvTextField.hidden = self.csvLabel.hidden = self.expirationLabel.hidden = self.expiryMonth.hidden = self.expiryYear.hidden = YES;
+        self.creditCardLabel.text = @"Card on file";
         self.lastFourLabel.hidden = NO;
     }
 
     
 }
 
+//- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+//    UIView *header = [UIView alloc] initWithFrame:CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y, self.view.frame.size.width, 30);
+//    UILabel *helperLabel = [[UILabel alloc] initWithFrame:CGRectMake(5, 5, self.view.frame.size.width - 40, 30)];
+//    [header addSubview:helperLabel];
+//    
+//    return header;
+//}
 
 - (void)didReceiveMemoryWarning
 {
@@ -239,6 +282,8 @@
     [self setOrderCheckoutButton:nil];
     [self setFormView:nil];
     [self setLastFourLabel:nil];
+    [self setNavigationBar:nil];
+    [self setSegmentControl:nil];
     [super viewDidUnload];
 }
 
@@ -248,12 +293,44 @@
 
 - (IBAction)didTapOrder:(id)sender {
     [SVProgressHUD showWithStatus:@"Sending your order..."];
+    [self saveContext];
     if (self.creditCardTextField.text.length > 0) {
         [self.delegate newCustomerInformation:self.creditCardTextField.text year:self.expiryYear.text month:self.expiryMonth.text code:self.csvTextField.text];
     } else {
         [self.delegate didFinishFillingOutForm];
     }
     
+}
+
+- (IBAction)didTapSegment:(id)sender {
+    ALog(@"tapped segment");
+    if (self.segmentControl.selectedSegmentIndex == 0) {
+        self.currentUser.shippingName = self.nameTextField.text;
+        self.currentUser.shippingAddress1 = self.address1TextField.text;
+        self.currentUser.shippingCity = self.cityTextField.text;
+        self.currentUser.shippingState = self.stateTextField.text;
+        self.currentUser.shippingZip = self.zipTextField.text;
+    } else {
+        self.currentUser.name = self.nameTextField.text;
+        self.currentUser.address1 = self.address1TextField.text;
+        self.currentUser.city = self.cityTextField.text;
+        self.currentUser.state = self.stateTextField.text;
+        self.currentUser.zip = self.zipTextField.text;
+
+    }
+    [self loadForm];
+}
+
+- (void)saveContext
+{
+    NSError *error = nil;
+    NSManagedObjectContext *managedObjectContext = self.managedObjectContext;
+    if (managedObjectContext != nil) {
+        if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error]) {
+            // Replace this implementation with code to handle the error appropriately.
+            //DLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        }
+    }
 }
 
 @end

@@ -2,7 +2,7 @@
 //  User.h
 //  tp
 //
-//  Created by Ryan Romanchuk on 11/21/12.
+//  Created by Ryan Romanchuk on 12/9/12.
 //
 //
 
@@ -27,6 +27,13 @@
 @property (nonatomic, retain) NSString * stripeCardToken;
 @property (nonatomic, retain) NSString * stripeCustomerId;
 @property (nonatomic, retain) NSString * zip;
+@property (nonatomic, retain) NSString * shippingAddress1;
+@property (nonatomic, retain) NSString * shippingAddress2;
+@property (nonatomic, retain) NSString * shippingCity;
+@property (nonatomic, retain) NSString * shippingState;
+@property (nonatomic, retain) NSString * shippingZip;
+@property (nonatomic, retain) NSString * shippingCountry;
+@property (nonatomic, retain) NSString * shippingName;
 @property (nonatomic, retain) NSSet *orders;
 @end
 

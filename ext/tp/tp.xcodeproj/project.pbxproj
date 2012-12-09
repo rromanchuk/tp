@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		641B5486F5064D0BA9D89231 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D219AC1EF104A83B9FC98F2 /* libPods.a */; };
+		947E3FB31674BFFC00B98697 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 947E3FB21674BFFC00B98697 /* User.m */; };
 		94A0A18B1647E430004A8608 /* RestClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A0A18A1647E430004A8608 /* RestClient.m */; };
 		94A0A1981647EAA9004A8608 /* Order+Manage.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A0A1971647EAA8004A8608 /* Order+Manage.m */; };
 		94A94E6915581D14004FB612 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94A94E6815581D14004FB612 /* UIKit.framework */; };
@@ -79,7 +80,6 @@
 		FAC46BB2160FA2BE00D0F647 /* quantity-pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAC46BB0160FA2BE00D0F647 /* quantity-pressed@2x.png */; };
 		FAC5B7CD157A2DC900C73398 /* Stripe.m in Sources */ = {isa = PBXBuildFile; fileRef = FAC5B7CC157A2DC900C73398 /* Stripe.m */; };
 		FAC5B7D7157A4EB500C73398 /* RestUser.m in Sources */ = {isa = PBXBuildFile; fileRef = FAC5B7D6157A4EB500C73398 /* RestUser.m */; };
-		FACEAB49165C2078007C5C3D /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = FACEAB48165C2078007C5C3D /* User.m */; };
 		FADAF537165C0E09008C084B /* FacebookHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = FADAF536165C0E09008C084B /* FacebookHelper.m */; };
 		FADBE7C51572104500FC9072 /* qty-checkout.png in Resources */ = {isa = PBXBuildFile; fileRef = FADBE7C31572104500FC9072 /* qty-checkout.png */; };
 		FADBE7C61572104500FC9072 /* qty-checkout@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FADBE7C41572104500FC9072 /* qty-checkout@2x.png */; };
@@ -127,6 +127,8 @@
 /* Begin PBXFileReference section */
 		2D219AC1EF104A83B9FC98F2 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C98AF6D30D3468E84B43D40 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		947E3FB11674BFFC00B98697 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		947E3FB21674BFFC00B98697 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		94A0A1891647E430004A8608 /* RestClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestClient.h; sourceTree = "<group>"; };
 		94A0A18A1647E430004A8608 /* RestClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestClient.m; sourceTree = "<group>"; };
 		94A0A1961647EAA8004A8608 /* Order+Manage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Order+Manage.h"; sourceTree = "<group>"; };
@@ -219,8 +221,6 @@
 		FAC5B7CC157A2DC900C73398 /* Stripe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stripe.m; sourceTree = "<group>"; };
 		FAC5B7D5157A4EB500C73398 /* RestUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestUser.h; sourceTree = "<group>"; };
 		FAC5B7D6157A4EB500C73398 /* RestUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestUser.m; sourceTree = "<group>"; };
-		FACEAB47165C2078007C5C3D /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		FACEAB48165C2078007C5C3D /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		FADAF535165C0E09008C084B /* FacebookHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookHelper.h; sourceTree = "<group>"; };
 		FADAF536165C0E09008C084B /* FacebookHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookHelper.m; sourceTree = "<group>"; };
 		FADBE7C31572104500FC9072 /* qty-checkout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "qty-checkout.png"; path = "assets/qty-checkout.png"; sourceTree = "<group>"; };
@@ -400,8 +400,8 @@
 		FA86549E160E56C800DAB476 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				FACEAB47165C2078007C5C3D /* User.h */,
-				FACEAB48165C2078007C5C3D /* User.m */,
+				947E3FB11674BFFC00B98697 /* User.h */,
+				947E3FB21674BFFC00B98697 /* User.m */,
 				FA9FF939165941AB00015F7E /* Order.h */,
 				FA9FF93A165941AB00015F7E /* Order.m */,
 				FA8654A2160E570300DAB476 /* Categories */,
@@ -775,11 +775,11 @@
 				FA9FF93B165941AB00015F7E /* Order.m in Sources */,
 				FAE7556B165ACA1500DE05D9 /* NSString+Utils.m in Sources */,
 				FADAF537165C0E09008C084B /* FacebookHelper.m in Sources */,
-				FACEAB49165C2078007C5C3D /* User.m in Sources */,
 				FA506DC81666AE2000F7B682 /* PastOrdersViewController.m in Sources */,
 				FAF55A30166D3E5A00CF9693 /* CoreDataTableViewController.m in Sources */,
 				FAFDB51E166FD54E00AD1DD9 /* OrderFormViewController.m in Sources */,
 				FAFDB522166FD92700AD1DD9 /* NavigationViewController.m in Sources */,
+				947E3FB31674BFFC00B98697 /* User.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -853,7 +853,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
-				PROVISIONING_PROFILE = "417C3597-D224-42D4-A862-1F731BF0DB9F";
+				PROVISIONING_PROFILE = "89CB32DB-9A7A-4A43-BA15-5169DF6730CC";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -875,7 +875,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "417C3597-D224-42D4-A862-1F731BF0DB9F";
+				PROVISIONING_PROFILE = "89CB32DB-9A7A-4A43-BA15-5169DF6730CC";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -905,7 +905,7 @@
 					"\"$(SRCROOT)/social/web/.env/lib/python2.7/config\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "417C3597-D224-42D4-A862-1F731BF0DB9F";
+				PROVISIONING_PROFILE = "89CB32DB-9A7A-4A43-BA15-5169DF6730CC";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -934,7 +934,7 @@
 					"\"$(SRCROOT)/social/web/.env/lib/python2.7/config\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "417C3597-D224-42D4-A862-1F731BF0DB9F";
+				PROVISIONING_PROFILE = "89CB32DB-9A7A-4A43-BA15-5169DF6730CC";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

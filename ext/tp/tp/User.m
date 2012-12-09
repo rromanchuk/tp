@@ -2,7 +2,7 @@
 //  User.m
 //  tp
 //
-//  Created by Ryan Romanchuk on 11/21/12.
+//  Created by Ryan Romanchuk on 12/9/12.
 //
 //
 
@@ -26,6 +26,13 @@
 @dynamic stripeCardToken;
 @dynamic stripeCustomerId;
 @dynamic zip;
+@dynamic shippingAddress1;
+@dynamic shippingAddress2;
+@dynamic shippingCity;
+@dynamic shippingState;
+@dynamic shippingZip;
+@dynamic shippingCountry;
+@dynamic shippingName;
 @dynamic orders;
 
 @end

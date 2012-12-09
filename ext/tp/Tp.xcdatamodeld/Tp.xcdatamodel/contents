@@ -30,6 +30,13 @@
         <attribute name="last4" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="shippingAddress1" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="shippingAddress2" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="shippingCity" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="shippingCountry" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="shippingName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="shippingState" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="shippingZip" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="state" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="stripeCardToken" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="stripeCustomerId" optional="YES" attributeType="String" syncable="YES"/>
@@ -38,6 +45,6 @@
     </entity>
     <elements>
         <element name="Order" positionX="160" positionY="192" width="128" height="300"/>
-        <element name="User" positionX="160" positionY="192" width="128" height="270"/>
+        <element name="User" positionX="160" positionY="192" width="128" height="375"/>
     </elements>
 </model>

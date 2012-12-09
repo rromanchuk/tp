@@ -15,6 +15,8 @@
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, strong) User *currentUser;
 @property (weak, nonatomic) IBOutlet FormView *formView;
+@property (weak, nonatomic) IBOutlet UINavigationBar *navigationBar;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *segmentControl;
 
 //Form
 @property (weak) IBOutlet UILabel *nameLabel;
@@ -61,7 +63,7 @@
 
 @property BOOL isOnCheckout;
 @property (weak) UITextField *activeField;
-
+- (IBAction)didTapSegment:(id)sender;
 - (IBAction)didTapCancel:(id)sender;
 @end
 

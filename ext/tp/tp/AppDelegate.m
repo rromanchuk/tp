@@ -31,7 +31,7 @@
     [FacebookHelper shared].currentUser = oc.currentUser;
     [self saveContext];
 
-    [TestFlight takeOff:@"8676fb61f456a4cec842fdd786016e39_ODkwOTcyMDEyLTA1LTEzIDE1OjA1OjUzLjIwMzEwOQ"];
+    [TestFlight takeOff:@"06ff3e39-0560-4345-bfb9-ca72cb454d3c"];
     [application setStatusBarStyle:UIStatusBarStyleBlackOpaque];
 
     
