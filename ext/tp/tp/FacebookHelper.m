@@ -57,8 +57,9 @@
                     [RestUser setAuthToken:restUser.authenticationToken];
                     [self.currentUser setManagedObjectWithIntermediateObject:restUser];
                     [self.delegate userDidLogin];
-                } onError:^(NSString *error) {
+                } onError:^(NSError *error) {
                     DLog(@"error: %@", error);
+                    [self.delegate didFailLogin:error];
                 }];
                 
             }];

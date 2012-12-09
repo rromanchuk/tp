@@ -99,6 +99,7 @@
      {
          NSLog(@"Customer created successfully %@", token);
          self.stripeCustomerId = token.token;
+         self.last4 = token.card.lastFourDigits;
          onLoad(token);
          /* handle success */
          

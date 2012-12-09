@@ -12,7 +12,8 @@
 #import "RestUser.h"
 #import "OrderController.h"
 #import "User+Manage.h"
-#import "FacebookHelper.h";
+#import "FacebookHelper.h"
+#import "NavigationViewController.h"
 @implementation AppDelegate
 
 @synthesize managedObjectContext = __managedObjectContext;
@@ -24,7 +25,7 @@
 {
     // Override point for customization after application launch.
     
-    OrderController *oc = ((OrderController *) self.window.rootViewController);
+    OrderController *oc = (OrderController *)[((NavigationViewController *) self.window.rootViewController).viewControllers objectAtIndex:0];
     oc.currentUser = [User currentUser:self.managedObjectContext];
     oc.managedObjectContext = self.managedObjectContext;
     [FacebookHelper shared].currentUser = oc.currentUser;

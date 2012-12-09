@@ -7,7 +7,6 @@
 //
 
 #import "RestUser.h"
-#import "KeychainItemWrapper.h"
 #import "AFJSONRequestOperation.h"
 #import "Stripe.h"
 #import "Config.h"
@@ -83,7 +82,7 @@ static NSString *RESOURCE = @"token_authentications";
 
 + (void)create:(NSMutableDictionary *)parameters
         onLoad:(void (^)(RestUser *restUser))onLoad
-       onError:(void (^)(NSString *error))onError {
+       onError:(void (^)(NSError *error))onError {
     RestClient *restClient = [RestClient sharedClient];
     
     NSMutableURLRequest *request = [restClient requestWithMethod:@"POST"
@@ -103,7 +102,7 @@ static NSString *RESOURCE = @"token_authentications";
                                                                                         failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
                                                                                             [[UIApplication sharedApplication] hideNetworkActivityIndicator];
                                                                                             if (onError)
-                                                                                                onError([error description]);
+                                                                                                onError(error);
                                                                                         }];
     [[UIApplication sharedApplication] showNetworkActivityIndicator];
     [operation start];

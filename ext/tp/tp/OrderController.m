@@ -8,6 +8,7 @@
 
 #import <FacebookSDK/FacebookSDK.h>
 #import "OrderController.h"
+#import "PastOrdersViewController.h"
 #import "UIBarButtonItem+Borderless.h"
 #import "User+Manage.h"
 #import "Stripe.h"
@@ -15,6 +16,7 @@
 #import "RestUser.h"
 #import "SVProgressHUD.h"
 #import "NSString+Utils.h"
+
 
 @interface OrderController () {
     RollQualityType selectedQuality;
@@ -38,58 +40,32 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    if ([self.navigationBar respondsToSelector:@selector(setBackgroundImage:forBarMetrics:)]) {
-        [self.navigationBar setBackgroundImage:[UIImage imageNamed:@"navbar.png"]
-                                                      forBarMetrics:UIBarMetricsDefault];
-    }
     UIImage *gearImage = [UIImage imageNamed:@"gear.png"];
     UIBarButtonItem *configButton = [UIBarButtonItem barItemWithImage:gearImage target:self action:@selector(didTapConfig:)];
-    self.navigationBar.topItem.rightBarButtonItem = configButton;
-    self.navigationBar.topItem.title = @"Tap on the type of roll you want.";
-    self.navigationBar.titleTextAttributes = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"ProximaNova-Regular" size:18.0], UITextAttributeFont, nil];
+   
+    self.navigationController.navigationItem.rightBarButtonItem = configButton;
+    self.navigationItem.rightBarButtonItem = configButton;
+    self.navigationItem.title = @"Tap on the type of roll you want.";
+   
+    self.navigationController.navigationBar.titleTextAttributes = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"ProximaNova-Regular" size:18.0], UITextAttributeFont, nil];
 	// Do any additional setup after loading the view, typically from a nib.
     
-    //scroll view
-    self.scrollView.contentSize = CGSizeMake(320,1000);
-    self.scrollView.scrollEnabled = NO;
-    
+        
     self.qtyTable.hidden = true;
     self.qtyTable.backgroundColor = [UIColor blackColor];
     
     self.qtyButton.titleLabel.font = [UIFont fontWithName:@"ArvilSans" size:35.0];
     [self.qtyButton setTitle:@"6 Rolls" forState:UIControlStateNormal];
-    self.qtyButtonSmall.titleLabel.font = [UIFont fontWithName:@"ArvilSans" size:30.0];
-    [self.qtyButtonSmall setTitle:@"6 Rolls" forState:UIControlStateNormal];
-   
+    
+    
     self.premiumButton.titleLabel.font = [UIFont fontWithName:@"ArvilSans" size:20.0];
     self.regularButton.titleLabel.font = [UIFont fontWithName:@"ArvilSans" size:20.0];
 
     
     self.orderButton.titleLabel.font = [UIFont fontWithName:@"ArvilSans" size:20.0];
-    self.orderCheckoutButton.titleLabel.font = [UIFont fontWithName:@"ArvilSans" size:20.0];
     [self.orderButton setTitle:@"$4" forState:UIControlStateNormal];
     
-    //Checkout form
-    self.nameLabel.font = [UIFont fontWithName:@"ProximaNova-Semibold" size:15.0];
-    self.address1Label.font = [UIFont fontWithName:@"ProximaNova-Semibold" size:15.0];
-    self.stateLabel.font = [UIFont fontWithName:@"ProximaNova-Semibold" size:15.0];
-    self.cityLabel.font = [UIFont fontWithName:@"ProximaNova-Semibold" size:15.0];
-    self.zipLabel.font = [UIFont fontWithName:@"ProximaNova-Semibold" size:15.0];
-    self.creditCardLabel.font = [UIFont fontWithName:@"ProximaNova-Semibold" size:15.0];
-    self.csvLabel.font = [UIFont fontWithName:@"ProximaNova-Semibold" size:15.0];
-    self.expirationLabel.font = [UIFont fontWithName:@"ProximaNova-Semibold" size:15.0];
-
-    self.helperText.font = [UIFont fontWithName:@"ProximaNova-Regular" size:15.0];
-    
-    //Checkout 
-    self.thatsItLabel.font = [UIFont fontWithName:@"ArvilSans" size:22.0];
-    self.deliveryEst.font = [UIFont fontWithName:@"ArvilSans" size:20.0];
-    self.isOnCheckout = NO;
     [self setupView];
-    [self loadForm];
-    
-    
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -99,7 +75,6 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [self loadForm];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -108,29 +83,20 @@
         ShowReceiptViewController *vc = (ShowReceiptViewController *)segue.destinationViewController;
         vc.delegate = self;
         vc.order = (Order *)sender;
+    } else if ([[segue identifier] isEqualToString:@"MyOrders"]) {
+        PastOrdersViewController *vc = (PastOrdersViewController *)segue.destinationViewController;
+        vc.currentUser = self.currentUser;
+        
+    } else if ([[segue identifier] isEqualToString:@"OrderForm"]) {
+        OrderFormViewController *vc = (OrderFormViewController *)segue.destinationViewController;
+        vc.currentUser = self.currentUser;
+        vc.delegate = self;
     }
 }
 
-- (void)loadForm {
-    DLog(@"name %@ and address %@ customerid %@ state %@  zip %@", self.currentUser.name, self.currentUser.address1, self.currentUser.stripeCustomerId, self.currentUser.state, self.currentUser.zip);
-    self.nameTextField.text = self.currentUser.name;
-    self.address1TextField.text = self.currentUser.address1;
-    self.cityTextField.text = self.currentUser.city;
-    self.stateTextField.text = self.currentUser.state;
-    self.zipTextField.text = self.currentUser.zip;
-}
 
 - (void)viewDidUnload
 {
-    [self setCreditCardLabel:nil];
-    [self setCreditCardTextField:nil];
-    [self setCsvLabel:nil];
-    [self setCsvTextField:nil];
-    [self setExpirationLabel:nil];
-    [self setExpiryMonth:nil];
-    [self setExpiryYear:nil];
-    [self setFormView:nil];
-    [self setDeliveryTruckImage:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -178,30 +144,24 @@
     switch (selectedQuantity) {
         case RollQuantityType6:
             [self.qtyButton setTitle:@"6 Rolls" forState:UIControlStateNormal];
-            [self.qtyButtonSmall setTitle:@"6 Rolls" forState:UIControlStateNormal];
             [self.regularButton setTitle:@"$6" forState:UIControlStateNormal];
             [self.premiumButton setTitle:@"$9" forState:UIControlStateNormal];
             if (selectedQuality == RollQualityTypePremium) {
-                [self.orderCheckoutButton setTitle:@"$9" forState:UIControlStateNormal];
                 [self.orderButton setTitle:@"$9" forState:UIControlStateNormal];
                 amountInCents = 900;
             } else {
-                [self.orderCheckoutButton setTitle:@"$6" forState:UIControlStateNormal];
                 [self.orderButton setTitle:@"$6" forState:UIControlStateNormal];
                 amountInCents = 600;
             }
             break;
         case RollQuantityType12:
             [self.qtyButton setTitle:@"12 Rolls" forState:UIControlStateNormal];
-            [self.qtyButtonSmall setTitle:@"12 Rolls" forState:UIControlStateNormal];
             [self.regularButton setTitle:@"$10" forState:UIControlStateNormal];
             [self.premiumButton setTitle:@"$15" forState:UIControlStateNormal];
             if (selectedQuality == RollQualityTypePremium) {
-                [self.orderCheckoutButton setTitle:@"$15" forState:UIControlStateNormal];
                 [self.orderButton setTitle:@"$15" forState:UIControlStateNormal];
                 amountInCents = 1500;
             } else {
-                [self.orderCheckoutButton setTitle:@"$10" forState:UIControlStateNormal];
                 [self.orderButton setTitle:@"$10" forState:UIControlStateNormal];
                 amountInCents = 1000;
             }
@@ -210,15 +170,12 @@
             
         case RollQuantityType24:
             [self.qtyButton setTitle:@"24 Rolls" forState:UIControlStateNormal];
-            [self.qtyButtonSmall setTitle:@"24 Rolls" forState:UIControlStateNormal];
             [self.regularButton setTitle:@"$18" forState:UIControlStateNormal];
             [self.premiumButton setTitle:@"$27" forState:UIControlStateNormal];
             if (selectedQuality == RollQualityTypePremium) {
-                [self.orderCheckoutButton setTitle:@"$27" forState:UIControlStateNormal];
                 [self.orderButton setTitle:@"$27" forState:UIControlStateNormal];
                 amountInCents = 2700;
             } else {
-                [self.orderCheckoutButton setTitle:@"$18" forState:UIControlStateNormal];
                 [self.orderButton setTitle:@"$18" forState:UIControlStateNormal];
                 amountInCents = 1800;
             }
@@ -274,88 +231,16 @@
     [self setupView];
 }
 
-//Scroll view
-
--(void)scrollViewDidEndDecelerating:(UIScrollView *)sender {
-    if (self.isOnCheckout && (sender.contentOffset.y < 474.0)) {
-        [self scrollToTop:sender];
-    }
-}
-
-- (void)scrollViewDidEndDragging:(UIScrollView *)sender willDecelerate:(BOOL)decelerate {
-    if( decelerate == NO) {
-        if (self.isOnCheckout && (sender.contentOffset.y < 474.0)) {
-            [self scrollToTop:sender];
-        }     
-    }
-}
-
--(void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView
-{
-    if (self.isOnCheckout) {
-        [self.nameTextField becomeFirstResponder];
-    }
-}
-
-// keyboard
-- (void)textFieldDidBeginEditing:(UITextField *)textField
-{
-    self.activeField = textField;
-}
-
-- (void)textFieldDidEndEditing:(UITextField *)textField
-{
-    self.activeField = nil;
-}
-
--(IBAction)removeKeyboard {
-    [self.activeField resignFirstResponder];
-}
-
-- (IBAction)scrollToCheckout:(id)sender {
-    self.isOnCheckout = YES;
-    [self.scrollView setContentOffset:CGPointMake(0.0, 474.0) animated:YES];
-    self.scrollView.scrollEnabled = YES;
-    
-    if ([self.currentUser.stripeCustomerId isEmpty] || !self.currentUser.stripeCustomerId) {
-        ALog(@"Users has stripe customer");
-
-        [self.formView setFrame:CGRectMake(self.formView.frame.origin.x, self.formView.frame.origin.y, self.formView.frame.size.width, 343)];
-        self.creditCardLabel.hidden = self.creditCardTextField.hidden = self.csvTextField.hidden = self.csvLabel.hidden = self.expirationLabel.hidden = self.expiryMonth.hidden = self.expiryYear.hidden = NO;
-        
-        [self.orderCheckoutButton setFrame:CGRectMake(self.orderCheckoutButton.frame.origin.x, self.formView.frame.origin.y + self.formView.frame.size.height + 10, self.orderCheckoutButton.frame.size.width, self.orderCheckoutButton.frame.size.height)];
-        
-        [self.thatsItLabel setFrame:CGRectMake(self.thatsItLabel.frame.origin.x, self.formView.frame.origin.y + self.formView.frame.size.height + 10, self.thatsItLabel.frame.size.width, self.thatsItLabel.frame.size.height)];
-        
-        [self.deliveryEst setFrame:CGRectMake(self.deliveryEst.frame.origin.x, self.thatsItLabel.frame.origin.y + self.thatsItLabel.frame.size.height + 5, self.deliveryEst.frame.size.width, self.deliveryEst.frame.size.height)];
-        
-        [self.deliveryTruckImage setFrame:CGRectMake(self.deliveryTruckImage.frame.origin.x, self.thatsItLabel.frame.origin.y + self.thatsItLabel.frame.size.height + 5, self.deliveryTruckImage.frame.size.width, self.deliveryTruckImage.frame.size.height)];
-
-    } else {
-        
-        [self.formView setFrame:CGRectMake(self.formView.frame.origin.x, self.formView.frame.origin.y, self.formView.frame.size.width, self.zipTextField.frame.origin.y + self.zipTextField.frame.size.height + 10)];
-        
-        [self.orderCheckoutButton setFrame:CGRectMake(self.orderCheckoutButton.frame.origin.x, self.formView.frame.origin.y + self.formView.frame.size.height + 10, self.orderCheckoutButton.frame.size.width, self.orderCheckoutButton.frame.size.height)];
-        
-        [self.thatsItLabel setFrame:CGRectMake(self.thatsItLabel.frame.origin.x, self.formView.frame.origin.y + self.formView.frame.size.height + 10, self.thatsItLabel.frame.size.width, self.thatsItLabel.frame.size.height)];
-        
-        [self.deliveryEst setFrame:CGRectMake(self.deliveryEst.frame.origin.x, self.thatsItLabel.frame.origin.y + self.thatsItLabel.frame.size.height + 5, self.deliveryEst.frame.size.width, self.deliveryEst.frame.size.height)];
-        
-       [self.deliveryTruckImage setFrame:CGRectMake(self.deliveryTruckImage.frame.origin.x, self.thatsItLabel.frame.origin.y + self.thatsItLabel.frame.size.height + 5, self.deliveryTruckImage.frame.size.width, self.deliveryTruckImage.frame.size.height)];
-        
-        self.creditCardLabel.hidden = self.creditCardTextField.hidden = self.csvTextField.hidden = self.csvLabel.hidden = self.expirationLabel.hidden = self.expiryMonth.hidden = self.expiryYear.hidden = YES;
-    }
-    
-}
 
 #pragma mark - User avents
 - (IBAction)didTapCheckout:(id)sender {
+    [SVProgressHUD showWithStatus:@"Sending your order..."];
     ALog(@"User's auth token is %@", [RestUser authToken]);
     if ([RestUser authToken]) {
         if ([self.currentUser hasCustomerId] && [self.currentUser addressIsValid]) {
             [self sendOrder:self];
         } else {
-            [self scrollToCheckout:sender];
+            [self performSegueWithIdentifier:@"OrderForm" sender:self];
         }
 
     } else {
@@ -365,18 +250,12 @@
 
 - (IBAction)didTapConfig:(id)sender {
     if ([RestUser authToken]) {
-        [self scrollToCheckout:sender];
+        [self performSegueWithIdentifier:@"OrderForm" sender:self];
     } else {
         [[FacebookHelper shared] login:self];
     }
 }
 
-- (IBAction)scrollToTop:(id)sender {
-    [self removeKeyboard];
-    [self.scrollView setContentOffset:CGPointMake(0.0, 0.0) animated:YES];
-    self.scrollView.scrollEnabled = NO;
-    self.isOnCheckout = NO;
-}
 
 - (IBAction)qtyChange:(id)sender {
     NSLog(@"in quantity change");
@@ -392,74 +271,37 @@
 - (IBAction)sendOrder:(id)sender {
 //        
     
-    self.currentUser.name = self.nameTextField.text;
-    self.currentUser.address1 = self.address1TextField.text;
-    self.currentUser.state = self.stateTextField.text;
-    self.currentUser.zip = self.zipTextField.text;
-    self.currentUser.city = self.cityTextField.text;
     self.currentUser.country = @"United States";
     [self saveContext];
     
-    if (![self isValid])
-        return
-    
-    [SVProgressHUD showWithStatus:@"Sending your order..."];
     DLog(@"name %@ and address %@ customerid %@ state %@  zip %@", self.currentUser.name, self.currentUser.address1, self.currentUser.stripeCustomerId, self.currentUser.state, self.currentUser.zip);
     if (self.currentUser.stripeCustomerId) {
         // Charge customer
         [self chargeCustomer];
     } else {
-        
-        [self.currentUser createStripeCustomer:[NSNumber numberWithInteger:[self.expiryMonth.text integerValue]] expiryYear:[NSNumber numberWithInteger:[self.expiryYear.text integerValue]] number:self.creditCardTextField.text securityCode:self.csvTextField.text onLoad:^(StripeResponse *token) {
-            [self saveContext];
-            
-            // Charge customer
-            [self chargeCustomer];
-        } onError:^(NSError *error) {
-            DLog(@"failure %@", error);
-            [SVProgressHUD showErrorWithStatus:[error.userInfo objectForKey:@"message"]];
-        }];
+        [self performSegueWithIdentifier:@"OrderForm" sender:self];
     }
 }
+#pragma mark - OrderFormDelegate methods
+- (void)newCustomerInformation:(NSString *)ccNumber year:(NSString *)year month:(NSString *)month code:(NSString *)code {
+    [self.currentUser createStripeCustomer:[NSNumber numberWithInteger:[month integerValue]] expiryYear:[NSNumber numberWithInteger:[year integerValue]] number:ccNumber securityCode:code onLoad:^(StripeResponse *token) {
+        [self saveContext];
+        // Charge customer
+        [self chargeCustomer];
+        
+    } onError:^(NSError *error) {
+        DLog(@"failure %@", error);
+        [SVProgressHUD showErrorWithStatus:[error.userInfo objectForKey:@"message"]];
+    }];
 
-- (BOOL)isValid {
-    if ([self.nameTextField.text isEmpty] ) {
-        ALog(@"no name");
-        [SVProgressHUD showErrorWithStatus:@"You forgot your name!"];
-        return NO;
-    } else if (!self.address1TextField.text) {
-        [SVProgressHUD showErrorWithStatus:@"You forgot your address!"];
-        return NO;
-    } else if (!self.cityTextField.text) {
-        [SVProgressHUD showErrorWithStatus:@"You forgot your city!"];
-        return NO;
-    } else if (!self.stateTextField.text) {
-        [SVProgressHUD showErrorWithStatus:@"You forgot your state!"];
-        return NO;
-    } else if (!self.zipTextField.text) {
-        [SVProgressHUD showErrorWithStatus:@"You forgot your zip!"];
-        return NO;
-    }
-    
-    if (!self.currentUser.stripeCustomerId) {
-        if ([self.creditCardTextField.text isEmpty]) {
-            [SVProgressHUD showErrorWithStatus:@"Hold your horses! You forgot your CreditCard!"];
-            return NO;
-        } else if ([self.expiryMonth.text isEmpty]) {
-            [SVProgressHUD showErrorWithStatus:@"Hold your horses! You forgot your CreditCard!"];
-            return NO;
-        } else if ([self.expiryYear.text isEmpty]) {
-            [SVProgressHUD showErrorWithStatus:@"Hold your horses! You forgot your CreditCard!"];
-            return NO;
-        }
-    }
-    
-    return YES;
+}
+
+- (void)didCancelOrderForm {
+    [self dismissModalViewControllerAnimated:YES];
 }
 
 - (void)chargeCustomer {
     Order *order = [self buildOrder];
-    [SVProgressHUD showWithStatus:@"Placing your order..."];
     [self.currentUser chargeCustomer:order onLoad:^(StripeResponse *token) {
         DLog(@"Success charging customer");
         order.stripeTransactionId = token.token;
@@ -469,7 +311,8 @@
             [order setManagedObjectWithIntermediateObject:restOrder];
             [self saveContext];
             [SVProgressHUD dismiss];
-            [((OrderController *)self.scrollView.delegate) performSegueWithIdentifier:@"ShowReceipt" sender:order];
+            
+            [self performSegueWithIdentifier:@"ShowReceipt" sender:order];
         } onError:^(NSString *error) {
             DLog(@"failure %@", error);
             [SVProgressHUD showErrorWithStatus:error];
@@ -519,9 +362,9 @@
     return out;
 }
 
+#pragma mark - ReceiptDelegate methods
 - (void)didDismissReceipt {
     [self dismissModalViewControllerAnimated:YES];
-    [self scrollToTop:self];
 }
 
 - (void)saveContext
@@ -541,8 +384,11 @@
 - (void)userDidLogin {
     ALog(@"User logged in");
     [self saveContext];
-    [self loadForm];
     [self didTapCheckout:self];
+}
+
+- (void)didFailLogin:(NSError *)error {
+    [SVProgressHUD showErrorWithStatus:error.localizedDescription];
 }
 
 @end

@@ -36,7 +36,7 @@
 
 + (void)create:(NSMutableDictionary *)parameters
         onLoad:(void (^)(RestUser *restUser))onLoad
-       onError:(void (^)(NSString *error))onError;
+       onError:(void (^)(NSError *error))onError;
 
 + (NSString *)authToken;
 + (void)setAuthToken:(NSString *)token;

@@ -24,5 +24,6 @@
 
 @required
 - (void)userDidLogin;
+- (void)didFailLogin:(NSError *)error;
 
 @end
