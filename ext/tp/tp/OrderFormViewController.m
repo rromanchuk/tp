@@ -58,6 +58,18 @@
     self.helperText.font = [UIFont fontWithName:@"ProximaNova-Regular" size:14.0];
     
     //Checkout
+    if (self.fromConfig) {
+        self.orderCheckoutButton.hidden = YES;
+        self.doneButton.hidden = NO;
+        self.thatsItLabel.hidden = self.deliveryEst.hidden = self.deliveryTruckImage.hidden = YES;
+
+
+    } else {
+        self.orderCheckoutButton.hidden = NO;
+        self.doneButton.hidden = YES;
+        self.thatsItLabel.hidden = self.deliveryEst.hidden = self.deliveryTruckImage.hidden = NO;
+    }
+    
     self.thatsItLabel.font = [UIFont fontWithName:@"ArvilSans" size:22.0];
     self.deliveryEst.font = [UIFont fontWithName:@"ArvilSans" size:20.0];
     self.isOnCheckout = NO;
@@ -282,8 +294,8 @@
     [self setOrderCheckoutButton:nil];
     [self setFormView:nil];
     [self setLastFourLabel:nil];
-    [self setNavigationBar:nil];
     [self setSegmentControl:nil];
+    [self setDoneButton:nil];
     [super viewDidUnload];
 }
 
@@ -301,6 +313,26 @@
     }
     
 }
+
+- (IBAction)didTapDone:(id)sender {
+    if (self.segmentControl.selectedSegmentIndex == 0) {
+        self.currentUser.name = self.nameTextField.text;
+        self.currentUser.address1 = self.address1TextField.text;
+        self.currentUser.city = self.cityTextField.text;
+        self.currentUser.state = self.stateTextField.text;
+        self.currentUser.zip = self.zipTextField.text;
+    } else {
+        self.currentUser.shippingName = self.nameTextField.text;
+        self.currentUser.shippingAddress1 = self.address1TextField.text;
+        self.currentUser.shippingCity = self.cityTextField.text;
+        self.currentUser.shippingState = self.stateTextField.text;
+        self.currentUser.shippingZip = self.zipTextField.text;
+    }
+
+    [self saveContext];
+    [self.delegate didFinishFillingOutForm];
+}
+
 
 - (IBAction)didTapSegment:(id)sender {
     ALog(@"tapped segment");

@@ -22,7 +22,7 @@ typedef enum {
     NSString *option3;
     NSString *option4;
 }
-
+@property BOOL fromConfig;
 @property (weak) IBOutlet UIButton *regularButton; 
 @property (weak) IBOutlet UIButton *premiumButton;
 @property (weak) IBOutlet UIButton *orderButton;

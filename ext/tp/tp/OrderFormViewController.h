@@ -13,9 +13,10 @@
 
 @interface OrderFormViewController : UITableViewController
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
+@property BOOL fromConfig;
 @property (nonatomic, strong) User *currentUser;
 @property (weak, nonatomic) IBOutlet FormView *formView;
-@property (weak, nonatomic) IBOutlet UINavigationBar *navigationBar;
+
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentControl;
 
 //Form
@@ -57,7 +58,8 @@
 @property (weak) IBOutlet UIButton *cancelOrder;
 @property (weak, nonatomic) IBOutlet UIImageView *deliveryTruckImage;
 
-
+@property (weak, nonatomic) IBOutlet UIButton *doneButton;
+- (IBAction)didTapDone:(id)sender;
 
 @property (weak) id <OrderFormDelegate> delegate;
 

@@ -91,6 +91,7 @@
         OrderFormViewController *vc = (OrderFormViewController *)((UINavigationController *)segue.destinationViewController).topViewController;
         vc.currentUser = self.currentUser;
         vc.delegate = self;
+        vc.fromConfig = self.fromConfig;
     }
 }
 
@@ -234,10 +235,12 @@
 
 #pragma mark - User avents
 - (IBAction)didTapCheckout:(id)sender {
-    [SVProgressHUD showWithStatus:@"Sending your order..."];
     ALog(@"User's auth token is %@", [RestUser authToken]);
+    self.fromConfig = NO;
     if ([RestUser authToken]) {
+        
         if ([self.currentUser hasCustomerId] && [self.currentUser addressIsValid]) {
+            [SVProgressHUD showWithStatus:@"Sending your order..."];
             [self sendOrder:self];
         } else {
             [self performSegueWithIdentifier:@"OrderForm" sender:self];
@@ -250,6 +253,7 @@
 
 - (IBAction)didTapConfig:(id)sender {
     if ([RestUser authToken]) {
+        self.fromConfig = YES;
         [self performSegueWithIdentifier:@"OrderForm" sender:self];
     } else {
         [[FacebookHelper shared] login:self];
@@ -294,6 +298,10 @@
         [SVProgressHUD showErrorWithStatus:[error.userInfo objectForKey:@"message"]];
     }];
 
+}
+
+- (void)didFinishFillingOutForm {
+    [self dismissModalViewControllerAnimated:YES];
 }
 
 - (void)didCancelOrderForm {

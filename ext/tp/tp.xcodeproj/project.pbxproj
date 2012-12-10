@@ -112,6 +112,8 @@
 		FAFDB522166FD92700AD1DD9 /* NavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAFDB521166FD92700AD1DD9 /* NavigationViewController.m */; };
 		FAFDB5241673CEBF00AD1DD9 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = FAFDB5231673CEBE00AD1DD9 /* Icon.png */; };
 		FAFDB5261673CED000AD1DD9 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAFDB5251673CED000AD1DD9 /* Icon@2x.png */; };
+		FAFDB5301675051C00AD1DD9 /* next.png in Resources */ = {isa = PBXBuildFile; fileRef = FAFDB52E1675051C00AD1DD9 /* next.png */; };
+		FAFDB5311675051C00AD1DD9 /* next@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAFDB52F1675051C00AD1DD9 /* next@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -260,6 +262,8 @@
 		FAFDB521166FD92700AD1DD9 /* NavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationViewController.m; sourceTree = "<group>"; };
 		FAFDB5231673CEBE00AD1DD9 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		FAFDB5251673CED000AD1DD9 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		FAFDB52E1675051C00AD1DD9 /* next.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = next.png; path = assets/next.png; sourceTree = "<group>"; };
+		FAFDB52F1675051C00AD1DD9 /* next@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "next@2x.png"; path = "assets/next@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -469,6 +473,8 @@
 		FAE95FF8155A8E21007F42DA /* assets */ = {
 			isa = PBXGroup;
 			children = (
+				FAFDB52E1675051C00AD1DD9 /* next.png */,
+				FAFDB52F1675051C00AD1DD9 /* next@2x.png */,
 				FAAB1195164E8725001C7597 /* bg.png */,
 				FAAB1196164E8725001C7597 /* bg@2x.png */,
 				FAC46BAF160FA2BE00D0F647 /* quantity-pressed.png */,
@@ -691,6 +697,8 @@
 				FAF55A37166D43F400CF9693 /* Default.png in Resources */,
 				FAFDB5241673CEBF00AD1DD9 /* Icon.png in Resources */,
 				FAFDB5261673CED000AD1DD9 /* Icon@2x.png in Resources */,
+				FAFDB5301675051C00AD1DD9 /* next.png in Resources */,
+				FAFDB5311675051C00AD1DD9 /* next@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
