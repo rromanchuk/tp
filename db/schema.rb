@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121206203759) do
+ActiveRecord::Schema.define(:version => 20121210184555) do
 
   create_table "items", :force => true do |t|
     t.integer "order_id"
@@ -73,6 +73,7 @@ ActiveRecord::Schema.define(:version => 20121206203759) do
     t.string   "zip"
     t.string   "phone"
     t.string   "last_four"
+    t.boolean  "admin"
   end
 
   add_index "users", ["stripe_customer_id"], :name => "index_users_on_stripe_customer_id"

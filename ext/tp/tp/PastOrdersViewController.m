@@ -7,7 +7,7 @@
 //
 
 #import "PastOrdersViewController.h"
-
+#import "OrderCell.h"
 @interface PastOrdersViewController ()
 
 @end
@@ -26,6 +26,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self setupFetchedResultsController];
 	// Do any additional setup after loading the view.
 }
 
@@ -38,6 +39,22 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)setupFetchedResultsController // attaches an NSFetchRequest to this UITableViewController
+{
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Order"];
+    //request.predicate = [NSPredicate predicateWithFormat:@"showInFeed = %i", YES];
+    request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"sharedAt" ascending:NO]];
+    
+    self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
+                                                                        managedObjectContext:self.managedObjectContext
+                                                                          sectionNameKeyPath:nil
+                                                                                   cacheName:nil];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell = *cell = [tableView ]
 }
 
 @end

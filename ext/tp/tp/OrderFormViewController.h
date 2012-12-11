@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "FormView.h"
-#import "User.h"
+#import "User+Manage.h"
 @protocol OrderFormDelegate;
 
 @interface OrderFormViewController : UITableViewController

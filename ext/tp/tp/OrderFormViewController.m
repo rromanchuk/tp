@@ -330,7 +330,23 @@
     }
 
     [self saveContext];
-    [self.delegate didFinishFillingOutForm];
+    
+    if (self.creditCardTextField.text.length > 0) {
+        [SVProgressHUD showWithStatus:@"Saving..."];
+        [self.currentUser createStripeCustomer:[NSNumber numberWithInteger:[self.expiryMonth.text integerValue]] expiryYear:[NSNumber numberWithInteger:[self.expiryYear.text integerValue]] number:self.creditCardTextField.text securityCode:self.csvTextField.text onLoad:^(StripeResponse *token) {
+            [self saveContext];
+            [SVProgressHUD dismiss];
+            // Charge customer
+            [self.delegate didFinishFillingOutForm];
+        } onError:^(NSError *error) {
+            DLog(@"failure %@", error);
+            [SVProgressHUD showErrorWithStatus:[error.userInfo objectForKey:@"message"]];
+        }];
+    } else {
+        [SVProgressHUD dismiss];
+        [self.delegate didFinishFillingOutForm];
+    }
+    
 }
 
 

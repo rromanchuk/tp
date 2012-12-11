@@ -74,6 +74,7 @@
 		FAAB119D164E91FF001C7597 /* WoodView.m in Sources */ = {isa = PBXBuildFile; fileRef = FAAB119C164E91FF001C7597 /* WoodView.m */; };
 		FAAB11A0164E92DF001C7597 /* TexturedView.m in Sources */ = {isa = PBXBuildFile; fileRef = FAAB119F164E92DF001C7597 /* TexturedView.m */; };
 		FAAB11A3164E9B12001C7597 /* FormView.m in Sources */ = {isa = PBXBuildFile; fileRef = FAAB11A2164E9B12001C7597 /* FormView.m */; };
+		FAAB8A0616767EA8006562FD /* OrderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FAAB8A0516767EA8006562FD /* OrderCell.m */; };
 		FAAC5265158545E3009E9811 /* SettingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAAC5264158545E3009E9811 /* SettingsController.m */; };
 		FAC46BAD160F101C00D0F647 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAC46BAC160F101C00D0F647 /* CoreData.framework */; };
 		FAC46BB1160FA2BE00D0F647 /* quantity-pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = FAC46BAF160FA2BE00D0F647 /* quantity-pressed.png */; };
@@ -214,6 +215,8 @@
 		FAAB119F164E92DF001C7597 /* TexturedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TexturedView.m; path = views/TexturedView.m; sourceTree = "<group>"; };
 		FAAB11A1164E9B12001C7597 /* FormView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FormView.h; path = views/FormView.h; sourceTree = "<group>"; };
 		FAAB11A2164E9B12001C7597 /* FormView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FormView.m; path = views/FormView.m; sourceTree = "<group>"; };
+		FAAB8A0416767EA8006562FD /* OrderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderCell.h; sourceTree = "<group>"; };
+		FAAB8A0516767EA8006562FD /* OrderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderCell.m; sourceTree = "<group>"; };
 		FAAC5263158545E3009E9811 /* SettingsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsController.h; sourceTree = "<group>"; };
 		FAAC5264158545E3009E9811 /* SettingsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsController.m; sourceTree = "<group>"; };
 		FAC46BAC160F101C00D0F647 /* CoreData.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -466,6 +469,8 @@
 				FAAB119F164E92DF001C7597 /* TexturedView.m */,
 				FAAB11A1164E9B12001C7597 /* FormView.h */,
 				FAAB11A2164E9B12001C7597 /* FormView.m */,
+				FAAB8A0416767EA8006562FD /* OrderCell.h */,
+				FAAB8A0516767EA8006562FD /* OrderCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -788,6 +793,7 @@
 				FAFDB51E166FD54E00AD1DD9 /* OrderFormViewController.m in Sources */,
 				FAFDB522166FD92700AD1DD9 /* NavigationViewController.m in Sources */,
 				947E3FB31674BFFC00B98697 /* User.m in Sources */,
+				FAAB8A0616767EA8006562FD /* OrderCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

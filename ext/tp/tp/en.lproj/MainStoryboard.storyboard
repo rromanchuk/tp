@@ -4,21 +4,30 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1930"/>
     </dependencies>
     <scenes>
-        <!--Past Orders View Controller-->
+        <!--Past Orders View Controller - My Orders-->
         <scene sceneID="ojR-FU-7Fb">
             <objects>
-                <tableViewController id="WBk-5W-ru3" customClass="PastOrdersViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="EvX-ey-uch">
+                <tableViewController title="My Orders" id="WBk-5W-ru3" customClass="PastOrdersViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="48" sectionHeaderHeight="22" sectionFooterHeight="22" id="EvX-ey-uch">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="y64-Jh-FNF">
-                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="48" id="y64-Jh-FNF" customClass="OrderCell">
+                                <rect key="frame" x="0.0" y="22" width="320" height="48"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="47"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pTo-59-dfI">
+                                            <rect key="frame" x="139" y="13" width="42" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                    </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <connections>
@@ -666,12 +675,106 @@ need to do this once.</string>
         <image name="tw@2x.png" width="70" height="70"/>
         <image name="van@2x.png" width="412" height="292"/>
     </resources>
+    <classes>
+        <class className="CoreDataTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CoreDataTableViewController.h"/>
+        </class>
+        <class className="FormView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FormView.h"/>
+        </class>
+        <class className="NavigationViewController" superclassName="UINavigationController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NavigationViewController.h"/>
+        </class>
+        <class className="OrderCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/OrderCell.h"/>
+        </class>
+        <class className="OrderController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/OrderController.h"/>
+            <relationships>
+                <relationship kind="action" name="didTapPremium:"/>
+                <relationship kind="action" name="didTapRegular:"/>
+                <relationship kind="action" name="qtyChange:"/>
+                <relationship kind="action" name="scrollToCheckout:"/>
+                <relationship kind="action" name="scrollToTop:"/>
+                <relationship kind="action" name="sendOrder:"/>
+                <relationship kind="outlet" name="orderButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="premiumButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="qtyButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="qtyTable" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="regularButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="OrderFormViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/OrderFormViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="didTapCancel:"/>
+                <relationship kind="action" name="didTapDone:"/>
+                <relationship kind="action" name="didTapSegment:"/>
+                <relationship kind="outlet" name="address1Label" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="address1TextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="address2Label" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="address2Textfield" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="cancelOrder" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="cityLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="cityTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="creditCardLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="creditCardTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="csvLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="csvTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="deliveryEst" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="deliveryTruckImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="doneButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="emailLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="emailTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="expirationLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="expiryMonth" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="expiryYear" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="formView" candidateClass="FormView"/>
+                <relationship kind="outlet" name="helperText" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="lastFourLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="nameTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="orderCheckoutButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="segmentControl" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="stateLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="stateTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="thatsItLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="zipLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="zipTextField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="PastOrdersViewController" superclassName="CoreDataTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PastOrdersViewController.h"/>
+        </class>
+        <class className="ShowReceiptViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ShowReceiptViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="didDismissReceipt:"/>
+                <relationship kind="outlet" name="booYaLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="headingLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="okButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="qtyLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="qtyValueLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="tellWorldLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="totalLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="totalValueLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="typeLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="typeValueLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="TexturedView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TexturedView.h"/>
+        </class>
+        <class className="WoodView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/WoodView.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Y1k-1D-t37"/>
+        <segue reference="bdi-jL-KEz"/>
     </inferredMetricsTieBreakers>
 </document>
