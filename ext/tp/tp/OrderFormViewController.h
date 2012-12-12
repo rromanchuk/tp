@@ -6,15 +6,16 @@
 //
 //
 
-#import <UIKit/UIKit.h>
 #import "FormView.h"
 #import "User+Manage.h"
 @protocol OrderFormDelegate;
 
 @interface OrderFormViewController : UITableViewController
+
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 @property BOOL fromConfig;
 @property (nonatomic, strong) User *currentUser;
+
 @property (weak, nonatomic) IBOutlet FormView *formView;
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentControl;

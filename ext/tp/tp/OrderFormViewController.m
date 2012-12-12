@@ -79,10 +79,10 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
    if ([[segue identifier] isEqualToString:@"MyOrders"]) {
-        PastOrdersViewController *vc = (PastOrdersViewController *)segue.destinationViewController;
-        vc.currentUser = self.currentUser;
-        
-    } 
+       PastOrdersViewController *vc = (PastOrdersViewController *)segue.destinationViewController;
+       vc.currentUser = self.currentUser;
+       vc.managedObjectContext = self.managedObjectContext;
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {

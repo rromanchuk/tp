@@ -26,6 +26,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    ALog(@"current user is %@, and maoc %@", self.currentUser, self.managedObjectContext);
     [self setupFetchedResultsController];
 	// Do any additional setup after loading the view.
 }
@@ -45,7 +46,7 @@
 {
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Order"];
     //request.predicate = [NSPredicate predicateWithFormat:@"showInFeed = %i", YES];
-    request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"sharedAt" ascending:NO]];
+    request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"createdAt" ascending:NO]];
     
     self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
                                                                         managedObjectContext:self.managedObjectContext
@@ -54,7 +55,10 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell = *cell = [tableView ]
+    //UITableViewCell = *cell = [tableView ]
+    static NSString *CellIdentifier = @"OrderCell";
+    OrderCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    return cell;
 }
 
 @end

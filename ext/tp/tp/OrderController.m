@@ -92,6 +92,7 @@
         vc.currentUser = self.currentUser;
         vc.delegate = self;
         vc.fromConfig = self.fromConfig;
+        vc.managedObjectContext = self.managedObjectContext;
     }
 }
 
@@ -220,6 +221,8 @@
     ALog(@"did tap regular");
     self.regularButton.selected = YES;
     self.premiumButton.selected = NO;
+    self.premiumButton.alpha = 0.4;
+    self.regularButton.alpha = 1.0;
     selectedQuality = RollQualityTypeRegular;
     [self setupView];
 }
@@ -228,6 +231,8 @@
     ALog(@"did tap premium");
     self.regularButton.selected = NO;
     self.premiumButton.selected = YES;
+    self.premiumButton.alpha = 1.0;
+    self.regularButton.alpha = 0.4;
     selectedQuality = RollQualityTypePremium;
     [self setupView];
 }
@@ -344,12 +349,23 @@
     order.status = @"IN_PROGRESS";
     order.quantity = [NSNumber numberWithInteger:selectedQuantity];
     order.sku = [self skuForQuality];
-    order.name = self.currentUser.name;
-    order.address1 = self.currentUser.address1;
-    order.address2 = self.currentUser.address2;
-    order.city = self.currentUser.city;
-    order.zip = self.currentUser.zip;
-    order.state = self.currentUser.state;
+    
+    if (self.currentUser.shippingName.length) {
+        order.name = self.currentUser.shippingName;
+        order.address1 = self.currentUser.shippingAddress1;
+        order.address2 = self.currentUser.shippingAddress2;
+        order.city = self.currentUser.shippingCity;
+        order.zip = self.currentUser.shippingZip;
+        order.state = self.currentUser.shippingState;
+    } else {
+        order.name = self.currentUser.name;
+        order.address1 = self.currentUser.address1;
+        order.address2 = self.currentUser.address2;
+        order.city = self.currentUser.city;
+        order.zip = self.currentUser.zip;
+        order.state = self.currentUser.state;
+    }
+   
     order.country = self.currentUser.country;
     order.stripeCustomerId = self.currentUser.stripeCustomerId;
     return order;
