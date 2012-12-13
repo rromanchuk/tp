@@ -33,7 +33,7 @@ static NSString *RESOURCE = @"token_authentications";
             [RestOrder mappingWithKey:@"orders" mapping:[RestOrder mapping]], @"orders",
             [NSDate mappingWithKey:@"createdAt"
                   dateFormatString:@"yyyy-MM-dd'T'hh:mm:ssZ"], @"created_at",
-            nil];
+            nil]; 
     
 }
 
@@ -59,13 +59,14 @@ static NSString *RESOURCE = @"token_authentications";
                                                             path:ORDER
                                                       parameters:[RestClient defaultParametersWithParams:params]];
     
-    DLog(@"LOGIN REQUEST is %@ with params %@", request, params);
-    DLog(@"params %@", params)
+    ALog(@"LOGIN REQUEST is %@ with params %@", request, params);
+    ALog(@"params %@", params)
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request
                                                                                         success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
                                                                                             [[UIApplication sharedApplication] hideNetworkActivityIndicator];
-                                                                                            DLog(@"JSON: %@", JSON);
+                                                                                            ALog(@"JSON: %@", JSON);
                                                                                             RestOrder *restOrder = [RestOrder objectFromJSONObject:JSON mapping:[RestOrder mapping]];
+                                                                                            ALog(@"date is %@", restOrder.createdAt);
                                                                                             onLoad(restOrder);
 
                                                                                         }

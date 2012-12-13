@@ -51,6 +51,7 @@
     self.externalId = [NSNumber numberWithInteger:restOrder.externalId];
     self.sku = restOrder.sku;
     self.quantity = [NSNumber numberWithInteger:restOrder.quantity];
+    self.createdAt = restOrder.createdAt;
     // add line items
   
 }

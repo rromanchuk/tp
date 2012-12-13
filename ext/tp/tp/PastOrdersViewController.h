@@ -9,7 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "CoreDataTableViewController.h"
 #import "User.h"
-@interface PastOrdersViewController : CoreDataTableViewController
+#import "Order+Manage.h"
+#import "ShowReceiptViewController.h"
+
+@interface PastOrdersViewController : CoreDataTableViewController <ReceiptDelegate>
 
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, strong) User *currentUser;

@@ -32,15 +32,16 @@
     self.typeLabel.font = [UIFont fontWithName:@"ProximaNova-Semibold" size:10.0];
     self.qtyLabel.font = [UIFont fontWithName:@"ProximaNova-Semibold" size:10.0];
     self.totalLabel.font = [UIFont fontWithName:@"ProximaNova-Semibold" size:10.0];
+    self.totalValueLabel.font = [UIFont fontWithName:@"ProximaNova-Semibold" size:10.0];
     self.typeValueLabel.font = [UIFont fontWithName:@"ArvilSans" size:25.0];
     self.qtyValueLabel.font = [UIFont fontWithName:@"ArvilSans" size:25.0];
     self.typeValueLabel.font = [UIFont fontWithName:@"ArvilSans" size:25.0];
     self.tellWorldLabel.font = [UIFont fontWithName:@"ProximaNova-Semibold" size:10.0];
     
-    if (self.selectedQualityType == RollQualityTypePremium) {
+    if (![self.order.sku isEqualToString:@"REGULAR"]) {
         self.typeValueLabel.text = @"Premium Role";
     } else {
-         self.typeValueLabel.text = @"Regular Role";
+         self.typeValueLabel.text = @"Regular ol' Role";
     }
     
     self.qtyValueLabel.text = [NSString stringWithFormat:@"%@", self.order.quantity];
@@ -80,4 +81,10 @@
     [self.delegate didDismissReceipt];
 }
 
+
+- (IBAction)didTapShare:(id)sender {
+    NSArray *activityItems = @[[UIImage imageNamed:@"van.png"], @"I just ordered toilet paper with TEEP!"];
+    UIActivityViewController *activityVC = [[UIActivityViewController alloc]initWithActivityItems:activityItems applicationActivities:nil];
+    [self presentViewController:activityVC animated:TRUE completion:nil];
+}
 @end

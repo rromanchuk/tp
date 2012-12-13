@@ -11,10 +11,10 @@ typedef enum {
     RollQuantityType24 = 24
     } RollQuantityType;
 
-typedef enum {
-    RollQualityTypeRegular,
-    RollQualityTypePremium
-} RollQualityType;
+//typedef enum {
+//    RollQualityTypeRegular,
+//    RollQualityTypePremium
+//} RollQualityType;
 
 @interface OrderController : UIViewController <UITableViewDelegate, UITableViewDataSource, ReceiptDelegate, FacebookHelperDelegate, OrderFormDelegate> {
     NSString *option1; 

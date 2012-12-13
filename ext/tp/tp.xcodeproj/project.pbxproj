@@ -105,7 +105,6 @@
 		FAE96056156023AC007F42DA /* bottom-bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAE96054156023AC007F42DA /* bottom-bg@2x.png */; };
 		FAE96057156023AC007F42DA /* bottom-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = FAE96055156023AC007F42DA /* bottom-bg.png */; };
 		FAF55A30166D3E5A00CF9693 /* CoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAF55A2F166D3E5A00CF9693 /* CoreDataTableViewController.m */; };
-		FAF55A33166D43E500CF9693 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAF55A32166D43E500CF9693 /* Default-568h@2x.png */; };
 		FAF55A35166D43ED00CF9693 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAF55A34166D43ED00CF9693 /* Default@2x.png */; };
 		FAF55A37166D43F400CF9693 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = FAF55A36166D43F400CF9693 /* Default.png */; };
 		FAFAD7C915FC8C5A0015C60B /* ok-button.png in Resources */ = {isa = PBXBuildFile; fileRef = FAFAD7C715FC8C5A0015C60B /* ok-button.png */; };
@@ -702,7 +701,6 @@
 				FAC46BB2160FA2BE00D0F647 /* quantity-pressed@2x.png in Resources */,
 				FAAB1197164E8725001C7597 /* bg.png in Resources */,
 				FAAB1198164E8725001C7597 /* bg@2x.png in Resources */,
-				FAF55A33166D43E500CF9693 /* Default-568h@2x.png in Resources */,
 				FAF55A35166D43ED00CF9693 /* Default@2x.png in Resources */,
 				FAF55A37166D43F400CF9693 /* Default.png in Resources */,
 				FAFDB5241673CEBF00AD1DD9 /* Icon.png in Resources */,
@@ -884,7 +882,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Ryan Romanchuk (RJ6W6Q2JLW)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Ryan Romanchuk";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
 				COPY_PHASE_STRIP = YES;
@@ -895,7 +893,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "89CB32DB-9A7A-4A43-BA15-5169DF6730CC";
+				PROVISIONING_PROFILE = "F5131C7B-38F5-4124-8FCF-41A3051D32D7";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -934,7 +932,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5C98AF6D30D3468E84B43D40 /* Pods.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Ryan Romanchuk (RJ6W6Q2JLW)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Ryan Romanchuk";
 				COMPRESS_PNG_FILES = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -954,7 +952,7 @@
 					"\"$(SRCROOT)/social/web/.env/lib/python2.7/config\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "89CB32DB-9A7A-4A43-BA15-5169DF6730CC";
+				PROVISIONING_PROFILE = "F5131C7B-38F5-4124-8FCF-41A3051D32D7";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface OrderCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *totalAmountLabel;
+@property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
 
 @end
