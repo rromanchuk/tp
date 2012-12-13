@@ -37,6 +37,12 @@
     self.typeValueLabel.font = [UIFont fontWithName:@"ArvilSans" size:25.0];
     self.tellWorldLabel.font = [UIFont fontWithName:@"ProximaNova-Semibold" size:10.0];
     
+    if (self.selectedQualityType == RollQualityTypePremium) {
+        self.typeValueLabel.text = @"Premium Role";
+    } else {
+         self.typeValueLabel.text = @"Regular Role";
+    }
+    
     self.qtyValueLabel.text = [NSString stringWithFormat:@"%@", self.order.quantity];
     self.totalValueLabel.text = [NSString stringWithFormat:@"$%d", [self.order.totalAmountCents integerValue] / 100];
 	// Do any additional setup after loading the view.

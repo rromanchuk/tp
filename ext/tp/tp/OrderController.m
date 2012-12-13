@@ -59,6 +59,7 @@
     
     
     self.premiumButton.titleLabel.font = [UIFont fontWithName:@"ArvilSans" size:20.0];
+    [self didTapRegular:self];
     self.regularButton.titleLabel.font = [UIFont fontWithName:@"ArvilSans" size:20.0];
 
     

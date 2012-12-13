@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "Order+Manage.h"
+
+typedef enum {
+    RollQualityTypeRegular,
+    RollQualityTypePremium
+} RollQualityType;
+
+
 @protocol ReceiptDelegate;
 
 @interface ShowReceiptViewController : UIViewController
