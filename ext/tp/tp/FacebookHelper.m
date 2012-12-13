@@ -59,6 +59,7 @@
                     [self.delegate userDidLogin];
                 } onError:^(NSError *error) {
                     DLog(@"error: %@", error);
+                    [FBSession.activeSession closeAndClearTokenInformation];
                     [self.delegate didFailLogin:error];
                 }];
                 

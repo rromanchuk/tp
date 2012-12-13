@@ -14,6 +14,8 @@
 #import "User+Manage.h"
 #import "FacebookHelper.h"
 #import "NavigationViewController.h"
+#import "RestSettings.h"
+#import "Config.h"
 @implementation AppDelegate
 
 @synthesize managedObjectContext = __managedObjectContext;
@@ -59,6 +61,12 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     [FBSession.activeSession handleDidBecomeActive];
+    [RestSettings loadSettings:^(RestSettings *restSettings) {
+        ALog(@"Got environment %@", restSettings.environment);
+        [[Config sharedConfig] setForEnvironment:restSettings.environment];
+    } onError:^(NSError *error) {
+        ALog(@"FAILURE LOADING SETTINGS %@", error);
+    }];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application

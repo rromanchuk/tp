@@ -6,6 +6,11 @@ Tp::Application.routes.draw do
       get :inventory
     end
   end
+  resource :system do 
+    collection do
+      get :environment
+    end
+  end
   resources :users
   resources :token_authentications, :only => [:create, :destroy]
 

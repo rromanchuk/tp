@@ -58,6 +58,7 @@
 		FAA11B7F156040A00005CAFA /* quanity.png in Resources */ = {isa = PBXBuildFile; fileRef = FAA11B7D156040A00005CAFA /* quanity.png */; };
 		FAA11B81156049EE0005CAFA /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FAA11B80156049EE0005CAFA /* libz.dylib */; };
 		FAA11B9115659A8D0005CAFA /* ProximaNova-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = FAA11B9015659A8D0005CAFA /* ProximaNova-Regular.otf */; };
+		FAA231D61679289600E01172 /* RestSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA231D51679289600E01172 /* RestSettings.m */; };
 		FAA525A516027EC300B9393A /* fb.png in Resources */ = {isa = PBXBuildFile; fileRef = FAA525A116027EC300B9393A /* fb.png */; };
 		FAA525A616027EC300B9393A /* fb@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAA525A216027EC300B9393A /* fb@2x.png */; };
 		FAA525A716027EC300B9393A /* tw.png in Resources */ = {isa = PBXBuildFile; fileRef = FAA525A316027EC300B9393A /* tw.png */; };
@@ -196,6 +197,8 @@
 		FAA11B7D156040A00005CAFA /* quanity.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = quanity.png; path = assets/quanity.png; sourceTree = "<group>"; };
 		FAA11B80156049EE0005CAFA /* libz.dylib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		FAA11B9015659A8D0005CAFA /* ProximaNova-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "ProximaNova-Regular.otf"; path = "../ProximaNova-Regular.otf"; sourceTree = "<group>"; };
+		FAA231D41679289600E01172 /* RestSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestSettings.h; sourceTree = "<group>"; };
+		FAA231D51679289600E01172 /* RestSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestSettings.m; sourceTree = "<group>"; };
 		FAA525A116027EC300B9393A /* fb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fb.png; path = assets/fb.png; sourceTree = "<group>"; };
 		FAA525A216027EC300B9393A /* fb@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "fb@2x.png"; path = "assets/fb@2x.png"; sourceTree = "<group>"; };
 		FAA525A316027EC300B9393A /* tw.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tw.png; path = assets/tw.png; sourceTree = "<group>"; };
@@ -456,6 +459,8 @@
 				FA9FF8E81658278D00015F7E /* RestOrder.m */,
 				FA9FF8EB165827B800015F7E /* RestObject.h */,
 				FA9FF8EC165827B800015F7E /* RestObject.m */,
+				FAA231D41679289600E01172 /* RestSettings.h */,
+				FAA231D51679289600E01172 /* RestSettings.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -794,6 +799,7 @@
 				FAFDB522166FD92700AD1DD9 /* NavigationViewController.m in Sources */,
 				947E3FB31674BFFC00B98697 /* User.m in Sources */,
 				FAAB8A0616767EA8006562FD /* OrderCell.m in Sources */,
+				FAA231D61679289600E01172 /* RestSettings.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

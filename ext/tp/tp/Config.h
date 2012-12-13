@@ -13,4 +13,5 @@
 @property (nonatomic, strong) NSString *stripeKey;
 @property (nonatomic, strong) NSString *stripeSecret;
 + (Config *)sharedConfig;
+- (void)setForEnvironment:(NSString *)configuration;
 @end

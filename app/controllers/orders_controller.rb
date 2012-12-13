@@ -4,13 +4,15 @@ class OrdersController < ApplicationController
   respond_to :json
   
   def create
-    @user = User.find_or_create_by_stripe_customer_id(params[:order][:stripe_customer_id])
+    @user = current_user
 
     @order = Order.new(params[:order])
     @order.status = "COMPLETE"
     @order.save!
 
     @user.orders << @order
+    @user.save
+
     puts @user.inspect
     @order.fulfill!
     respond_with @order

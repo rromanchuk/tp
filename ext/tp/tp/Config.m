@@ -22,6 +22,16 @@
     return self;
 }
 
+- (void)setForEnvironment:(NSString *)configuration
+{
+    NSBundle *bundle           = [NSBundle mainBundle];
+    NSDictionary *environments = [[NSDictionary alloc] initWithContentsOfFile:[bundle pathForResource:@"Environments" ofType:@"plist"]];
+    NSDictionary *environment  = [environments objectForKey:configuration];
+    self.baseURL        = [environment valueForKey:@"baseURL"];
+    self.stripeKey      = [environment valueForKey:@"stripeKey"];
+    self.stripeSecret   = [environment valueForKey:@"stripeSecret"];
+
+}
 
 + (Config *)sharedConfig
 {

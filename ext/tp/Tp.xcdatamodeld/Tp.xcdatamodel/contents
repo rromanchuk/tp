@@ -19,6 +19,9 @@
         <attribute name="zip" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="user" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="orders" inverseEntity="User" syncable="YES"/>
     </entity>
+    <entity name="Settings" syncable="YES">
+        <attribute name="environmentFromServer" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="User" representedClassName="User" syncable="YES">
         <attribute name="address1" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="address2" optional="YES" attributeType="String" syncable="YES"/>
@@ -46,5 +49,6 @@
     <elements>
         <element name="Order" positionX="160" positionY="192" width="128" height="300"/>
         <element name="User" positionX="160" positionY="192" width="128" height="375"/>
+        <element name="Settings" positionX="160" positionY="192" width="128" height="60"/>
     </elements>
 </model>
