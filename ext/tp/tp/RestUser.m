@@ -40,7 +40,7 @@ static NSString *RESOURCE = @"token_authentications";
 
 + (void)order:(Order *)order
                     onLoad:(void (^)(RestOrder *restOrder))onLoad
-                   onError:(void (^)(NSString *error))onError {
+                   onError:(void (^)(NSError *error))onError {
     
     RestClient *restClient = [RestClient sharedClient];
     NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"%@", order.name], @"order[name]",

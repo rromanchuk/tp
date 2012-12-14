@@ -32,7 +32,7 @@
     self.typeLabel.font = [UIFont fontWithName:@"ProximaNova-Semibold" size:10.0];
     self.qtyLabel.font = [UIFont fontWithName:@"ProximaNova-Semibold" size:10.0];
     self.totalLabel.font = [UIFont fontWithName:@"ProximaNova-Semibold" size:10.0];
-    self.totalValueLabel.font = [UIFont fontWithName:@"ProximaNova-Semibold" size:10.0];
+    self.totalValueLabel.font = [UIFont fontWithName:@"ArvilSans" size:25.0];
     self.typeValueLabel.font = [UIFont fontWithName:@"ArvilSans" size:25.0];
     self.qtyValueLabel.font = [UIFont fontWithName:@"ArvilSans" size:25.0];
     self.typeValueLabel.font = [UIFont fontWithName:@"ArvilSans" size:25.0];

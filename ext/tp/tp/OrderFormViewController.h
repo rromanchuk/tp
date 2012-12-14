@@ -73,7 +73,7 @@
 @protocol OrderFormDelegate <NSObject>
 
 - (void)didFinishFillingOutForm;
-- (void)newCustomerInformation:(NSString *)ccNumber year:(NSString *)year month:(NSString *)month code:(NSString *)code;
+- (void)finishOrder;
 - (void)didCancelOrderForm;
 
 @end

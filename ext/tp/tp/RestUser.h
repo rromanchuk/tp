@@ -32,7 +32,7 @@
 
 + (void)order:(Order *)order
        onLoad:(void (^)(RestOrder *restOrder))onLoad
-      onError:(void (^)(NSString *error))onError;
+      onError:(void (^)(NSError *error))onError;
 
 + (void)create:(NSMutableDictionary *)parameters
         onLoad:(void (^)(RestUser *restUser))onLoad

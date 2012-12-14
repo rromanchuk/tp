@@ -305,13 +305,16 @@
     }];
 
 }
+- (void)finishOrder {
+    [self chargeCustomer];
+}
 
 - (void)didFinishFillingOutForm {
-    [self dismissModalViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)didCancelOrderForm {
-    [self dismissModalViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)chargeCustomer {
@@ -325,11 +328,11 @@
             [order setManagedObjectWithIntermediateObject:restOrder];
             [self saveContext];
             [SVProgressHUD dismiss];
-            
+            [self dismissViewControllerAnimated:NO completion:nil];
             [self performSegueWithIdentifier:@"ShowReceipt" sender:order];
-        } onError:^(NSString *error) {
+        } onError:^(NSError *error) {
             DLog(@"failure %@", error);
-            [SVProgressHUD showErrorWithStatus:error];
+            [SVProgressHUD showErrorWithStatus:error.localizedDescription];
         }];
         
     } onError:^(NSError *error) {

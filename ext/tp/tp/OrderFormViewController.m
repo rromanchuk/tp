@@ -36,7 +36,7 @@
 //    self.navigationBar.titleTextAttributes = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"ProximaNova-Regular" size:15.0], UITextAttributeFont, nil];
     
     [self.segmentControl addTarget:self action:@selector(didTapSegment:) forControlEvents:UIControlEventValueChanged];
-    
+    self.segmentControl.selectedSegmentIndex = 0;
     self.tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg.png"]];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -153,11 +153,6 @@
 //    return header;
 //}
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 #pragma mark - Table view data source
 
@@ -305,16 +300,28 @@
 
 - (IBAction)didTapOrder:(id)sender {
     [SVProgressHUD showWithStatus:@"Sending your order..."];
-    [self saveContext];
-    if (self.creditCardTextField.text.length > 0) {
-        [self.delegate newCustomerInformation:self.creditCardTextField.text year:self.expiryYear.text month:self.expiryMonth.text code:self.csvTextField.text];
-    } else {
-        [self.delegate didFinishFillingOutForm];
+    [self saveForm];
+    
+    if ([self isValid]) {
+        if (self.creditCardTextField.text.length > 0) {
+            [self.currentUser createStripeCustomer:[NSNumber numberWithInteger:[self.expiryMonth.text integerValue]] expiryYear:[NSNumber numberWithInteger:[self.expiryYear.text integerValue]] number:self.creditCardTextField.text securityCode:self.csvTextField.text onLoad:^(StripeResponse *token) {
+                [self saveContext];
+                // Charge customer
+                [self.delegate finishOrder];
+            } onError:^(NSError *error) {
+                DLog(@"failure %@", error);
+                [SVProgressHUD showErrorWithStatus:[error.userInfo objectForKey:@"message"]];
+            }];
+            
+        } else {
+            [self.delegate finishOrder];
+        }
     }
+    
     
 }
 
-- (IBAction)didTapDone:(id)sender {
+- (void)saveForm {
     if (self.segmentControl.selectedSegmentIndex == 0) {
         self.currentUser.name = self.nameTextField.text;
         self.currentUser.address1 = self.address1TextField.text;
@@ -328,9 +335,9 @@
         self.currentUser.shippingState = self.stateTextField.text;
         self.currentUser.shippingZip = self.zipTextField.text;
     }
-
     [self saveContext];
-    
+}
+- (IBAction)didTapDone:(id)sender {
     if (self.creditCardTextField.text.length > 0) {
         [SVProgressHUD showWithStatus:@"Saving..."];
         [self.currentUser createStripeCustomer:[NSNumber numberWithInteger:[self.expiryMonth.text integerValue]] expiryYear:[NSNumber numberWithInteger:[self.expiryYear.text integerValue]] number:self.creditCardTextField.text securityCode:self.csvTextField.text onLoad:^(StripeResponse *token) {
@@ -366,6 +373,7 @@
         self.currentUser.zip = self.zipTextField.text;
 
     }
+    [self saveContext];
     [self loadForm];
 }
 
