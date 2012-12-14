@@ -6,6 +6,7 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 #import <FacebookSDK/FacebookSDK.h>
+#import <Crashlytics/Crashlytics.h>
 
 #import "AppDelegate.h"
 #import "TestFlight.h"
@@ -34,6 +35,9 @@
     [self saveContext];
 
     [TestFlight takeOff:@"06ff3e39-0560-4345-bfb9-ca72cb454d3c"];
+    
+    [Crashlytics startWithAPIKey:@"cbbca2d940f872c4617ddb67cf20ec9844d036ea"];
+    
     [application setStatusBarStyle:UIStatusBarStyleBlackOpaque];
 
     

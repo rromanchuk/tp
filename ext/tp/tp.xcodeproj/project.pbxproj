@@ -77,6 +77,7 @@
 		FAAB11A3164E9B12001C7597 /* FormView.m in Sources */ = {isa = PBXBuildFile; fileRef = FAAB11A2164E9B12001C7597 /* FormView.m */; };
 		FAAB8A0616767EA8006562FD /* OrderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FAAB8A0516767EA8006562FD /* OrderCell.m */; };
 		FAAC5265158545E3009E9811 /* SettingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAAC5264158545E3009E9811 /* SettingsController.m */; };
+		FAB252BC167BC1D100E9F4D5 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAB252BB167BC1D100E9F4D5 /* Crashlytics.framework */; };
 		FAC46BAD160F101C00D0F647 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAC46BAC160F101C00D0F647 /* CoreData.framework */; };
 		FAC46BB1160FA2BE00D0F647 /* quantity-pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = FAC46BAF160FA2BE00D0F647 /* quantity-pressed.png */; };
 		FAC46BB2160FA2BE00D0F647 /* quantity-pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAC46BB0160FA2BE00D0F647 /* quantity-pressed@2x.png */; };
@@ -221,6 +222,7 @@
 		FAAB8A0516767EA8006562FD /* OrderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderCell.m; sourceTree = "<group>"; };
 		FAAC5263158545E3009E9811 /* SettingsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsController.h; sourceTree = "<group>"; };
 		FAAC5264158545E3009E9811 /* SettingsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsController.m; sourceTree = "<group>"; };
+		FAB252BB167BC1D100E9F4D5 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		FAC46BAC160F101C00D0F647 /* CoreData.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		FAC46BAF160FA2BE00D0F647 /* quantity-pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "quantity-pressed.png"; path = "assets/quantity-pressed.png"; sourceTree = "<group>"; };
 		FAC46BB0160FA2BE00D0F647 /* quantity-pressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "quantity-pressed@2x.png"; path = "assets/quantity-pressed@2x.png"; sourceTree = "<group>"; };
@@ -282,6 +284,7 @@
 				94A94E6915581D14004FB612 /* UIKit.framework in Frameworks */,
 				94A94E6B15581D14004FB612 /* Foundation.framework in Frameworks */,
 				641B5486F5064D0BA9D89231 /* libPods.a in Frameworks */,
+				FAB252BC167BC1D100E9F4D5 /* Crashlytics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,6 +331,7 @@
 		94A94E6715581D13004FB612 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FAB252BB167BC1D100E9F4D5 /* Crashlytics.framework */,
 				FAC46BAC160F101C00D0F647 /* CoreData.framework */,
 				94A94E6815581D14004FB612 /* UIKit.framework */,
 				94A94E6A15581D14004FB612 /* Foundation.framework */,
@@ -577,6 +581,7 @@
 				94A94E6215581D13004FB612 /* Resources */,
 				96723A779A1E418B990A2561 /* Copy Pods Resources */,
 				E3B1936D42D9419EB466C956 /* Copy Pods Resources */,
+				FAB252B9167BC15900E9F4D5 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -762,6 +767,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
 		};
+		FAB252B9167BC15900E9F4D5 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Crashlytics.framework/run cbbca2d940f872c4617ddb67cf20ec9844d036ea";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -871,7 +889,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
-				PROVISIONING_PROFILE = "89CB32DB-9A7A-4A43-BA15-5169DF6730CC";
+				PROVISIONING_PROFILE = "BE27F632-F91C-4F77-B085-79300B4D9E01";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -908,6 +926,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/social/ios\"",
+					"\"$(SRCROOT)\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "tp/tp-Prefix.pch";
@@ -924,7 +943,7 @@
 					"\"$(SRCROOT)/social/web/.env/lib/python2.7/config\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "89CB32DB-9A7A-4A43-BA15-5169DF6730CC";
+				PROVISIONING_PROFILE = "BE27F632-F91C-4F77-B085-79300B4D9E01";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -938,6 +957,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/social/ios\"",
+					"\"$(SRCROOT)\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "tp/tp-Prefix.pch";
