@@ -912,6 +912,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "tp/tp-Prefix.pch";
 				INFOPLIST_FILE = "tp/tp-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/tp\"",
@@ -932,7 +933,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5C98AF6D30D3468E84B43D40 /* Pods.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Ryan Romanchuk";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ryan Romanchuk (RJ6W6Q2JLW)";
 				COMPRESS_PNG_FILES = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -941,6 +942,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "tp/tp-Prefix.pch";
 				INFOPLIST_FILE = "tp/tp-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/tp\"",
@@ -952,7 +954,7 @@
 					"\"$(SRCROOT)/social/web/.env/lib/python2.7/config\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "F5131C7B-38F5-4124-8FCF-41A3051D32D7";
+				PROVISIONING_PROFILE = "22561BFB-0879-44DE-8E52-6881DF278583";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

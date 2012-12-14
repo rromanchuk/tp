@@ -22,7 +22,6 @@ class TokenAuthenticationsController < ApplicationController
                             :country => country,
                             :password => Devise.friendly_token[0,20]) 
     end
-    @user.
     @user.ensure_authentication_token!
     respond_with @user
   end
