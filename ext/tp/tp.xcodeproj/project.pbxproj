@@ -952,7 +952,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5C98AF6D30D3468E84B43D40 /* Pods.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Ryan Romanchuk (RJ6W6Q2JLW)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Ryan Romanchuk";
 				COMPRESS_PNG_FILES = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -974,7 +974,7 @@
 					"\"$(SRCROOT)/social/web/.env/lib/python2.7/config\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "22561BFB-0879-44DE-8E52-6881DF278583";
+				PROVISIONING_PROFILE = "F5131C7B-38F5-4124-8FCF-41A3051D32D7";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

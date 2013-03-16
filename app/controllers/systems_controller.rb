@@ -3,7 +3,7 @@ class SystemsController < ApplicationController
   respond_to :json
   
   def environment
-    @environment = {:environment => "Debug"}
+    @environment = {:environment => "Distribution"}
     respond_with @environment
   end
   
