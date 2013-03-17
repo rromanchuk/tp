@@ -11,9 +11,14 @@ Tp::Application.routes.draw do
       get :environment
     end
   end
+
+  namespace :admin do 
+    resources :pages 
+  end
+
   resources :users
   resources :token_authentications, :only => [:create, :destroy]
 
-  root :to => 'orders#index'
+  root :to => 'pages#landing'
 
 end
