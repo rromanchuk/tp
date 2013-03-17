@@ -27,7 +27,12 @@ group :assets do
 end
 
 gem 'jquery-rails'
-gem 'capistrano'
-gem 'rvm-capistrano'
 gem 'devise'
 gem "omniauth-facebook"
+
+group :development do
+  gem 'thin'
+  gem 'capistrano'
+  gem 'pry-rails'
+  gem 'rvm-capistrano'
+end
