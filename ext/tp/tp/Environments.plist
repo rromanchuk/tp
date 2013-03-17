@@ -13,12 +13,12 @@
 	</dict>
 	<key>Distribution</key>
 	<dict>
-		<key>stripeSecret</key>
-		<string>6rGX3ytowp3gxEHxq5RNh9j9G93xUWUy</string>
 		<key>baseURL</key>
 		<string>http://tp4.me</string>
 		<key>stripeKey</key>
 		<string>***REMOVED***</string>
+		<key>stripeSecret</key>
+		<string>6rGX3ytowp3gxEHxq5RNh9j9G93xUWUy</string>
 	</dict>
 	<key>Release</key>
 	<dict>
