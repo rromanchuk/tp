@@ -45,11 +45,16 @@ body {
         font-size: 53px;
       }
       .download {
+        text-align: center;
         .teep {
           margin-top: 50px;
+          margin-bottom: 10px;
           height: 150px;
         }
-        text-align: center;
+        .app-store {
+          margin-top: 20px;
+        }
+        
       }
     }
     
@@ -60,7 +65,7 @@ body {
 
     .bottom {
       font-size: 84px;
-      min-height: 150px;
+      min-height: 160px;
       .choose {
         color: #75b8d4;
       }
@@ -78,6 +83,7 @@ body {
         img {
           position: absolute; 
           top: -15px;
+          right: 115px;
         }
       }
       text-align: center;
