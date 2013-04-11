@@ -6,8 +6,8 @@ set :rails_env, 'production'
 
 set :rvm_ruby_string, '1.9.3' # Or whatever env you want it to run in.
 
-role :web, "174.129.249.0"
-role :db,  "174.129.249.0", :primary => true # This is where Rails migrations will run
+role :web, "teepapp.com"
+role :db,  "teepapp.com", :primary => true # This is where Rails migrations will run
 
 # server details
 default_run_options[:pty] = true
