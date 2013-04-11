@@ -16,6 +16,6 @@ production:
   database: tp_production
   username: ***REMOVED***
   password: ***REMOVED***
-  host: linksie55.csk3baxbq9se.us-east-1.rds.amazonaws.com
+  host: ***REMOVED***
 
 
