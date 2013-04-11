@@ -1,7 +1,7 @@
 require 'rvm/capistrano'                  # Load RVM's capistrano plugin.
 require 'bundler/capistrano'
 
-set :application, "tp4.me"
+set :application, "teepapp.com"
 set :rails_env, 'production'
 
 set :rvm_ruby_string, '1.9.3' # Or whatever env you want it to run in.
