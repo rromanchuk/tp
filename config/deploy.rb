@@ -4,7 +4,7 @@ require 'bundler/capistrano'
 set :application, "teepapp.com"
 set :rails_env, 'production'
 
-set :rvm_ruby_string, '1.9.3' # Or whatever env you want it to run in.
+set :rvm_ruby_string, '2.0.0' # Or whatever env you want it to run in.
 
 role :web, "teepapp.com"
 role :db,  "teepapp.com", :primary => true # This is where Rails migrations will run
