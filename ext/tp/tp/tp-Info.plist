@@ -38,7 +38,7 @@
 		<dict>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>fb***REMOVED***</string>
+				<string>fb304262083013909</string>
 			</array>
 		</dict>
 	</array>
@@ -47,7 +47,7 @@
 	<key>Configuration</key>
 	<string>$(CONFIGURATION)</string>
 	<key>FacebookAppID</key>
-	<string>***REMOVED***</string>
+	<string>304262083013909</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UIAppFonts</key>

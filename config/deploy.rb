@@ -21,7 +21,7 @@ ssh_options[:forward_agent] = true
 # repo details
 set :scm, :git
 set :repository,  "git@github.com:rromanchuk/tp.git"
-set :branch, "***REMOVED***"
+set :branch, "master"
 
 
 after 'deploy:update', 'deploy:cleanup'
