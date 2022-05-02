@@ -1,20 +1,7 @@
 development:
-  stripe_key: ***REMOVED***
-  shipwire_login: rromanchuk@gmail.com
-  shipwire_password: ***REMOVED***
-  fb_app_id: ***REMOVED***
-  fb_app_secret:  ***REMOVED***
+
 
 test:
-  stripe_key: ***REMOVED***
-  shipwire_login: rromanchuk@gmail.com
-  shipwire_password: ***REMOVED***
-  fb_app_id: ***REMOVED***
-  fb_app_secret:  ***REMOVED***
+
 
 production:
-  stripe_key: pk_QheikYVHpeR004nuGdD2QN5QOf8q0
-  shipwire_login: rromanchuk@gmail.com
-  shipwire_password: ***REMOVED***
-  fb_app_id: ***REMOVED***
-  fb_app_secret:  ***REMOVED***
