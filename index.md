@@ -1,4 +1,4 @@
-## Teep
+## About
 
 The worlds easiest way to buy toilet paper.
 
